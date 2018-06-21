@@ -6,9 +6,9 @@ import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 import {Home} from './routes/Home';
 import {NotFound} from './routes/NotFound';
-import {Test} from './routes/Test';
+// import {Test} from './routes/Test';
 
-import Header from './components/Header/Header'
+import {Header} from './components/Header'
 
 
 const store = configureStore();
@@ -25,7 +25,7 @@ class App extends React.Component{
             <Header />
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/test" exact component={Test}/>
+              {/*<Route path="/test" exact component={Test}/>*/}
               <Route component={NotFound} />
             </Switch>
           </div>

@@ -5,13 +5,15 @@ import './Selection'
 class Selection extends Component {
   constructor(props){
     super(props);
-    this.renderItem = this.renderItem.bind(this)
+    this.onHandleClick = this.onHandleClick.bind(this)
+    this.onHandleSelect = this.onHandleSelect.bind(this)
+    this.renderItems = this.renderItems.bind(this)
     this.state={
       show:false
     }
   }
 
-  onClick(){
+  onHandleClick(){
     this.setState(state=>{
       return {
         show:!state.show
@@ -19,33 +21,28 @@ class Selection extends Component {
     })
   }
 
-  onSelect(e){
-    let value = e.target.innerHTML
-    this.props.onSelect(value)
-    this.setState({
-      show:false
-    })
+  onHandleSelect(e){
+
   }
 
-  renderItem(data,index){
-    return <li className="zxt-selection-item" key={index}>{data}</li>
+  renderItems(){
+    return this.props.list.map(item=>{
+      const {key,text} = item;
+      return <li className="zxt-selection-item" key={key}>{text}</li>
+    })
   }
 
   render () {
-    let _datas = this.props.list.filter(data=>{
-      return data!==this.props.selected
-    })
-    let items = _datas.map(this.renderItem.bind(this))
     let selectClassName=this.state.show?'zxt-selection on':'zxt-selection'
     return (
       <div className={selectClassName}>
         <p className="zxt-selection-selected"
-           onClick={this.onClick.bind(this)}>{this.props.selected}</p>
+           onClick={this.onHandleClick}>{this.props.selected}</p>
         <ul
           className="zxt-selection-box"
-          onClick={this.onSelect.bind(this)}
+          onClick={this.onHandleSelect}
         >
-          {items}
+          {this.renderItems()}
         </ul>
       </div>
     )

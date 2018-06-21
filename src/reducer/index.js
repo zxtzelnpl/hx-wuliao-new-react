@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import {reducer as home} from '../routes/Test/index';
+import {reducer as header} from '../components/Header/index';
 
 const rootReducer = combineReducers({
-  home
+  header
 });
 
 export default rootReducer;

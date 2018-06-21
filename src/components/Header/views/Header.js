@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Selection from '../Selection/Selection'
+import Selection from '../../Selection/Selection'
 
 import './Header.less';
 
@@ -8,34 +8,43 @@ import logo from './icon_noli_logo_r.png';
 
 const comprehensiveMaterials =[
   {
+    key:'one',
     text:'营销素材'
   },
   {
+    key:'two',
     text:'投资组合'
   }
 ];
 const productMaterials =[
   {
+    key:'one',
     text:'强势优选组'
   },
   {
+    key:'two',
     text:'牛眼投资组'
   },
   {
+    key:'three',
     text:'强势选股组'
   },
   {
+    key:'four',
     text:'独立量化组'
   }
 ];
 const childProducts = [
   {
+    key:'one',
     text:'短线宝'
   },
   {
+    key:'two',
     text:'君银操盘'
   },
   {
+    key:'three',
     text:'君银研究'
   }
 ];
