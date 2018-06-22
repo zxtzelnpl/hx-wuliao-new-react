@@ -1,13 +1,16 @@
-import React, {Component} from 'react'
+import './Selection.less';
 
-import './Selection'
+import React, {PureComponent} from 'react';
+import classNames from 'classnames';
 
-class Selection extends Component {
+
+class Selection extends PureComponent {
   constructor(props){
     super(props);
     this.onHandleClick = this.onHandleClick.bind(this)
     this.onHandleSelect = this.onHandleSelect.bind(this)
     this.renderItems = this.renderItems.bind(this)
+    this.renderSelect = this.renderSelect.bind(this)
     this.state={
       show:false
     }
@@ -22,24 +25,56 @@ class Selection extends Component {
   }
 
   onHandleSelect(e){
+    if(e.target.nodeName === 'LI'){
+      this.setState({
+        show:false
+      })
 
+      let id = e.target.getAttribute('id').split('_').pop();
+
+      this.props.onSelect(id)
+    }
+  }
+
+  renderSelect(){
+    let {list,select}= this.props;
+    let item = null;
+
+    if(select){
+      list.forEach(_item=>{
+        if(_item.id === select){
+          item = _item
+        }
+      })
+    }
+
+    if(item){
+      return item.text;
+    }
+    else{
+      return '请选择';
+    }
   }
 
   renderItems(){
     return this.props.list.map(item=>{
-      const {key,text} = item;
-      return <li className="zxt-selection-item" key={key}>{text}</li>
+      const {key,text,id} = item;
+      return <li className="zxt-selection-item" key={key} id={`select_${id}`}>{text}</li>
     })
   }
 
   render () {
-    let selectClassName=this.state.show?'zxt-selection on':'zxt-selection'
+    let selectClassName = classNames({
+      selection:true,
+      show:this.state.show
+    });
+
     return (
       <div className={selectClassName}>
-        <p className="zxt-selection-selected"
-           onClick={this.onHandleClick}>{this.props.selected}</p>
+        <p className="selection-selected"
+           onClick={this.onHandleClick}>{this.renderSelect()}</p>
         <ul
-          className="zxt-selection-box"
+          className="selection-box"
           onClick={this.onHandleSelect}
         >
           {this.renderItems()}

@@ -1,3 +1,4 @@
+import './index.less';
 import "@babel/polyfill";
 import 'es6-promise';
 import 'whatwg-fetch';

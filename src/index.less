@@ -1,0 +1,33 @@
+html,body,ul,p{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-size:14px;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+/*生成各种不同的宽高*/
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .blank-width-@{i}0 {
+    display:block;
+    width: @i * 10px;
+    height:1px;
+  }
+  .blank-height-@{i}0 {
+    display:block;
+    width:1px;
+    height: @i * 10px;
+  }
+  .generate-columns(@n, (@i + 1));
+}
+.generate-columns(10);

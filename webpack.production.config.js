@@ -14,7 +14,13 @@ module.exports = {
     publicPath: `/build`
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      component: 'src/components',
+      routes: 'src/routes',
+      common: 'src/common',
+    }
   },
 
   module: {
@@ -32,7 +38,13 @@ module.exports = {
           use: [
             {loader: 'css-loader'},
             {loader: 'postcss-loader'},
-            {loader: 'less-loader'}
+            {
+              loader: 'less-loader', options: {
+                paths: [
+                  path.resolve(__dirname, 'src')
+                ]
+              }
+            }
           ]
         })
 
@@ -93,10 +105,10 @@ module.exports = {
 
     // html 模版插件
     new HtmlWebpackPlugin({
-      title:'index',
-      filename:'index.html',
-      template:`src/index.tmpl.html`,
-      chunks:['index']
+      title: 'index',
+      filename: 'index.html',
+      template: `src/index.tmpl.html`,
+      chunks: ['index']
     }),
 
     // 压缩JS代码

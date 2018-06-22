@@ -4,19 +4,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-  entry:path.resolve(__dirname, 'src/index.js'),
-  output:{
-    path:path.resolve(__dirname, 'build'),
-    publicPath:'/',
+  entry: path.resolve(__dirname, 'src/index.js'),
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
     filename: '[name].js'
   },
 
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      components: 'src/components',
+      routes: 'src/routes',
+      common: 'src/common',
+    }
   },
 
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
@@ -29,7 +35,13 @@ module.exports = {
           'style-loader',
           {loader: 'css-loader'},
           'postcss-loader',
-          'less-loader'
+          {
+            loader: 'less-loader', options: {
+              paths: [
+                path.resolve(__dirname, 'src')
+              ]
+            }
+          }
         ]
       },
       {
@@ -37,7 +49,11 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'style-loader',
-          {loader: 'css-loader', options: {importLoaders: 1}},
+          {
+            loader: 'css-loader', options: {
+              importLoaders: 1
+            }
+          },
           'postcss-loader'
         ]
       },
@@ -52,10 +68,10 @@ module.exports = {
     ]
   },
 
-  plugins:[
+  plugins: [
     // html 模版插件
     new HtmlWebpackPlugin({
-      filename:'index.html',
+      filename: 'index.html',
       template: `${__dirname}/src/index.tmpl.html`
     }),
 
