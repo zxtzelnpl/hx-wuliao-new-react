@@ -4,7 +4,7 @@ import logo from './icon_noli_logo_r.png';
 
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import Selection from '../../Selection/Selection'
+import Selection from 'components/Selection/Selection'
 import {User} from 'components/User'
 
 
@@ -99,6 +99,8 @@ class Header extends Component {
           <Link className="header-to-live" to="/">
             直播间
           </Link>
+
+          <div className="blank-width-80" />
 
           <User />
         </div>

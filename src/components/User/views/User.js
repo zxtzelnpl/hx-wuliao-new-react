@@ -12,7 +12,7 @@ class User extends Component {
         </div>
 
         <div className="login">
-
+          退出
         </div>
       </div>
     )
