@@ -11,7 +11,7 @@ class User extends Component {
           <span>Test</span>
         </div>
 
-        <div className="login">
+        <div className="loginOut">
           退出
         </div>
       </div>
