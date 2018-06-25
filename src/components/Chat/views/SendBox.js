@@ -138,8 +138,14 @@ class SendBox extends Component {
             </div>
           </div>
         </div>
-        {this.state.picker === 'emoji' && <EmojiPicker onClick={this.addEmoji.bind(this)}/>}
-        {this.state.picker === 'caitiao' && <CaiTiaoPicker onClick={this.addCaitiao.bind(this)}/>}
+        <EmojiPicker
+            onClick={this.addEmoji.bind(this)}
+            show={this.state.picker === 'emoji'}
+        />
+        <CaiTiaoPicker
+            onClick={this.addCaitiao.bind(this)}
+            show={this.state.picker === 'caitiao'}
+        />
       </div>
     )
   }

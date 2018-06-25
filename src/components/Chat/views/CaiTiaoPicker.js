@@ -3,6 +3,7 @@ import './CaiTiaoPicker.less';
 import React, {Component} from 'react';
 
 import {caitiao} from "src/utils/const";
+import classNames from "classnames";
 
 const imgs=[]
 for(let i=1;i<=9;i++){
@@ -20,9 +21,13 @@ class CaiTiaoPicker extends Component {
   }
 
   render () {
-    let imgs_html = imgs.map(this._render)
+    let imgs_html = imgs.map(this._render);
+    let className = classNames({
+      caitiaoPikcer:true,
+      show:this.props.show
+    })
     return (
-      <div className="caitiaoPikcer">
+      <div className={className}>
         {imgs_html}
       </div>
     )
