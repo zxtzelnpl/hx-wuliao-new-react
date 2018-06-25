@@ -1,0 +1,77 @@
+@import "common/consts.less";
+
+.sendBoxWrap{
+  position:relative;
+}
+
+.sendBox{
+  box-sizing: border-box;
+  width:100%;
+}
+.inputBox{
+  outline:none;
+  box-sizing: border-box;
+  margin:5px 1px;
+  padding:10px;
+  height:120px;
+  border:2px solid @primaryColor;
+  border-radius: 15px;
+
+  overflow-y: auto;
+}
+.toolbar {
+  box-sizing: border-box;
+  padding-top: 1px;
+  width: 100%;
+  height: 40px;
+  .emoji {
+    margin-top:5px;
+    margin-right: 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    background: url("../../../assets/images/emoji.jpg") center center no-repeat;
+    cursor: pointer;
+  }
+  .caitiao {
+    margin-top:5px;
+    margin-right: 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    background: url("../../../assets/images/caitiao.jpg") center center no-repeat;
+    cursor: pointer;
+  }
+  .pic {
+    margin-top:5px;
+    margin-right: 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    label {
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: url("../../../assets/images/upfile.jpg") center center no-repeat;
+      cursor: pointer;
+      input {
+        visibility: hidden;
+      }
+    }
+  }
+  .send-btn {
+    float: right;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    line-height: 40px;
+    color: #fff;
+    background: @primaryColor;
+    text-align: center;
+    font-size:18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #000;
+    cursor: pointer;
+  }
+}

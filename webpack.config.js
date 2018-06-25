@@ -19,6 +19,7 @@ module.exports = {
       routes: 'src/routes',
       common: 'src/common',
       assets: 'src/assets',
+      utils: 'src/utils',
     }
   },
 

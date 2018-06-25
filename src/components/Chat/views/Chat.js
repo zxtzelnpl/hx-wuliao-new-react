@@ -8,6 +8,7 @@ class Chat extends Component {
     return (
       <div className="chat">
         <MessageBox />
+        <div className="blank-height-20" />
         <SendBox />
       </div>
     )
