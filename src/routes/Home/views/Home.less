@@ -1,0 +1,97 @@
+@import "common/consts";
+
+.home{
+  .materialsShot{
+
+    background:#fff;
+  }
+  .materials{
+    margin:0 auto;
+    padding-top:40px;
+    max-width: @maxWidth;
+  }
+
+  .title{
+    margin:0 auto;
+
+    box-sizing: border-box;
+    width:240px;
+    height:40px;
+    border-bottom: 3px solid @primaryColor;
+
+    font-size:24px;
+    text-align: center;
+  }
+
+  .links{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding-top:10px;
+    padding-bottom:30px;
+    .link{
+
+    }
+    .icon{
+      margin:0 auto 25px;
+
+      width:100px;
+      height:100px;
+      border:4px solid @primaryColor;
+      border-radius:50%;
+    }
+    .label{
+      width:120px;
+      height:40px;
+
+      font-weight: bold;
+      font-size:20px;
+      text-align: center;
+      line-height: 40px;
+      color:#fff;
+      background:#000;
+    }
+  }
+
+  .carouselWrap{
+    position:relative;
+
+    margin:0 auto;
+    width:100%;
+    max-width:1440px;
+    min-width: @maxWidth;
+    height:500px;
+    .next,.prev{
+      position:absolute;
+
+      display:flex;
+      align-items: center;
+      justify-content: center;
+
+      width:24px;
+      height:100px;
+      color:#fff;
+      background:#333333;
+
+      &.disable{
+        background:#ddd;
+      }
+    }
+    .next{
+      top:200px;
+      right:0;
+    }
+    .prev{
+      top:200px;
+      left:0;
+    }
+  }
+
+  .carousel{
+    margin:0 auto;
+
+    width:@maxWidth;
+    height:500px;
+  }
+}
