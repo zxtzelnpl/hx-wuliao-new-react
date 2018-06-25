@@ -3,6 +3,7 @@ import './Home.less';
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import LinkIcon from './LinkIcon'
+import FeaturedVideo from './FeaturedVideo'
 import Carousel from './Carousel';
 import Footer from './Footer'
 
@@ -54,11 +55,15 @@ class Home extends Component {
             </h4>
 
             <div className="featuredVideoBox">
-              <div className="featuredVideo">
-                <img src="" />
-                <div className="subTitle">视频名称</div>
-                <p>年末六大指数普遍小涨，中小创反弹幅度较大，放量萎缩</p>
-              </div>
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
+              <FeaturedVideo />
             </div>
           </div>
 
@@ -66,7 +71,9 @@ class Home extends Component {
             <h4 className="title">
               留言
             </h4>
+            <div className="leavingMessageBox">
 
+            </div>
           </div>
         </div>
 
