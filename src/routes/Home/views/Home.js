@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import LinkIcon from './LinkIcon'
 import FeaturedVideo from './FeaturedVideo'
 import Carousel from './Carousel';
+import {Chat} from 'components/Chat';
 import Footer from './Footer'
 
 
@@ -72,11 +73,10 @@ class Home extends Component {
               留言
             </h4>
             <div className="leavingMessageBox">
-
+              <Chat />
             </div>
           </div>
         </div>
-
 
         <div className="blank-height-30" />
 
