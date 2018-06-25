@@ -1,0 +1,41 @@
+@import "common/consts";
+
+.homeCarouselWrap{
+  position:relative;
+
+  margin:0 auto;
+  width:100%;
+  max-width:1440px;
+  min-width: @maxWidth;
+  height:500px;
+  .next,.prev{
+    position:absolute;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    width:24px;
+    height:100px;
+    color:#fff;
+    background:#333333;
+
+    &.disable{
+      background:#ddd;
+    }
+  }
+  .next{
+    top:200px;
+    right:5px;
+  }
+  .prev{
+    top:200px;
+    left:5px;
+  }
+}
+.homeCarousel{
+  margin:0 auto;
+
+  width:@maxWidth;
+  height:500px;
+}

@@ -1,17 +1,16 @@
 @import "common/consts";
 
 .home{
-  .materialsShot{
 
-    background:#fff;
-  }
-  .materials{
-    margin:0 auto;
-    padding-top:40px;
-    max-width: @maxWidth;
-  }
-
-  .title{
+}
+.homeMaterialsShot{
+  background:#fff;
+}
+.homeMaterials{
+  margin:0 auto;
+  padding-top:40px;
+  max-width: @maxWidth;
+  h4.title{
     margin:0 auto;
 
     box-sizing: border-box;
@@ -22,7 +21,6 @@
     font-size:24px;
     text-align: center;
   }
-
   .links{
     display:flex;
     align-items: center;
@@ -30,68 +28,34 @@
 
     padding-top:10px;
     padding-bottom:30px;
-    .link{
-
-    }
-    .icon{
-      margin:0 auto 25px;
-
-      width:100px;
-      height:100px;
-      border:4px solid @primaryColor;
-      border-radius:50%;
-    }
-    .label{
-      width:120px;
-      height:40px;
-
-      font-weight: bold;
-      font-size:20px;
-      text-align: center;
-      line-height: 40px;
-      color:#fff;
-      background:#000;
-    }
   }
+}
 
-  .carouselWrap{
-    position:relative;
 
-    margin:0 auto;
-    width:100%;
-    max-width:1440px;
-    min-width: @maxWidth;
-    height:500px;
-    .next,.prev{
-      position:absolute;
+.videosAndMessages{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 
-      display:flex;
-      align-items: center;
-      justify-content: center;
+  margin:0 auto;
+  width:100%;
+  max-width: @maxWidth;
+}
 
-      width:24px;
-      height:100px;
-      color:#fff;
-      background:#333333;
+.featuredVideos,.leavingMessage{
+  box-sizing: border-box;
+  padding:10px;
+  background:#fff;
 
-      &.disable{
-        background:#ddd;
-      }
-    }
-    .next{
-      top:200px;
-      right:0;
-    }
-    .prev{
-      top:200px;
-      left:0;
-    }
+  h4.title{
+    font-size:30px;
   }
+}
 
-  .carousel{
-    margin:0 auto;
+.featuredVideos{
+  width:870px;
+}
 
-    width:@maxWidth;
-    height:500px;
-  }
+.leavingMessage{
+  width:360px;
 }
