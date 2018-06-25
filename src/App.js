@@ -9,7 +9,7 @@ import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
 
 import {Header} from './components/Header'
-
+import Banner from './components/Banner/Banner'
 
 const store = configureStore();
 store.runSaga(rootSaga);
@@ -23,6 +23,7 @@ class App extends React.Component{
         <Router>
           <div>
             <Header />
+            <Banner />
             <Switch>
               <Route path="/" exact component={Home}/>
               {/*<Route path="/test" exact component={Test}/>*/}
