@@ -18,6 +18,7 @@ module.exports = {
       components: 'src/components',
       routes: 'src/routes',
       common: 'src/common',
+      assets: 'src/assets',
     }
   },
 
@@ -83,7 +84,7 @@ module.exports = {
       url: 'http://localhost:8080'
     })
   ],
-
+  devtool: 'source-map',
   devServer: {
     contentBase: './build', // 本地服务器所加载的页面所在的目录
     historyApiFallback: true, // 不跳转

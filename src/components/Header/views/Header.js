@@ -1,11 +1,11 @@
 import './Header.less';
 
-import logo from './icon_noli_logo_r.png';
+import logo from 'src/assets/images/icon_noli_logo_r.png';
 
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import Selection from 'components/Selection/Selection'
-import {User} from 'components/User'
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import Selection from 'components/Selection/Selection';
+import {User, Login} from 'components/User';
 
 
 const comprehensiveMaterials =[
