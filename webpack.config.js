@@ -85,7 +85,7 @@ module.exports = {
       url: 'http://localhost:8080'
     })
   ],
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: './build', // 本地服务器所加载的页面所在的目录
     historyApiFallback: true, // 不跳转

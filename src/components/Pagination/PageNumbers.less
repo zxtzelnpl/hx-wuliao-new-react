@@ -1,0 +1,39 @@
+.pageNumbers{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.pageNumberItem{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right:5px;
+
+  width:32px;
+  height:32px;
+  border:1px solid #d9d9d9;
+  cursor:pointer;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+.pageIndex{
+  &:hover,&.on{
+    border:1px solid #e74b18;
+    color:#fff;
+    background:#e74b18;
+  }
+}
+.pageNumberItemEllipsis{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right:5px;
+
+  width:32px;
+  height:32px;
+  border:1px solid #d9d9d9;
+}
