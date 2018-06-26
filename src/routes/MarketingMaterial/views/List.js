@@ -1,6 +1,7 @@
+import './List.less'
+
 import React, {Component} from 'react'
 import SiderMenu from 'components/SiderMenu/SiderMenu'
-
 
 class List extends Component {
   render() {
