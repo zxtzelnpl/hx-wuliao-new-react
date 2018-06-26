@@ -1,0 +1,52 @@
+@import "common/consts.less";
+
+.siderSubMenu{
+
+}
+.siderSubMenuTitle{
+
+  box-sizing: border-box;
+
+  padding-left:30px;
+
+  height:48px;
+
+  font-size:18px;
+  font-weight:bold;
+  line-height:48px;
+
+  background:linear-gradient(to left,@secondaryColorDark,@secondaryColorShallow);
+}
+
+.siderSubMenuLi{
+  background:#6c6c6c;
+  a{
+    position:relative;
+
+    display:block;
+
+    padding-left:54px;
+    height:24px;
+
+    line-height:24px;
+    &:after{
+      position:absolute;
+
+      top:6px;
+      left:45px;
+
+      display:block;
+
+      height:12px;
+      width:3px;
+      background:#fff;
+
+      content:'';
+    }
+  }
+  a.on{
+    &:after{
+      background:#e64c18;
+    }
+  }
+}

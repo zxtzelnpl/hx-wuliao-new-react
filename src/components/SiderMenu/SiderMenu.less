@@ -1,0 +1,52 @@
+@import "common/consts.less";
+
+.siderMenu{
+  padding-bottom:20px;
+
+  width:210px;
+
+  color:#fff;
+
+  >ul{
+    transition:transform 200ms linear;
+    transform-origin:top center;
+    transform:scale(1,0);
+
+    &.show{
+      transform:scale(1,1)
+    }
+  }
+}
+
+.siderMenuTitle{
+  position:relative;
+
+  box-sizing: border-box;
+
+  padding-left:30px;
+
+  height:48px;
+
+  font-size:18px;
+  font-weight:bold;
+  line-height:48px;
+
+  background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
+
+  cursor:pointer;
+  &:after{
+    position:absolute;
+    right:20px;
+    top:20px;
+
+    display:block;
+
+    width:0;
+    height:0;
+
+    border:8px solid transparent;
+    border-top-color:#fff;
+
+    content:'';
+  }
+}

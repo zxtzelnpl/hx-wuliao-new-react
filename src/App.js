@@ -4,7 +4,9 @@ import {Route,Redirect,HashRouter as Router,Switch} from 'react-router-dom';
 import rootSaga from './sagas';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
+
 import {Home} from './routes/Home';
+import {List as MarketingMaterialList} from './routes/MarketingMaterial';
 import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
 
@@ -26,6 +28,7 @@ class App extends React.Component{
             <Banner />
             <Switch>
               <Route path="/" exact component={Home}/>
+              <Route path="/marketingMaterial/list" exact component={MarketingMaterialList}/>
               {/*<Route path="/test" exact component={Test}/>*/}
               <Route component={NotFound} />
             </Switch>
