@@ -2,6 +2,7 @@ import './SiderMenu.less'
 
 import React, {Component} from 'react';
 import SubMenu from './SubMenu';
+import SubLink from './SubLink';
 
 
 const datas=[
@@ -75,42 +76,27 @@ class SiderMenu extends Component {
 
   constructor(props){
     super(props);
-    this.handleUlShow = this.handleUlShow.bind(this);
-    this.ul = React.createRef();
-    this.height;
-    this.state={
-      height:'auto'
-    }
   }
 
-  componentDidMount(){
-    this.height = this.ul.current.clientHeight;
-    this.setState({
-      height:this.height
-    })
-  }
-
-  handleUlShow(){
-    this.setState(({height})=>{
-      let _height = height === this.height?0:this.height
-      return {
-        height:_height
-      }
-    })
-  }
-
-  renderSubMenus(){
+  renderSubs(){
     return datas.map((data,index)=>{
-      return <li key={index}><SubMenu {...data}/></li>
+      let sub;
+      if(data.lis){
+        sub = <li key={index}><SubMenu {...data}/></li>
+      }
+      else if(data.path){
+        sub = <li key={index}><SubLink {...data}/></li>
+      }
+      return sub
     })
   }
 
   render() {
     return (
       <div className="siderMenu">
-        <p className="siderMenuTitle" onClick={this.handleUlShow}>请选择产品素材</p>
-        <ul style={this.state} ref={this.ul}>
-          {this.renderSubMenus()}
+        <p className="siderMenuTitle" >请选择产品素材</p>
+        <ul style={this.state} >
+          {this.renderSubs()}
         </ul>
       </div>
     )

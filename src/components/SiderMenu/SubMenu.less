@@ -1,10 +1,14 @@
 @import "common/consts.less";
 
 .siderSubMenu{
-
+  >ul{
+    height:0;
+    overflow: hidden;
+    transition:height 200ms linear;
+  }
 }
 .siderSubMenuTitle{
-
+  position:relative;
   box-sizing: border-box;
 
   padding-left:10px;
@@ -16,6 +20,22 @@
   line-height:48px;
 
   background:linear-gradient(to left,@secondaryColorDark,@secondaryColorShallow);
+  cursor:pointer;
+  &:after{
+    position:absolute;
+    right:20px;
+    top:20px;
+
+    display:block;
+
+    width:0;
+    height:0;
+
+    border:8px solid transparent;
+    border-top-color:#fff;
+
+    content:'';
+  }
 }
 
 .siderSubMenuLi{
@@ -29,7 +49,7 @@
     height:24px;
 
     line-height:24px;
-    &:after{
+    &:before{
       position:absolute;
 
       top:6px;

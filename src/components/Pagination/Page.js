@@ -1,7 +1,6 @@
 import './Page.less';
 
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import Item from './Item';
 import PageNumbers from './PageNumbers'
 
