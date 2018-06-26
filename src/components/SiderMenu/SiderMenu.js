@@ -1,7 +1,6 @@
 import './SiderMenu.less'
 
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import SubMenu from './SubMenu';
 
 
@@ -76,21 +75,26 @@ class SiderMenu extends Component {
 
   constructor(props){
     super(props);
-    this.list = React.createRef();
     this.handleUlShow = this.handleUlShow.bind(this);
+    this.ul = React.createRef();
+    this.height;
     this.state={
-      show:true
+      height:'auto'
     }
   }
 
   componentDidMount(){
-    // let height = this.list.current.clientHeight;
+    this.height = this.ul.current.clientHeight;
+    this.setState({
+      height:this.height
+    })
   }
 
   handleUlShow(){
-    this.setState(({show})=>{
+    this.setState(({height})=>{
+      let _height = height === this.height?0:this.height
       return {
-        show:!show
+        height:_height
       }
     })
   }
@@ -102,15 +106,10 @@ class SiderMenu extends Component {
   }
 
   render() {
-    let ulClassName=classNames({
-      show:this.state.show
-    })
-
-
     return (
       <div className="siderMenu">
         <p className="siderMenuTitle" onClick={this.handleUlShow}>请选择产品素材</p>
-        <ul className={ulClassName} ref={this.list}>
+        <ul style={this.state} ref={this.ul}>
           {this.renderSubMenus()}
         </ul>
       </div>

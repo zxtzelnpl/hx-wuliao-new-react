@@ -1,37 +1,33 @@
 @import "common/consts.less";
 
-.siderMenu{
-  padding-bottom:20px;
-
-  width:180px;
-
-  color:#fff;
-
+.siderFeaturedVideo{
+  margin-top:15px;
+  width:320px;
   >ul{
-    overflow: hidden;
     transition:height 200ms linear;
+    overflow: hidden;
   }
 }
 
-.siderMenuTitle{
+.siderFeaturedVideoTitle{
   position:relative;
 
   box-sizing: border-box;
 
   padding-left:10px;
 
-  height:48px;
+  height:45px;
 
-  font-size:18px;
   font-weight:bold;
-  line-height:48px;
+  line-height:45px;
+  color:#fff;
 
   background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
 
   cursor:pointer;
   &:after{
     position:absolute;
-    right:10px;
+    right:20px;
     top:20px;
 
     display:block;
