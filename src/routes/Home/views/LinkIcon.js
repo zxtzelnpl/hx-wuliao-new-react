@@ -1,11 +1,18 @@
 import './LinkIcon.less'
 
 import React, {Component} from 'react'
+import classNames from 'classnames';
 
 class LinkIcon extends Component {
   render() {
+
+    let className = classNames({
+      homeLinkIcon:true,
+      white:this.props.white
+    })
+
     return (
-      <div className='homeLinkIcon'>
+      <div className={className}>
         <div className="icon">
 
         </div>

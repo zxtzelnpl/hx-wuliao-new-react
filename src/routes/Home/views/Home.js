@@ -27,8 +27,8 @@ class Home extends Component {
               综合素材
             </h4>
             <div className="links">
-              <LinkIcon />
-              <LinkIcon />
+              <LinkIcon white={true} />
+              <LinkIcon white={true} />
             </div>
           </div>
 
