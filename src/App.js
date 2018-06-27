@@ -10,8 +10,8 @@ import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVide
 
 import {Home} from './routes/Home';
 import {
-  ProductList as MaterialMarketingProductList,
-  ProductDetail as MaterialMarketingProductDetail
+  ProductList as ProductMaterialMarketingProductList,
+  ProductDetail as ProductMaterialMarketingProductDetail
 } from './routes/MarketingMaterial';
 import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
@@ -23,16 +23,16 @@ const store = configureStore();
 store.runSaga(rootSaga);
 
 
-const Material = ({match})=>(
-  <div className="materialsLayout">
+const Product = ({match})=>(
+  <div className="productMaterialsLayout">
     <SiderMenu />
 
-    <div className="materialsContent">
-      <Route path={`${match.url}/marketing/product/list`} component={MaterialMarketingProductList}/>
-      <Route path={`${match.url}/marketing/product/detail`} component={MaterialMarketingProductDetail}/>
+    <div className="productMaterialsContent">
+      <Route path={`${match.url}/marketing/product/list`} component={ProductMaterialMarketingProductList}/>
+      <Route path={`${match.url}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail}/>
 
-      <Route path={`${match.url}/marketing/record/list`} component={MaterialMarketingProductDetail}/>
-      <Route path={`${match.url}/marketing/record/detail`} component={MaterialMarketingProductDetail}/>
+      <Route path={`${match.url}/marketing/record/list`} component={ProductMaterialMarketingProductDetail}/>
+      <Route path={`${match.url}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail}/>
 
 
       <Route path={`${match.url}/strategy/prediction/list`} component={NotFound}/>
@@ -64,6 +64,15 @@ const Material = ({match})=>(
   </div>
 )
 
+const Comprehensive = ({match})=>(
+  <div className="comprehensiveMaterialsLayout">
+    <SiderMenu />
+
+    <div className="comprehensiveMaterialsContent">
+      <Route path={`${match.url}/replay`} component={NotFound}/>
+    </div>
+  </div>
+)
 
 
 
@@ -79,7 +88,9 @@ class App extends React.Component{
             <Banner />
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/material" component={Material}/>
+              <Route path="/product" component={Product}/>
+
+              <Route path="/live" component={NotFound}/>
               <Route component={NotFound} />
             </Switch>
           </div>

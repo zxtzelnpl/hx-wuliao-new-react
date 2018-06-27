@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom';
 import Selection from 'components/Selection/Selection';
 import {User, Login} from 'components/User';
 
-
 const comprehensiveMaterials =[
   {
     id:'one',
