@@ -5,8 +5,14 @@ import rootSaga from './sagas';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 
+import SiderMenu from 'components/SiderMenu/SiderMenu';
+import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
+
 import {Home} from './routes/Home';
-import {List as MarketingMaterialList} from './routes/MarketingMaterial';
+import {
+  ProductList as MaterialMarketingProductList,
+  ProductDetail as MaterialMarketingProductDetail
+} from './routes/MarketingMaterial';
 import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
 
@@ -15,6 +21,23 @@ import Banner from './components/Banner/Banner'
 
 const store = configureStore();
 store.runSaga(rootSaga);
+
+
+const Material = ({match})=>(
+  <div className="materialsLayout">
+    <SiderMenu />
+
+    <div className="materialsContent">
+      <Route path={`${match.url}/marketing/product/list`} component={MaterialMarketingProductList}/>
+      <Route path={`${match.url}/marketing/product/detail`} component={MaterialMarketingProductDetail}/>
+    </div>
+
+    <div className="siderRecommend">
+      <SiderFeaturedVideos />
+    </div>
+  </div>
+)
+
 
 class App extends React.Component{
   render(){
@@ -28,7 +51,9 @@ class App extends React.Component{
             <Banner />
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/marketingMaterial/list" exact component={MarketingMaterialList}/>
+              <Route path="/material" component={Material}/>
+              {/*<Route path="/material/marketing/product/list" exact component={MaterialMarketingProductList}/>*/}
+              {/*<Route path="/material/marketing/product/detail" exact component={MaterialMarketingProductDetail}/>*/}
               {/*<Route path="/test" exact component={Test}/>*/}
               <Route component={NotFound} />
             </Switch>

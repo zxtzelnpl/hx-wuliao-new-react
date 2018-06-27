@@ -3,6 +3,7 @@ import './Header.less';
 import logo from 'src/assets/images/icon_noli_logo_r.png';
 
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import Selection from 'components/Selection/Selection';
 import {User, Login} from 'components/User';
@@ -71,6 +72,10 @@ class Header extends Component {
     console.log('this.onHandleSelect: '+id)
   }
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   render() {
     return (
       <div className="header">
@@ -109,4 +114,11 @@ class Header extends Component {
   }
 }
 
-export default Header;
+
+const mapStateToProps=(state)=>{
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps)(Header);
