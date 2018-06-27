@@ -50,9 +50,9 @@ class PagePDFContent extends Component {
 
     return (
       <div className="pagePDFContent">
-        <a className="btn download" target={"_blank"} href={"http://public.jyzqsh.com/test/test.pdf"}>下载</a>
+        {typeof numPages!=='undefined'&&numPages>0&&<a className="download primaryBtn" target={"_blank"} href={"http://public.jyzqsh.com/test/test.pdf"}>下载</a>}
         <Document
-          file="http://public.jyzqsh.com/test/test.pdf"
+          file="http://public.jyzqsh.com/test/test1.pdf"
           onLoadSuccess={this.onDocumentLoad}
         >
           <Page pageNumber={pageNumber} />

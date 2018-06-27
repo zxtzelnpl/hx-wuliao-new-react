@@ -21,9 +21,6 @@ const pageSize = 20;
 
 
 class Page extends Component {
-  constructor(props){
-    super(props)
-  }
 
   turnPage(page){
     console.log(page)
