@@ -30,6 +30,32 @@ const Material = ({match})=>(
     <div className="materialsContent">
       <Route path={`${match.url}/marketing/product/list`} component={MaterialMarketingProductList}/>
       <Route path={`${match.url}/marketing/product/detail`} component={MaterialMarketingProductDetail}/>
+
+      <Route path={`${match.url}/marketing/record/list`} component={MaterialMarketingProductDetail}/>
+      <Route path={`${match.url}/marketing/record/detail`} component={MaterialMarketingProductDetail}/>
+
+
+      <Route path={`${match.url}/strategy/prediction/list`} component={NotFound}/>
+
+      <Route path={`${match.url}/strategy/review/list`} component={NotFound}/>
+
+      <Route path={`${match.url}/strategy/analysis/list`} component={NotFound}/>
+
+
+      <Route path={`${match.url}/experience/week/list`} component={NotFound}/>
+
+      <Route path={`${match.url}/experience/year/list`} component={NotFound}/>
+
+
+      <Route path={`${match.url}/customer/analysis/list`} component={NotFound}/>
+
+      <Route path={`${match.url}/customer/video/list`} component={NotFound}/>
+
+
+      <Route path={`${match.url}/research`} component={NotFound}/>
+
+
+      <Route path={`${match.url}/replay`} component={NotFound}/>
     </div>
 
     <div className="siderRecommend">
@@ -37,6 +63,8 @@ const Material = ({match})=>(
     </div>
   </div>
 )
+
+
 
 
 class App extends React.Component{
