@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+import './pagePDFContent.less';
+import React, {Component} from 'react';
+import classNames from 'classnames';
 import { Document,Page } from 'react-pdf';
-
 
 class PagePDFContent extends Component {
   constructor(props){
@@ -15,18 +16,58 @@ class PagePDFContent extends Component {
     this.setState({ numPages });
   }
 
+  prev = ()=>{
+    let {pageNumber} = this.state;
+    if(pageNumber>1){
+      let prevPageNumber = pageNumber-1;
+      this.setState({
+        pageNumber:prevPageNumber
+      });
+    }
+  }
+
+  next = ()=>{
+    let {pageNumber,numPages} = this.state;
+    if(pageNumber<numPages){
+      let nextPageNumber = pageNumber+1;
+      this.setState({
+        pageNumber:nextPageNumber
+      });
+    }
+  }
+
   render() {
     const { pageNumber, numPages } = this.state;
 
+    const btnPrevClassName = classNames({
+      btn:true,
+      disable:pageNumber === 1
+    })
+    const btnNextClassName = classNames({
+      btn:true,
+      disable:pageNumber === numPages
+    })
+
     return (
-      <div>
+      <div className="pagePDFContent">
+        <a className="btn download" target={"_blank"} href={"http://public.jyzqsh.com/test/test.pdf"}>下载</a>
         <Document
           file="http://public.jyzqsh.com/test/test.pdf"
           onLoadSuccess={this.onDocumentLoad}
         >
           <Page pageNumber={pageNumber} />
         </Document>
-        <p>Page {pageNumber} of {numPages}</p>
+        {
+          typeof numPages!=='undefined'&&numPages>0&&
+          <div className="pagePDFFoot">
+            <div className="pagePDFControl">
+              <p className={btnPrevClassName} onClick={this.prev}>上一页</p>
+              <p className="showIndex">Page {pageNumber} of {numPages}</p>
+              <p className={btnNextClassName} onClick={this.next}>下一页</p>
+            </div>
+            <p className="datetime">上传日期 2018.06.21 11：13</p>
+          </div>
+        }
       </div>
     )
   }
