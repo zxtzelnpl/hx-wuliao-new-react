@@ -13,12 +13,12 @@ const comprehensiveMaterials =[
   {
     id:'one',
     key:'one',
-    text:'营销素材'
+    text:'产品素材'
   },
   {
     id:'two',
     key:'two',
-    text:'投资组合'
+    text:'综合素材'
   }
 ];
 const productMaterials =[
@@ -42,6 +42,18 @@ const productMaterials =[
     key:'four',
     text:'独立量化组'
   }
+];
+const productMaterials2 =[
+  {
+    id:'one',
+    key:'one',
+    text:'营销素材'
+  },
+  {
+    id:'two',
+    key:'two',
+    text:'投资组合'
+  },
 ];
 const childProducts = [
   {
@@ -84,16 +96,19 @@ class Header extends Component {
         <div className="header-right">
           <div className="selections">
             <Selection
+              title={"请选择分类"}
               list={comprehensiveMaterials}
               onSelect = {this.onHandleSelect}
             />
             <div className="blank-width-10" />
             <Selection
+              title={"请选择产品"}
               list={productMaterials}
               onSelect = {this.onHandleSelect}
             />
             <div className="blank-width-10" />
             <Selection
+              title={"请选择子产品"}
               list={childProducts}
               onSelect = {this.onHandleSelect}
             />
@@ -107,7 +122,7 @@ class Header extends Component {
 
           <div className="blank-width-80" />
 
-          <User />
+          <Login />
         </div>
       </div>
     )

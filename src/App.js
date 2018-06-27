@@ -52,9 +52,6 @@ class App extends React.Component{
             <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/material" component={Material}/>
-              {/*<Route path="/material/marketing/product/list" exact component={MaterialMarketingProductList}/>*/}
-              {/*<Route path="/material/marketing/product/detail" exact component={MaterialMarketingProductDetail}/>*/}
-              {/*<Route path="/test" exact component={Test}/>*/}
               <Route component={NotFound} />
             </Switch>
           </div>

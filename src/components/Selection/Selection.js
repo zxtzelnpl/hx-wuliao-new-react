@@ -37,7 +37,7 @@ class Selection extends PureComponent {
   }
 
   renderSelect(){
-    let {list,select}= this.props;
+    let {list,select,title}= this.props;
     let item = null;
 
     if(select){
@@ -52,7 +52,7 @@ class Selection extends PureComponent {
       return item.text;
     }
     else{
-      return '请选择';
+      return title;
     }
   }
 
