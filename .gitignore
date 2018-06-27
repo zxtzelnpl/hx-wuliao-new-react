@@ -61,5 +61,4 @@ typings/
 .idea/
 build/
 src/config/weixin.js
-test/
 package-lock.json
