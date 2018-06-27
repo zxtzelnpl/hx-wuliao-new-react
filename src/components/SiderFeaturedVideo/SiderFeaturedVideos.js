@@ -16,6 +16,7 @@ class SiderFeaturedVideo extends Component {
         <ul>
           <FeaturedVideo />
           <FeaturedVideo />
+          <FeaturedVideo />
         </ul>
       </div>
     )

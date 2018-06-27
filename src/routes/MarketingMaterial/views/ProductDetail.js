@@ -5,7 +5,7 @@ import PagePDFContent from 'components/PagePDFContent/PagePDFContent'
 class ProductDetail extends Component {
   render() {
     return (
-      <div className="pageT">
+      <div className="materialMarketingListPage">
         <PageTitle title={"产品案例"}/>
         <PagePDFContent />
       </div>

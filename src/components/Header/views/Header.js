@@ -122,7 +122,7 @@ class Header extends Component {
 
           <div className="blank-width-80" />
 
-          <Login />
+          <User />
         </div>
       </div>
     )

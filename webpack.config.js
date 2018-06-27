@@ -74,7 +74,7 @@ module.exports = {
     // html 模版插件
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: `${__dirname}/src/index.tmpl.html`
+      template: `${__dirname}/src/index.tmpl.ejs`
     }),
 
     // 热加载插件
