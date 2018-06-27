@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import Page from 'components/Pagination/Page';
 import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
-import {SiderMessageBox} from 'components/Chat';
 import Loading from 'components/Loading/Loading';
 
 class List extends Component {

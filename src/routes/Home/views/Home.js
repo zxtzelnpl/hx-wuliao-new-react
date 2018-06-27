@@ -1,11 +1,10 @@
 import './Home.less';
 
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import LinkIcon from './LinkIcon'
 import FeaturedVideo from './FeaturedVideo'
 import Carousel from './Carousel';
-import {Chat} from 'components/Chat';
+import {MessageBox,SendBox} from 'components/Chat';
 import Footer from './Footer'
 
 
@@ -73,7 +72,9 @@ class Home extends Component {
               留言
             </h4>
             <div className="leavingMessageBox">
-              <Chat />
+              <MessageBox />
+              <div className="blank-height-20" />
+              <SendBox />
             </div>
           </div>
         </div>

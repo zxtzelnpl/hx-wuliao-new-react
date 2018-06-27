@@ -27,8 +27,8 @@ class MessageBox extends Component {
     this.jroll = new JRoll(this.box.current, {
       scrollX:false,
       scrollY:true,
-      scrollBarY: true,
-      scrollBarFade:true,
+      scrollBarY: 'custom',
+      scrollBarFade:false,
       minY:loadBeforeH,
       maxY:-(height+loadMoreH-boxH)
     });
