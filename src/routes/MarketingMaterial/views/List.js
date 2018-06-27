@@ -20,7 +20,6 @@ class List extends Component {
 
         <div className="siderRecommend">
           <SiderFeaturedVideos />
-          <SiderMessageBox />
         </div>
       </div>
     )

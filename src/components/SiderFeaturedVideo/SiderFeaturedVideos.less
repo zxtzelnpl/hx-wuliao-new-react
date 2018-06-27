@@ -2,16 +2,14 @@
 
 .siderFeaturedVideo{
   width:320px;
-  >ul{
-    transition:height 200ms linear;
-    overflow: hidden;
-  }
 }
 
 .siderFeaturedVideoTitle{
   position:relative;
 
   box-sizing: border-box;
+
+  margin-bottom: 5px;
 
   padding-left:10px;
 
@@ -22,21 +20,4 @@
   color:#fff;
 
   background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
-
-  cursor:pointer;
-  &:after{
-    position:absolute;
-    right:20px;
-    top:20px;
-
-    display:block;
-
-    width:0;
-    height:0;
-
-    border:8px solid transparent;
-    border-top-color:#fff;
-
-    content:'';
-  }
 }
