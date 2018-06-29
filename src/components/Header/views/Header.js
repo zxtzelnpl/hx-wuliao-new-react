@@ -5,81 +5,12 @@ import logo from 'src/assets/images/icon_noli_logo_r.png';
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
-import Selection from 'components/Selection/Selection';
+import HeadMenus from './HeadMenus';
 import {User, Login} from 'components/User';
-
-const comprehensiveMaterials =[
-  {
-    id:'one',
-    key:'one',
-    text:'产品素材'
-  },
-  {
-    id:'two',
-    key:'two',
-    text:'综合素材'
-  }
-];
-const productMaterials =[
-  {
-    id:'one',
-    key:'one',
-    text:'强势优选组'
-  },
-  {
-    id:'two',
-    key:'two',
-    text:'牛眼投资组'
-  },
-  {
-    id:'three',
-    key:'three',
-    text:'强势选股组'
-  },
-  {
-    id:'four',
-    key:'four',
-    text:'独立量化组'
-  }
-];
-const productMaterials2 =[
-  {
-    id:'one',
-    key:'one',
-    text:'营销素材'
-  },
-  {
-    id:'two',
-    key:'two',
-    text:'投资组合'
-  },
-];
-const childProducts = [
-  {
-    id:'one',
-    key:'one',
-    text:'短线宝'
-  },
-  {
-    id:'two',
-    key:'two',
-    text:'君银操盘'
-  },
-  {
-    id:'three',
-    key:'three',
-    text:'君银研究'
-  }
-];
 
 class Header extends Component {
 
-  constructor(props){
-    super(props)
-    this.onHandleSelect = this.onHandleSelect.bind(this);
-  }
-
-  onHandleSelect(id){
+  onHandleSelect = (id)=>{
     console.log('this.onHandleSelect: '+id)
   }
 
@@ -92,29 +23,12 @@ class Header extends Component {
         <img className="logo" src={logo} />
 
         <div className="header-right">
-          <div className="selections">
-            <Selection
-              title={"请选择分类"}
-              list={comprehensiveMaterials}
-              onSelect = {this.onHandleSelect}
-            />
-            <div className="blank-width-10" />
-            <Selection
-              title={"请选择产品"}
-              list={productMaterials}
-              onSelect = {this.onHandleSelect}
-            />
-            <div className="blank-width-10" />
-            <Selection
-              title={"请选择子产品"}
-              list={childProducts}
-              onSelect = {this.onHandleSelect}
-            />
-          </div>
+
+          <HeadMenus onSelect={this.onHandleSelect}/>
 
           <div className="blank-width-10" />
 
-          <Link className="header-to-live" to="/">
+          <Link className="header-to-live" to="/live">
             直播间
           </Link>
 

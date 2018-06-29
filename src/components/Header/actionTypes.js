@@ -1,3 +1,3 @@
-export const COMPREHENSIVE = 'COMPREHENSIVE_CHANGE';
-export const PRODUCT = 'PRODUCT_CHANGE';
-export const CHILD_PRODUCT = 'CHILD_PRODUCT_CHANGE';
+export const FIRST = 'FIRST_CHANGE';
+export const SECOND = 'SECOND_CHANGE';
+export const THIRD = 'THIRD_CHANGE';

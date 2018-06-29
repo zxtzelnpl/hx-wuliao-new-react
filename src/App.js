@@ -23,50 +23,52 @@ const store = configureStore();
 store.runSaga(rootSaga);
 
 
-const Product = ({match})=>(
+const Product = ({match})=>{
+  console.log(match)
+  return (
   <div className="productMaterialsLayout">
     <SiderMenu />
 
     <div className="productMaterialsContent">
-      <Route path={`${match.url}/marketing/product/list`} component={ProductMaterialMarketingProductList}/>
-      <Route path={`${match.url}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail}/>
+      <Route path={`${match.path}`} component={ProductMaterialMarketingProductList} />
+      <Route path={`${match.path}/marketing/product/list`} component={ProductMaterialMarketingProductList} />
+      <Route path={`${match.path}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail} />
 
-      <Route path={`${match.url}/marketing/record/list`} component={ProductMaterialMarketingProductDetail}/>
-      <Route path={`${match.url}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail}/>
-
-
-      <Route path={`${match.url}/strategy/prediction/list`} component={NotFound}/>
-
-      <Route path={`${match.url}/strategy/review/list`} component={NotFound}/>
-
-      <Route path={`${match.url}/strategy/analysis/list`} component={NotFound}/>
+      <Route path={`${match.path}/marketing/record/list`} component={ProductMaterialMarketingProductDetail} />
+      <Route path={`${match.path}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail} />
 
 
-      <Route path={`${match.url}/experience/week/list`} component={NotFound}/>
+      <Route path={`${match.path}/strategy/prediction/list`} component={NotFound} />
 
-      <Route path={`${match.url}/experience/year/list`} component={NotFound}/>
+      <Route path={`${match.path}/strategy/review/list`} component={NotFound} />
 
-
-      <Route path={`${match.url}/customer/analysis/list`} component={NotFound}/>
-
-      <Route path={`${match.url}/customer/video/list`} component={NotFound}/>
+      <Route path={`${match.path}/strategy/analysis/list`} component={NotFound} />
 
 
-      <Route path={`${match.url}/research`} component={NotFound}/>
+      <Route path={`${match.path}/experience/week/list`} component={NotFound} />
+
+      <Route path={`${match.path}/experience/year/list`} component={NotFound} />
 
 
-      <Route path={`${match.url}/replay`} component={NotFound}/>
+      <Route path={`${match.path}/customer/analysis/list`} component={NotFound} />
+
+      <Route path={`${match.path}/customer/video/list`} component={NotFound} />
+
+
+      <Route path={`${match.path}/research`} component={NotFound} />
+
+
+      <Route path={`${match.path}/replay`} component={NotFound} />
     </div>
 
     <div className="siderRecommend">
       <SiderFeaturedVideos />
     </div>
   </div>
-)
+)}
 
 const Comprehensive = ({match})=>(
   <div className="comprehensiveMaterialsLayout">
-    <SiderMenu />
 
     <div className="comprehensiveMaterialsContent">
       <Route path={`${match.url}/replay`} component={NotFound}/>
@@ -88,7 +90,8 @@ class App extends React.Component{
             <Banner />
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/product" component={Product}/>
+              <Route path="/product/:team/:child" component={Product}/>
+              <Route path="/comprehensive" component={Comprehensive}/>
 
               <Route path="/live" component={NotFound}/>
               <Route component={NotFound} />

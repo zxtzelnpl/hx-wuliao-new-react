@@ -6,6 +6,9 @@ import PageTitle from 'components/PageTitle/PageTitle';
 
 class List extends Component {
   render() {
+
+    console.log(this.props)
+
     return (
       <div className="materialMarketingListPage">
         <PageTitle title={"产品案例"}/>

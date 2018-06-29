@@ -30,7 +30,7 @@ class Selection extends PureComponent {
         show:false
       })
 
-      let id = e.target.getAttribute('id').split('_').pop();
+      let id = e.target.getAttribute('id').replace('select_','')
 
       this.props.onSelect(id)
     }
