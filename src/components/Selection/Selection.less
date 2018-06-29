@@ -9,7 +9,7 @@
     position:relative;
     padding-top: @headerTextPaddingUD;
     padding-bottom: @headerTextPaddingUD;
-    padding-left: @headerTextPaddingSide + @angleBorder * 2;
+    padding-left: @headerTextPaddingSide;
     padding-right: @headerTextPaddingSide;
     min-width:120px;
 
@@ -19,7 +19,7 @@
     background:linear-gradient(to right,@primaryColorShallow,@primaryColorDark);
     &:after{
       position:absolute;
-      right:@headerTextPaddingSide;
+      right:@angleBorder;
       top:50%;
       margin-top:- @angleBorder / 2;
 

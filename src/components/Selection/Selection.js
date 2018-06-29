@@ -37,12 +37,12 @@ class Selection extends PureComponent {
   }
 
   renderSelect(){
-    let {list,select,title}= this.props;
+    let {list,selectId,title}= this.props;
     let item = null;
 
-    if(select){
+    if(selectId){
       list.forEach(_item=>{
-        if(_item.id === select){
+        if(_item.id === selectId){
           item = _item
         }
       })
