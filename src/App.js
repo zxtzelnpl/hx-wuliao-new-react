@@ -16,6 +16,11 @@ import {
 import {
   StrategyMaterial
 } from './routes/StrategyMaterial';
+
+/*客服素材*/
+import {
+  CustomerServiceVideo
+} from './routes/CustomerServiceMaterial';
 import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
 
@@ -77,7 +82,7 @@ const productMenus = [
         path: 'customer/analysis'
       },
       {
-        name: '服务食品',
+        name: '服务视频',
         path: 'customer/video'
       },
     ]
@@ -122,7 +127,7 @@ const Product = ({match}) => {
 
         <Route path={`${match.path}/customer/analysis/list`} component={NotFound}/>
 
-        <Route path={`${match.path}/customer/video/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/customer/video`} component={CustomerServiceVideo}/>
 
 
         <Route path={`${match.path}/research`} component={NotFound}/>

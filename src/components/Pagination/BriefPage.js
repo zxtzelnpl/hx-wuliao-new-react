@@ -21,7 +21,7 @@ class BriefPage extends Component {
   }
 
   render() {
-    const {title,to} = this.props
+    const {title,to} = this.props;
     return (
       <div className="briefPage">
         <p className="briefPageTitle">{title}</p>

@@ -2,7 +2,7 @@ import './Page.less';
 
 import React, {Component} from 'react';
 import Item from './Item';
-import PageNumbers from './PageNumbers'
+import PageNumbers from './PageNumbers';
 
 const datas=[
 
