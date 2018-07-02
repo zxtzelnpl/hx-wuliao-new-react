@@ -13,6 +13,9 @@ class ResearchMaterial extends Component {
           title={"初选股票池"}
           url={`${url}/primary`}
         />
+
+        <div className="blank-height-10" />
+
         <StockPool
           title={"精选股票池"}
           url={`${url}/concentrate`}

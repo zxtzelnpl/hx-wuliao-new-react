@@ -25,7 +25,8 @@ import {NotFound} from './routes/NotFound';
 
 /*研究素材*/
 import {
-  Research
+  Research,
+  StockPoolDetail
 } from './routes/ResearchMaterial'
 
 // import {Test} from './routes/Test';
@@ -94,7 +95,7 @@ const productMenus = [
   },
   {
     title: '研究素材',
-    path: 'research/primary'
+    path: 'research'
   },
   {
     title: '视频回播',
@@ -135,7 +136,8 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/customer/video`} component={CustomerServiceVideo}/>
 
 
-        <Route path={`${match.path}/research`} component={Research}/>
+        <Route exact path={`${match.path}/research`} component={Research}/>
+        <Route path={`${match.path}/research/:select/detail/:id`} component={StockPoolDetail}/>
 
 
         <Route path={`${match.path}/replay`} component={NotFound}/>
