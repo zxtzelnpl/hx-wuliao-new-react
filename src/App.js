@@ -22,8 +22,13 @@ import {
   CustomerServiceVideo
 } from './routes/CustomerServiceMaterial';
 import {NotFound} from './routes/NotFound';
-// import {Test} from './routes/Test';
 
+/*研究素材*/
+import {
+  Research
+} from './routes/ResearchMaterial'
+
+// import {Test} from './routes/Test';
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
 
@@ -130,7 +135,7 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/customer/video`} component={CustomerServiceVideo}/>
 
 
-        <Route path={`${match.path}/research`} component={NotFound}/>
+        <Route path={`${match.path}/research`} component={Research}/>
 
 
         <Route path={`${match.path}/replay`} component={NotFound}/>

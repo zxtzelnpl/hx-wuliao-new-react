@@ -124,7 +124,7 @@ class HeadMenus extends Component {
     const {firstSelectId} = this.props.header;
 
     return (
-      <div className="selections">
+      <div className="headerSelections">
         <Selection
           title={totalMenus.title}
           list={totalMenus.subs}

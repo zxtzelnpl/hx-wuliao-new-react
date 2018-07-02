@@ -1,0 +1,40 @@
+@import 'common/consts.less';
+.stockPoolItem{
+  margin-bottom:10px;
+
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  height:65px;
+  border:1px solid #e5e5e5;
+  .index{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    width:40px;
+
+    color:#fff;
+    background:#000;
+    align-self: stretch;
+  }
+  .name{
+    padding-right:180px;
+    font-weight:600;
+  }
+  .code{
+    padding-right:180px;
+    font-weight:600;
+  }
+  .triangle{
+    margin-right:10px;
+
+    display:block;
+    width:0;
+    height:0;
+    border:8px solid transparent;
+    border-left-width:15px;
+    border-right-width:15px;
+    border-left-color:@primaryColor;
+  }
+}
