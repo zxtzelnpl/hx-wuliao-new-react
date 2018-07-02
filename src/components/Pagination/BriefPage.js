@@ -1,4 +1,4 @@
-import './LittlePage.less';
+import './BriefPage.less';
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
@@ -15,23 +15,25 @@ for(let i=0;i<3;i++){
   })
 }
 
-class LittlePage extends Component {
+class BriefPage extends Component {
   renderList(){
     return datas.map(data=>(<Item key={data.id} {...data}/>))
   }
 
   render() {
+    const {title,to} = this.props
     return (
-      <div className="littlePage">
-        <ul className="oneLittlePage">
+      <div className="briefPage">
+        <p className="briefPageTitle">{title}</p>
+        <ul className="oneBriefPage">
           {this.renderList()}
         </ul>
-        <Link className="primaryBtn" to="/product/team_qsyx/duanxianbao/marketing/product/list">
-          更多
+        <Link className="primaryBtn" to={to}>
+          进入
         </Link>
       </div>
     )
   }
 }
 
-export default LittlePage
+export default BriefPage

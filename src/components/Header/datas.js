@@ -64,7 +64,7 @@ export default {
           id:'marketing',
           key:'marketing',
           text:'营销素材',
-          subs:[
+          /*subs:[
             {
               id:'speechcraft',
               key:'speechcraft',
@@ -80,13 +80,13 @@ export default {
               key:'image',
               text:'营销图片',
             }
-          ]
+          ]*/
         },
         {
           id:'investment',
           key:'investment',
           text:'投资组合',
-          subs:[
+          /*subs:[
             {
               id:'marketstock',
               key:'marketstock',
@@ -102,7 +102,7 @@ export default {
               key:'texttrategy',
               text:'文字策略',
             }
-          ]
+          ]*/
         },
       ]
     }

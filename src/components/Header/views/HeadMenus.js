@@ -23,6 +23,12 @@ class HeadMenus extends Component {
       )
     }
     else{
+      dispatch(
+        {
+          type: actionTypes.FIRST,
+          id
+        }
+      )
       dispatch(push(`/${id}`))
     }
   }
@@ -43,6 +49,12 @@ class HeadMenus extends Component {
       )
     }
     else{
+      dispatch(
+        {
+          type: actionTypes.SECOND,
+          id
+        }
+      )
       dispatch(push(`/${firstSelectId}/${id}`))
     }
   }
@@ -75,6 +87,7 @@ class HeadMenus extends Component {
     let dom=[];
     if(firstSelectId){
       let secondMenus = this.getMenus(totalMenus,firstSelectId);
+      console.log(secondMenus)
       if(secondMenus.subs){
         dom.push(
           <Selection
@@ -88,6 +101,7 @@ class HeadMenus extends Component {
 
         if(secondSelectId){
           let thirdMenus = this.getMenus(secondMenus,secondSelectId);
+          console.log(thirdMenus)
           if(thirdMenus.subs){
             dom.push(
               <Selection

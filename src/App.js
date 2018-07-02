@@ -13,6 +13,9 @@ import {
   ProductList as ProductMaterialMarketingProductList,
   ProductDetail as ProductMaterialMarketingProductDetail
 } from './routes/MarketingMaterial';
+import {
+  StrategyMaterial
+} from './routes/StrategyMaterial';
 import {NotFound} from './routes/NotFound';
 // import {Test} from './routes/Test';
 
@@ -104,6 +107,7 @@ const Product = ({match}) => {
         <Route path={`${match.path}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail}/>
 
 
+        <Route exact path={`${match.path}/strategy`} component={StrategyMaterial}/>
         <Route path={`${match.path}/strategy/prediction/list`} component={NotFound}/>
 
         <Route path={`${match.path}/strategy/review/list`} component={NotFound}/>

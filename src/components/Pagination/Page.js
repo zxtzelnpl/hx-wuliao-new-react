@@ -11,7 +11,7 @@ for(let i=0;i<20;i++){
   datas.push({
     id:`new${i}`,
     title:'强势优选20180604高周转低负债互动资料',
-    path:'/abc'
+    path:'/product/team_qsyx/duanxianbao/marketing/product/detail'
   })
 }
 
