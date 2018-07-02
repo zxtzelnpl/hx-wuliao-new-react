@@ -1,6 +1,8 @@
 @import "common/consts.less";
 
 .siderSubLinkTitle{
+  display:block;
+
   position:relative;
   box-sizing: border-box;
 
@@ -13,4 +15,8 @@
   line-height:48px;
 
   background:linear-gradient(to left,@secondaryColorDark,@secondaryColorShallow);
+}
+span.siderSubLinkTitle{
+  background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
+  cursor: not-allowed;
 }

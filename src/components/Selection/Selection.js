@@ -57,9 +57,16 @@ class Selection extends PureComponent {
   }
 
   renderItems(){
+    const {list,selectId} = this.props;
+
+
     return this.props.list.map(item=>{
       const {key,text,id} = item;
-      return <li className="zxt-selection-item" key={key} id={`select_${id}`}>{text}</li>
+      let dom;
+      if(id !== selectId){
+        dom =<li className="zxt-selection-item" key={key} id={`select_${id}`}>{text}</li>;
+      }
+      return dom
     })
   }
 

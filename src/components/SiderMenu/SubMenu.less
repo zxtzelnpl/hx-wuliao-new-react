@@ -47,7 +47,7 @@
 
 .siderSubMenuLi{
   background:#6c6c6c;
-  a{
+  .siderSubMenuLiContent{
     position:relative;
 
     display:block;
@@ -71,9 +71,12 @@
       content:'';
     }
   }
-  a.on,a:hover{
+  span.siderSubMenuLiContent,a.siderSubMenuLiContent:hover{
     &:before{
       background:#e64c18;
     }
+  }
+  span.siderSubMenuLiContent{
+    cursor:not-allowed;
   }
 }
