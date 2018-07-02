@@ -28,11 +28,11 @@ const productMenus = [
     lis: [
       {
         name: '产品案例',
-        path: 'abc'
+        path: 'marketing/product'
       },
       {
         name: '战绩展示',
-        path: 'abc'
+        path: 'marketing/record'
       },
     ]
   },
@@ -41,15 +41,15 @@ const productMenus = [
     lis: [
       {
         name: '早评',
-        path: 'abc'
+        path: 'strategy/prediction'
       },
       {
         name: '收评',
-        path: 'abc'
+        path: 'strategy/review'
       },
       {
         name: '盘中解盘',
-        path: 'abc'
+        path: 'strategy/analysis'
       },
     ]
   },
@@ -58,11 +58,11 @@ const productMenus = [
     lis: [
       {
         name: '周报',
-        path: 'abc'
+        path: 'experience/week'
       },
       {
         name: '年报',
-        path: 'abc'
+        path: 'experience/year'
       },
     ]
   },
@@ -71,31 +71,32 @@ const productMenus = [
     lis: [
       {
         name: '持仓分析',
-        path: 'abc'
+        path: 'customer/analysis'
       },
       {
         name: '服务食品',
-        path: 'abc'
+        path: 'customer/video'
       },
     ]
   },
   {
     title: '研究素材',
-    path: 'abc'
+    path: 'research/primary'
   },
   {
     title: '视频回播',
-    path: 'abc'
+    path: 'replay'
   },
 ]
 const Product = ({match}) => {
   console.log(match)
   return (
     <div className="productMaterialsLayout">
-      <SiderMenu menus={productMenus}/>
+      <SiderMenu match={match} menus={productMenus}/>
 
       <div className="productMaterialsContent">
-        <Route path={`${match.path}`} component={ProductMaterialMarketingProductList}/>
+        <Route exact path={`${match.path}`} component={ProductMaterialMarketingProductList}/>
+        <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
         <Route path={`${match.path}/marketing/product/list`} component={ProductMaterialMarketingProductList}/>
         <Route path={`${match.path}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail}/>
 
@@ -135,18 +136,43 @@ const Product = ({match}) => {
 
 const comprehensiveMenus = [
   {
-
+    title:'营销素材',
+    lis:[
+      {
+        name:'营销话术',
+        path:'marketing/speechcraft'
+      },
+      {
+        name:'营销软文',
+        path:'marketing/article'
+      },
+      {
+        name:'营销图片',
+        path:'marketing/image'
+      }
+    ]
   },
   {
     title:'投资组合',
     lis:[
-
+      {
+        name:'营销票',
+        path:'investment/marketstock'
+      },
+      {
+        name:'服务票',
+        path:'investment/servicestock'
+      },
+      {
+        name:'文字策略',
+        path:'investment/texttrategy'
+      }
     ]
   }
 ];
 const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
-    <SiderMenu menus={comprehensiveMenus}/>
+    <SiderMenu match={match} menus={comprehensiveMenus}/>
 
     <div className="comprehensiveMaterialsContent">
       <Route path={`${match.url}/replay`} component={NotFound}/>

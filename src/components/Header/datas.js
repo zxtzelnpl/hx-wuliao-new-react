@@ -2,18 +2,18 @@ const childProducts = {
   title:'请选择子产品',
   subs:[
     {
-      id:'duanXianBao',
-      key:'duanXianBao',
+      id:'duanxianbao',
+      key:'duanxianbao',
       text:'短线宝'
     },
     {
-      id:'junYinCaoPan',
-      key:'junYinCaoPan',
+      id:'junyincaopan',
+      key:'junyincaopan',
       text:'君银操盘'
     },
     {
-      id:'junYinYanJiu',
-      key:'junYinYanJiu',
+      id:'junyinyanjiu',
+      key:'junyinyanjiu',
       text:'君银研究'
     }
   ]
@@ -29,26 +29,26 @@ export default {
       title:'请选择产品',
       subs:[
         {
-          id:'team_QSYX',
-          key:'team_QSYX',
+          id:'team_qsyx',
+          key:'team_qsyx',
           text:'强势优选组',
           ...childProducts
         },
         {
-          id:'team_NYTZ',
-          key:'team_NYTZ',
+          id:'team_nytz',
+          key:'team_nytz',
           text:'牛眼投资组',
           ...childProducts
         },
         {
-          id:'team_QSXG',
-          key:'team_QSXG',
+          id:'team_qsxg',
+          key:'team_qsxg',
           text:'强势选股组',
           ...childProducts
         },
         {
-          id:'team_DLLH',
-          key:'team_DLLH',
+          id:'team_dllh',
+          key:'team_dllh',
           text:'独立量化组',
           ...childProducts
         }
@@ -63,12 +63,46 @@ export default {
         {
           id:'marketing',
           key:'marketing',
-          text:'营销素材'
+          text:'营销素材',
+          subs:[
+            {
+              id:'speechcraft',
+              key:'speechcraft',
+              text:'营销话术',
+            },
+            {
+              id:'article',
+              key:'article',
+              text:'营销软文',
+            },
+            {
+              id:'image',
+              key:'image',
+              text:'营销图片',
+            }
+          ]
         },
         {
           id:'investment',
           key:'investment',
-          text:'投资组合'
+          text:'投资组合',
+          subs:[
+            {
+              id:'marketstock',
+              key:'marketstock',
+              text:'营销票',
+            },
+            {
+              id:'servicestock',
+              key:'servicestock',
+              text:'服务票',
+            },
+            {
+              id:'texttrategy',
+              key:'texttrategy',
+              text:'文字策略',
+            }
+          ]
         },
       ]
     }

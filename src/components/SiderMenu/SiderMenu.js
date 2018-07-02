@@ -7,13 +7,18 @@ import SubLink from './SubLink';
 
 class SiderMenu extends Component {
   renderSubs = ()=>{
-    return this.props.menus.map((data,index)=>{
+
+    console.log(this.props)
+
+    const {match,menus} = this.props;
+
+    return menus.map((data,index)=>{
       let sub;
       if(data.lis){
-        sub = <li key={index}><SubMenu {...data}/></li>
+        sub = <li key={index}><SubMenu url={match.url} {...data}/></li>
       }
       else if(data.path){
-        sub = <li key={index}><SubLink {...data}/></li>
+        sub = <li key={index}><SubLink url={match.url} {...data}/></li>
       }
       return sub
     })

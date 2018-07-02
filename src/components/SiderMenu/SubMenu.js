@@ -54,9 +54,9 @@ class subMenu extends Component {
       show:this.state.show
     });
 
-    const {title, lis} = this.props;
+    const {title, lis, url} = this.props;
     let list = lis.map((li, index) => {
-      return <li className="siderSubMenuLi" key={index}><Link to={li.path}>{li.name}</Link></li>
+      return <li className="siderSubMenuLi" key={index}><Link to={`${url}/${li.path}`}>{li.name}</Link></li>
     })
 
     return (
