@@ -20,6 +20,12 @@
       "plugins": [
         ["react-transform",{"transform": [{"transform": "react-transform-hmr","import": ["react"],"local": ["module"]}]}]
       ]
+    },
+    "production": {
+      "plugins": ["transform-react-remove-prop-types", {
+        "mode": "wrap",
+        "ignoreFilenames": ["node_modules"]
+      }]
     }
   },
   "plugins": [

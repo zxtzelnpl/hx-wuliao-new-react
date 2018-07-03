@@ -1,6 +1,7 @@
 import './PageNumbers.less';
 
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import classNames from "classnames";
 
 class PageNumbers extends Component {
@@ -81,6 +82,13 @@ class PageNumbers extends Component {
       </ul>
     )
   }
+}
+
+PageNumbers.propTypes={
+  currentPage:propTypes.number.isRequired,
+  totalPages:propTypes.number.isRequired,
+  numberGroupSize:propTypes.number.isRequired,
+  turnPage:propTypes.func.isRequired,
 }
 
 export default PageNumbers

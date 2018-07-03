@@ -29,6 +29,12 @@ import {
   StockPoolDetail
 } from './routes/ResearchMaterial';
 
+/*营销素材-营销话术*/
+import {
+  SpeechCraft,
+  SpeechCraftDetail
+} from './routes/SpeechCraft';
+
 /*投资组合-营销票*/
 import {
   MarketStock
@@ -200,8 +206,14 @@ const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
     <SiderMenu match={match} menus={comprehensiveMenus}/>
 
+    <Route exact path={`${match.url}/marketing/speechcraft`} component={SpeechCraft}/>
+    <Route path={`${match.url}/marketing/speechcraft/detail/:id`} component={SpeechCraftDetail}/>
+
+
     <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
     <Route path={`${match.url}/investment/servicestock`} component={ServiceStock}/>
+
+
   </div>
 )
 

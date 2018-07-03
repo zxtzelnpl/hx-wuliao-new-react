@@ -39,7 +39,7 @@ class ServiceStock extends Component {
 
     return (
       <div className="serviceStock">
-        <PageTitle title={"营销票"}/>
+        <PageTitle title={"服务票"}/>
         <div className="blank-height-10" />
         <StockTable
           datas={datas}

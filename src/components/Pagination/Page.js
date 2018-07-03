@@ -1,6 +1,7 @@
 import './Page.less';
 
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import Item from './Item';
 import PageNumbers from './PageNumbers';
 
@@ -15,11 +16,6 @@ for(let i=0;i<20;i++){
   })
 }
 
-
-const total = 201;
-const pageSize = 20;
-
-
 class Page extends Component {
 
   turnPage(page){
@@ -27,10 +23,12 @@ class Page extends Component {
   }
 
   renderList(){
-    return datas.map(data=>(<Item key={data.id} {...data}/>))
+    const {url} = this.props;
+    return datas.map(data=>(<Item key={data.id} url={url} {...data}/>))
   }
 
   render() {
+    const {total,pageSize} = this.props;
     let totalPages = Math.ceil(total/pageSize);
 
     return (
@@ -48,6 +46,12 @@ class Page extends Component {
       </div>
     )
   }
+}
+
+Page.propTypes={
+  total:propTypes.number.isRequired,
+  pageSize:propTypes.number.isRequired,
+  url:propTypes.string.isRequired,
 }
 
 export default Page
