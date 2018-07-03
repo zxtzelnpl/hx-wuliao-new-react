@@ -1,4 +1,4 @@
-import './SendBox.less';
+import './LiveSendBox.less';
 import React, {Component} from 'react';
 import EmojiPicker from './EmojiPicker';
 import CaiTiaoPicker from './CaiTiaoPicker';
@@ -6,13 +6,10 @@ import moment from 'moment';
 import {trim} from 'src/utils/tools';
 
 class SendBox extends Component {
-  constructor(props){
-    super(props)
-    this.state={
+  input = React.createRef()
 
-    }
-    this.emojiShow = this.pickerShow.bind(this,'emoji');
-    this.caiTiaoShow = this.pickerShow.bind(this,'caitiao');
+  state={
+
   }
 
   keyUp (e) {
@@ -35,7 +32,8 @@ class SendBox extends Component {
   }
 
   /**彩条面板和emoji面板交换显示**/
-  pickerShow (picker) {
+  pickerShow = (e) => {
+    let picker = e.target.className;
     this.setState((state) => {
       let prePicker = state.picker
       let nextPicker = ''
@@ -49,23 +47,27 @@ class SendBox extends Component {
   }
 
   /**emoji面板**/
-  addEmoji (e) {
-    let htmlStr = this.input.innerHTML
-    let url = e.target.src
-    htmlStr += `<img src=${url} />`
-    this.input.innerHTML = htmlStr
+  addEmoji = (e) => {
+    this.chatBoxClear();
+
+    let htmlStr = this.input.innerHTML;
+    let url = e.target.src;
+    htmlStr += `<img src=${url} />`;
+    this.input.innerHTML = htmlStr;
   }
 
   /**caitiao面板**/
-  addCaitiao (e) {
-    let htmlStr = this.input.innerHTML
-    let url = e.target.src
-    htmlStr += `<img src=${url} />`
-    this.input.innerHTML = htmlStr
+  addCaitiao = (e) => {
+    this.chatBoxClear();
+
+    let htmlStr = this.input.innerHTML;
+    let url = e.target.src;
+    htmlStr += `<img src=${url} />`;
+    this.input.innerHTML = htmlStr;
   }
 
   /**上传文件**/
-  fileChange (e) {
+  fileChange = (e) => {
     let file = e.target
     if (file.value === '') {
       return false
@@ -100,21 +102,21 @@ class SendBox extends Component {
   }
 
   /**聊天框点中清除**/
-  chatBoxFoucs () {
-    if (this.input.innerHTML === '请输入你想说的话。。。') {
-      this.chatBoxClear()
-    }
+  chatBoxFoucs = () => {
+    this.chatBoxClear();
   }
 
   /**聊天框点中清除**/
-  chatBoxClear () {
-    this.input.innerHTML = ''
+  chatBoxClear = () => {
+    if (this.input.innerHTML === '请输入你想说的话。。。') {
+      this.input.innerHTML = ''
+    }
   }
 
   render() {
     return (
-      <div className="sendBoxWrap">
-        <div className="sendBox">
+      <div className="liveSendBoxWrap">
+        <div className="liveSendBox">
           <div
             className="inputBox"
             contentEditable={true}
@@ -124,26 +126,26 @@ class SendBox extends Component {
             onFocus={this.chatBoxFoucs.bind(this)}
           />
           <div className="toolbar">
-            <div className="emoji" onClick={this.emojiShow}/>
-            <div className="caitiao" onClick={this.caiTiaoShow}/>
+            <div className="emoji" onClick={this.pickerShow}/>
+            <div className="caitiao" onClick={this.pickerShow}/>
             <div className="pic">
               <label>
                 <input
                   type="file"
-                  onChange={this.fileChange.bind(this)}/>
+                  onChange={this.fileChange}/>
               </label>
             </div>
-            <div className="send-btn" onClick={this.sendMessage.bind(this)}>
+            <div className="send-btn" onClick={this.sendMessage}>
               发送
             </div>
           </div>
         </div>
         <EmojiPicker
-            onClick={this.addEmoji.bind(this)}
+            onClick={this.addEmoji}
             show={this.state.picker === 'emoji'}
         />
         <CaiTiaoPicker
-            onClick={this.addCaitiao.bind(this)}
+            onClick={this.addCaitiao}
             show={this.state.picker === 'caitiao'}
         />
       </div>

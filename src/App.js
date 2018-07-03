@@ -51,6 +51,11 @@ import {
   ServiceStock
 } from './routes/ServiceStock';
 
+/*直播视频*/
+import {
+  LiveVideo
+} from './routes/LiveVideo';
+
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
 
@@ -240,7 +245,7 @@ class App extends React.Component {
               <Route path="/product/:team/:child" component={Product}/>
               <Route path="/comprehensive" component={Comprehensive}/>
 
-              <Route path="/live" component={NotFound}/>
+              <Route path="/live" component={LiveVideo}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

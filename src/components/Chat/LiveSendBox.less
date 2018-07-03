@@ -1,6 +1,6 @@
-@import "../../common/consts.less";
+@import "common/consts.less";
 
-.sendBoxWrap{
+.liveSendBoxWrap{
   position:relative;
   .toolbar {
     box-sizing: border-box;
@@ -15,6 +15,32 @@
       height: 30px;
       background: url("../../assets/images/emoji.jpg") center center no-repeat;
       cursor: pointer;
+    }
+    .caitiao {
+      margin-top:5px;
+      margin-right: 10px;
+      float: left;
+      width: 30px;
+      height: 30px;
+      background: url("../../assets/images/caitiao.jpg") center center no-repeat;
+      cursor: pointer;
+    }
+    .pic {
+      margin-top:5px;
+      margin-right: 10px;
+      float: left;
+      width: 30px;
+      height: 30px;
+      label {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url("../../assets/images/upfile.jpg") center center no-repeat;
+        cursor: pointer;
+        input {
+          visibility: hidden;
+        }
+      }
     }
     .send-btn {
       float: right;
@@ -34,7 +60,7 @@
   }
 }
 
-.sendBox{
+.liveSendBox{
   box-sizing: border-box;
   width:100%;
 }
@@ -49,3 +75,4 @@
 
   overflow-y: auto;
 }
+
