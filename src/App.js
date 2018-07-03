@@ -7,12 +7,18 @@ import configureStore from './store/configureStore';
 
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
+import {SiderMessageBox} from 'components/Chat'
 
+/*首页*/
 import {Home} from './routes/Home';
+
+/*营销素材-产品案例*/
 import {
   ProductList as ProductMaterialMarketingProductList,
   ProductDetail as ProductMaterialMarketingProductDetail
 } from './routes/MarketingMaterial';
+
+/*策略素材-总页面*/
 import {
   StrategyMaterial
 } from './routes/StrategyMaterial';
@@ -45,7 +51,6 @@ import {
   ServiceStock
 } from './routes/ServiceStock';
 
-// import {Test} from './routes/Test';
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
 
@@ -213,7 +218,9 @@ const Comprehensive = ({match}) => (
     <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
     <Route path={`${match.url}/investment/servicestock`} component={ServiceStock}/>
 
-
+    {/*侧边聊天*/}
+    <Route path={`${match.url}/marketing`} component={SiderMessageBox}/>
+    <Route path={`${match.url}/investment/texttrategy`} component={SiderMessageBox}/>
   </div>
 )
 

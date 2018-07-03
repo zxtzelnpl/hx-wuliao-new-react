@@ -3,9 +3,10 @@
 .siderMessageBox{
   margin-top:15px;
   width:320px;
+  box-sizing: border-box;
+  background:#fff;
   >.ul{
-    transition:height 200ms linear;
-    overflow: hidden;
+    margin:0 5px;
   }
 }
 
@@ -25,19 +26,4 @@
   background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
 
   cursor:pointer;
-  &:after{
-    position:absolute;
-    right:20px;
-    top:20px;
-
-    display:block;
-
-    width:0;
-    height:0;
-
-    border:8px solid transparent;
-    border-top-color:#fff;
-
-    content:'';
-  }
 }

@@ -1,6 +1,7 @@
 import './SendBox.less';
 import React, {Component} from 'react';
 import EmojiPicker from './EmojiPicker';
+import CaiTiaoPicker from './CaiTiaoPicker';
 import moment from 'moment';
 import {trim} from 'src/utils/tools';
 
@@ -11,6 +12,7 @@ class SendBox extends Component {
 
     }
     this.emojiShow = this.pickerShow.bind(this,'emoji');
+    this.caiTiaoShow = this.pickerShow.bind(this,'caitiao');
   }
 
   keyUp (e) {
@@ -48,11 +50,53 @@ class SendBox extends Component {
 
   /**emoji面板**/
   addEmoji (e) {
-    this.chatBoxFoucs();
     let htmlStr = this.input.innerHTML
     let url = e.target.src
     htmlStr += `<img src=${url} />`
     this.input.innerHTML = htmlStr
+  }
+
+  /**caitiao面板**/
+  addCaitiao (e) {
+    let htmlStr = this.input.innerHTML
+    let url = e.target.src
+    htmlStr += `<img src=${url} />`
+    this.input.innerHTML = htmlStr
+  }
+
+  /**上传文件**/
+  fileChange (e) {
+    let file = e.target
+    if (file.value === '') {
+      return false
+    }
+    let img = file.files[0]
+      , formData = new FormData()
+    formData.append('upload_img', img)
+
+    console.log(formData);
+
+    // fetch(upload_img, {
+    //   method: 'POST',
+    //   credentials: 'include',
+    //   body: formData
+    // })
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     if (json.status) {
+    //       let content = this.input.innerHTML
+    //       content += `<img src=${json.img} />`
+    //       this.input.innerHTML = content
+    //       file.value=''
+    //     }
+    //     else {
+    //       alert('网络连接错误')
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     alert('网络连接错误')
+    //   })
   }
 
   /**聊天框点中清除**/
@@ -81,6 +125,14 @@ class SendBox extends Component {
           />
           <div className="toolbar">
             <div className="emoji" onClick={this.emojiShow}/>
+            <div className="caitiao" onClick={this.caiTiaoShow}/>
+            <div className="pic">
+              <label>
+                <input
+                  type="file"
+                  onChange={this.fileChange.bind(this)}/>
+              </label>
+            </div>
             <div className="send-btn" onClick={this.sendMessage.bind(this)}>
               发送
             </div>
@@ -89,6 +141,10 @@ class SendBox extends Component {
         <EmojiPicker
             onClick={this.addEmoji.bind(this)}
             show={this.state.picker === 'emoji'}
+        />
+        <CaiTiaoPicker
+            onClick={this.addCaitiao.bind(this)}
+            show={this.state.picker === 'caitiao'}
         />
       </div>
     )

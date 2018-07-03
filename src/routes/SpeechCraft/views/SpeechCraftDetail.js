@@ -1,3 +1,5 @@
+import './SpeechCraftDetail.less';
+
 import React, {Component} from 'react';
 import PageTitle from 'components/PageTitle/PageTitle';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
