@@ -1,0 +1,89 @@
+@import "common/consts.less";
+
+.stockTable{
+
+  text-align: center;
+  .tHead{
+    display:flex;
+    align-items: stretch;
+    justify-content: center;
+
+    margin:0 auto;
+    min-height:40px;
+    width:1060px;
+    border-top:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    color:@primaryColor;
+  }
+  .tHeadLi{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    border-right:1px solid #cccccc;
+  }
+
+  .tBody{
+    display:flex;
+    align-items: stretch;
+    justify-content: center;
+
+    margin:0 auto;
+    min-height:40px;
+    width:1060px;
+    border-bottom:1px solid #cccccc;
+  }
+
+  .tBodyLi{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    border-right:1px solid #cccccc;
+  }
+
+  .tHeadLi,.tBodyLi{
+    &:nth-child(1){
+      border-left:1px solid #cccccc;
+      width:80px;
+    }
+    &:nth-child(2){
+      width:80px;
+    }
+    &:nth-child(3){
+      width:80px;
+    }
+    &:nth-child(4){
+      width:80px;
+    }
+    &:nth-child(5){
+      width:80px;
+    }
+    &:nth-child(6){
+      width:80px;
+    }
+    &:nth-child(7){
+      width:80px;
+    }
+    &:nth-child(8){
+      width:40px;
+    }
+    &:nth-child(9){
+      width:40px;
+    }
+    &:nth-child(10){
+      width:60px;
+    }
+    &:nth-child(11){
+      width:180px;
+    }
+    &:nth-child(12){
+      width:90px;
+    }
+    &:nth-child(13){
+      width:90px;
+    }
+  }
+}

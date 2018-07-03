@@ -195,9 +195,7 @@ const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
     <SiderMenu match={match} menus={comprehensiveMenus}/>
 
-    <div className="comprehensiveMaterialsContent">
-      <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
-    </div>
+    <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
   </div>
 )
 
