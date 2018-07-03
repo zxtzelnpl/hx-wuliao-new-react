@@ -7,6 +7,12 @@ import Carousel from './Carousel';
 import {ChatBox} from 'components/SiderChatBox';
 import Footer from './Footer';
 
+import img_investment from 'assets/images/investment.png';
+import img_productMarket from 'assets/images/productMarket.png';
+import team_dllh from 'assets/images/team_dllh.png';
+import team_nytz from 'assets/images/team_nytz.png';
+import team_qsxg from 'assets/images/team_qsxg.png';
+import team_qsyx from 'assets/images/team_qsyx.png';
 
 class Home extends Component {
   constructor(props){
@@ -26,8 +32,16 @@ class Home extends Component {
               综合素材
             </h4>
             <div className="links">
-              <LinkIcon white={true} />
-              <LinkIcon white={true} />
+              <LinkIcon
+                img={img_productMarket}
+                text={"营销素材"}
+                white={true}
+              />
+              <LinkIcon
+                img={img_investment}
+                text={"投资组合"}
+                white={true}
+              />
             </div>
           </div>
 
@@ -38,10 +52,10 @@ class Home extends Component {
               产品素材
             </h4>
             <div className="links">
-              <LinkIcon />
-              <LinkIcon />
-              <LinkIcon />
-              <LinkIcon />
+              <LinkIcon img={team_qsyx} text={"强势优选组"} />
+              <LinkIcon img={team_nytz} text={"牛眼投资组"} />
+              <LinkIcon img={team_qsxg} text={"选股器"} />
+              <LinkIcon img={team_dllh} text={"独立量化组"} />
             </div>
           </div>
         </div>

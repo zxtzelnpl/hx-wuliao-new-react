@@ -1,9 +1,9 @@
-import './MessageBox.less'
+import './MessageBox.less';
 
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import JRoll from 'jroll';
 
-import MessageItem from './MessageItem'
+import MessageItem from './MessageItem';
 
 class MessageBox extends Component {
   constructor(props) {

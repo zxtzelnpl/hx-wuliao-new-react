@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 class LinkIcon extends Component {
   render() {
+    const {img,text} = this.props;
 
     let className = classNames({
       homeLinkIcon:true,
@@ -14,10 +15,10 @@ class LinkIcon extends Component {
     return (
       <div className={className}>
         <div className="icon">
-
+          <img className="icon_img" src={img} />
         </div>
         <div className="label btn">
-          独立量化组
+          {text}
         </div>
       </div>
     )
