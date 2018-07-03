@@ -2,112 +2,102 @@ import './HeadMenus.less';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { push } from 'connected-react-router';
-import * as actionTypes from '../actionTypes';
 import Selection from 'components/Selection/Selection';
 import totalMenus from '../datas';
 
 class HeadMenus extends Component {
+
+  state={
+
+  }
+
   componentDidMount() {
     console.log(this.props)
   }
 
+  componentDidUpdate(preProps,preState){
+    if(this.state!==preState){
+      const {firstSelectId,secondSelectId,thirdSelectId} = this.state;
+      const {dispatch} = this.props;
+      if(firstSelectId){
+        let firstChoice = this.getChoice(totalMenus,firstSelectId);
+        if(firstChoice.subs){
+          if(secondSelectId){
+            let secondChoice = this.getChoice(firstChoice,secondSelectId);
+            if(secondChoice.subs){
+              if(thirdSelectId){
+                dispatch(push(`/${firstSelectId}/${secondSelectId}/${thirdSelectId}`))
+              }
+            }
+            else{
+              dispatch(push(`/${firstSelectId}/${secondSelectId}`))
+            }
+          }
+        }
+        else{
+          dispatch(push(`/${firstSelectId}`))
+        }
+      }
+    }
+  }
+
   onFirstSelect = id => {
-    const {dispatch,header,router} = this.props;
-    let secondMenus = this.getMenus(totalMenus,id);
-    if(secondMenus.subs){
-      dispatch(
-        {
-          type: actionTypes.FIRST,
-          id
-        }
-      )
-    }
-    else{
-      dispatch(
-        {
-          type: actionTypes.FIRST,
-          id
-        }
-      )
-      dispatch(push(`/${id}`))
-    }
+    this.setState({
+      firstSelectId:id,
+      secondSelectId:null,
+      thirdSelectId:null
+    })
   }
 
   onSecondSelect = id => {
-    const {dispatch,header,router} = this.props;
-    const {firstSelectId} = header;
-
-    let secondMenus = this.getMenus(totalMenus,firstSelectId);
-    let thirdMenus = this.getMenus(secondMenus,id);
-
-    if(thirdMenus.subs){
-      dispatch(
-        {
-          type: actionTypes.SECOND,
-          id
-        }
-      )
-    }
-    else{
-      dispatch(
-        {
-          type: actionTypes.SECOND,
-          id
-        }
-      )
-      dispatch(push(`/${firstSelectId}/${id}`))
-    }
+    this.setState({
+      secondSelectId:id,
+      thirdSelectId:null
+    })
   }
 
   onThirdSelect = id => {
-    const {dispatch,header,router} = this.props;
-    const {firstSelectId,secondSelectId} = header;
-
-    dispatch(
-      {
-        type: actionTypes.THIRD,
-        id
-      }
-    );
-    dispatch(push(`/${firstSelectId}/${secondSelectId}/${id}`))
+    this.setState({
+      thirdSelectId:id
+    })
   }
 
-  getMenus = (preMenus,id)=>{
-    let menus;
+  getChoice = (preMenus,id)=>{
+    let choice;
     preMenus.subs.forEach(item=>{
       if(item.id === id){
-        menus = item;
+        choice = item;
       }
     });
-    return menus;
+    return choice;
   }
 
   renderNextSelection =() =>{
-    const {firstSelectId,secondSelectId,thirdSelectId} = this.props.header;
+
+    const {firstSelectId,secondSelectId,thirdSelectId} = this.state;
+
     let dom=[];
     if(firstSelectId){
-      let secondMenus = this.getMenus(totalMenus,firstSelectId);
-      console.log(secondMenus)
-      if(secondMenus.subs){
+      let firstChoice = this.getChoice(totalMenus,firstSelectId);
+      if(firstChoice&&firstChoice.subs){
         dom.push(
           <Selection
-            key={secondMenus.key}
-            title={secondMenus.title}
-            list={secondMenus.subs}
+            key={firstChoice.key}
+            title={firstChoice.title}
+            list={firstChoice.subs}
             selectId={secondSelectId}
             onSelect={this.onSecondSelect}
           />
         )
 
         if(secondSelectId){
-          let thirdMenus = this.getMenus(secondMenus,secondSelectId);
-          console.log(thirdMenus)
-          if(thirdMenus.subs){
+          let secondChoice = this.getChoice(firstChoice,secondSelectId);
+          if(secondChoice&&secondChoice.subs){
             dom.push(
               <Selection
-                key={thirdMenus.key}
-                title={thirdMenus.title}
-                list={thirdMenus.subs}
+                key={secondChoice.key}
+                title={secondChoice.title}
+                list={secondChoice.subs}
                 selectId={thirdSelectId}
                 onSelect={this.onThirdSelect}
               />
@@ -121,7 +111,7 @@ class HeadMenus extends Component {
   }
 
   render() {
-    const {firstSelectId} = this.props.header;
+    const {firstSelectId} = this.state;
 
     return (
       <div className="headerSelections">
@@ -137,9 +127,4 @@ class HeadMenus extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  header: state.header,
-  router:state.router
-})
-
-export default connect(mapStateToProps)(HeadMenus)
+export default connect()(HeadMenus)

@@ -18,7 +18,7 @@ class ReplyVideo extends Component{
 
   renderVideoItem = ()=>{
     return datas.map(data=>{
-      return <ReplayVideoItem {...data}/>
+      return <ReplayVideoItem key={data.id} {...data}/>
     })
   }
 
