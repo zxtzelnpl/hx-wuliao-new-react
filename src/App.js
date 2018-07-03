@@ -27,7 +27,12 @@ import {NotFound} from './routes/NotFound';
 import {
   Research,
   StockPoolDetail
-} from './routes/ResearchMaterial'
+} from './routes/ResearchMaterial';
+
+/*投资组合*/
+import {
+  MarketStock
+} from './routes/MarketStock';
 
 // import {Test} from './routes/Test';
 import {Header} from './components/Header'
@@ -191,7 +196,7 @@ const Comprehensive = ({match}) => (
     <SiderMenu match={match} menus={comprehensiveMenus}/>
 
     <div className="comprehensiveMaterialsContent">
-      <Route path={`${match.url}/replay`} component={NotFound}/>
+      <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
     </div>
   </div>
 )
