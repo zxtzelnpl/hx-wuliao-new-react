@@ -29,10 +29,15 @@ import {
   StockPoolDetail
 } from './routes/ResearchMaterial';
 
-/*投资组合*/
+/*投资组合-营销票*/
 import {
   MarketStock
 } from './routes/MarketStock';
+
+/*投资组合-服务票*/
+import {
+  ServiceStock
+} from './routes/ServiceStock';
 
 // import {Test} from './routes/Test';
 import {Header} from './components/Header'
@@ -196,6 +201,7 @@ const Comprehensive = ({match}) => (
     <SiderMenu match={match} menus={comprehensiveMenus}/>
 
     <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
+    <Route path={`${match.url}/investment/servicestock`} component={ServiceStock}/>
   </div>
 )
 
