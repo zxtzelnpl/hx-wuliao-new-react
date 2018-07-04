@@ -5,11 +5,12 @@ import logo from 'src/assets/images/icon_noli_logo_r.png';
 import React, {Component} from 'react';
 import HeadMenus from './HeadMenus';
 import VideoLink from './VideoLink';
-import {User, Login} from 'components/User';
+import {User} from 'components/User';
 
 class Header extends Component {
 
   componentDidMount(){
+
   }
 
   render() {

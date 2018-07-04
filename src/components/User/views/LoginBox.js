@@ -21,7 +21,7 @@ class LoginBox extends Component{
   render(){
     return createPortal(<div className="loginBox">
 
-      <div className="close" onClick={this.props.hide}>X</div>
+      <div className="close" onClick={this.props.hide} />
 
       <div className="box">
         <img src={logo} className="logo"/>
