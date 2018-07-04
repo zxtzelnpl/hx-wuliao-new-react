@@ -2,29 +2,22 @@ import './Alert.less';
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import * as actionTypes from '../actionTypes';
 
 class Alert extends Component{
 
-  componentWillUnmount(){
-    document.body.removeChild(this.node);
-  }
-
-  componentDidMount(){
-
-  }
-
-  componentDidUpdate(){
-
-  }
-
-  onHandleAnimationEnd(){
-
+  onHandleAnimationEnd = (e)=>{
+    const id = e.target.getAttribute('data-id');
+    this.props.dispatch({
+      type:actionTypes.DEL,
+      id
+    })
   }
 
   renderItems = ()=>{
     return this.props.myAlert.map(item=>{
       const {id,message,className} = item;
-      return <div key={id} className={`alert-child ${className}`}>{message}</div>
+      return <div key={id} data-id={id} className={`alert-child ${className}`} onAnimationEnd={this.onHandleAnimationEnd}>{message}</div>
     })
   }
 

@@ -37,6 +37,10 @@ const reducer = (state=initialState,action) =>{
           id:id++
         }
       ]
+    case actionTypes.DEL:
+      return state.filter(item=>{
+        return item.id!=action.id
+      })
     default:
       return state
   }

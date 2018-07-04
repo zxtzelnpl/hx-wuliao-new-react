@@ -17,9 +17,11 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       src: path.resolve(__dirname, 'src'),
-      component: 'src/components',
+      components: 'src/components',
       routes: 'src/routes',
       common: 'src/common',
+      assets: 'src/assets',
+      utils: 'src/utils',
     }
   },
 
@@ -107,7 +109,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'index',
       filename: 'index.html',
-      template: `src/index.tmpl.html`,
+      template: `src/index.tmpl.ejs`,
       chunks: ['index']
     }),
 
