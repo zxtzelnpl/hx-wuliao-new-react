@@ -4,8 +4,12 @@
   top:-215px;
 
   display:none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
   box-sizing: border-box;
-  padding:14px 19px;
+  padding:14px 8px;
   width:100%;
   height:210px;
   border:2px solid #d9d9d9;
@@ -14,11 +18,14 @@
   background:#fff;
 
   &.show{
-    display:block;
+    display:flex;
   }
-  img{
-    float:left;
-    display:block;
+  .emoji-one{
     cursor:pointer;
+    border:1px solid transparent;
+    padding:1px;
+    &:hover{
+      border-color:gray;
+    }
   }
 }

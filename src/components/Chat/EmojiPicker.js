@@ -16,7 +16,7 @@ class EmojiPicker extends Component {
   }
 
   _render(url,index){
-    return <img key={index} src={url} onClick={this.props.onClick}/>
+    return <img className="emoji-one" key={index} src={url} onClick={this.props.onClick}/>
   }
 
   render () {

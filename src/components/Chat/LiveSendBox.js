@@ -1,7 +1,6 @@
-import './LiveSendBox.less';
+import './SendBox.less';
 import React, {Component} from 'react';
 import EmojiPicker from './EmojiPicker';
-import CaiTiaoPicker from './CaiTiaoPicker';
 import moment from 'moment';
 import {trim} from 'src/utils/tools';
 
@@ -48,16 +47,6 @@ class SendBox extends Component {
 
   /**emoji面板**/
   addEmoji = (e) => {
-    this.chatBoxClear();
-
-    let htmlStr = this.input.innerHTML;
-    let url = e.target.src;
-    htmlStr += `<img src=${url} />`;
-    this.input.innerHTML = htmlStr;
-  }
-
-  /**caitiao面板**/
-  addCaitiao = (e) => {
     this.chatBoxClear();
 
     let htmlStr = this.input.innerHTML;
@@ -115,8 +104,8 @@ class SendBox extends Component {
 
   render() {
     return (
-      <div className="liveSendBoxWrap">
-        <div className="liveSendBox">
+      <div className="sendBoxWrap">
+        <div className="sendBox">
           <div
             className="inputBox"
             contentEditable={true}
@@ -127,7 +116,6 @@ class SendBox extends Component {
           />
           <div className="toolbar">
             <div className="emoji" onClick={this.pickerShow}/>
-            <div className="caitiao" onClick={this.pickerShow}/>
             <div className="pic">
               <label>
                 <input
@@ -143,10 +131,6 @@ class SendBox extends Component {
         <EmojiPicker
             onClick={this.addEmoji}
             show={this.state.picker === 'emoji'}
-        />
-        <CaiTiaoPicker
-            onClick={this.addCaitiao}
-            show={this.state.picker === 'caitiao'}
         />
       </div>
     )

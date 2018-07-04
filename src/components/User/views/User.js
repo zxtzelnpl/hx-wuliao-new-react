@@ -5,7 +5,7 @@ import Logout from './Logout';
 class User extends Component {
   render() {
     return (
-      <Login />
+      <Logout />
     )
   }
 }
