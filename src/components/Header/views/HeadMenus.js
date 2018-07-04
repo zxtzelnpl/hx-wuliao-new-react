@@ -15,7 +15,12 @@ class HeadMenus extends Component {
     console.log(this.props)
   }
 
+  // TODO:此处有待优化
   componentDidUpdate(preProps,preState){
+
+    console.log("props:"+(this.props===preProps));
+    console.log("state:"+(this.state===preState));
+
     if(this.state!==preState){
       const {firstSelectId,secondSelectId,thirdSelectId} = this.state;
       const {dispatch} = this.props;
@@ -38,6 +43,13 @@ class HeadMenus extends Component {
           dispatch(push(`/${firstSelectId}`))
         }
       }
+    }
+    else if(this.props!==preProps&&this.props.router.location.pathname === '/live'){
+      this.setState({
+        firstSelectId:undefined,
+        secondSelectId:undefined,
+        thirdSelectId:undefined
+      })
     }
   }
 
@@ -127,4 +139,8 @@ class HeadMenus extends Component {
   }
 }
 
-export default connect()(HeadMenus)
+const mapStateToProps = state =>({
+  router:state.router
+})
+
+export default connect(mapStateToProps)(HeadMenus)

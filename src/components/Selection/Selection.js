@@ -60,7 +60,7 @@ class Selection extends PureComponent {
     const {list,selectId} = this.props;
 
 
-    return this.props.list.map(item=>{
+    return list.map(item=>{
       const {key,text,id} = item;
       let dom;
       if(id !== selectId){
