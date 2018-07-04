@@ -32,7 +32,3 @@ render(
         <App/>
       </ConnectedRouter>
     </Provider>, root);
-
-console.log(store);
-
-export default store

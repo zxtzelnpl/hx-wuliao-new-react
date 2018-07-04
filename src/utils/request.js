@@ -1,6 +1,3 @@
-import store from '../index.js';
-import {actionTypes as alertActionTypes} from 'components/Alert';
-
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -66,10 +63,4 @@ export default function request(url, options) {
       }
       return response.json();
     })
-    .catch(e => {
-      store.dispatch({
-        type:alertActionTypes.ERROR,
-        message:e.message
-      })
-    });
 }
