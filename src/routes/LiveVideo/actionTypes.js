@@ -1,0 +1,3 @@
+export const REQUEST = 'CHAT_LIVE_VIDEO_REQUEST';
+export const RECEIVED = 'CHAT_LIVE_VIDEO_RECEIVED';
+export const ERROR = 'CHAT_LIVE_VIDEO_ERROR';
