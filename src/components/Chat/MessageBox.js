@@ -15,12 +15,14 @@ class MessageBox extends Component {
   }
 
   initialJRoll(){
-
     let loadMoreH = this.loadMore.current.clientHeight;
     let boxH = this.box.current.clientHeight;
-    let height = this.wrap.current.clientHeight;
+    let wrapH = this.wrap.current.clientHeight;
 
-    this.box.current.addEventListener('mousewheel',this.onWheelHandle);
+    let maxY = -(wrapH - boxH - loadMoreH);
+    let maxYMore =  -(wrapH - boxH);
+
+    this.box.current.addEventListener('mousewheel',MessageBox.onWheelHandle);
 
     this.jroll = new JRoll(this.box.current, {
       scrollX:false,
@@ -28,23 +30,26 @@ class MessageBox extends Component {
       scrollBarY: 'custom',
       scrollBarFade:false,
       minY:0,
-      maxY:-(height+loadMoreH-boxH)
+      maxY:maxY
     });
-    this.jroll.on('scrollEnd',()=>{
-      if(this.jroll.y<=-(height+loadMoreH - boxH)){
-        console.log('loadMore');
-        setTimeout(()=>{
-          console.log('loaded');
-        },1000)
-      }
-      else if(this.jroll.y<-(height-boxH)){
-        this.jroll.scrollTo(0,-(height - boxH),300);
+
+    this.jroll.on('scroll',()=>{
+      if(this.jroll.y<maxYMore){
+        this.loadMore.current.innerHTML = '加载更多数据';
+        this.jroll.maxScrollY = maxYMore;
       }
     })
+
+    /*this.jroll.on('scrollEnd',()=>{
+      if(this.jroll.y<maxYMore){
+        this.loadMore.current.innerHTML = '加载更多数据';
+        this.jroll.maxScrollY = maxYMore;
+      }
+    })*/
   }
 
   destoryJRoll(){
-    this.box.current.removeEventListener('mousewheel',this.onWheelHandle);
+    this.box.current.removeEventListener('mousewheel',MessageBox.onWheelHandle);
     this.jroll.destroy();
   }
 
@@ -60,11 +65,11 @@ class MessageBox extends Component {
 
   }
 
-  onWheelHandle(e){
+  static onWheelHandle(e){
     e.preventDefault()
   }
 
-  renderItems(){
+  renderItems = ()=>{
     let array = []
     for(let i = 0;i<20;i++){
       array.push(i)
@@ -76,13 +81,11 @@ class MessageBox extends Component {
 
   render() {
     return (
-      <div className="messageBoxWrap" >
-        <div className="messageBox" ref={this.box}>
-          <div className="messageBoxInnerWrap" ref={this.wrap}>
-            {this.renderItems()}
-            <div className="scrollUpToLoadMore" ref={this.loadMore}>
-              LoadMore
-            </div>
+      <div className="messageBox" ref={this.box}>
+        <div className="messageBoxWrap" ref={this.wrap}>
+          {this.renderItems()}
+          <div className="scrollUpToLoadMore" ref={this.loadMore}>
+            下拉加载
           </div>
         </div>
       </div>
