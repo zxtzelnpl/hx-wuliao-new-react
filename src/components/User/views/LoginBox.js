@@ -1,6 +1,6 @@
 import './LoginBox.less';
 
-import logo from 'src/assets/images/icon_noli_logo_r.png';
+import logo from 'src/assets/images/bigLogo.png';
 
 import React, {Component} from 'react';
 import {createPortal} from 'react-dom';
