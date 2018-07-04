@@ -63,7 +63,7 @@ export default function request(url, options) {
       }
       return response.json();
     })
-    .catch(e => {
-      console.log(e)
-    });
+    /*.catch(e => {
+      alert(e.message)
+    });*/
 }

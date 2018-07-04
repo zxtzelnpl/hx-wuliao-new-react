@@ -86,18 +86,26 @@
 
       padding-left: 10px;
       box-sizing: border-box;
-      width:50%;
+      width:150px;
       height:100%;
       border:1px solid #3f3f3f;
       border-radius: 15px;
     }
     .codeImg{
-      width:45%;
+      width:150px;
       height:100%;
       border-radius: 15px;
       background:#cccccc;
     }
-    .btn{
+    .noCodeImg{
+      margin-right:70px;
+      width:30px;
+      height:30px;
+      &.fetching{
+        animation:rotateIn 2s linear infinite;
+      }
+    }
+    .login{
       display:flex;
       align-items: center;
       justify-content: center;

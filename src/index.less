@@ -42,12 +42,19 @@ body{
   background:#f2f2f2;
 }
 
+
+
 .btn{
   cursor:pointer;
   &.disable{
     cursor: not-allowed;
   }
 }
+
+.disable{
+  cursor: not-allowed;
+}
+
 .primaryBtn{
   display:flex;
   align-items: center;
@@ -87,4 +94,37 @@ body{
 .siderRecommend{
   margin-top:15px;
   padding-bottom:20px;
+}
+
+
+/*这边是动画*/
+@keyframes rotateIn {
+  from {
+    transform-origin: center;
+    transform: rotate(0);
+  }
+
+  to {
+    transform-origin: center;
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes myAlert {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  5% {
+    transform: translateY(0);
+  }
+
+  95% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }

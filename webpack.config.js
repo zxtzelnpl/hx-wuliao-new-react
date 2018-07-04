@@ -89,8 +89,8 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        // context: ['/upload/**', '/outerapi/**','/captcha/**','/chat/**','/user/**','/assets/**'],
-        target: 'http://test.com',
+        context: ['/api/**'],
+        target: 'http://testpxzbs.jyzqsz.com',
         changeOrigin: true
       }
     ],
@@ -99,6 +99,5 @@ module.exports = {
     inline: true, // 实时刷新
     hot: true// 使用热加载插件 HotModuleReplacementPlugin
   },
-
   mode: 'development'
 }

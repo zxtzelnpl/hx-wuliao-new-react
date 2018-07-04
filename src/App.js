@@ -5,6 +5,7 @@ import rootSaga from './sagas';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 
+import {Alert} from 'components/Alert';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
 import {SiderChatBox} from 'components/SiderChatBox'
@@ -238,6 +239,7 @@ class App extends React.Component {
       >
         <Router>
           <div>
+            <Alert />
             <Header/>
             <Banner/>
             <Switch>
