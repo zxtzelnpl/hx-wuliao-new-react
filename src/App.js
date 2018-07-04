@@ -1,9 +1,5 @@
 import React from 'react';
-import {ConnectedRouter} from 'connected-react-router';
 import {Route, Redirect, HashRouter as Router, Switch} from 'react-router-dom';
-import rootSaga from './sagas';
-import {Provider} from 'react-redux';
-import configureStore from './store/configureStore';
 
 import {Alert} from 'components/Alert';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
@@ -60,8 +56,7 @@ import {
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
 
-const store = configureStore();
-store.runSaga(rootSaga);
+
 
 const productMenus = [
   {
@@ -233,11 +228,7 @@ const Comprehensive = ({match}) => (
 
 class App extends React.Component {
   render() {
-    return <Provider store={store}>
-      <ConnectedRouter
-        history={store.history}
-      >
-        <Router>
+    return (<Router>
           <div>
             <Alert />
             <Header/>
@@ -251,9 +242,7 @@ class App extends React.Component {
               <Route component={NotFound}/>
             </Switch>
           </div>
-        </Router>
-      </ConnectedRouter>
-    </Provider>
+        </Router>)
   }
 }
 

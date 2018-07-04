@@ -51,17 +51,23 @@ class LoginBox extends Component{
 
     if(!code||code.length!==4){
       return dispatch({
-        type:alertActionTypes.ERROR,
+        type:alertActionTypes.WARNING,
         message:'验证码是4位'
       })
     }
 
     if(!userName){
-      return alert('请输入用户名')
+      return dispatch({
+        type:alertActionTypes.WARNING,
+        message:'请输入用户名'
+      })
     }
 
     if(!passWord){
-      return alert('请输入密码')
+      return dispatch({
+        type:alertActionTypes.WARNING,
+        message:'请输入密码'
+      })
     }
 
     return this.props.dispatch({
