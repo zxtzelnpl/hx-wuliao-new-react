@@ -21,15 +21,22 @@ import {
   Detail as ProductMaterialMarketingRecordDetail
 } from './routes/MarketingMaterialRecord';
 
-/*策略素材-总页面*/
+/*策略素材*/
 import {
   StrategyMaterial
 } from './routes/StrategyMaterial';
+
+/*策略素材-早评*/
+import {
+  List as StrategyMaterialPredictionList,
+  Detail as StrategyMaterialPredictionDetail,
+} from './routes/StrategyMaterialPrediction';
 
 /*客服素材*/
 import {
   CustomerServiceVideo
 } from './routes/CustomerServiceMaterial';
+
 import {NotFound} from './routes/NotFound';
 
 /*研究素材*/
@@ -61,7 +68,6 @@ import {
 
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
-
 
 const productMenus = [
   {
@@ -144,7 +150,8 @@ const Product = ({match}) => {
 
 
         <Route exact path={`${match.path}/strategy`} component={StrategyMaterial}/>
-        <Route path={`${match.path}/strategy/prediction/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/strategy/prediction`} component={StrategyMaterialPredictionList}/>
+        <Route exact path={`${match.path}/strategy/prediction/detail/:id`} component={StrategyMaterialPredictionDetail}/>
 
         <Route path={`${match.path}/strategy/review/list`} component={NotFound}/>
 
