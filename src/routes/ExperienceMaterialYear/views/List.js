@@ -1,5 +1,3 @@
-import './List.less';
-
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
@@ -96,8 +94,8 @@ class List extends Component {
 
   render() {
     return (
-      <div className="materialMarketingListPage">
-        <PageTitle title={"战绩展示"}/>
+      <div>
+        <PageTitle title={"年报"}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -107,7 +105,7 @@ class List extends Component {
 
 
 const mapStateToProps = state =>({
-  data:state.MarketingMaterialRecord
+  data:state.ExperienceMaterialYear
 })
 
 export default connect(mapStateToProps)(List)

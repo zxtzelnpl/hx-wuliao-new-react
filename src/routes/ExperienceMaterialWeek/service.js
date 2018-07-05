@@ -1,13 +1,12 @@
 import request from '../../utils/request';
 
 const totalUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/strategy/review/total`
+  return `/api/product/${team}/${child}/experience/week/total`
 }
 
 const pageUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/strategy/review/page`
+  return `/api/product/${team}/${child}/experience/week/page`
 }
-
 
 
 export async function getTotal(urlParams) {

@@ -44,6 +44,18 @@ import {
   Detail as StrategyMaterialAnalysisDetail,
 } from './routes/StrategyMaterialAnalysis';
 
+/*体验素材-周报*/
+import {
+  List as ExperienceMaterialWeekList,
+  Detail as ExperienceMaterialWeekDetail,
+} from './routes/ExperienceMaterialWeek';
+
+/*体验素材-年报*/
+import {
+  List as ExperienceMaterialYearList,
+  Detail as ExperienceMaterialYearDetail,
+} from './routes/ExperienceMaterialYear';
+
 /*客服素材*/
 import {
   CustomerServiceVideo
@@ -172,9 +184,11 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/strategy/analysis/detail/:id`} component={StrategyMaterialAnalysisDetail}/>
 
 
-        <Route path={`${match.path}/experience/week/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/experience/week`} component={ExperienceMaterialWeekList}/>
+        <Route exact path={`${match.path}/experience/week/detail/:id`} component={ExperienceMaterialWeekDetail}/>
 
-        <Route path={`${match.path}/experience/year/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/experience/year`} component={ExperienceMaterialYearList}/>
+        <Route exact path={`${match.path}/experience/year/detail/:id`} component={ExperienceMaterialYearDetail}/>
 
 
         <Route path={`${match.path}/customer/analysis/list`} component={NotFound}/>

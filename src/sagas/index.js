@@ -6,6 +6,8 @@ import {saga as MarketingMaterialRecord} from '../routes/MarketingMaterialRecord
 import {saga as StrategyMaterialPrediction} from '../routes/StrategyMaterialPrediction';
 import {saga as StrategyMaterialAnalysis} from '../routes/StrategyMaterialAnalysis';
 import {saga as StrategyMaterialReview} from '../routes/StrategyMaterialReview';
+import {saga as ExperienceMaterialWeek} from '../routes/ExperienceMaterialWeek';
+import {saga as ExperienceMaterialYear} from '../routes/ExperienceMaterialYear';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -17,5 +19,7 @@ export default function* root() {
     fork(StrategyMaterialPrediction),
     fork(StrategyMaterialAnalysis),
     fork(StrategyMaterialReview),
+    fork(ExperienceMaterialWeek),
+    fork(ExperienceMaterialYear),
   ])
 };
