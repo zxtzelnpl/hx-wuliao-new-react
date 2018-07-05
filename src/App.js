@@ -11,9 +11,9 @@ import {Home} from './routes/Home';
 
 /*营销素材-产品案例*/
 import {
-  ProductList as ProductMaterialMarketingProductList,
-  ProductDetail as ProductMaterialMarketingProductDetail
-} from './routes/MarketingMaterial';
+  List as ProductMaterialMarketingProductList,
+  Detail as ProductMaterialMarketingProductDetail
+} from './routes/MarketingMaterialProduct';
 
 /*策略素材-总页面*/
 import {
@@ -131,9 +131,7 @@ const Product = ({match}) => {
       <SiderMenu match={match} menus={productMenus}/>
 
       <div className="productMaterialsContent">
-        <Route exact path={`${match.path}`} component={ProductMaterialMarketingProductList}/>
         <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
-        <Route path={`${match.path}/marketing/product/list`} component={ProductMaterialMarketingProductList}/>
         <Route path={`${match.path}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail}/>
 
         <Route path={`${match.path}/marketing/record/list`} component={ProductMaterialMarketingProductDetail}/>

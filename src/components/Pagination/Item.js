@@ -9,7 +9,7 @@ class Item extends Component {
 
     return (
       <li className="pageItem">
-        <Link className="pageItemA" to={`${url}/${id}`}>
+        <Link className="pageItemA" to={`detail/${id}`}>
           {title}
         </Link>
       </li>

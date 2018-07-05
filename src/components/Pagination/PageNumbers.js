@@ -41,7 +41,7 @@ class PageNumbers extends Component {
       &&li.className.indexOf('on')===-1
       &&li.className.indexOf('pageIndex')>-1
     ){
-      let page = e.target.innerHTML;
+      let page = Number.parseInt(e.target.innerHTML);
       this.props.turnPage(page);
     }
   }
@@ -77,11 +77,18 @@ class PageNumbers extends Component {
     }
 
     return (
-      <ul className="pageNumbers" onClick={this.handleClick}>
-        {dom}
-      </ul>
+      <div className="pageNumber">
+        <ul className="pageNumbers" onClick={this.handleClick}>
+          {dom}
+        </ul>
+      </div>
+
     )
   }
+}
+
+PageNumbers.defaultProps={
+  numberGroupSize:5
 }
 
 PageNumbers.propTypes={

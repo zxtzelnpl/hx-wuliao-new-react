@@ -1,12 +1,13 @@
-import './Loading.less'
+import './Loading.less';
 
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import refresh from 'assets/images/refresh.png';
 
 class Loading extends Component {
   render() {
     return (
       <div className="loading">
-        Loading
+        <img className="loading-img" src={refresh} alt=""/>
       </div>
     )
   }

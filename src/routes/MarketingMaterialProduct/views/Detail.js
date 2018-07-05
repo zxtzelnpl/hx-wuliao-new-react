@@ -4,6 +4,9 @@ import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import LittlePage from 'components/Pagination/LittlePage';
 
 class ProductDetail extends Component {
+
+
+
   render() {
     return (
       <div className="materialMarketingListPage">

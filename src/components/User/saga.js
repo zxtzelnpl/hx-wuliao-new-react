@@ -21,10 +21,10 @@ function* getCode() {
   }
 }
 
-function* login(data){
+function* login(action){
   try{
-    delete data.type;
-    const response = yield call(service.login,data);
+    delete action.type;
+    const response = yield call(service.login,action);
 
     yield put({
       type:actionTypes.RECEIVED,
