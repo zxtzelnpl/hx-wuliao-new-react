@@ -1,11 +1,12 @@
-import React, {Component} from 'react'
+import './pageHtmlContent.less';
+import React, {Component} from 'react';
 
 class PageHtmlContent extends Component {
   render() {
     const {htmlDom} = this.props;
 
     return (
-      <div dangerouslySetInnerHTML={{__html:htmlDom}}/>
+      <div className="pageHtmlContent" dangerouslySetInnerHTML={{__html:htmlDom}}/>
     )
   }
 }
