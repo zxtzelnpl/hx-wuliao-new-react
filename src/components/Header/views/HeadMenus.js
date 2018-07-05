@@ -31,11 +31,11 @@ class HeadMenus extends Component {
             let secondChoice = this.getChoice(firstChoice,secondSelectId);
             if(secondChoice.subs){
               if(thirdSelectId){
-                dispatch(push(`/${firstSelectId}/${secondSelectId}/${thirdSelectId}`))
+                dispatch(push(`/${firstSelectId}/${secondSelectId}/${thirdSelectId}/marketing/product`))
               }
             }
             else{
-              dispatch(push(`/${firstSelectId}/${secondSelectId}`))
+              dispatch(push(`/${firstSelectId}/${secondSelectId}/marketing/speechcraft`))
             }
           }
         }

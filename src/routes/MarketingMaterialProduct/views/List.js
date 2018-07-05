@@ -7,12 +7,21 @@ import PageTitle from 'components/PageTitle/PageTitle';
 import Page from 'components/Pagination/Page';
 import PageNumbers from 'components/Pagination/PageNumbers';
 
-
-
 class List extends Component {
 
   componentDidMount(){
+    this.intList();
+  }
+
+  componentDidUpdate(preProps){
+    if(preProps.match!==this.props.match){
+      this.intList();
+    }
+  }
+
+  intList = ()=>{
     const {match,data,dispatch} = this.props;
+    console.log(this.props.match)
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -27,33 +36,6 @@ class List extends Component {
         sort:'DESC'
       }
     })
-  }
-
-  componentDidUpdate(preProps){
-
-    if(preProps.match!==this.props.match){
-
-
-
-      const {match,data,dispatch} = this.props;
-
-      console.log(this.props.match)
-
-      const {pageSize,currentPage} = data;
-      let from = (currentPage-1)*pageSize;
-      let to = currentPage*pageSize;
-      console.log(data);
-
-      dispatch({
-        type:actionTypes.INIT,
-        urlParams:match.params,
-        params:{
-          from:from,
-          to:to,
-          sort:'DESC'
-        }
-      })
-    }
   }
 
   turnPage = (currentPage)=>{
@@ -81,7 +63,7 @@ class List extends Component {
     if(typeof data === 'object'){
       const {isFetching,total,list} =data;
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        const url = match.url+'/detail';
+        const url = match.url;
         dom = <Page
           list={list}
           url={url}

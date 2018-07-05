@@ -37,6 +37,7 @@ class PagePDFContent extends Component {
   }
 
   render() {
+    const {filepath}  = this.props;
     const { pageNumber, numPages } = this.state;
 
     const btnPrevClassName = classNames({
@@ -50,9 +51,9 @@ class PagePDFContent extends Component {
 
     return (
       <div className="pagePDFContent">
-        {typeof numPages!=='undefined'&&numPages>0&&<a className="download primaryBtn" target={"_blank"} href={"http://public.jyzqsh.com/test/test.pdf"}>下载</a>}
+        {typeof numPages!=='undefined'&&numPages>0&&<a className="download primaryBtn" target={"_blank"} href={filepath}>下载</a>}
         <Document
-          file="http://public.jyzqsh.com/test/test1.pdf"
+          file={filepath}
           onLoadSuccess={this.onDocumentLoad}
         >
           <Page pageNumber={pageNumber} />

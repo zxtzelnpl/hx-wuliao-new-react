@@ -89,7 +89,7 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        context: ['/api/**'],
+        context: ['/api/**','/ueditor/**'],
         target: 'http://testpxzbs.jyzqsz.com',
         changeOrigin: true
       }

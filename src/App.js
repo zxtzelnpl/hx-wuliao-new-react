@@ -132,7 +132,7 @@ const Product = ({match}) => {
 
       <div className="productMaterialsContent">
         <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
-        <Route path={`${match.path}/marketing/product/detail`} component={ProductMaterialMarketingProductDetail}/>
+        <Route exact path={`${match.path}/marketing/product/detail/:id`} component={ProductMaterialMarketingProductDetail}/>
 
         <Route path={`${match.path}/marketing/record/list`} component={ProductMaterialMarketingProductDetail}/>
         <Route path={`${match.path}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail}/>

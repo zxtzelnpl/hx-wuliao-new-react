@@ -4,29 +4,21 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Item from './Item';
 
-const datas=[
-
-]
-for(let i=0;i<3;i++){
-  datas.push({
-    id:`new${i}`,
-    title:'强势优选20180604高周转低负债互动资料',
-    path:'/abc'
-  })
-}
-
 class LittlePage extends Component {
   renderList(){
-    return datas.map(data=>(<Item key={data.id} {...data}/>))
+    const {list,url} = this.props;
+
+    return list.map(data=>(<Item key={data.id} {...data} url={url}/>))
   }
 
   render() {
+    const {url} = this.props;
     return (
       <div className="littlePage">
         <ul className="oneLittlePage">
           {this.renderList()}
         </ul>
-        <Link className="primaryBtn" to="/product/team_qsyx/duanxianbao/marketing/product/list">
+        <Link className="primaryBtn" to={url}>
           更多
         </Link>
       </div>

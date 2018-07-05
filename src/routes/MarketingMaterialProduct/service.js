@@ -8,9 +8,6 @@ const pageUrl = ({team,child})=>{
   return `/api/product/${team}/${child}/marketing/product/page`
 }
 
-const detailUrl = ({team,child,object})=>{
-  return `/api/product/${team}/${child}/marketing/${object}/page`
-}
 
 export async function getTotal(urlParams) {
 
@@ -24,7 +21,6 @@ export async function getTotal(urlParams) {
     method:'POST'
   });
 }
-
 
 export async function getPage(urlParams,params) {
 
