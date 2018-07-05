@@ -15,6 +15,12 @@ import {
   Detail as ProductMaterialMarketingProductDetail
 } from './routes/MarketingMaterialProduct';
 
+/*营销素材-战绩回顾*/
+import {
+  List as ProductMaterialMarketingRecordList,
+  Detail as ProductMaterialMarketingRecordDetail
+} from './routes/MarketingMaterialRecord';
+
 /*策略素材-总页面*/
 import {
   StrategyMaterial
@@ -55,7 +61,6 @@ import {
 
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
-
 
 
 const productMenus = [
@@ -134,8 +139,8 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
         <Route exact path={`${match.path}/marketing/product/detail/:id`} component={ProductMaterialMarketingProductDetail}/>
 
-        <Route path={`${match.path}/marketing/record/list`} component={ProductMaterialMarketingProductDetail}/>
-        <Route path={`${match.path}/marketing/record/detail`} component={ProductMaterialMarketingProductDetail}/>
+        <Route exact path={`${match.path}/marketing/record`} component={ProductMaterialMarketingRecordList}/>
+        <Route exact path={`${match.path}/marketing/record/detail/:id`} component={ProductMaterialMarketingRecordDetail}/>
 
 
         <Route exact path={`${match.path}/strategy`} component={StrategyMaterial}/>
