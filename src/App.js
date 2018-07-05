@@ -62,7 +62,11 @@ import {
   Detail as CustomerServiceAnalysisDetail,
 } from './routes/CustomerServiceAnalysis';
 
-
+/*客服素材-服务视频*/
+import {
+  List as CustomerServiceVideoList,
+  Detail as CustomerServiceVideoDetail,
+} from './routes/CustomerServiceVideo';
 
 import {NotFound} from './routes/NotFound';
 
@@ -193,6 +197,9 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/experience/year`} component={ExperienceMaterialYearList}/>
         <Route exact path={`${match.path}/experience/year/detail/:id`} component={ExperienceMaterialYearDetail}/>
 
+
+        <Route exact path={`${match.path}/customer/video`} component={CustomerServiceVideoList}/>
+        <Route exact path={`${match.path}/customer/video/detail/:id`} component={CustomerServiceVideoDetail}/>
 
         <Route exact path={`${match.path}/customer/analysis`} component={CustomerServiceAnalysisList}/>
         <Route exact path={`${match.path}/customer/analysis/detail/:id`} component={CustomerServiceAnalysisDetail}/>

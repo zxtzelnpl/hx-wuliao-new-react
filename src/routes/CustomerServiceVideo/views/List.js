@@ -4,6 +4,7 @@ import * as actionTypes from '../actionTypes';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Page from 'components/Pagination/Page';
 import PageNumbers from 'components/Pagination/PageNumbers';
+import {reducer as CustomerServiceVideo} from "src/routes/CustomerServiceVideo/index";
 
 class List extends Component {
 
@@ -95,7 +96,7 @@ class List extends Component {
   render() {
     return (
       <div>
-        <PageTitle title={"持仓分析"}/>
+        <PageTitle title={"服务视频"}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -105,7 +106,7 @@ class List extends Component {
 
 
 const mapStateToProps = state =>({
-  data:state.CustomerServiceAnalysis
+  data:state.CustomerServiceVideo
 })
 
 export default connect(mapStateToProps)(List)

@@ -9,6 +9,7 @@ import {saga as StrategyMaterialReview} from '../routes/StrategyMaterialReview';
 import {saga as ExperienceMaterialWeek} from '../routes/ExperienceMaterialWeek';
 import {saga as ExperienceMaterialYear} from '../routes/ExperienceMaterialYear';
 import {saga as CustomerServiceAnalysis} from '../routes/CustomerServiceAnalysis';
+import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -23,5 +24,6 @@ export default function* root() {
     fork(ExperienceMaterialWeek),
     fork(ExperienceMaterialYear),
     fork(CustomerServiceAnalysis),
+    fork(CustomerServiceVideo),
   ])
 };
