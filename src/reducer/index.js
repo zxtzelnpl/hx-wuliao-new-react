@@ -12,6 +12,7 @@ import {reducer as ExperienceMaterialYear} from '../routes/ExperienceMaterialYea
 import {reducer as ExperienceMaterialWeek} from '../routes/ExperienceMaterialWeek';
 import {reducer as CustomerServiceAnalysis} from '../routes/CustomerServiceAnalysis';
 import {reducer as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
+import {reducer as ResearchMaterial} from '../routes/ResearchMaterial';
 
 const rootReducer = combineReducers({
   myAlert,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   ExperienceMaterialWeek,
   CustomerServiceAnalysis,
   CustomerServiceVideo,
+  ResearchMaterial,
 });
 
 export default rootReducer;

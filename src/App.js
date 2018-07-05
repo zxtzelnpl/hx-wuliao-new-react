@@ -206,7 +206,7 @@ const Product = ({match}) => {
 
 
         <Route exact path={`${match.path}/research`} component={Research}/>
-        <Route path={`${match.path}/research/:select/detail/:id`} component={StockPoolDetail}/>
+        <Route path={`${match.path}/research/:select/:selectId/:id`} component={StockPoolDetail}/>
 
 
         <Route path={`${match.path}/replay`} component={NotFound}/>

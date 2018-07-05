@@ -10,12 +10,12 @@ class Selection extends Component {
 
   renderOptions(){
     const {list} = this.props;
-    return list.map(item=>(<option key={item.id} value={item.id}>{item.text}</option>))
+    return list.map(id=>(<option key={id} value={id} >{`第${id}期`}</option>))
   }
 
   render() {
     return (
-      <select className="stockSelection" onChange={this.onChange}>
+      <select className="stockSelection" onChange={this.onChange} value={this.props.selectId}>
         {this.renderOptions()}
       </select>
     )

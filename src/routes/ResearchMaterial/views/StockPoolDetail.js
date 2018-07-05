@@ -1,5 +1,7 @@
 import './StockPoolDetail.less';
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actionTypes from '../actionTypes';
 import PageTitle from 'components/PageTitle/PageTitle';
 
 class StockPoolDetail extends Component {
@@ -7,7 +9,9 @@ class StockPoolDetail extends Component {
   render() {
     const {match} = this.props;
     const {params} = match;
-    const {select} = params;
+    const {select,selectId,id} = params;
+
+    console.log(match);
 
     let title;
     if(select === 'primary'){
@@ -40,4 +44,8 @@ class StockPoolDetail extends Component {
   }
 }
 
-export default StockPoolDetail
+const mapStateToProps =state=>({
+  data:state.ResearchMaterial
+});
+
+export default connect(mapStateToProps)(StockPoolDetail);

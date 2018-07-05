@@ -8,7 +8,7 @@ class StockPoolItem extends Component {
     const {index,name,code,id,url} = this.props;
 
     return (
-      <Link className="stockPoolItem" to={`${url}/detail/${id}`}>
+      <Link className="stockPoolItem" to={`${url}/${id}`}>
         <span className="index">{index}</span>
         <span className="name">{name}</span>
         <span className="code">代码 ： {code}</span>

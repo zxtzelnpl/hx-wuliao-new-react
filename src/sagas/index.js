@@ -1,4 +1,4 @@
-import {take, put, call, fork, select, all, takeEvery} from 'redux-saga/effects'
+import {fork, all} from 'redux-saga/effects'
 import {saga as user} from '../components/User';
 import {saga as myAlert} from '../components/Alert';
 import {saga as MarketingMaterialProduct} from '../routes/MarketingMaterialProduct';
@@ -10,6 +10,7 @@ import {saga as ExperienceMaterialWeek} from '../routes/ExperienceMaterialWeek';
 import {saga as ExperienceMaterialYear} from '../routes/ExperienceMaterialYear';
 import {saga as CustomerServiceAnalysis} from '../routes/CustomerServiceAnalysis';
 import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
+import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -25,5 +26,6 @@ export default function* root() {
     fork(ExperienceMaterialYear),
     fork(CustomerServiceAnalysis),
     fork(CustomerServiceVideo),
+    fork(ResearchMaterial),
   ])
 };
