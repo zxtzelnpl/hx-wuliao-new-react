@@ -6,7 +6,6 @@ import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
 import LittlePage from 'components/Pagination/LittlePage';
 import * as server from '../service';
-import {reducer as MarketingMaterialRecord} from "src/routes/MarketingMaterialRecord/index";
 
 class ProductDetail extends Component {
 
