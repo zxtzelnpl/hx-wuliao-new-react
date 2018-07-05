@@ -32,6 +32,18 @@ import {
   Detail as StrategyMaterialPredictionDetail,
 } from './routes/StrategyMaterialPrediction';
 
+/*策略素材-收评*/
+import {
+  List as StrategyMaterialReviewList,
+  Detail as StrategyMaterialReviewDetail,
+} from './routes/StrategyMaterialReview';
+
+/*策略素材-盘中解盘评*/
+import {
+  List as StrategyMaterialAnalysisList,
+  Detail as StrategyMaterialAnalysisDetail,
+} from './routes/StrategyMaterialAnalysis';
+
 /*客服素材*/
 import {
   CustomerServiceVideo
@@ -153,9 +165,11 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/strategy/prediction`} component={StrategyMaterialPredictionList}/>
         <Route exact path={`${match.path}/strategy/prediction/detail/:id`} component={StrategyMaterialPredictionDetail}/>
 
-        <Route path={`${match.path}/strategy/review/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/strategy/review`} component={StrategyMaterialReviewList}/>
+        <Route exact path={`${match.path}/strategy/review/detail/:id`} component={StrategyMaterialReviewDetail}/>
 
-        <Route path={`${match.path}/strategy/analysis/list`} component={NotFound}/>
+        <Route exact path={`${match.path}/strategy/analysis`} component={StrategyMaterialAnalysisList}/>
+        <Route exact path={`${match.path}/strategy/analysis/detail/:id`} component={StrategyMaterialAnalysisDetail}/>
 
 
         <Route path={`${match.path}/experience/week/list`} component={NotFound}/>

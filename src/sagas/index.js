@@ -4,6 +4,8 @@ import {saga as myAlert} from '../components/Alert';
 import {saga as MarketingMaterialProduct} from '../routes/MarketingMaterialProduct';
 import {saga as MarketingMaterialRecord} from '../routes/MarketingMaterialRecord';
 import {saga as StrategyMaterialPrediction} from '../routes/StrategyMaterialPrediction';
+import {saga as StrategyMaterialAnalysis} from '../routes/StrategyMaterialAnalysis';
+import {saga as StrategyMaterialReview} from '../routes/StrategyMaterialReview';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -13,5 +15,7 @@ export default function* root() {
     fork(MarketingMaterialProduct),
     fork(MarketingMaterialRecord),
     fork(StrategyMaterialPrediction),
+    fork(StrategyMaterialAnalysis),
+    fork(StrategyMaterialReview),
   ])
 };
