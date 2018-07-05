@@ -12,7 +12,7 @@ class Login extends Component{
     this.handleClickShow = this.handleClickShow.bind(this);
     this.handleClickHide = this.handleClickHide.bind(this);
     this.state={
-      show:true
+      show:false
     }
   }
 

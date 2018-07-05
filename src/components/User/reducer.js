@@ -26,8 +26,12 @@ const reducer = (state=initialState,action) =>{
     case actionTypes.RECEIVED:
       return {
         ...state,
-        data:action.data,
+        userName:action.data.userName,
         isFetching:false
+      }
+    case actionTypes.LOGOUT:
+      return {
+
       }
     case actionTypes.ERROR:
       return {

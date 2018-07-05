@@ -2,4 +2,5 @@ export const REQUEST_CODE = 'USER_LOGIN_REQUEST_CODE';
 export const RECEIVED_CODE = 'USER_LOGIN_RECEIVED_CODE';
 export const REQUEST = 'USER_LOGIN_REQUEST';
 export const RECEIVED = 'USER_LOGIN_RECEIVED';
+export const LOGOUT = 'USER_LOGOUT';
 export const ERROR = 'USER_LOGIN_ERROR';

@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
 import rootSaga from './sagas';
 import configureStore from './store/configureStore';
-
+import myStorage from './utils/myStorage';
 
 if (process.env.NODE_ENV === 'development') {
   console.log(`%c${process.env.NODE_ENV}`, 'background:#00CC66;font-size:2em;color:yellow;font-weight:bold;');
@@ -18,7 +18,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
-const store = configureStore();
+
+const initalState = {
+  user:{
+    userName:myStorage.getItem('userName')
+  }
+}
+const store = configureStore(initalState);
 store.runSaga(rootSaga);
 const root = document.getElementById('root');
 

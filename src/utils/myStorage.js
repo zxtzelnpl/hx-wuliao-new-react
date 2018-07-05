@@ -5,6 +5,9 @@ let myStorage = {
   getItem:function(){
     console.info('localStorage无法使用')
   },
+  removeItem:function(){
+    console.info('localStorage无法使用')
+  },
   clear:function(){
     console.info('localStorage无法使用')
   }
