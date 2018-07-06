@@ -71,7 +71,6 @@ class MessageBoxWithoutLoadMore extends Component {
           {this.renderItems()}
         </div>
       </div>
-
     )
   }
 }
