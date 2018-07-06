@@ -1,25 +1,26 @@
 import './Chat.less';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PageTitle from 'components/PageTitle/PageTitle'
-import MessageBox from 'components/Chat/MessageBox';
-import LiveSendBox from 'components/Chat/LiveSendBox';
+import * as actionTypes from '../actionTypes';
+import PageTitle from 'components/PageTitle/PageTitle';
+import MessageBoxWithoutLoadMore from 'components/Chat/MessageBoxWithoutLoadMore';
+import SendBox from 'components/Chat/SendBox';
 
 class Chat extends Component {
 
   componentDidMount(){
-    fetch('http://test.com/api/livevideo/chat/page',{
-      method:'POST', //请求方式为POST
-      credentials: 'include',//所有请求都会带上cookie
-      header:{
-        Accept: 'application/json',                            //接受的数据为JSON格式
-        'Content-Type': 'application/json; charset=utf-8', //请求数据为JSON格式
+    this.init();
+  }
+
+  init = ()=>{
+    const {dispatch} = this.props;
+    const score = new Date(2018,1,1).getTime() * 10;
+    dispatch({
+      type:actionTypes.INIT,
+      params:{
+        score:score
       }
     })
-      .then(res=>res.json())
-      .then(json=>{
-        console.log(json);
-      })
   }
 
   render() {
@@ -30,9 +31,9 @@ class Chat extends Component {
     return (
       <div className="liveChat">
         <PageTitle title={'留言'}/>
-        <MessageBox />
+        <MessageBoxWithoutLoadMore />
         <div className="blank-height-20" />
-        <LiveSendBox />
+        <SendBox />
       </div>
     )
   }
@@ -40,7 +41,7 @@ class Chat extends Component {
 
 const mapStateToProps = (state)=>{
   return {
-    livechat:state.livechat
+    state:state.LiveVideo
   }
 }
 

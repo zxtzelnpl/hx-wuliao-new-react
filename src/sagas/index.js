@@ -13,7 +13,8 @@ import {saga as CustomerServiceAnalysis} from '../routes/CustomerServiceAnalysis
 import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
-// import {saga as home} from '../routes/Test/index';VideoReplay
+import {saga as LiveVideo} from '../routes/LiveVideo';
+// import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
   yield all([
@@ -31,5 +32,6 @@ export default function* root() {
     fork(CustomerServiceVideo),
     fork(ResearchMaterial),
     fork(VideoReplay),
+    fork(LiveVideo),
   ])
 };

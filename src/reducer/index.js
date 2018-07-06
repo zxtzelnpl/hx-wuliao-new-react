@@ -3,7 +3,6 @@ import {reducer as myAlert} from '../components/Alert';
 import {reducer as header} from '../components/Header';
 import {reducer as user} from '../components/User';
 import {reducer as SiderChatBox} from '../components/SiderChatBox';
-import {reducer as livechat} from '../routes/LiveVideo';
 import {reducer as MarketingMaterialProduct} from '../routes/MarketingMaterialProduct';
 import {reducer as MarketingMaterialRecord} from '../routes/MarketingMaterialRecord';
 import {reducer as StrategyMaterialPrediction} from '../routes/StrategyMaterialPrediction';
@@ -15,11 +14,11 @@ import {reducer as CustomerServiceAnalysis} from '../routes/CustomerServiceAnaly
 import {reducer as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {reducer as ResearchMaterial} from '../routes/ResearchMaterial';
 import {reducer as VideoReplay} from '../routes/VideoReplay';
+import {reducer as LiveVideo} from '../routes/LiveVideo';
 
 const rootReducer = combineReducers({
   myAlert,
   header,
-  livechat,
   user,
   SiderChatBox,
   MarketingMaterialProduct,
@@ -33,6 +32,7 @@ const rootReducer = combineReducers({
   CustomerServiceVideo,
   ResearchMaterial,
   VideoReplay,
+  LiveVideo,
 });
 
 export default rootReducer;

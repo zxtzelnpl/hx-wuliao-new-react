@@ -92,6 +92,11 @@ module.exports = {
         context: ['/api/**','/ueditor/**'],
         target: 'http://testpxzbs.jyzqsz.com',
         changeOrigin: true
+      },
+      {
+        context: ['/chat/**'],
+        target: 'http://pxzbs.jyzqsz.com',
+        changeOrigin: true
       }
     ],
     contentBase: './build', // 本地服务器所加载的页面所在的目录
