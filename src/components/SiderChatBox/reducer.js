@@ -1,42 +1,46 @@
 import * as actionTypes from './actionTypes'
 const initialState = {
-
+  currentPage:1,
+  pageSize:20
 }
 
 const reducer = (state=initialState,action) =>{
   switch (action.type){
-    case actionTypes.REQUEST_CODE:
+    case actionTypes.INIT:
       return {
         ...state,
-        isFetching:'code',
+        isFetching:true,
         error:null
-      }
-    case actionTypes.RECEIVED_CODE:
-      return {
-        ...state,
-        code:action.data.codeImg,
-        isFetching:false
       }
     case actionTypes.REQUEST:
       return {
         ...state,
-        isFetching:'login',
+        isFetching:true,
         error:null
       }
     case actionTypes.RECEIVED:
       return {
         ...state,
-        ...action.data,
-        isFetching:false
+        isFetching:false,
+        ...action.data
       }
-    case actionTypes.LOGOUT:
+    case actionTypes.ADD:
       return {
-
+        ...state,
+        isAdding:true,
+        ...action.data
+      }
+    case actionTypes.ADD_SUCCESS:
+      return {
+        ...state,
+        isAdding:false,
+        ...action.data
       }
     case actionTypes.ERROR:
       return {
         ...state,
         isFetching:false,
+        isAdding:false,
         error:action.error
       }
     default:

@@ -1,6 +1,7 @@
 import {fork, all} from 'redux-saga/effects'
 import {saga as user} from '../components/User';
 import {saga as myAlert} from '../components/Alert';
+import {saga as SiderChatBox} from '../components/SiderChatBox';
 import {saga as MarketingMaterialProduct} from '../routes/MarketingMaterialProduct';
 import {saga as MarketingMaterialRecord} from '../routes/MarketingMaterialRecord';
 import {saga as StrategyMaterialPrediction} from '../routes/StrategyMaterialPrediction';
@@ -16,6 +17,7 @@ import {saga as VideoReplay} from '../routes/VideoReplay';
 
 export default function* root() {
   yield all([
+    fork(SiderChatBox),
     fork(myAlert),
     fork(user),
     fork(MarketingMaterialProduct),
