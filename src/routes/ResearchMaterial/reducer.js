@@ -14,13 +14,17 @@ const reducer = (state=initialState,action) =>{
       return {
         ...state,
         isFetching:true,
-        error:null
+        error:null,
+        team:action.team,
+        child:action.child
       }
     case actionTypes.REQUEST:
       return {
         ...state,
         isFetching:true,
-        error:null
+        error:null,
+        team:action.team,
+        child:action.child
       }
     case actionTypes.RECEIVED:
       return {

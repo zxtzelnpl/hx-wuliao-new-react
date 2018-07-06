@@ -7,8 +7,18 @@ import StockPool from './StockPool';
 class ResearchMaterial extends Component {
 
   componentDidMount(){
-    if(!this.props.data.receivedAt){
+    if(!this.props.data.receivedAt||
+      this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child){
       this.init()
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
+      this.init();
     }
   }
 

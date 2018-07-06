@@ -43,6 +43,13 @@ class StockPoolDetail extends Component {
     const {select,id} = params;
 
     let pool=[],stock={};
+
+    if(params.team!==data.team||
+      params.child!==data.child
+    ){
+      return stock
+    }
+
     if(select === 'primary'){
       pool = data.primaryPhaseCurrent;
     }
@@ -53,7 +60,7 @@ class StockPoolDetail extends Component {
     pool.forEach((item,index)=>{
       if(item.id === id){
         stock = item;
-        stock.index = index;
+        stock.index = index+1;
       }
     })
 
@@ -73,7 +80,7 @@ class StockPoolDetail extends Component {
             <span className="name">{name}</span>
             <span className="code">代码 ： {code}</span>
           </div>
-          {<span className="primaryBtn">下载</span>}
+          {url&&<span className="primaryBtn">下载</span>}
         </div>
         <div className="content" dangerouslySetInnerHTML={{__html:content}}/>
       </div>
