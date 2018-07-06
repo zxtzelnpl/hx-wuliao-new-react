@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import { call ,put, takeLatest} from 'redux-saga/effects';
 import * as service from './service';
+import moment from 'moment';
 
 function* init(action){
   try{
@@ -45,6 +46,7 @@ function* getResearchAll(action){
       concentratePhaseId:action.concentratePhaseId,
       concentratePhaseList:concentrate.phase_list,
       concentratePhaseCurrent:concentrate.info,
+      receivedAt:moment().unix()
     }
 
     yield put({
@@ -70,6 +72,7 @@ function* getPrimaryPhase(action){
       primaryPhaseId:action.primaryPhaseId,
       primaryPhaseList:primary.phase_list,
       primaryPhaseCurrent:primary.info,
+      receivedAt:moment().unix()
     }
 
     yield put({
@@ -95,6 +98,7 @@ function* getConcentratePhase(action){
       concentratePhaseId:action.concentratePhaseId,
       concentratePhaseList:concentrate.phase_list,
       concentratePhaseCurrent:concentrate.info,
+      receivedAt:moment().unix()
     }
 
     yield put({

@@ -7,6 +7,12 @@ import StockPool from './StockPool';
 class ResearchMaterial extends Component {
 
   componentDidMount(){
+    if(!this.props.data.receivedAt){
+      this.init()
+    }
+  }
+
+  init(){
     const {match,dispatch} = this.props;
     dispatch({
       type:actionTypes.INIT,
