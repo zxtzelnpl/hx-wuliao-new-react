@@ -8,22 +8,27 @@ import PageNumbers from 'components/Pagination/PageNumbers';
 class List extends Component {
 
   componentDidMount(){
-    this.intList();
+    if(!this.props.data.receivedAt||
+      this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
+      this.intList();
+    }
   }
 
-  componentDidUpdate(preProps){
-    if(preProps.match!==this.props.match){
+  componentDidUpdate(){
+    if(this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
       this.intList();
     }
   }
 
   intList = ()=>{
     const {match,data,dispatch} = this.props;
-    console.log(this.props.match)
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
-    console.log(data);
 
     dispatch({
       type:actionTypes.INIT,

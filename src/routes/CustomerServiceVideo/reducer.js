@@ -10,7 +10,8 @@ const reducer = (state=initialState,action) =>{
       return {
         ...state,
         isFetching:true,
-        error:null
+        error:null,
+        ...action.urlParams
       }
     case actionTypes.REQUEST:
       return {

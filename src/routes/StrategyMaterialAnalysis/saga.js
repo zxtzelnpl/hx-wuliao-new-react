@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import { call ,put, takeLatest} from 'redux-saga/effects';
 import * as service from './service';
+import moment from "moment/moment";
 
 function* init(action){
 
@@ -12,7 +13,8 @@ function* init(action){
 
     const data = {
       list:page.list,
-      total:total.total
+      total:total.total,
+      receivedAt:moment().unix()
     }
 
     yield put({
@@ -37,7 +39,8 @@ function* getPage(action){
 
     const data = {
       list:page.list,
-      currentPage:currentPage
+      currentPage:currentPage,
+      receivedAt:moment().unix()
     }
 
     yield put({

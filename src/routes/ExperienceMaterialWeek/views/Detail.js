@@ -17,6 +17,13 @@ class Detail extends Component {
     const {match, data} = this.props;
     const {list} = data;
     let info = null;
+
+    if(match.params.team!==data.team||
+      match.params.child!==data.child
+    ){
+      return info
+    }
+
     if (typeof list === 'object') {
       list.forEach(item => {
         if (item.id == match.params.id) {
@@ -45,8 +52,8 @@ class Detail extends Component {
     if (info === null) {
       this.getInfoFromServer();
     }
-    if(typeof list !=='object'){
-      this.intList()
+    if(!this.props.data.receivedAt){
+      this.initList()
     }
   }
 

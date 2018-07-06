@@ -8,11 +8,18 @@ import PageNumbers from 'components/Pagination/PageNumbers';
 class List extends Component {
 
   componentDidMount(){
-    this.intList();
+    if(!this.props.data.receivedAt||
+      this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
+      this.intList();
+    }
   }
 
-  componentDidUpdate(preProps){
-    if(preProps.match!==this.props.match){
+  componentDidUpdate(){
+    if(this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
       this.intList();
     }
   }

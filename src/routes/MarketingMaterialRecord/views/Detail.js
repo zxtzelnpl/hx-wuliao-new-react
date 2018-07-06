@@ -17,6 +17,13 @@ class ProductDetail extends Component {
     const {match, data} = this.props;
     const {list} = data;
     let info = null;
+
+    if(match.params.team!==data.team||
+      match.params.child!==data.child
+    ){
+      return info
+    }
+
     if (typeof list === 'object') {
       list.forEach(item => {
         if (item.id == match.params.id) {
@@ -45,18 +52,16 @@ class ProductDetail extends Component {
     if (info === null) {
       this.getInfoFromServer();
     }
-    if(typeof list !=='object'){
-      this.intList()
+    if(!this.props.data.receivedAt){
+      this.initList()
     }
   }
 
-  intList = ()=>{
+  initList = ()=>{
     const {match,data,dispatch} = this.props;
-    console.log(this.props.match)
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
-    console.log(data);
 
     dispatch({
       type:actionTypes.INIT,
