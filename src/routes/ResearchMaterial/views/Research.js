@@ -14,6 +14,24 @@ class ResearchMaterial extends Component {
     })
   }
 
+  onPrimarySelect = (id)=>{
+    const {dispatch,match} = this.props;
+    dispatch({
+      type:actionTypes.REQUEST_PRIMARY,
+      primaryPhaseId:id,
+      ...match.params
+    })
+  }
+
+  onConcentrateSelect = (id)=>{
+    const {dispatch,match} = this.props;
+    dispatch({
+      type:actionTypes.REQUEST_CONCENTRATE,
+      concentratePhaseId:id,
+      ...match.params
+    })
+  }
+
   render() {
     const {match,data} = this.props;
     const {url} = match;
@@ -26,6 +44,7 @@ class ResearchMaterial extends Component {
           selectId={data.primaryPhaseId}
           list={data.primaryPhaseList}
           info={data.primaryPhaseCurrent}
+          onSelect={this.onPrimarySelect}
         />
 
         <div className="blank-height-10" />
@@ -36,6 +55,7 @@ class ResearchMaterial extends Component {
           selectId={data.concentratePhaseId}
           list={data.concentratePhaseList}
           info={data.concentratePhaseCurrent}
+          onSelect={this.onConcentrateSelect}
         />
       </div>
     )

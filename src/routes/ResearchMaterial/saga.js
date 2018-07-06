@@ -28,7 +28,7 @@ function* init(action){
   }
 }
 
-function* getResearch(action){
+function* getResearchAll(action){
   try{
     const primary = yield call(service.getPrimaryPhase,action,{
       phase:action.primaryPhaseId
@@ -60,8 +60,59 @@ function* getResearch(action){
   }
 }
 
+function* getPrimaryPhase(action){
+  try{
+    const primary = yield call(service.getPrimaryPhase,action,{
+      phase:action.primaryPhaseId
+    })
+
+    const data = {
+      primaryPhaseId:action.primaryPhaseId,
+      primaryPhaseList:primary.phase_list,
+      primaryPhaseCurrent:primary.info,
+    }
+
+    yield put({
+      type:actionTypes.RECEIVED,
+      data
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error
+    });
+  }
+}
+
+function* getConcentratePhase(action){
+  try{
+    const concentrate = yield call(service.getConcentratePhase,action,{
+      phase:action.concentratePhaseId
+    })
+
+    const data = {
+      concentratePhaseId:action.concentratePhaseId,
+      concentratePhaseList:concentrate.phase_list,
+      concentratePhaseCurrent:concentrate.info,
+    }
+
+    yield put({
+      type:actionTypes.RECEIVED,
+      data
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error
+    });
+  }
+}
 
 export default function* rootFetch() {
   yield takeLatest(actionTypes.INIT,init);
-  yield takeLatest(actionTypes.REQUEST,getResearch);
+  yield takeLatest(actionTypes.REQUEST,getResearchAll);
+  yield takeLatest(actionTypes.REQUEST_PRIMARY,getPrimaryPhase);
+  yield takeLatest(actionTypes.REQUEST_CONCENTRATE,getConcentratePhase);
 }

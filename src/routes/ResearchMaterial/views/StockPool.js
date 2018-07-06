@@ -1,5 +1,6 @@
 import './StockPool.less';
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import StockPoolItem from './StockPoolItem';
 import Selection from './Selection'
 
@@ -17,7 +18,7 @@ class StockPool extends Component {
   }
 
   handleSelect=(id)=>{
-    console.log(id);
+    this.props.onSelect(id)
   }
 
   render() {
@@ -44,6 +45,15 @@ class StockPool extends Component {
       </div>
     )
   }
+}
+
+StockPool.propTypes={
+  title:propTypes.string.isRequired,
+  url:propTypes.string.isRequired,
+  selectId:propTypes.string.isRequired,
+  list:propTypes.array.isRequired,
+  info:propTypes.array.isRequired,
+  onSelect:propTypes.func.isRequired,
 }
 
 export default StockPool
