@@ -70,13 +70,15 @@ class MessageBox extends Component {
   }
 
   renderItems = ()=>{
-    let array = []
-    for(let i = 0;i<20;i++){
-      array.push(i)
+    const {list,receivedAt,isFetching} = this.props;
+    let dom = <div className="none" />;
+    if(typeof list === 'object'){
+      dom = list.map(item=>{
+        return <MessageItem key={item}/>
+      })
     }
-    return array.map(item=>{
-      return <MessageItem key={item}/>
-    })
+
+    return dom;
   }
 
   render() {
@@ -85,7 +87,7 @@ class MessageBox extends Component {
         <div className="messageBoxWrap" ref={this.wrap}>
           {this.renderItems()}
           <div className="scrollUpToLoadMore" ref={this.loadMore}>
-            下拉加载
+            下拉加载更多数据
           </div>
         </div>
       </div>

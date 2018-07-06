@@ -19,10 +19,12 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
+let user = {}
+if(myStorage.getItem('user')){
+  user=JSON.parse(myStorage.getItem('user'));
+}
 const initalState = {
-  user:{
-    userName:myStorage.getItem('userName')
-  }
+  user:user
 }
 const store = configureStore(initalState);
 store.runSaga(rootSaga);

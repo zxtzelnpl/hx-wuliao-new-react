@@ -19,17 +19,9 @@ class SendBox extends Component {
     }
   }
 
-  sendMessage () {
-    let name = this.props.account || 'testtest123'
+  sendMessage = () => {
     let content = this.input.innerHTML
-    let time = moment().format('YYYY-MM-DD HH:mm:ss')
-    if (name === '') {
-      return alert('需要登录后才可发送消息')
-    }
-    if (trim(content) === '') {
-      return alert('您未输入任何内容')
-    }
-
+    this.props.sendMessage(content);
   }
 
   /**彩条面板和emoji面板交换显示**/
@@ -81,7 +73,7 @@ class SendBox extends Component {
           />
           <div className="toolbar">
             <div className="emoji" onClick={this.emojiShow}/>
-            <div className="send-btn" onClick={this.sendMessage.bind(this)}>
+            <div className="send-btn" onClick={this.sendMessage}>
               发送
             </div>
           </div>

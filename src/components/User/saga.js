@@ -40,11 +40,11 @@ function* login(action){
 }
 
 function* addLocal(action){
-  myStorage.setItem('userName',action.data.userName);
+  myStorage.setItem('user',JSON.stringify(action.data));
 }
 
 function* removeLocal(){
-  myStorage.removeItem('userName');
+  myStorage.removeItem('user');
 }
 
 export default function* rootFetch() {
