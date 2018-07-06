@@ -14,7 +14,6 @@ class StockPool extends Component {
     const {url,info,selectId} = this.props;
 
     return info.map((item,index)=>(<StockPoolItem {...item} key={item.id} index={index} url={`${url}/${selectId}`}/>))
-
   }
 
   handleSelect=(id)=>{
