@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom';
 
 class Item extends Component {
   render() {
-    const {url,title,id} = this.props;
+    const {linkUrl,title,id} = this.props;
 
     return (
       <li className="pageItem">
-        <Link className="pageItemA" to={`${url}/detail/${id}`}>
+        <Link className="pageItemA" to={`${linkUrl}/detail/${id}`}>
           {title}
         </Link>
       </li>

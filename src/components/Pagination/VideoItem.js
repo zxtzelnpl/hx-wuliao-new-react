@@ -1,19 +1,19 @@
 import './VideoItem.less';
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import poster from 'assets/images/videoItemImg.jpg';
 
 class VideoItem extends Component {
 
 
   render() {
-    const {poster,videoSrc,title,brief} = this.props;
+    const {url,title,brief} = this.props;
 
     return (
-      <div className="videoItem" to={videoSrc}>
+      <a className="videoItem" href={url} target="_blank">
         <img className="img" src={poster} />
         <div className="subTitle">{title}</div>
-        <p className="text">{brief}</p>
-      </div>
+        {brief&&<p className="text">{brief}</p>}
+      </a>
     )
   }
 }

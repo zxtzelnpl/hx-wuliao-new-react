@@ -9,7 +9,7 @@ class Page extends Component {
 
   renderList(){
     const {url,list} = this.props;
-    return list.map(data=>(<Item key={data.id} url={url} {...data}/>))
+    return list.map(data=>(<Item key={data.id} linkUrl={url} {...data}/>))
   }
 
   render() {

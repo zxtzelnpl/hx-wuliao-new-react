@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
 import PageTitle from 'components/PageTitle/PageTitle';
-import Page from 'components/Pagination/Page';
+import VideoPage from 'components/Pagination/VideoPage';
 import PageNumbers from 'components/Pagination/PageNumbers';
-import {reducer as CustomerServiceVideo} from "src/routes/CustomerServiceVideo/index";
 
 class List extends Component {
 
@@ -63,7 +62,7 @@ class List extends Component {
       const {isFetching,total,list} =data;
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
         const url = match.url;
-        dom = <Page
+        dom = <VideoPage
           list={list}
           url={url}
           isFetching={isFetching}
