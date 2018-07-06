@@ -65,7 +65,6 @@ import {
 /*客服素材-服务视频*/
 import {
   List as CustomerServiceVideoList,
-  Detail as CustomerServiceVideoDetail,
 } from './routes/CustomerServiceVideo';
 
 import {NotFound} from './routes/NotFound';
@@ -75,6 +74,12 @@ import {
   Research,
   StockPoolDetail
 } from './routes/ResearchMaterial';
+
+/*视频回播*/
+import {
+  List as VideoReplayList,
+} from './routes/VideoReplay';
+
 
 /*营销素材-营销话术*/
 import {
@@ -208,7 +213,7 @@ const Product = ({match}) => {
         <Route path={`${match.path}/research/:select/:selectId/:id`} component={StockPoolDetail}/>
 
 
-        <Route path={`${match.path}/replay`} component={NotFound}/>
+        <Route path={`${match.path}/replay`} component={VideoReplayList}/>
       </div>
 
       <div className="siderRecommend">
