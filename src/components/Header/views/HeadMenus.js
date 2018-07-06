@@ -7,19 +7,24 @@ import totalMenus from '../datas';
 
 class HeadMenus extends Component {
 
-  state={
-
-  }
-
-  componentDidMount() {
-    console.log(this.props)
+  constructor(props){
+    super(props);
+    this.state={};
+    let array = props.router.location.pathname.split('/');
+    array.shift();
+    if(array[0] === 'product'){
+      this.state.firstSelectId = array[0];
+      this.state.secondSelectId = array[1];
+      this.state.thirdSelectId = array[2];
+    }
+    else if(array[0] === 'comprehensive'){
+      this.state.firstSelectId = array[0];
+      this.state.secondSelectId = array[1];
+    }
   }
 
   // TODO:此处有待优化
   componentDidUpdate(preProps,preState){
-
-    console.log("props:"+(this.props===preProps));
-    console.log("state:"+(this.state===preState));
 
     if(this.state!==preState){
       const {firstSelectId,secondSelectId,thirdSelectId} = this.state;
