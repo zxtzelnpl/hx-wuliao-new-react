@@ -71,7 +71,7 @@ class MessageBox extends Component {
 
   renderItems = ()=>{
     const {list,receivedAt,isFetching} = this.props;
-    let dom = <div className="none" />;
+    let dom = <div>暂时没有更多数据</div>;
     if(typeof list === 'object'){
       dom = list.map(item=>{
         return <MessageItem key={item}/>
@@ -82,6 +82,9 @@ class MessageBox extends Component {
   }
 
   render() {
+
+    console.log(this.props)
+
     return (
       <div className="messageBox" ref={this.box}>
         <div className="messageBoxWrap" ref={this.wrap}>

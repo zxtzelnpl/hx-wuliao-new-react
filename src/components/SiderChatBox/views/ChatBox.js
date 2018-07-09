@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
 import {actionTypes as alertActionTypes} from 'components/Alert';
 import MessageBox from 'components/Chat/MessageBox';
+import MessageBoxWithoutLoadMore from 'components/Chat/MessageBoxWithoutLoadMore';
 import SendBox from 'components/Chat/SendBox';
 
 class ChatBox extends Component {
@@ -29,8 +30,6 @@ class ChatBox extends Component {
   sendMessage = (content)=>{
     const {dispatch,user} = this.props;
 
-    console.log(user)
-
     if(!user.id){
       dispatch({
         type:alertActionTypes.ERROR,
@@ -53,8 +52,8 @@ class ChatBox extends Component {
 
     return (
       <div className="chatBox">
-        <MessageBox
-          messages = {data.list}
+        <MessageBoxWithoutLoadMore
+          list = {data.list}
           receivedAt = {data.receivedAt}
           isFetching = {data.isFetching}
         />
