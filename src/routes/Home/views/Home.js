@@ -1,6 +1,8 @@
 import './Home.less';
 
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actionTypes} from 'routes/VideoReplay'
 import LinkIcon from './LinkIcon';
 import FeaturedVideo from './FeaturedVideo';
 import Carousel from './Carousel';
@@ -20,6 +22,13 @@ class Home extends Component {
   }
 
   componentDidMount(){
+    if(this.props.VideoReplay.receivedAt){
+
+    }
+  }
+
+  renderVideos = ()=>{
+    console.log(this.props.VideoReplay)
   }
 
   render() {
@@ -97,4 +106,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state=>({
+  VideoReplay:state.VideoReplay
+});
+
+export default connect(mapStateToProps)(Home);

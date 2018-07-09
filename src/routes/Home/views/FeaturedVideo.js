@@ -2,9 +2,11 @@ import './FeaturedVideo.less';
 
 import React, {Component} from 'react';
 
+
 import img from 'assets/images/homeVideoShot.jpg';
 
 class FeaturedVideo extends Component {
+
   render() {
     return (
       <div className="homeFeaturedVideo">
@@ -16,4 +18,4 @@ class FeaturedVideo extends Component {
   }
 }
 
-export default FeaturedVideo
+export default FeaturedVideo;
