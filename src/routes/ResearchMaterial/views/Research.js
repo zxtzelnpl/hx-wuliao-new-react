@@ -7,7 +7,9 @@ import StockPool from './StockPool';
 class ResearchMaterial extends Component {
 
   componentDidMount(){
-    if(!this.props.data.receivedAt||
+    if(this.props.data.primaryPhaseList.length===0||
+      this.props.data.concentratePhaseList.length===0||
+      !this.props.data.receivedAt||
       this.props.data.team!==this.props.match.params.team||
       this.props.data.child!==this.props.match.params.child){
       this.init()
@@ -26,7 +28,7 @@ class ResearchMaterial extends Component {
     const {match,dispatch} = this.props;
     dispatch({
       type:actionTypes.INIT,
-      ...match.params
+      urlParams:match.params
     })
   }
 
@@ -34,8 +36,10 @@ class ResearchMaterial extends Component {
     const {dispatch,match} = this.props;
     dispatch({
       type:actionTypes.REQUEST_PRIMARY,
-      primaryPhaseId:id,
-      ...match.params
+      urlParams:match.params,
+      params:{
+        phase:id
+      }
     })
   }
 
@@ -43,8 +47,10 @@ class ResearchMaterial extends Component {
     const {dispatch,match} = this.props;
     dispatch({
       type:actionTypes.REQUEST_CONCENTRATE,
-      concentratePhaseId:id,
-      ...match.params
+      urlParams:match.params,
+      params:{
+        phase:id
+      }
     })
   }
 

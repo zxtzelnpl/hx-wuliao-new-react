@@ -13,29 +13,49 @@ const reducer = (state=initialState,action) =>{
     case actionTypes.INIT:
       return {
         ...state,
-        isFetching:true,
+        isFetchingPrimary:true,
+        isFetchingConcentrate:true,
+        ...action.urlParams,
         error:null,
-        team:action.team,
-        child:action.child
       }
-    case actionTypes.REQUEST:
+    case actionTypes.GET_TOTAL:
       return {
         ...state,
-        isFetching:true,
-        error:null,
-        team:action.team,
-        child:action.child
-      }
-    case actionTypes.RECEIVED:
-      return {
-        ...state,
-        isFetching:false,
+        ...action.urlParams,
         ...action.data
+      }
+    case actionTypes.REQUEST_PRIMARY:
+      return {
+        ...state,
+        isFetchingPrimary:true,
+        ...action.urlParams,
+        error:null
+      }
+    case actionTypes.RECEIVED_PRIMARY:
+      return {
+        ...state,
+        isFetchingPrimary:false,
+        ...action.data,
+
+      }
+    case actionTypes.REQUEST_CONCENTRATE:
+      return {
+        ...state,
+        isFetchingConcentrate:true,
+        ...action.urlParams,
+        error:null
+      }
+    case actionTypes.RECEIVED_CONCENTRATE:
+      return {
+        ...state,
+        isFetchingConcentrate:false,
+        ...action.data,
       }
     case actionTypes.ERROR:
       return {
         ...state,
-        isFetching:false,
+        isFetchingPrimary:false,
+        isFetchingConcentrate:false,
         error:action.error
       }
     default:

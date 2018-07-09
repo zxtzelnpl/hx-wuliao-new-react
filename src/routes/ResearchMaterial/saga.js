@@ -1,122 +1,124 @@
 import * as actionTypes from './actionTypes';
-import { call ,put, takeLatest} from 'redux-saga/effects';
+import {call, put, takeLatest, select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
-function* init(action){
-  try{
-    const primary = yield call(service.getPrimaryPhase,action,{
-      phase:70
-    })
-
-    const concentrate = yield call(service.getConcentratePhase,action,{
-      phase:70
-    })
-
-    yield put({
-      type:actionTypes.REQUEST,
-      team:action.team,
-      child:action.child,
-      primaryPhaseId:primary.phase_list.pop(),
-      concentratePhaseId:concentrate.phase_list.pop(),
-    })
+function getLast(arr) {
+  if (Array.isArray(arr)) {
+    let len = arr.length;
+    return arr[len - 1]
   }
-  catch(error){
+}
+
+function* init(action) {
+  try {
+    const primary = yield call(service.getPrimaryTotal, action.urlParams)
+
+    const concentrate = yield call(service.getConcentrateTotal, action.urlParams)
+
+    const ResearchMaterial = yield select(state => state.ResearchMaterial);
+
+    console.warn(ResearchMaterial);
+
+    let {primaryPhaseId, primaryPhaseCurrent, concentratePhaseId, concentratePhaseCurrent} = ResearchMaterial;
+
+    const yieldArray = [];
+
+    if (primaryPhaseCurrent.length === 0) {
+      if (primaryPhaseId === '') {
+        primaryPhaseId = getLast(primary.phase_list);
+      }
+      yieldArray.push(put({
+        type: actionTypes.REQUEST_PRIMARY,
+        urlParams: action.urlParams,
+        params: {
+          phase: primaryPhaseId,
+        }
+      }))
+    }
+
+    if (concentratePhaseCurrent.length === 0) {
+      if (concentratePhaseId === '') {
+        concentratePhaseId = getLast(concentrate.phase_list);
+      }
+      yieldArray.push(put({
+        type: actionTypes.REQUEST_CONCENTRATE,
+        urlParams: action.urlParams,
+        params: {
+          phase: concentratePhaseId,
+        }
+      }))
+    }
+
+
+    yield [
+      put({
+        type: actionTypes.GET_TOTAL,
+        urlParams: action.urlParams,
+        data: {
+          primaryPhaseList: primary.phase_list.reverse(),
+          concentratePhaseList: concentrate.phase_list.reverse()
+        }
+      }),
+      ...yieldArray
+    ]
+  }
+  catch (error) {
     yield put({
-      type:actionTypes.ERROR,
+      type: actionTypes.ERROR,
       error
     });
   }
 }
 
-function* getResearchAll(action){
-  try{
-    const primary = yield call(service.getPrimaryPhase,action,{
-      phase:action.primaryPhaseId
-    })
-
-    const concentrate = yield call(service.getConcentratePhase,action,{
-      phase:action.concentratePhaseId
-    })
+function* getPrimaryPhase(action) {
+  try {
+    const response = yield call(service.getPrimaryPhase, action.urlParams, action.params)
 
     const data = {
-      primaryPhaseId:action.primaryPhaseId,
-      primaryPhaseList:primary.phase_list,
-      primaryPhaseCurrent:primary.info,
-      concentratePhaseId:action.concentratePhaseId,
-      concentratePhaseList:concentrate.phase_list,
-      concentratePhaseCurrent:concentrate.info,
-      receivedAt:moment().unix()
+      primaryPhaseId: action.params.phase,
+      primaryPhaseCurrent: response.info,
+      receivedAt: moment().unix()
     }
 
     yield put({
-      type:actionTypes.RECEIVED,
+      type: actionTypes.RECEIVED_PRIMARY,
       data
     })
   }
-  catch(error){
+  catch (error) {
     yield put({
-      type:actionTypes.ERROR,
+      type: actionTypes.ERROR,
       error
     });
   }
 }
 
-function* getPrimaryPhase(action){
-  try{
-    const primary = yield call(service.getPrimaryPhase,action,{
-      phase:action.primaryPhaseId
-    })
+function* getConcentratePhase(action) {
+  try {
+    const response = yield call(service.getConcentratePhase, action.urlParams, action.params)
 
     const data = {
-      primaryPhaseId:action.primaryPhaseId,
-      primaryPhaseList:primary.phase_list,
-      primaryPhaseCurrent:primary.info,
-      receivedAt:moment().unix()
+      concentratePhaseId: action.params.phase,
+      concentratePhaseCurrent: response.info,
+      receivedAt: moment().unix()
     }
 
     yield put({
-      type:actionTypes.RECEIVED,
+      type: actionTypes.RECEIVED_CONCENTRATE,
       data
     })
   }
-  catch(error){
+  catch (error) {
     yield put({
-      type:actionTypes.ERROR,
-      error
-    });
-  }
-}
-
-function* getConcentratePhase(action){
-  try{
-    const concentrate = yield call(service.getConcentratePhase,action,{
-      phase:action.concentratePhaseId
-    })
-
-    const data = {
-      concentratePhaseId:action.concentratePhaseId,
-      concentratePhaseList:concentrate.phase_list,
-      concentratePhaseCurrent:concentrate.info,
-      receivedAt:moment().unix()
-    }
-
-    yield put({
-      type:actionTypes.RECEIVED,
-      data
-    })
-  }
-  catch(error){
-    yield put({
-      type:actionTypes.ERROR,
+      type: actionTypes.ERROR,
       error
     });
   }
 }
 
 export default function* rootFetch() {
-  yield takeLatest(actionTypes.INIT,init);
-  yield takeLatest(actionTypes.REQUEST,getResearchAll);
-  yield takeLatest(actionTypes.REQUEST_PRIMARY,getPrimaryPhase);
-  yield takeLatest(actionTypes.REQUEST_CONCENTRATE,getConcentratePhase);
+  yield takeLatest(actionTypes.INIT, init);
+  yield takeLatest(actionTypes.REQUEST_PRIMARY, getPrimaryPhase);
+  yield takeLatest(actionTypes.REQUEST_CONCENTRATE, getConcentratePhase);
 }

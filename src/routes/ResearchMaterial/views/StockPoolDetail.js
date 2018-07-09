@@ -10,20 +10,30 @@ class StockPoolDetail extends Component {
     const stock = this.getStock();
     console.log(stock);
     if(!stock.code){
-      this.init();
+      this.getStockFromServer();
     }
   }
 
-  init(){
+  getStockFromServer(){
     const {match,dispatch} = this.props;
-    const {params} = match;
-    const {selectId} = params;
-    dispatch({
-      type:actionTypes.REQUEST,
-      ...match.params,
-      primaryPhaseId:selectId,
-      concentratePhaseId:selectId
-    })
+    if(this.props.match.params.select === 'primary'){
+      dispatch({
+        type:actionTypes.REQUEST_PRIMARY,
+        urlParams:match.params,
+        params:{
+          phase:match.params.selectId
+        }
+      })
+    }
+    else if(this.props.match.params.select === 'primary'){
+      dispatch({
+        type:actionTypes.REQUEST_CONCENTRATE,
+        urlParams:match.params,
+        params:{
+          phase:match.params.selectId
+        }
+      })
+    }
   }
 
   getTitle = ()=>{
