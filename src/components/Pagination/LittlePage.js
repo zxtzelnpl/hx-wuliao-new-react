@@ -8,7 +8,7 @@ class LittlePage extends Component {
   renderList(){
     const {list,url} = this.props;
 
-    return list.map(data=>(<Item key={data.id} {...data} url={url}/>))
+    return list.map(data=>(<Item key={data.id} {...data} linkUrl={url}/>))
   }
 
   render() {

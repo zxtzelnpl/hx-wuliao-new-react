@@ -13,10 +13,6 @@ export async function getTotal(urlParams) {
 
   const url = totalUrl(urlParams);
 
-  console.log(url)
-  console.log(url)
-  console.log(url)
-
   return request(url,{
     method:'POST'
   });

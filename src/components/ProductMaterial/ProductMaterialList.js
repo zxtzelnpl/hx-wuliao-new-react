@@ -1,28 +1,36 @@
-import './Stock.less';
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actionTypes from '../actionTypes';
+import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
-import StockTable from 'components/StockTable/StockTable';
+import Page from 'components/Pagination/Page';
 import PageNumbers from 'components/Pagination/PageNumbers';
 
-class ServiceStock extends Component {
-
+class ProductMaterialList extends Component {
   componentDidMount(){
-    if(!this.props.data.receivedAt){
+    if(!this.props.data.receivedAt||
+      this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
+      this.intList();
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.props.data.team!==this.props.match.params.team||
+      this.props.data.child!==this.props.match.params.child
+    ){
       this.intList();
     }
   }
 
   intList = ()=>{
-    const {data,dispatch} = this.props;
+    const {match,data,dispatch,actionTypes} = this.props;
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
-    console.log(data);
 
     dispatch({
       type:actionTypes.INIT,
+      urlParams:match.params,
       params:{
         from:from,
         to:to,
@@ -32,13 +40,14 @@ class ServiceStock extends Component {
   }
 
   turnPage = (currentPage)=>{
-    const {data,dispatch} = this.props;
+    const {match,data,dispatch,actionTypes} = this.props;
     const {pageSize} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
 
     dispatch({
       type:actionTypes.REQUEST,
+      urlParams:match.params,
       params:{
         from:from,
         to:to,
@@ -49,14 +58,16 @@ class ServiceStock extends Component {
   }
 
   renderPage = ()=>{
-    const {data} = this.props;
-    let dom = <div className="no-data">暂无数据</div>;
+    const {match,data} = this.props;
+    let dom = <div>暂无数据</div>;
 
     if(typeof data === 'object'){
       const {isFetching,total,list} =data;
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        dom = <StockTable
+        const url = match.url;
+        dom = <Page
           list={list}
+          url={url}
           isFetching={isFetching}
         />
       }
@@ -85,9 +96,11 @@ class ServiceStock extends Component {
   }
 
   render() {
+    const {title} = this.props;
+
     return (
-      <div className="stock-list">
-        <PageTitle title={"服务票"}/>
+      <div className="materialMarketingListPage">
+        <PageTitle title={title}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -95,8 +108,12 @@ class ServiceStock extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  data:state.InvestmentServiceStock
-})
+ProductMaterialList.propTypes={
+  title:propTypes.string.isRequired,
+  data:propTypes.object.isRequired,
+  match:propTypes.object.isRequired,
+  dispatch:propTypes.func.isRequired,
+  actionTypes:propTypes.object.isRequired
+}
 
-export default connect(mapStateToProps)(ServiceStock)
+export default ProductMaterialList
