@@ -84,7 +84,7 @@ import {
 import {
   List as SpeechCraft,
   Detail as SpeechCraftDetail
-} from './routes/SpeechCraft';
+} from './routes/ComprehensiveSpeechCraft';
 
 /*营销素材-营销软文*/
 import {

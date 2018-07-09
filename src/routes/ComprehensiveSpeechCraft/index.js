@@ -8,8 +8,8 @@ import reducer from './reducer';
 import saga from './saga';
 
 const mapStateToProps = state =>({
-  data:state.ComprehensiveMarketingArticle,
-  title:'营销图片',
+  data:state.SpeechCraft,
+  title:'营销话术',
   actionTypes,
   service
 });

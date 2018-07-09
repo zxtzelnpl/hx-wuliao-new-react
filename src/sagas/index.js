@@ -14,7 +14,7 @@ import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
 import {saga as LiveVideo} from '../routes/LiveVideo';
-import {saga as SpeechCraft} from '../routes/SpeechCraft';
+import {saga as SpeechCraft} from '../routes/ComprehensiveSpeechCraft';
 import {saga as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
 import {saga as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
 import {saga as InvestmentTextStrategy} from '../routes/InvestmentTextStrategy';

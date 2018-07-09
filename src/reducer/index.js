@@ -15,7 +15,7 @@ import {reducer as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {reducer as ResearchMaterial} from '../routes/ResearchMaterial';
 import {reducer as VideoReplay} from '../routes/VideoReplay';
 import {reducer as LiveVideo} from '../routes/LiveVideo';
-import {reducer as SpeechCraft} from '../routes/SpeechCraft';
+import {reducer as SpeechCraft} from '../routes/ComprehensiveSpeechCraft';
 import {reducer as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
 import {reducer as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
 import {reducer as InvestmentTextStrategy} from '../routes/InvestmentTextStrategy';

@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actionTypes from '../actionTypes';
-import ComprehensiveMaterialList from 'components/ComprehensiveMaterial/ComprehensiveMaterialList'
+import React,{Component} from "react";
+import propTypes from 'prop-types';
+import PageTitle from 'components/PageTitle/PageTitle';
+import Page from 'components/Pagination/Page';
+import PageNumbers from 'components/Pagination/PageNumbers';
 
-class List extends Component {
+class ComprehensiveMaterialList extends Component {
 
   componentDidMount(){
     if(!this.props.data.receivedAt){
@@ -12,7 +13,7 @@ class List extends Component {
   }
 
   intList = ()=>{
-    const {data,dispatch} = this.props;
+    const {data,dispatch,actionTypes} = this.props;
     console.log(this.props.match)
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
@@ -29,7 +30,7 @@ class List extends Component {
   }
 
   turnPage = (currentPage)=>{
-    const {match,data,dispatch} = this.props;
+    const {match,data,dispatch,actionTypes} = this.props;
     const {pageSize} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -55,9 +56,9 @@ class List extends Component {
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
         const url = match.url;
         dom = <Page
-          list={list}
-          url={url}
-          isFetching={isFetching}
+            list={list}
+            url={url}
+            isFetching={isFetching}
         />
       }
     }
@@ -73,31 +74,34 @@ class List extends Component {
       if(typeof total === 'number'&&total!==0){
         let totalPages = Math.ceil(total/pageSize);
         dom = <PageNumbers
-          currentPage={currentPage}
-          totalPages={totalPages}
-          turnPage={this.turnPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            turnPage={this.turnPage}
         />
       }
     }
-
-
     return dom;
   }
 
   render() {
+    const {title} = this.props;
+
     return (
-      <div style={{width:720,marginTop:15}}>
-        <PageTitle title={"营销图片"}/>
-        {this.renderPage()}
-        {this.renderPageNumbers()}
-      </div>
+        <div style={{width:720,marginTop:15}}>
+          <PageTitle title={title}/>
+          {this.renderPage()}
+          {this.renderPageNumbers()}
+        </div>
     )
   }
 }
 
+ComprehensiveMaterialList.propTypes={
+  title:propTypes.string.isRequired,
+  match:propTypes.object.isRequired,
+  data:propTypes.object.isRequired,
+  dispatch:propTypes.func.isRequired,
+  actionTypes:propTypes.object.isRequired,
+}
 
-const mapStateToProps = state =>({
-  data:state.ComprehensiveMarketingArticle
-})
-
-export default connect(mapStateToProps)(List)
+export default ComprehensiveMaterialList;
