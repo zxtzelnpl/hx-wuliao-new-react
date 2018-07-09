@@ -1,4 +1,6 @@
-import SpeechCraft from './views/SpeechCraft';
-import SpeechCraftDetail from './views/SpeechCraftDetail';
+import List from './views/List';
+import Detail from './views/Detail';
+import reducer from './reducer';
+import saga from './saga';
 
-export {SpeechCraft,SpeechCraftDetail}
+export {List,Detail,reducer,saga}

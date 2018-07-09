@@ -40,7 +40,12 @@ class HeadMenus extends Component {
               }
             }
             else{
-              dispatch(push(`/${firstSelectId}/${secondSelectId}/marketing/speechcraft`))
+              if(secondSelectId==='marketing'){
+                dispatch(push(`/${firstSelectId}/${secondSelectId}/speechcraft`))
+              }
+              else if(secondSelectId==='investment'){
+                dispatch(push(`/${firstSelectId}/${secondSelectId}/marketstock`))
+              }
             }
           }
         }

@@ -14,6 +14,7 @@ import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
 import {saga as LiveVideo} from '../routes/LiveVideo';
+import {saga as SpeechCraft} from '../routes/SpeechCraft';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -33,5 +34,6 @@ export default function* root() {
     fork(ResearchMaterial),
     fork(VideoReplay),
     fork(LiveVideo),
+    fork(SpeechCraft),
   ])
 };

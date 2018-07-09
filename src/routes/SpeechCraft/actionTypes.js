@@ -1,0 +1,4 @@
+export const INIT = 'SPEECH_CRAFT_INIT';
+export const REQUEST = 'SPEECH_CRAFT_REQUEST';
+export const RECEIVED = 'SPEECH_CRAFT_RECEIVED';
+export const ERROR = 'SPEECH_CRAFT_ERROR';

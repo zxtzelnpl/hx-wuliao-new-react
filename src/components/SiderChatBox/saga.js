@@ -63,8 +63,6 @@ function* sendMessage(action){
       else{
         throw new Error(response.msg);
       }
-
-
     }
     else{
       throw new Error('没有登录')

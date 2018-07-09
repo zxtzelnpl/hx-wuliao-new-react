@@ -15,6 +15,7 @@ import {reducer as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {reducer as ResearchMaterial} from '../routes/ResearchMaterial';
 import {reducer as VideoReplay} from '../routes/VideoReplay';
 import {reducer as LiveVideo} from '../routes/LiveVideo';
+import {reducer as SpeechCraft} from '../routes/SpeechCraft';
 
 const rootReducer = combineReducers({
   myAlert,
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   ResearchMaterial,
   VideoReplay,
   LiveVideo,
+  SpeechCraft,
 });
 
 export default rootReducer;

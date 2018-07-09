@@ -83,9 +83,11 @@ import {
 
 /*营销素材-营销话术*/
 import {
-  SpeechCraft,
-  SpeechCraftDetail
+  List as SpeechCraft,
+  Detail as SpeechCraftDetail
 } from './routes/SpeechCraft';
+
+
 
 /*投资组合-营销票*/
 import {
