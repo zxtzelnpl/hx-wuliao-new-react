@@ -8,8 +8,6 @@ const pageUrl = ({team,child})=>{
   return `/api/product/${team}/${child}/strategy/review/page`
 }
 
-
-
 export async function getTotal(urlParams) {
 
   const url = totalUrl(urlParams);
