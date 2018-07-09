@@ -9,6 +9,6 @@ const mapStateToProps = state => ({
   actionTypes:actionTypes,
   title:'产品案例',
   server:server
-})
+});
 
-export default connect(mapStateToProps)(ProductMaterialDetail)
+export default connect(mapStateToProps)(ProductMaterialDetail);
