@@ -15,6 +15,8 @@ import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
 import {saga as LiveVideo} from '../routes/LiveVideo';
 import {saga as SpeechCraft} from '../routes/SpeechCraft';
+import {saga as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
+import {saga as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -35,5 +37,7 @@ export default function* root() {
     fork(VideoReplay),
     fork(LiveVideo),
     fork(SpeechCraft),
+    fork(ComprehensiveMarketingArticle),
+    fork(ComprehensiveMarketingImage),
   ])
 };

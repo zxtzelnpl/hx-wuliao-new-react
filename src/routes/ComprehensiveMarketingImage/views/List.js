@@ -31,14 +31,13 @@ class List extends Component {
   }
 
   turnPage = (currentPage)=>{
-    const {match,data,dispatch} = this.props;
+    const {data,dispatch} = this.props;
     const {pageSize} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
 
     dispatch({
       type:actionTypes.REQUEST,
-      urlParams:match.params,
       params:{
         from:from,
         to:to,
@@ -89,7 +88,7 @@ class List extends Component {
   render() {
     return (
       <div style={{width:720,marginTop:15}}>
-        <PageTitle title={"营销话术"}/>
+        <PageTitle title={"营销图片"}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -99,7 +98,7 @@ class List extends Component {
 
 
 const mapStateToProps = state =>({
-  data:state.SpeechCraft
+  data:state.ComprehensiveMarketingImage
 })
 
 export default connect(mapStateToProps)(List)

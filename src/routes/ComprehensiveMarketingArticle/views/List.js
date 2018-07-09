@@ -15,10 +15,10 @@ class List extends Component {
 
   intList = ()=>{
     const {data,dispatch} = this.props;
+    console.log(this.props.match)
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
-    console.log(data);
 
     dispatch({
       type:actionTypes.INIT,
@@ -89,7 +89,7 @@ class List extends Component {
   render() {
     return (
       <div style={{width:720,marginTop:15}}>
-        <PageTitle title={"营销话术"}/>
+        <PageTitle title={"营销图片"}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -99,7 +99,7 @@ class List extends Component {
 
 
 const mapStateToProps = state =>({
-  data:state.SpeechCraft
+  data:state.ComprehensiveMarketingArticle
 })
 
 export default connect(mapStateToProps)(List)

@@ -109,7 +109,7 @@ class Detail extends Component {
   render() {
     return (
       <div style={{width:720,marginTop:15}}>
-        <PageTitle title={"营销话术"}/>
+        <PageTitle title={"营销图片"}/>
         {this.renderContent()}
         {this.renderLittlePage()}
       </div>
@@ -118,7 +118,7 @@ class Detail extends Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.SpeechCraft
+  data: state.ComprehensiveMarketingArticle
 })
 
 export default connect(mapStateToProps)(Detail)

@@ -1,10 +1,10 @@
 import request from '../../utils/request';
 
-const totalUrl = `/api/comprehensive/marketing/speechcraft/total`;
+const totalUrl = `/api/comprehensive/marketing/image/total`;
 
-const pageUrl = `/api/comprehensive/marketing/speechcraft/page`;
+const pageUrl = `/api/comprehensive/marketing/image/page`;
 
-const detailUrl = `/api/comprehensive/marketing/speechcraft/detail`;
+const detailUrl = `/api/comprehensive/marketing/image/detail`;
 
 
 export async function getTotal() {
