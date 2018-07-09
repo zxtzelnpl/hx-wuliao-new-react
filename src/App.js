@@ -101,13 +101,13 @@ import {
 
 /*投资组合-营销票*/
 import {
-  MarketStock
-} from './routes/MarketStock';
+  Stock as InvestmentMarketingStock
+} from './routes/InvestmentMarketingStock';
 
 /*投资组合-服务票*/
 import {
-  ServiceStock
-} from './routes/ServiceStock';
+  Stock as InvestmentServiceStock
+} from './routes/InvestmentServiceStock';
 
 /*投资组合-文字策略*/
 import {
@@ -290,8 +290,9 @@ const Comprehensive = ({match}) => (
     <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
     <Route exact path={`${match.url}/marketing/image/detail/:id`} component={ComprehensiveMarketingImageDetail}/>
 
-    <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
-    <Route path={`${match.url}/investment/servicestock`} component={ServiceStock}/>
+    <Route path={`${match.url}/investment/marketstock`} component={InvestmentMarketingStock}/>
+
+    <Route path={`${match.url}/investment/servicestock`} component={InvestmentServiceStock}/>
 
     <Route exact path={`${match.url}/investment/texttrategy`} component={InvestmentTextStrategy}/>
     <Route exact path={`${match.url}/investment/texttrategy/detail/:id`} component={InvestmentTextStrategyDetail}/>

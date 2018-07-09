@@ -19,6 +19,8 @@ import {reducer as SpeechCraft} from '../routes/SpeechCraft';
 import {reducer as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
 import {reducer as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
 import {reducer as InvestmentTextStrategy} from '../routes/InvestmentTextStrategy';
+import {reducer as InvestmentServiceStock} from '../routes/InvestmentServiceStock';
+import {reducer as InvestmentMarketingStock} from '../routes/InvestmentMarketingStock';
 
 const rootReducer = combineReducers({
   myAlert,
@@ -41,6 +43,8 @@ const rootReducer = combineReducers({
   ComprehensiveMarketingArticle,
   ComprehensiveMarketingImage,
   InvestmentTextStrategy,
+  InvestmentServiceStock,
+  InvestmentMarketingStock,
 });
 
 export default rootReducer;

@@ -18,6 +18,8 @@ import {saga as SpeechCraft} from '../routes/SpeechCraft';
 import {saga as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
 import {saga as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
 import {saga as InvestmentTextStrategy} from '../routes/InvestmentTextStrategy';
+import {saga as InvestmentServiceStock} from '../routes/InvestmentServiceStock';
+import {saga as InvestmentMarketingStock} from '../routes/InvestmentMarketingStock';
 // import {saga as home} from '../routes/Test/index';
 
 export default function* root() {
@@ -41,5 +43,7 @@ export default function* root() {
     fork(ComprehensiveMarketingArticle),
     fork(ComprehensiveMarketingImage),
     fork(InvestmentTextStrategy),
+    fork(InvestmentServiceStock),
+    fork(InvestmentMarketingStock),
   ])
 };

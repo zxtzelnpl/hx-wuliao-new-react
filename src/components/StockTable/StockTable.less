@@ -1,7 +1,7 @@
 @import "common/consts.less";
 
 .stockTable{
-
+  position:relative;
   text-align: center;
   .tHead{
     display:flex;
@@ -11,8 +11,6 @@
     margin:0 auto;
     min-height:40px;
     width:1060px;
-    border-top:1px solid #cccccc;
-    border-bottom:1px solid #cccccc;
     color:@primaryColor;
     font-weight:bold;
   }
@@ -23,6 +21,8 @@
 
     box-sizing: border-box;
     border-right:1px solid #cccccc;
+    border-top:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
   }
 
   .tBody{
@@ -33,7 +33,6 @@
     margin:0 auto;
     min-height:40px;
     width:1060px;
-    border-bottom:1px solid #cccccc;
   }
 
   .tBodyLi{
@@ -43,47 +42,48 @@
 
     box-sizing: border-box;
     border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
   }
 
   .tHeadLi,.tBodyLi{
-    &:nth-child(1){
+    &.stock-teacher{
       border-left:1px solid #cccccc;
       width:80px;
     }
-    &:nth-child(2){
+    &.stock-from{
       width:80px;
     }
-    &:nth-child(3){
+    &.stock-name{
       width:80px;
     }
-    &:nth-child(4){
+    &.stock-buy-price{
       width:80px;
     }
-    &:nth-child(5){
-      width:80px;
-    }
-    &:nth-child(6){
-      width:80px;
-    }
-    &:nth-child(7){
-      width:80px;
-    }
-    &:nth-child(8){
-      width:40px;
-    }
-    &:nth-child(9){
-      width:40px;
-    }
-    &:nth-child(10){
-      width:60px;
-    }
-    &:nth-child(11){
-      width:180px;
-    }
-    &:nth-child(12){
+    &.stock-buy-timestamp{
       width:90px;
     }
-    &:nth-child(13){
+    &.stock-sale-price{
+      width:80px;
+    }
+    &.stock-sale-timestamp{
+      width:90px;
+    }
+    &.stock-stop-win{
+      width:50px;
+    }
+    &.stock-stop-loss{
+      width:50px;
+    }
+    &.stock-success-percent{
+      width:60px;
+    }
+    &.stock-record-reason{
+      width:200px;
+    }
+    &.stock-status{
+      width:90px;
+    }
+    &.stock-action{
       width:90px;
     }
   }
