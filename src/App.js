@@ -235,7 +235,7 @@ const Product = ({match}) => {
       </div>
 
       <div className="siderRecommend">
-        <SiderFeaturedVideos/>
+        <SiderFeaturedVideos match={match}/>
       </div>
     </div>
   )

@@ -6,16 +6,17 @@ import img from 'assets/images/homeVideoShot.jpg';
 
 class FeaturedVideo extends Component {
   render() {
+    const {title,url} = this.props;
+
     return (
       <li>
-        <div className="siderFeaturedVideo">
+        <a className="siderFeaturedVideo" target="_blank" href={url}>
           <img className="img" src={img} />
           <div className="subTitle">
-            <span className="name">视频名称</span>
-            <span className="datetime">12-30 13:12</span>
+            <span className="name">{title}</span>
+            {/*<span className="datetime">12-30 13:12</span>*/}
           </div>
-          <p className="text">年末六大指数普遍小涨，中小创反弹幅度较大，放量萎缩</p>
-        </div>
+        </a>
       </li>
     )
   }

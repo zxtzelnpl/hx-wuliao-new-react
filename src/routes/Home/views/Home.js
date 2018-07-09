@@ -1,14 +1,11 @@
 import './Home.less';
 
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {actionTypes} from 'routes/VideoReplay'
 import LinkIcon from './LinkIcon';
-import FeaturedVideo from './FeaturedVideo';
+import FeaturedVideos from './FeaturedVideos';
 import Carousel from './Carousel';
 import {ChatBox} from 'components/SiderChatBox';
 import Footer from './Footer';
-
 import img_investment from 'assets/images/investment.png';
 import img_productMarket from 'assets/images/productMarket.png';
 import team_dllh from 'assets/images/team_dllh.png';
@@ -17,19 +14,6 @@ import team_qsxg from 'assets/images/team_qsxg.png';
 import team_qsyx from 'assets/images/team_qsyx.png';
 
 class Home extends Component {
-  constructor(props){
-    super(props)
-  }
-
-  componentDidMount(){
-    if(this.props.VideoReplay.receivedAt){
-
-    }
-  }
-
-  renderVideos = ()=>{
-    console.log(this.props.VideoReplay)
-  }
 
   render() {
 
@@ -77,17 +61,7 @@ class Home extends Component {
               精选视频
             </h4>
 
-            <div className="featuredVideoBox">
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-              <FeaturedVideo />
-            </div>
+            <FeaturedVideos />
           </div>
 
           <div className="leavingMessage">
@@ -106,8 +80,4 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state=>({
-  VideoReplay:state.VideoReplay
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home
