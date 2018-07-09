@@ -109,6 +109,12 @@ import {
   ServiceStock
 } from './routes/ServiceStock';
 
+/*投资组合-文字策略*/
+import {
+  List as InvestmentTextStrategy,
+  Detail as InvestmentTextStrategyDetail
+} from './routes/InvestmentTextStrategy';
+
 /*直播视频*/
 import {
   LiveVideo
@@ -286,6 +292,9 @@ const Comprehensive = ({match}) => (
 
     <Route path={`${match.url}/investment/marketstock`} component={MarketStock}/>
     <Route path={`${match.url}/investment/servicestock`} component={ServiceStock}/>
+
+    <Route exact path={`${match.url}/investment/texttrategy`} component={InvestmentTextStrategy}/>
+    <Route exact path={`${match.url}/investment/texttrategy/detail/:id`} component={InvestmentTextStrategyDetail}/>
 
     {/*侧边聊天*/}
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
