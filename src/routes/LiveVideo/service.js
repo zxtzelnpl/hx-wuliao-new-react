@@ -5,7 +5,7 @@ const addMessageUrl = '/chat/send_msg';
 const getMessageUrl = '/chat/get_msg_data';
 
 
-export async function addMessages(params){
+export async function sendMessages(params){
   return request(addMessageUrl,{
     method:'POST',
     body:params

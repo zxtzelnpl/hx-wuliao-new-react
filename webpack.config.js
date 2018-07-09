@@ -94,7 +94,7 @@ module.exports = {
         changeOrigin: true
       },
       {
-        context: ['/chat/**'],
+        context: ['/chat/**','/assets/**'],
         target: 'http://pxzbs.jyzqsz.com',
         changeOrigin: true
       }

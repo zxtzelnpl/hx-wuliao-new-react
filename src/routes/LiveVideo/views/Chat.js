@@ -8,13 +8,21 @@ import SendBox from 'components/Chat/SendBox';
 
 class Chat extends Component {
 
+  refreshMessagesController = null;
+  timeStop = 3000;
+
   componentDidMount(){
     this.init();
+    // setTimeout(this.refreshMessages,3000);
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.refreshMessagesController)
   }
 
   init = ()=>{
     const {dispatch} = this.props;
-    const score = new Date(2018,1,1).getTime() * 10;
+    const score = new Date(2018,6,1).getTime() * 10;
     dispatch({
       type:actionTypes.INIT,
       params:{
@@ -23,17 +31,43 @@ class Chat extends Component {
     })
   }
 
-  render() {
+  refreshMessages = ()=>{
+    const {dispatch} = this.props;
+    const score = new Date().getTime() * 10;
+    dispatch({
+      type:actionTypes.REQUEST,
+      params:{
+        score:score
+      }
+    })
 
-    console.log(`%cthis.props`, 'background:#00CC66;font-size:2em;color:yellow;font-weight:bold;');
-    console.log(this.props);
+    this.refreshMessagesController = setTimeout(this.refreshMessages,this.timeStop)
+  }
+
+  sendMessage = (content) =>{
+    const {dispatch} = this.props;
+
+    dispatch({
+      type:actionTypes.ADD,
+      params:{
+        content
+      }
+    })
+  }
+
+  render() {
+    const {list,receivedAt,isFetching} = this.props.data;
 
     return (
       <div className="liveChat">
         <PageTitle title={'留言'}/>
-        <MessageBoxWithoutLoadMore />
+        <MessageBoxWithoutLoadMore
+          list={list}
+          receivedAt={receivedAt}
+          isFetching={isFetching}
+        />
         <div className="blank-height-20" />
-        <SendBox />
+        <SendBox sendMessage={this.sendMessage}/>
       </div>
     )
   }
@@ -41,7 +75,7 @@ class Chat extends Component {
 
 const mapStateToProps = (state)=>{
   return {
-    state:state.LiveVideo
+    data:state.LiveVideo
   }
 }
 
