@@ -1,7 +1,6 @@
 import './Login.less';
 
 import React, {Component} from 'react';
-import {createPortal} from 'react-dom';
 
 import LoginBox from './LoginBox';
 

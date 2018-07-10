@@ -2,7 +2,7 @@ import './MessageItem.less'
 
 import React, {Component} from 'react';
 
-import userImg from 'assets/images/user.jpg';
+import userImg from 'assets/images/user.png';
 
 class MessageItem extends Component {
   render() {

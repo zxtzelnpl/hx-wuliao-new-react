@@ -2,6 +2,7 @@ import './Logout.less';
 
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
+import user_png from 'assets/images/user.png';
 
 class Logout extends Component {
   render() {
@@ -11,7 +12,7 @@ class Logout extends Component {
     return (
       <div className="user">
         <div className="info">
-          <div className="img" />
+          <img className="img" src={user_png}/>
           <span>{userName}</span>
         </div>
 

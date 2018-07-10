@@ -29,11 +29,13 @@ class Home extends Component {
                 img={img_productMarket}
                 text={"营销素材"}
                 white={true}
+                url={"/comprehensive/marketing/speechcraft"}
               />
               <LinkIcon
                 img={img_investment}
                 text={"投资组合"}
                 white={true}
+                url={"/comprehensive/investment/marketstock"}
               />
             </div>
           </div>
@@ -45,10 +47,10 @@ class Home extends Component {
               产品素材
             </h4>
             <div className="links">
-              <LinkIcon img={team_qsyx} text={"强势优选组"} />
-              <LinkIcon img={team_nytz} text={"牛眼投资组"} />
-              <LinkIcon img={team_qsxg} text={"选股器"} />
-              <LinkIcon img={team_dllh} text={"独立量化组"} />
+              <LinkIcon img={team_qsyx} text={"强势优选组"} url={"product/team_qsyx/duanxianbao/marketing/product"}/>
+              <LinkIcon img={team_nytz} text={"牛眼投资组"} url={"product/team_nytz/duanxianbao/marketing/product"}/>
+              <LinkIcon img={team_qsxg} text={"选股器"} url={"product/team_qsxg/duanxianbao/marketing/product"}/>
+              <LinkIcon img={team_dllh} text={"独立量化组"} url={"product/team_dllh/duanxianbao/marketing/product"}/>
             </div>
           </div>
         </div>
