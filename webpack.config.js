@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: '/build/',
     filename: '[name].js'
   },
 
@@ -92,7 +92,7 @@ module.exports = {
 
     // 打开浏览器
     new OpenBrowserPlugin({
-      url: 'http://localhost:8080'
+      url: 'http://localhost:8080/build/index.html'
     })
   ],
   devtool: 'eval-source-map',

@@ -2,9 +2,9 @@ import './Home.less';
 
 import React, {Component} from 'react';
 import LinkIcon from './LinkIcon';
-import FeaturedVideos from './FeaturedVideos';
 import Carousel from './Carousel';
 import {ChatBox} from 'components/SiderChatBox';
+import {FeaturedVideos} from 'components/CRMVideo';
 import Footer from './Footer';
 import img_investment from 'assets/images/investment.png';
 import img_productMarket from 'assets/images/productMarket.png';
