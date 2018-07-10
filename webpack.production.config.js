@@ -6,7 +6,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: {
+    index:path.resolve(__dirname, 'src/index.js'),
+    video:path.resolve(__dirname, 'src/video.js')
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: `/build/`,
@@ -82,11 +85,19 @@ module.exports = {
 
     // html 模版插件
     new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.tmpl.html`
+      filename:'index.html',
+      template: `${__dirname}/src/index.tmpl.html`,
+      chunks:['index']
+    }),
+
+    new HtmlWebpackPlugin({
+      filename:'video.html',
+      template: `${__dirname}/src/video.tmpl.html`,
+      chunks:['video']
     }),
 
     // 压缩JS代码
-    // new UglifyJsPlugin(),
+    new UglifyJsPlugin(),
 
     // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
     // new webpack.optimize.OccurrenceOrderPlugin(),

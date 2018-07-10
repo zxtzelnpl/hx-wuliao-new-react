@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: {
+    index:path.resolve(__dirname, 'src/index.js'),
+    video:path.resolve(__dirname, 'src/video.js')
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -73,8 +76,15 @@ module.exports = {
   plugins: [
     // html 模版插件
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: `${__dirname}/src/index.tmpl.html`
+      filename:'index.html',
+      template: `${__dirname}/src/index.tmpl.html`,
+      chunks:['index']
+    }),
+
+    new HtmlWebpackPlugin({
+      filename:'video.html',
+      template: `${__dirname}/src/video.tmpl.html`,
+      chunks:['video']
     }),
 
     // 热加载插件
@@ -89,15 +99,15 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        context: ['/api/**','/ueditor/**'],
+        context: ['/api/**','/ueditor/**','/chat/**','/chat_t/**','/assets/**'],
         target: 'http://pxzbs.jyzqsz.com',
         changeOrigin: true
-      },
+      }/*,
       {
-        context: ['/chat/**','/assets/**'],
+        context: ['/chat/!**','/assets/!**'],
         target: 'http://testpxzbs.jyzqsz.com',
         changeOrigin: true
-      }
+      }*/
     ],
     contentBase: './build', // 本地服务器所加载的页面所在的目录
     historyApiFallback: true, // 不跳转
