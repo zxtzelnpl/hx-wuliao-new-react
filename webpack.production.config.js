@@ -9,7 +9,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: `/build`,
+    publicPath: `/build/`,
     filename: '[name].[chunkhash:8].js'
   },
   resolve: {
@@ -74,8 +74,8 @@ module.exports = {
   },
 
   plugins: [
-    //移除之前生成的
-    // new CleanWebpackPlugin([`build`]),
+    // 移除之前生成的
+    new CleanWebpackPlugin([`build`]),
 
     // webpack 内置的banner-plugin
     new webpack.BannerPlugin('Copyright by zxt_zel_npl@github.com'),

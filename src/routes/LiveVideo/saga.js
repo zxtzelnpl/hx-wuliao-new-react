@@ -4,27 +4,35 @@ import * as service from './service';
 import moment from 'moment';
 
 function* intMessage(action){
-  let data;
+  try{
+    let data;
 
-  const messages = yield call(service.getMessages,action.params)
+    const messages = yield call(service.getMessages,action.params)
 
-  if(Array.isArray(messages.list.data_list)){
-    data = {
-      list:messages.list.data_list,
-      score:messages.list.score,
-      receivedAt:moment().unix()
+    if(Array.isArray(messages.list.data_list)){
+      data = {
+        list:messages.list.data_list,
+        score:messages.list.score,
+        receivedAt:moment().unix()
+      }
     }
-  }
-  else{
-    data = {
-      receivedAt:moment().unix()
+    else{
+      data = {
+        receivedAt:moment().unix()
+      }
     }
-  }
 
-  yield put({
-    type:actionTypes.RECEIVED,
-    data:data
-  })
+    yield put({
+      type:actionTypes.RECEIVED,
+      data:data
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error
+    })
+  }
 }
 
 function* getMessage(action){

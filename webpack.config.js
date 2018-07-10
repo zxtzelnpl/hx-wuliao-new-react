@@ -90,12 +90,12 @@ module.exports = {
     proxy: [
       {
         context: ['/api/**','/ueditor/**'],
-        target: 'http://testpxzbs.jyzqsz.com',
+        target: 'http://pxzbs.jyzqsz.com',
         changeOrigin: true
       },
       {
         context: ['/chat/**','/assets/**'],
-        target: 'http://pxzbs.jyzqsz.com',
+        target: 'http://testpxzbs.jyzqsz.com',
         changeOrigin: true
       }
     ],

@@ -16,6 +16,7 @@ const codeMessage = {
   504: '网关超时。',
 };
 function checkStatus(response) {
+
   if (response.status >= 200 && response.status < 300) {
     return response;
   }

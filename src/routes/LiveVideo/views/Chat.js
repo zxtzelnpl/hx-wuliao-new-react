@@ -22,7 +22,7 @@ class Chat extends Component {
 
   init = ()=>{
     const {dispatch} = this.props;
-    const score = new Date(2018,6,1).getTime() * 10;
+    const score = new Date(2018,1,1).getTime() * 10;
     dispatch({
       type:actionTypes.INIT,
       params:{
