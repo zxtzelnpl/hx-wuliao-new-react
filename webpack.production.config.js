@@ -8,10 +8,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    path: `${__dirname}/build`,
-    filename: '[name].[chunkhash:8].js',
-    // filename: '[name].js',
-    publicPath: `/build`
+    path: path.resolve(__dirname, 'build'),
+    publicPath: `/build`,
+    filename: '[name].[chunkhash:8].js'
   },
   resolve: {
     extensions: ['.js'],
@@ -49,7 +48,6 @@ module.exports = {
             }
           ]
         })
-
       },
       {
         test: /\.css$/,
@@ -57,7 +55,9 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            {loader: 'css-loader'},
+            {loader: 'css-loader',options: {
+                importLoaders: 1
+              }},
             {loader: 'postcss-loader'}
           ]
         })
@@ -73,55 +73,26 @@ module.exports = {
     ]
   },
 
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: "all",
-  //     minSize: 30,
-  //     // minChunks: 1,
-  //     // maxAsyncRequests: 5,
-  //     // maxInitialRequests: 3,
-  //     // automaticNameDelimiter: '~',
-  //     // name: true,
-  //     // cacheGroups:{
-  //     //   vendors:{
-  //     //     test: /node_modules/,
-  //     //     name: 'vendor',
-  //     //     priority: 10
-  //     //   },
-  //     //   commons: {
-  //     //     test: /common\/|components\//,
-  //     //     name: 'page/commons',
-  //     //     priority: 10,
-  //     //     enforce: true
-  //     //   }
-  //     // }
-  //   }
-  // },
-
   plugins: [
     //移除之前生成的
-    new CleanWebpackPlugin([`build`]),
+    // new CleanWebpackPlugin([`build`]),
 
     // webpack 内置的banner-plugin
     new webpack.BannerPlugin('Copyright by zxt_zel_npl@github.com'),
 
     // html 模版插件
     new HtmlWebpackPlugin({
-      title: 'index',
-      filename: 'index.html',
-      template: `src/index.tmpl.ejs`,
-      chunks: ['index']
+      template: `${__dirname}/src/index.tmpl.html`
     }),
 
     // 压缩JS代码
-    new UglifyJsPlugin(),
+    // new UglifyJsPlugin(),
 
     // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.optimize.OccurrenceOrderPlugin(),
 
     // 分离CSS和JS文件
     new ExtractTextPlugin('[name].[chunkhash:8].css'),
-    // new ExtractTextPlugin('[name].css'),
   ],
 
   mode: 'production'

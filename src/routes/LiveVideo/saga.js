@@ -8,7 +8,7 @@ function* intMessage(action){
 
   const messages = yield call(service.getMessages,action.params)
 
-  if(Array.isArray(messages.list)){
+  if(Array.isArray(messages.list.data_list)){
     data = {
       list:messages.list.data_list,
       score:messages.list.score,
@@ -21,8 +21,6 @@ function* intMessage(action){
     }
   }
 
-
-
   yield put({
     type:actionTypes.RECEIVED,
     data:data
@@ -33,7 +31,7 @@ function* getMessage(action){
   let data;
 
   const messages = yield call(service.getMessages,action.params)
-  if(Array.isArray(messages.list)){
+  if(Array.isArray(messages.list.data_list)){
     const list =yield select(state=>state.LiveVideo.list);
     data = {
       list:[].concat(list,messages.list.data_list),
@@ -93,9 +91,6 @@ function* sendMessage(action){
       error
     })
   }
-
-
-
 }
 
 

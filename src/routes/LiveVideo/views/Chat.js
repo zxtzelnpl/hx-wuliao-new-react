@@ -60,7 +60,7 @@ class Chat extends Component {
 
     return (
       <div className="liveChat">
-        <PageTitle title={'留言'}/>
+        <PageTitle title={'聊天'}/>
         <MessageBoxWithoutLoadMore
           list={list}
           receivedAt={receivedAt}
