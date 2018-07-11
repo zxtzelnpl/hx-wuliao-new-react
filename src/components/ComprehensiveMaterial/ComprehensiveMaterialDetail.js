@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
 import PagePPTXContent from 'components/PagePPTXContent/PagePPTXContent';
+import PageDOCContent from 'components/PageDOCContent/PageDOCContent';
 import LittlePage from 'components/Pagination/LittlePage';
-import {pdfReg, pptReg} from "src/utils/tools";
+import {pdfReg, pptReg,docReg} from "src/utils/tools";
 
 class Detail extends Component {
 
@@ -85,6 +87,9 @@ class Detail extends Component {
     }
     if(info.filepath&&pptReg.test(info.filepath)){
       return <PagePPTXContent title={info.title} filepath={info.filepath}/>
+    }
+    if(info.filepath&&docReg.test(info.filepath)){
+      return <PageDOCContent title={info.title} filepath={info.filepath}/>
     }
   }
 
