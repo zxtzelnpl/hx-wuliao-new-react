@@ -3,21 +3,20 @@ import './Header.less';
 import logo from 'src/assets/images/icon_noli_logo_r.png';
 
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import HeadMenus from './HeadMenus';
 import VideoLink from './VideoLink';
 import {User} from 'components/User';
 
 class Header extends Component {
 
-  componentDidMount(){
-
-  }
-
   render() {
     return (
       <div className="header">
         <div className="header-wrap">
-          <img className="logo" src={logo} />
+          <Link to={'/'}>
+            <img className="logo" src={logo} />
+          </Link>
 
           <div className="header-right">
 
