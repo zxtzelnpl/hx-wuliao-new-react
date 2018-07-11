@@ -2,7 +2,7 @@ import './LiveVideo.less';
 import React, {Component} from 'react';
 import Chat from './Chat';
 import Video from './Video';
-import ReplayVideo from './ReplyVideo';
+import {ReplyVideo} from 'components/CRMVideo';
 
 class LiveVideo extends Component {
   render() {
@@ -12,7 +12,7 @@ class LiveVideo extends Component {
         <div className="liveVideoBox">
           <Video />
           <div className="blank-height-10" />
-          <ReplayVideo />
+          <ReplyVideo />
         </div>
 
         <Chat />

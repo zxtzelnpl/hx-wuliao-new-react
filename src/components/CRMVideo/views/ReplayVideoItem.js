@@ -6,13 +6,14 @@ import img from 'assets/images/homeVideoShot.jpg';
 
 class ReplayVideoItem extends Component {
   render() {
+    const {title,url} = this.props;
+
     return (
-      <li>
-        <div className="replayVideoItem">
+      <li className="replayVideoItem">
+        <a target={"_blank"} href={url}>
           <img className="img" src={img} />
-          <p className="subTitle">视频名称</p>
-          <p className="datetime">12-30 13:12</p>
-        </div>
+          <p className="subTitle">{title}</p>
+        </a>
       </li>
     )
   }

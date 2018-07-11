@@ -1,25 +1,30 @@
 import './ReplyVideo.less';
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actionTypes from '../actionTypes';
 import ReplayVideoItem from './ReplayVideoItem';
 
 import refresh from 'assets/images/refresh.png';
 
-const datas = [];
-for(let i = 0;i<3;i++){
-  datas.push({
-    id:`id${i}`,
-    title:'视频名称',
-    datatime:'2018.06.21'
-  })
-}
-
-
 class ReplyVideo extends Component{
+  componentDidMount(){
+    if(!this.props.data.receivedAt){
+      this.props.dispatch({
+        type:actionTypes.INIT
+      })
+    }
+  }
 
   renderVideoItem = ()=>{
-    return datas.map(data=>{
-      return <ReplayVideoItem key={data.id} {...data}/>
-    })
+    let dom = <div className="no-data">暂无数据</div>
+
+    if(this.props.data.list instanceof Array){
+      dom =  this.props.data.list.map(item=>{
+        return <ReplayVideoItem key={item.id} {...item}/>
+      })
+    }
+
+    return dom;
   }
 
   render(){
@@ -40,4 +45,8 @@ class ReplyVideo extends Component{
   }
 }
 
-export default ReplyVideo;
+const mapStateToProps = state => ({
+  data:state.CRMVideo
+})
+
+export default connect(mapStateToProps)(ReplyVideo);
