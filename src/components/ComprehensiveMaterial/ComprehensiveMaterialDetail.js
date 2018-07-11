@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import PageTitle from 'components/PageTitle/PageTitle';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
+import PagePPTXContent from 'components/PagePPTXContent/PagePPTXContent';
 import LittlePage from 'components/Pagination/LittlePage';
+import {pdfReg, pptReg} from "src/utils/tools";
 
 class Detail extends Component {
 
@@ -67,6 +69,7 @@ class Detail extends Component {
 
   renderContent = () => {
     let info = this.getInfoFromStore();
+
     if (info === null) {
       info = this.state.info;
     }
@@ -74,11 +77,14 @@ class Detail extends Component {
     if (info === null) {
       return <div>暂时没有数据哦</div>
     }
-    else if (info.filepath) {
+    if (info.content!==''&&info.content!==null) {
+      return <PageHtmlContent htmlDom={info.content}/>
+    }
+    if (info.filepath&&pdfReg.test(info.filepath)) {
       return <PagePDFContent filepath={info.filepath}/>
     }
-    else if (info.content) {
-      return <PageHtmlContent htmlDom={info.content}/>
+    if(info.filepath&&pptReg.test(info.filepath)){
+      return <PagePPTXContent title={info.title} filepath={info.filepath}/>
     }
   }
 

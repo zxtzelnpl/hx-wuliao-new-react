@@ -1,7 +1,7 @@
 import './pageHtmlContent.less';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-class PageHtmlContent extends Component {
+class PageHtmlContent extends PureComponent {
   render() {
     const {htmlDom} = this.props;
 

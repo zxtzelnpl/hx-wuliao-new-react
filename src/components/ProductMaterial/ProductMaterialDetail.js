@@ -3,7 +3,9 @@ import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
+import PagePPTXContent from 'components/PagePPTXContent/PagePPTXContent';
 import LittlePage from 'components/Pagination/LittlePage';
+import {pdfReg,pptReg} from "src/utils/tools";
 
 class ProductMaterialDetail extends Component {
   state = {
@@ -73,6 +75,7 @@ class ProductMaterialDetail extends Component {
 
   renderContent = () => {
     let info = this.getInfoFromStore();
+
     if (info === null) {
       info = this.state.info;
     }
@@ -80,13 +83,15 @@ class ProductMaterialDetail extends Component {
     if (info === null) {
       return <div>暂时没有数据哦</div>
     }
-    else if (info.content) {
+    if (info.content!==''&&info.content!==null) {
       return <PageHtmlContent htmlDom={info.content}/>
     }
-    else if (info.filepath) {
+    if (info.filepath&&pdfReg.test(info.filepath)) {
       return <PagePDFContent filepath={info.filepath}/>
     }
-
+    if(info.filepath&&pptReg.test(info.filepath)){
+      return <PagePPTXContent title={info.title} filepath={info.filepath}/>
+    }
   }
 
   renderLittlePage = () => {

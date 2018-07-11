@@ -1,9 +1,9 @@
 import './pagePDFContent.less';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import { Document,Page } from 'react-pdf';
 
-class PagePDFContent extends Component {
+class PagePDFContent extends PureComponent {
   constructor(props){
     super(props)
   }
@@ -55,12 +55,12 @@ class PagePDFContent extends Component {
 
     return (
       <div className="pagePDFContent">
-        {typeof numPages!=='undefined'&&numPages>0&&<a className="download primaryBtn" target={"_blank"} href={filepath}>下载</a>}
+        {typeof numPages!=='undefined'&&numPages>0&&<a className="download" target={"_blank"} href={filepath}>下载</a>}
         <Document
           file={filepath}
           onLoadSuccess={this.onDocumentLoad}
         >
-          <Page pageNumber={pageNumber} />
+          <Page pageNumber={pageNumber} width={720}/>
         </Document>
         {
           typeof numPages!=='undefined'&&numPages>0&&
