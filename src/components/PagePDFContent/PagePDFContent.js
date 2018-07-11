@@ -37,7 +37,7 @@ class PagePDFContent extends Component {
   }
 
   render() {
-    const {filepath}  = this.props;
+    let {filepath}  = this.props;
     const { pageNumber, numPages } = this.state;
 
     const btnPrevClassName = classNames({
@@ -48,6 +48,10 @@ class PagePDFContent extends Component {
       btn:true,
       disable:pageNumber === numPages
     })
+
+    if(filepath[0]!=='/'){
+      filepath = '/'+filepath
+    }
 
     return (
       <div className="pagePDFContent">
