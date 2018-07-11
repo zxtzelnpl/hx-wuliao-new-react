@@ -26,9 +26,10 @@ class SiderMenu extends Component {
   }
 
   render() {
+    const {title} = this.props;
     return (
       <div className="siderMenu">
-        <p className="siderMenuTitle" >请选择产品素材</p>
+        <p className="siderMenuTitle" >请选择{title}</p>
         <ul style={this.state} >
           {this.renderSubs()}
         </ul>

@@ -11,9 +11,9 @@ class StockPool extends Component {
   }
 
   renderList(){
-    const {url,info,selectId} = this.props;
+    const {info} = this.props;
 
-    return info.map((item,index)=>(<StockPoolItem {...item} key={item.id} index={index} url={`${url}/${selectId}`}/>))
+    return info.map((item,index)=>(<StockPoolItem {...item} key={item.id} index={index}/>))
   }
 
   handleSelect=(id)=>{

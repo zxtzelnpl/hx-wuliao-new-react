@@ -95,7 +95,6 @@ class StockPoolDetail extends Component {
         <div className="content" dangerouslySetInnerHTML={{__html:content}}/>
       </div>
     )
-
   }
 
   render() {

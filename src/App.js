@@ -71,8 +71,7 @@ import {NotFound} from './routes/NotFound';
 
 /*研究素材*/
 import {
-  Research,
-  StockPoolDetail
+  Research
 } from './routes/ResearchMaterial';
 
 /*视频回播*/
@@ -193,7 +192,7 @@ const Product = ({match}) => {
   console.log(match)
   return (
     <div className="productMaterialsLayout">
-      <SiderMenu match={match} menus={productMenus}/>
+      <SiderMenu match={match} menus={productMenus} title={"产品素材"}/>
 
       <div className="productMaterialsContent">
         <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
@@ -228,7 +227,6 @@ const Product = ({match}) => {
 
 
         <Route exact path={`${match.path}/research`} component={Research}/>
-        <Route path={`${match.path}/research/:select/:selectId/:id`} component={StockPoolDetail}/>
 
 
         <Route path={`${match.path}/replay`} component={VideoReplayList}/>
@@ -279,7 +277,7 @@ const comprehensiveMenus = [
 ];
 const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
-    <SiderMenu match={match} menus={comprehensiveMenus}/>
+    <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
     <Route exact path={`${match.url}/marketing/speechcraft`} component={SpeechCraft}/>
     <Route exact path={`${match.url}/marketing/speechcraft/detail/:id`} component={SpeechCraftDetail}/>

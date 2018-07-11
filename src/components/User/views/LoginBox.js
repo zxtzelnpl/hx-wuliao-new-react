@@ -103,7 +103,7 @@ class LoginBox extends Component{
           <input className="userName" type="text" name="userName" placeholder="请输入用户名" onChange={this.handleChange}/>
         </div>
         <div className="boxInput">
-          <input className="password" type="text" name="passWord" placeholder="请输入密码" onChange={this.handleChange}/>
+          <input className="password" type="password" name="passWord" placeholder="请输入密码" onChange={this.handleChange}/>
         </div>
         <div className="boxInput forCode">
           <input className="code" type="text" name="code" placeholder="请输入验证码" onChange={this.handleChange}/>
