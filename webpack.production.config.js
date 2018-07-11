@@ -96,15 +96,24 @@ module.exports = {
       chunks:['video']
     }),
 
-    // 压缩JS代码
-    new UglifyJsPlugin(),
-
     // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
     // new webpack.optimize.OccurrenceOrderPlugin(),
 
     // 分离CSS和JS文件
     new ExtractTextPlugin('[name].[chunkhash:8].css'),
   ],
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions:{
+          compress:{
+            drop_console:true
+          }
+        }
+      })
+    ]
+  },
 
   mode: 'production'
 };
