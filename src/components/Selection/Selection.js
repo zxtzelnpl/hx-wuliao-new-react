@@ -38,36 +38,44 @@ class Selection extends PureComponent {
 
   renderSelect(){
     let {list,selectId,title}= this.props;
-    let item = null;
+    let dom;
 
-    if(selectId){
+    if(!(list instanceof Array)){
+      dom = <p className="selection-selected-disabled" >暂无选项</p>
+    }
+    else if(selectId){
+      let item = null;
       list.forEach(_item=>{
         if(_item.id === selectId){
           item = _item
         }
       })
+      dom = <p className="selection-selected" onClick={this.onHandleClick}>{item.text}</p>
+    }
+    else if(title){
+      dom = <p className="selection-selected" onClick={this.onHandleClick}>{title}</p>
     }
 
-    if(item){
-      return item.text;
-    }
-    else{
-      return title;
-    }
+    return dom;
   }
 
   renderItems(){
     const {list,selectId} = this.props;
+    let dom = null;
+
+    if(list instanceof Array&&list.length>0){
+      dom =  list.map(item=>{
+        const {key,text,id} = item;
+        let option;
+        if(id !== selectId){
+          option =<li className="zxt-selection-item" key={key} id={`select_${id}`}>{text}</li>;
+        }
+        return option
+      })
+    }
 
 
-    return list.map(item=>{
-      const {key,text,id} = item;
-      let dom;
-      if(id !== selectId){
-        dom =<li className="zxt-selection-item" key={key} id={`select_${id}`}>{text}</li>;
-      }
-      return dom
-    })
+    return dom;
   }
 
   render () {
@@ -78,8 +86,7 @@ class Selection extends PureComponent {
 
     return (
       <div className={selectClassName}>
-        <p className="selection-selected"
-           onClick={this.onHandleClick}>{this.renderSelect()}</p>
+        {this.renderSelect()}
         <ul
           className="selection-box"
           onClick={this.onHandleSelect}

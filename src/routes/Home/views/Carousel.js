@@ -3,32 +3,34 @@ import './Carousel.less'
 import React, {Component} from 'react'
 import ReactSwipe from 'react-swipe';
 
-import swipeImg1 from 'assets/images/swipeImg.jpg';
-import swipeImg2 from 'assets/images/swipeImg.jpg';
-import swipeImg3 from 'assets/images/swipeImg.jpg';
+import swipeImg1 from 'assets/images/swipeImg1.jpg';
+import swipeImg2 from 'assets/images/swipeImg2.jpg';
 import classNames from "classnames";
 
 class Carousel extends Component {
-  constructor(props){
-    super(props)
-    this.swipe = React.createRef();
-    this.handleNext = this.handleNext.bind(this);
-    this.handlePrev = this.handlePrev.bind(this);
-    this.swipeCallback = this.swipeCallback.bind(this);
-    this.state ={
-      swipeIndex:0
-    }
+  swipe = React.createRef()
+
+  state ={
+    swipeIndex:0
   }
 
-  handleNext(){
+  handleNext = ()=>{
     this.swipe.current.swipe.next();
   }
 
-  handlePrev(){
+  handlePrev = ()=>{
     this.swipe.current.swipe.prev();
   }
 
-  swipeCallback(index){
+  hoverHandle(to){
+    this.swipe.current.swipe.slide(to);
+  }
+
+  componentDidMount(){
+    console.log(this.swipe.current.swipe.getPos())
+  }
+
+  swipeCallback = (index)=>{
     this.setState({
       swipeIndex:index
     })
@@ -43,7 +45,7 @@ class Carousel extends Component {
     let nextClass = classNames({
       next:true,
       btn:true,
-      disable:this.state.swipeIndex === 2
+      disable:this.state.swipeIndex === 1
     })
 
     return (
@@ -59,13 +61,10 @@ class Carousel extends Component {
                     ref={this.swipe}
         >
           <div>
-            <img src={swipeImg1} />
+            <img className={"carousel-img"} src={swipeImg1} />
           </div>
           <div>
-            <img src={swipeImg2} />
-          </div>
-          <div>
-            <img src={swipeImg3} />
+            <img className={"carousel-img"} src={swipeImg2} />
           </div>
         </ReactSwipe>
 

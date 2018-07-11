@@ -15,15 +15,17 @@ class HeaderForVideo extends Component {
   render() {
     return (
       <div className="header">
-        <img className="logo" src={logo} />
+        <div className="header-wrap">
+          <img className="logo" src={logo} />
 
-        <div className="header-right">
+          <div className="header-right">
 
-          <HomeLink />
+            <HomeLink />
 
-          <div className="blank-width-80" />
+            <div className="blank-width-80" />
 
-          <User />
+            <User />
+          </div>
         </div>
       </div>
     )

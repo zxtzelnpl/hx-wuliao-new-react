@@ -8,39 +8,39 @@ import MessageItem from './MessageItem';
 class MessageBoxWithoutLoadMore extends Component {
   box = React.createRef();
 
-  initialJRoll = ()=>{
-    this.box.current.addEventListener('mousewheel',this.onWheelHandle);
+  // initialJRoll = ()=>{
+  //   this.box.current.addEventListener('mousewheel',this.onWheelHandle);
+  //
+  //   this.jroll = new JRoll(this.box.current, {
+  //     scrollX:false,
+  //     scrollY:true,
+  //     scrollBarY: 'custom',
+  //     scrollBarFade:false
+  //   });
+  // }
 
-    this.jroll = new JRoll(this.box.current, {
-      scrollX:false,
-      scrollY:true,
-      scrollBarY: 'custom',
-      scrollBarFade:false
-    });
-  }
-
-  destroyJRoll = ()=>{
-    this.box.current.removeEventListener('mousewheel',this.onWheelHandle);
-    this.jroll.destroy();
-  }
+  // destroyJRoll = ()=>{
+  //   this.box.current.removeEventListener('mousewheel',this.onWheelHandle);
+  //   this.jroll.destroy();
+  // }
 
   componentDidMount() {
-    this.initialJRoll()
+    // this.initialJRoll()
   }
 
   componentWillUnmount(){
-    this.destroyJRoll();
+    // this.destroyJRoll();
   }
 
   componentDidUpdate(preState){
-    if(this.props.list!==preState.list){
-      this.jroll.refresh();
-    }
+    // if(this.props.list!==preState.list){
+    //   this.jroll.refresh();
+    // }
   }
 
-  onWheelHandle(e){
-    e.preventDefault()
-  }
+  // onWheelHandle(e){
+  //   e.preventDefault()
+  // }
 
   renderItems = ()=>{
     const {list,receivedAt,isFetching} = this.props;

@@ -11,7 +11,15 @@
   .subTitle{
     margin-bottom: 5px;
     padding-left:8px;
-    border-left:4px solid #e91c23;
+    &:before{
+      position:absolute;
+      margin-left:-8px;
+      display:block;
+      content:"";
+      width:4px;
+      height:19px;
+      background:#e91c23;
+    }
   }
   .text{
     color:#a3a3a3;

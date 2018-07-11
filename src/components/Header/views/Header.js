@@ -16,19 +16,21 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <img className="logo" src={logo} />
+        <div className="header-wrap">
+          <img className="logo" src={logo} />
 
-        <div className="header-right">
+          <div className="header-right">
 
-          <HeadMenus />
+            <HeadMenus />
 
-          <div className="blank-width-10" />
+            <div className="blank-width-10" />
 
-          <VideoLink />
+            <VideoLink />
 
-          <div className="blank-width-80" />
+            <div className="blank-width-80" />
 
-          <User />
+            <User />
+          </div>
         </div>
       </div>
     )

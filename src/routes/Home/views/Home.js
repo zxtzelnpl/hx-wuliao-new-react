@@ -15,6 +15,10 @@ import team_qsyx from 'assets/images/team_qsyx.png';
 
 class Home extends Component {
 
+  handleHover(e){
+    console.log(e.target)
+  }
+
   render() {
 
     return (
@@ -31,6 +35,7 @@ class Home extends Component {
                 white={true}
                 url={"/comprehensive/marketing/speechcraft"}
               />
+              <div className="blank-width-360" />
               <LinkIcon
                 img={img_investment}
                 text={"投资组合"}
@@ -48,8 +53,11 @@ class Home extends Component {
             </h4>
             <div className="links">
               <LinkIcon img={team_qsyx} text={"强势优选组"} url={"product/team_qsyx/duanxianbao/marketing/product"}/>
+              <div className="blank-width-130" />
               <LinkIcon img={team_nytz} text={"牛眼投资组"} url={"product/team_nytz/duanxianbao/marketing/product"}/>
+              <div className="blank-width-130" />
               <LinkIcon img={team_qsxg} text={"选股器"} url={"product/team_qsxg/duanxianbao/marketing/product"}/>
+              <div className="blank-width-130" />
               <LinkIcon img={team_dllh} text={"独立量化组"} url={"product/team_dllh/duanxianbao/marketing/product"}/>
             </div>
           </div>
