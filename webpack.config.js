@@ -6,7 +6,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
   entry: {
     index:path.resolve(__dirname, 'src/index.js'),
-    video:path.resolve(__dirname, 'src/video.js')
+    video:path.resolve(__dirname, 'src/video.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -78,13 +78,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename:'index.html',
       template: `${__dirname}/src/index.tmpl.html`,
-      chunks:['index']
+      chunks:['pdf.worker','index']
     }),
 
     new HtmlWebpackPlugin({
       filename:'video.html',
       template: `${__dirname}/src/video.tmpl.html`,
-      chunks:['video']
+      chunks:['pdf.worker','video']
     }),
 
     // 热加载插件

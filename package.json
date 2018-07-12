@@ -14,6 +14,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-pdf": "^4.0.0-beta",
+    "react-pdf-js": "^4.0.0-alpha.6",
     "react-redux": "^5.0.6",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-swipe": "^5.1.1",
@@ -56,7 +57,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --color --max_old_space_size=2048",
+    "start": "webpack-dev-server --progress --color --max_old_space_size=4096",
     "mock": "node ./mock/server.js",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test": "rd/s/q test && set NODE_ENV=production&& webpack --config ./webpack.test.config.js --progress --colors"

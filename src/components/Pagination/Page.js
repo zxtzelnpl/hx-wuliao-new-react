@@ -8,8 +8,8 @@ import Loading from 'components/Loading/Loading';
 class Page extends Component {
 
   renderList(){
-    const {url,list} = this.props;
-    return list.map(data=>(<Item key={data.id} linkUrl={url} {...data}/>))
+    const {list} = this.props;
+    return list.map(data=>(<Item key={data.id} {...data}/>))
   }
 
   render() {
@@ -27,8 +27,7 @@ class Page extends Component {
 }
 
 Page.propTypes={
-  list:propTypes.array.isRequired,
-  url:propTypes.string.isRequired
+  list:propTypes.array.isRequired
 }
 
 export default Page

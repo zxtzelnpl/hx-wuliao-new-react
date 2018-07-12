@@ -2,6 +2,7 @@ export function trim(str){
   return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
-export const pdfReg = /.+\.pdf/;
+export const pdfReg = /.+\.pdf$/;
 export const pptReg = /.+\.(pptx|ppt)/;
 export const docReg = /.+\.(docx|doc)/;
+export const officeReg = /.+\.(pptx|ppt|docx|doc)$/;

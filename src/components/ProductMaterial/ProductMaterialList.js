@@ -58,16 +58,14 @@ class ProductMaterialList extends Component {
   }
 
   renderPage = ()=>{
-    const {match,data} = this.props;
+    const {data} = this.props;
     let dom = <div>暂无数据</div>;
 
     if(typeof data === 'object'){
       const {isFetching,total,list} =data;
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        const url = match.url;
         dom = <Page
           list={list}
-          url={url}
           isFetching={isFetching}
         />
       }
