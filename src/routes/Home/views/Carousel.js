@@ -27,7 +27,6 @@ class Carousel extends Component {
   }
 
   componentDidMount(){
-    console.log(this.swipe.current.swipe.getPos())
   }
 
   swipeCallback = (index)=>{

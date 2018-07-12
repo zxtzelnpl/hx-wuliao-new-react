@@ -47,10 +47,23 @@ function* removeLocal(){
   myStorage.removeItem('user');
 }
 
+const checkError = action => {
+  const {error,type} = action;
+  if(type===actionTypes.ERROR){
+    return false
+  }
+  if(error&&error.name===401){
+    return true
+  }
+}
+
 export default function* rootFetch() {
   yield takeEvery(actionTypes.REQUEST_CODE,getCode);
   yield takeEvery(actionTypes.REQUEST,login);
   yield takeEvery(actionTypes.RECEIVED,addLocal);
   yield takeEvery(actionTypes.LOGOUT,removeLocal);
+  yield takeEvery(checkError,()=>{
+    put(actionTypes.LOGOUT)
+  });
 }
 
