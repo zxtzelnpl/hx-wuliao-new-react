@@ -11,14 +11,12 @@ import {Home} from './routes/Home';
 
 /*营销素材-产品案例*/
 import {
-  List as ProductMaterialMarketingProductList,
-  Detail as ProductMaterialMarketingProductDetail
+  List as ProductMaterialMarketingProductList
 } from './routes/MarketingMaterialProduct';
 
 /*营销素材-战绩回顾*/
 import {
-  List as ProductMaterialMarketingRecordList,
-  Detail as ProductMaterialMarketingRecordDetail
+  List as ProductMaterialMarketingRecordList
 } from './routes/MarketingMaterialRecord';
 
 /*策略素材*/
@@ -28,26 +26,22 @@ import {
 
 /*策略素材-早评*/
 import {
-  List as StrategyMaterialPredictionList,
-  Detail as StrategyMaterialPredictionDetail,
+  List as StrategyMaterialPredictionList
 } from './routes/StrategyMaterialPrediction';
 
 /*策略素材-收评*/
 import {
-  List as StrategyMaterialReviewList,
-  Detail as StrategyMaterialReviewDetail,
+  List as StrategyMaterialReviewList
 } from './routes/StrategyMaterialReview';
 
 /*策略素材-盘中解盘评*/
 import {
-  List as StrategyMaterialAnalysisList,
-  Detail as StrategyMaterialAnalysisDetail,
+  List as StrategyMaterialAnalysisList
 } from './routes/StrategyMaterialAnalysis';
 
 /*体验素材-周报*/
 import {
-  List as ExperienceMaterialWeekList,
-  Detail as ExperienceMaterialWeekDetail,
+  List as ExperienceMaterialWeekList
 } from './routes/ExperienceMaterialWeek';
 
 /*体验素材-年报*/
@@ -58,8 +52,7 @@ import {
 
 /*客服素材-持仓分析*/
 import {
-  List as CustomerServiceAnalysisList,
-  Detail as CustomerServiceAnalysisDetail,
+  List as CustomerServiceAnalysisList
 } from './routes/CustomerServiceAnalysis';
 
 /*客服素材-服务视频*/
@@ -81,20 +74,17 @@ import {
 
 /*营销素材-营销话术*/
 import {
-  List as SpeechCraft,
-  Detail as SpeechCraftDetail
+  List as SpeechCraft
 } from './routes/ComprehensiveSpeechCraft';
 
 /*营销素材-营销软文*/
 import {
-  List as ComprehensiveMarketingArticle,
-  Detail as ComprehensiveMarketingArticleDetail
+  List as ComprehensiveMarketingArticle
 } from './routes/ComprehensiveMarketingArticle';
 
 /*营销素材-营销图片*/
 import {
-  List as ComprehensiveMarketingImage,
-  Detail as ComprehensiveMarketingImageDetail
+  List as ComprehensiveMarketingImage
 } from './routes/ComprehensiveMarketingImage';
 
 
@@ -110,8 +100,7 @@ import {
 
 /*投资组合-文字策略*/
 import {
-  List as InvestmentTextStrategy,
-  Detail as InvestmentTextStrategyDetail
+  List as InvestmentTextStrategy
 } from './routes/InvestmentTextStrategy';
 
 import {Header} from './components/Header'
@@ -191,25 +180,19 @@ const Product = ({match}) => {
 
       <div className="productMaterialsContent">
         <Route exact path={`${match.path}/marketing/product`} component={ProductMaterialMarketingProductList}/>
-        <Route exact path={`${match.path}/marketing/product/detail/:id`} component={ProductMaterialMarketingProductDetail}/>
 
         <Route exact path={`${match.path}/marketing/record`} component={ProductMaterialMarketingRecordList}/>
-        <Route exact path={`${match.path}/marketing/record/detail/:id`} component={ProductMaterialMarketingRecordDetail}/>
 
 
         <Route exact path={`${match.path}/strategy`} component={StrategyMaterial}/>
         <Route exact path={`${match.path}/strategy/prediction`} component={StrategyMaterialPredictionList}/>
-        <Route exact path={`${match.path}/strategy/prediction/detail/:id`} component={StrategyMaterialPredictionDetail}/>
 
         <Route exact path={`${match.path}/strategy/review`} component={StrategyMaterialReviewList}/>
-        <Route exact path={`${match.path}/strategy/review/detail/:id`} component={StrategyMaterialReviewDetail}/>
 
         <Route exact path={`${match.path}/strategy/analysis`} component={StrategyMaterialAnalysisList}/>
-        <Route exact path={`${match.path}/strategy/analysis/detail/:id`} component={StrategyMaterialAnalysisDetail}/>
 
 
         <Route exact path={`${match.path}/experience/week`} component={ExperienceMaterialWeekList}/>
-        <Route exact path={`${match.path}/experience/week/detail/:id`} component={ExperienceMaterialWeekDetail}/>
 
         <Route exact path={`${match.path}/experience/year`} component={ExperienceMaterialYearList}/>
         <Route exact path={`${match.path}/experience/year/detail/:id`} component={ExperienceMaterialYearDetail}/>
@@ -218,7 +201,6 @@ const Product = ({match}) => {
         <Route exact path={`${match.path}/customer/video`} component={CustomerServiceVideoList}/>
 
         <Route exact path={`${match.path}/customer/analysis`} component={CustomerServiceAnalysisList}/>
-        <Route exact path={`${match.path}/customer/analysis/detail/:id`} component={CustomerServiceAnalysisDetail}/>
 
 
         <Route exact path={`${match.path}/research`} component={Research}/>
@@ -275,20 +257,16 @@ const Comprehensive = ({match}) => (
     <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
     <Route exact path={`${match.url}/marketing/speechcraft`} component={SpeechCraft}/>
-    <Route exact path={`${match.url}/marketing/speechcraft/detail/:id`} component={SpeechCraftDetail}/>
 
     <Route exact path={`${match.url}/marketing/article`} component={ComprehensiveMarketingArticle}/>
-    <Route exact path={`${match.url}/marketing/article/detail/:id`} component={ComprehensiveMarketingArticleDetail}/>
 
     <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
-    <Route exact path={`${match.url}/marketing/image/detail/:id`} component={ComprehensiveMarketingImageDetail}/>
 
     <Route path={`${match.url}/investment/marketstock`} component={InvestmentMarketingStock}/>
 
     <Route path={`${match.url}/investment/servicestock`} component={InvestmentServiceStock}/>
 
     <Route exact path={`${match.url}/investment/texttrategy`} component={InvestmentTextStrategy}/>
-    <Route exact path={`${match.url}/investment/texttrategy/detail/:id`} component={InvestmentTextStrategyDetail}/>
 
     {/*侧边聊天*/}
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>

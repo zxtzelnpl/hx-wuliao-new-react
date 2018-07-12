@@ -4,7 +4,7 @@ import logo from 'src/assets/images/icon_noli_logo_r.png';
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import HeadMenus from './HeadMenus';
+import HeadMenusTwo from './HeadMenusTwo';
 import VideoLink from './VideoLink';
 import {User} from 'components/User';
 
@@ -20,7 +20,7 @@ class Header extends Component {
 
           <div className="header-right">
 
-            <HeadMenus />
+            <HeadMenusTwo />
 
             <div className="blank-width-10" />
 

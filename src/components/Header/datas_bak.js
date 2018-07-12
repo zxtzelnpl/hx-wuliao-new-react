@@ -58,7 +58,53 @@ export default {
       id:'comprehensive',
       key:'comprehensive',
       text:'综合素材',
-      title:'请选择产品'
+      title:'请选择产品',
+      subs:[
+        {
+          id:'marketing',
+          key:'marketing',
+          text:'营销素材',
+          /*subs:[
+            {
+              id:'speechcraft',
+              key:'speechcraft',
+              text:'营销话术',
+            },
+            {
+              id:'article',
+              key:'article',
+              text:'营销软文',
+            },
+            {
+              id:'image',
+              key:'image',
+              text:'营销图片',
+            }
+          ]*/
+        },
+        {
+          id:'investment',
+          key:'investment',
+          text:'投资组合',
+          /*subs:[
+            {
+              id:'marketstock',
+              key:'marketstock',
+              text:'营销票',
+            },
+            {
+              id:'servicestock',
+              key:'servicestock',
+              text:'服务票',
+            },
+            {
+              id:'texttrategy',
+              key:'texttrategy',
+              text:'文字策略',
+            }
+          ]*/
+        },
+      ]
     }
   ]
 }
