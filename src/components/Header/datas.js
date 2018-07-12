@@ -1,64 +1,49 @@
 const childProducts = {
-  title:'请选择子产品',
-  subs:[
+  subs: [
     {
-      id:'duanxianbao',
-      key:'duanxianbao',
-      text:'短线宝'
+      id: '/duanxianbao/marketing/product',
+      text: '短线宝'
     },
     {
-      id:'junyincaopan',
-      key:'junyincaopan',
-      text:'君银操盘'
+      id: '/junyincaopan/marketing/product',
+      text: '君银操盘'
     },
     {
-      id:'junyinyanjiu',
-      key:'junyinyanjiu',
-      text:'君银研究'
+      id: '/junyinyanjiu/marketing/product',
+      text: '君银研究'
     }
   ]
 };
 
-export default {
-  title:'请选择分类',
-  subs:[
-    {
-      id:'product',
-      key:'product',
-      text:'产品素材',
-      title:'请选择产品',
-      subs:[
-        {
-          id:'team_qsyx',
-          key:'team_qsyx',
-          text:'强势优选组',
-          ...childProducts
-        },
-        {
-          id:'team_nytz',
-          key:'team_nytz',
-          text:'牛眼投资组',
-          ...childProducts
-        },
-        {
-          id:'team_qsxg',
-          key:'team_qsxg',
-          text:'强势选股组',
-          ...childProducts
-        },
-        {
-          id:'team_dllh',
-          key:'team_dllh',
-          text:'独立量化组',
-          ...childProducts
-        }
-      ]
-    },
-    {
-      id:'comprehensive',
-      key:'comprehensive',
-      text:'综合素材',
-      title:'请选择产品'
-    }
-  ]
-}
+export default [
+  {
+    id: '/product',
+    text: '产品素材',
+    subs: [
+      {
+        id: '/team_qsyx',
+        text: '强势优选组',
+        ...childProducts
+      },
+      {
+        id: '/team_nytz',
+        text: '牛眼投资组',
+        ...childProducts
+      },
+      {
+        id: '/team_qsxg',
+        text: '强势选股组',
+        ...childProducts
+      },
+      {
+        id: '/team_dllh',
+        text: '独立量化组',
+        ...childProducts
+      }
+    ]
+  },
+  {
+    id: '/comprehensive/marketing/speechcraft',
+    text: '综合素材',
+  }
+]

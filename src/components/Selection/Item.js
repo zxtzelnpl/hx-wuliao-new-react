@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Item extends Component {
   render() {
 
-    let {text,className} = this.props;
-
+    let {text,className,url} = this.props;
+    console.log(url)
     return (
-      <div className={className}>
+      <Link className={className} to={url}>
         {text}
-      </div>
+      </Link>
     )
   }
 }

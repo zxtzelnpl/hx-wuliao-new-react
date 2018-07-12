@@ -15,9 +15,17 @@ class SelectionDropDown extends PureComponent {
     })
   }
 
+  componentDidUpdate(preProps){
+    if(preProps.router!==this.props.router){
+      this.setState({
+        show:false
+      })
+    }
+  }
+
   renderItems = ()=>{
-    return this.props.children.map(child=>(
-      <li>
+    return this.props.children.map((child,index)=>(
+      <li key={index}>
         {child}
       </li>
     ))

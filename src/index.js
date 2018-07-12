@@ -1,4 +1,5 @@
 import './index.less';
+import './common/less/font-awesome.less';
 import "babel-polyfill";
 import 'es6-promise';
 import 'whatwg-fetch';
