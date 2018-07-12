@@ -1,11 +1,11 @@
 import './MessageBox.less';
 
-import React, {Component} from 'react';
-import JRoll from 'jroll';
+import React, {PureComponent} from 'react';
+import propTypes from 'prop-types';
 
 import MessageItem from './MessageItem';
 
-class MessageBox extends Component {
+class MessageBox extends PureComponent {
   constructor(props) {
     super(props)
     this.renderItems = this.renderItems.bind(this);
@@ -14,89 +14,54 @@ class MessageBox extends Component {
     this.loadMore = React.createRef();
   }
 
-  initialJRoll(){
-    let loadMoreH = this.loadMore.current.clientHeight;
-    let boxH = this.box.current.clientHeight;
-    let wrapH = this.wrap.current.clientHeight;
-
-    let maxY = -(wrapH - boxH - loadMoreH);
-    let maxYMore =  -(wrapH - boxH);
-
-    this.box.current.addEventListener('mousewheel',MessageBox.onWheelHandle);
-
-    this.jroll = new JRoll(this.box.current, {
-      scrollX:false,
-      scrollY:true,
-      scrollBarY: 'custom',
-      scrollBarFade:false,
-      minY:0,
-      maxY:maxY
-    });
-
-    this.jroll.on('scroll',()=>{
-      if(this.jroll.y<maxYMore){
-        this.loadMore.current.innerHTML = '加载更多数据';
-        this.jroll.maxScrollY = maxYMore;
-      }
-    })
-
-    /*this.jroll.on('scrollEnd',()=>{
-      if(this.jroll.y<maxYMore){
-        this.loadMore.current.innerHTML = '加载更多数据';
-        this.jroll.maxScrollY = maxYMore;
-      }
-    })*/
-  }
-
-  destoryJRoll(){
-    this.box.current.removeEventListener('mousewheel',MessageBox.onWheelHandle);
-    this.jroll.destroy();
-  }
-
-  componentDidMount() {
-    this.initialJRoll()
-  }
-
-  componentWillUnmount(){
-    this.destoryJRoll();
-  }
-
-  componentDidUpdate(){
-
-  }
-
-  static onWheelHandle(e){
-    e.preventDefault()
-  }
-
   renderItems = ()=>{
-    const {list,receivedAt,isFetching} = this.props;
+    const {list} = this.props;
     let dom = <div>暂时没有更多数据</div>;
-    if(typeof list === 'object'){
-      dom = list.map(item=>{
-        return <MessageItem key={item}/>
+    if(typeof list === 'object'&&list.length>0){
+      dom = list.map((item,index)=>{
+        return <MessageItem key={index} {...item}/>
       })
     }
 
     return dom;
   }
 
+  renderLoadMore = ()=>{
+    const {isFetching,hasMore} = this.props;
+    let dom;
+    if(hasMore){
+      if(isFetching){
+        dom = <div className={"scrollUpToLoadMore isFetching"} ref={this.loadMore}>
+          正在加载数据
+        </div>
+      }
+      else{
+        dom = <div className={"scrollUpToLoadMore"} ref={this.loadMore} onClick={this.props.loadMore}>
+          点击加载更多数据
+        </div>
+      }
+    }
+    else {
+      dom = <div className={"no-more"}>已经没有更多数据了</div>
+    }
+    return dom;
+  }
+
   render() {
-
-    console.log(this.props)
-
     return (
       <div className="messageBox" ref={this.box}>
         <div className="messageBoxWrap" ref={this.wrap}>
           {this.renderItems()}
-          <div className="scrollUpToLoadMore" ref={this.loadMore}>
-            下拉加载更多数据
-          </div>
+          {this.renderLoadMore()}
         </div>
       </div>
 
     )
   }
+}
+
+MessageBox.propTypes={
+  list:propTypes.array
 }
 
 export default MessageBox

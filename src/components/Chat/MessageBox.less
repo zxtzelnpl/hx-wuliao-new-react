@@ -2,32 +2,21 @@
   overflow-x: hidden;
   overflow-y: scroll;
   min-height:600px;
-  cursor: pointer;
 }
 .scrollUpToLoadMore{
   height:40px;
   width:100%;
   text-align: center;
   line-height:40px;
+  cursor:pointer;
+  &.hide{
+    display: none;
+  }
 }
 
-.jroll-ybar{
-  position: absolute;
-  top: 2px;
-  right: -3px;
-  bottom: 2px;
-  width: 6px;
-  overflow: hidden;
-  border-radius: 2px;
-  transform: scaleX(0.5);
-}
-.jroll-ybtn{
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: 2px;
-  height: 215px;
-  transform: translate(0px, -14px) translateZ(0px) scale(1);
+.no-more{
+  height:40px;
+  width:100%;
+  text-align: center;
+  line-height:40px;
 }

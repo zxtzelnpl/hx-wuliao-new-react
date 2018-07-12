@@ -13,7 +13,7 @@ class Chat extends Component {
 
   componentDidMount(){
     this.init();
-    // setTimeout(this.refreshMessages,3000);
+    setTimeout(this.refreshMessages,3000);
   }
 
   componentWillUnmount(){

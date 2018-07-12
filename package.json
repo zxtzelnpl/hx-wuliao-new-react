@@ -56,7 +56,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --color",
+    "start": "webpack-dev-server --progress --color --max_old_space_size=2048",
     "mock": "node ./mock/server.js",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test": "rd/s/q test && set NODE_ENV=production&& webpack --config ./webpack.test.config.js --progress --colors"

@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
 import {actionTypes as alertActionTypes} from 'components/Alert';
 import MessageBox from 'components/Chat/MessageBox';
-import MessageBoxWithoutLoadMore from 'components/Chat/MessageBoxWithoutLoadMore';
 import SendBox from 'components/Chat/SendBox';
 
 class ChatBox extends Component {
@@ -18,14 +17,18 @@ class ChatBox extends Component {
     const {dispatch} = this.props;
 
     dispatch({
-      type:actionTypes.INIT,
-      params:{
-        from:0,
-        to:50,
-        sort:'DESC'
-      }
+      type:actionTypes.INIT
     })
   }
+
+  getMessage = ()=>{
+    const {dispatch} = this.props;
+
+    dispatch({
+      type:actionTypes.REQUEST
+    })
+  }
+
 
   sendMessage = (content)=>{
     const {dispatch,user} = this.props;
@@ -52,10 +55,12 @@ class ChatBox extends Component {
 
     return (
       <div className="chatBox">
-        <MessageBoxWithoutLoadMore
+        <MessageBox
           list = {data.list}
           receivedAt = {data.receivedAt}
           isFetching = {data.isFetching}
+          loadMore = {this.getMessage}
+          hasMore={data.hasMore}
         />
         <div className="blank-height-20" />
         <SendBox

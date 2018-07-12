@@ -3,14 +3,29 @@ import { call ,put, takeEvery, select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
-function* intMessage(action){
+function checkHasMore(list,pageSize){
+  return list.length>=pageSize;
+}
+
+function* intMessage(){
   let data;
 
-  const messages = yield call(service.getMessages,action.params)
+  const SiderChatBox = yield select(state=>state.SiderChatBox);
+  const {nextFrom,pageSize} = SiderChatBox;
+
+  let params = {
+    from:nextFrom,
+    to:nextFrom+pageSize,
+    sort:'ASC'
+  }
+
+  const messages = yield call(service.getMessages,params);
 
   data = {
     list:messages.list,
-    receivedAt:moment().unix()
+    nextFrom:messages.list.length,
+    receivedAt:moment().unix(),
+    hasMore:checkHasMore(messages.list,pageSize)
   }
 
   yield put({
@@ -19,15 +34,25 @@ function* intMessage(action){
   })
 }
 
-function* getMessage(action){
+function* getMessage(){
   let data;
 
-  const messages = yield call(service.getMessages,action.params);
-  const list =yield select(state=>state.SiderChatBox.list);
+  const SiderChatBox = yield select(state=>state.SiderChatBox);
+  const {nextFrom,pageSize,list} = SiderChatBox;
+
+  let params = {
+    from:nextFrom,
+    to:nextFrom+pageSize,
+    sort:'ASC'
+  }
+
+  const messages = yield call(service.getMessages,params);
 
   data = {
     list:[].concat(list,messages.list),
-    receivedAt:moment().unix()
+    nextFrom:nextFrom+messages.list.length,
+    receivedAt:moment().unix(),
+    hasMore:checkHasMore(messages.list,pageSize)
   }
 
   yield put({

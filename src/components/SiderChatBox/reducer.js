@@ -1,8 +1,9 @@
 import * as actionTypes from './actionTypes'
 const initialState = {
-  currentPage:1,
-  pageSize:20,
-  list:[]
+  nextFrom:0,
+  pageSize:50,
+  list:[],
+  hasMore:true
 }
 
 const reducer = (state=initialState,action) =>{

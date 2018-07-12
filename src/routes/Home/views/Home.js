@@ -15,10 +15,6 @@ import team_qsyx from 'assets/images/team_qsyx.png';
 
 class Home extends Component {
 
-  handleHover(e){
-    console.log(e.target)
-  }
-
   render() {
 
     return (

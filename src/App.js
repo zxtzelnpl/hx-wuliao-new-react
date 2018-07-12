@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Redirect, HashRouter as Router, Switch} from 'react-router-dom';
+import {Route, HashRouter as Router, Switch} from 'react-router-dom';
 
 import {Alert} from 'components/Alert';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
@@ -113,11 +113,6 @@ import {
   List as InvestmentTextStrategy,
   Detail as InvestmentTextStrategyDetail
 } from './routes/InvestmentTextStrategy';
-
-/*直播视频*/
-import {
-  LiveVideo
-} from './routes/LiveVideo';
 
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
@@ -314,7 +309,6 @@ class App extends React.Component {
               <Route path="/product/:team/:child" component={Product}/>
               <Route path="/comprehensive" component={Comprehensive}/>
 
-              <Route path="/live" component={LiveVideo}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
