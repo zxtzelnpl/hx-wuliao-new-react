@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from './actionTypes';
-import ProductMaterialList from 'components/ProductMaterial/ProductMaterialList';
+import ProductMaterialList from 'components/Material/ProductMaterialList';
 import reducer from './reducer';
 import saga from './saga';
 
