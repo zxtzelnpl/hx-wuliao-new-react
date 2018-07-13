@@ -88,7 +88,7 @@ import {
 } from './routes/ComprehensiveMarketingImage';
 
 
-/*投资组合-营销票*/
+/*研究同济-营销票*/
 import {
   Stock as InvestmentMarketingStock
 } from './routes/InvestmentMarketingStock';
@@ -235,7 +235,7 @@ const comprehensiveMenus = [
     ]
   },
   {
-    title:'投资组合',
+    title:'研究统计',
     lis:[
       {
         name:'营销票',

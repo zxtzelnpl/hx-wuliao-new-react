@@ -31,11 +31,6 @@ export default [
         ...childProducts
       },
       {
-        id: '/team_qsxg',
-        text: '强势选股组',
-        ...childProducts
-      },
-      {
         id: '/team_dllh',
         text: '独立量化组',
         ...childProducts
