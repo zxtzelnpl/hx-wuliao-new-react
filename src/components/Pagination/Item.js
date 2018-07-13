@@ -7,8 +7,6 @@ import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
 import PageOfficeContent from 'components/PageOfficeContent/PageOfficeContent';
 import {pdfReg, officeReg} from "src/utils/tools";
 
-
-
 class Item extends Component {
 
   state = {
@@ -50,8 +48,8 @@ class Item extends Component {
       show:this.state.show
     })
     return (
-      <li className="pageItem" onClick={this.handleClick}>
-        <div className={header}>
+      <li className="pageItem">
+        <div className={header} onClick={this.handleClick}>
           {title}
         </div>
         {this.renderContent()}
