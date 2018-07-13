@@ -6,7 +6,7 @@ class PageHtmlContent extends PureComponent {
     const {htmlDom} = this.props;
 
     return (
-      <div className="pageHtmlContent" dangerouslySetInnerHTML={{__html:htmlDom}}/>
+      <div className="page-html-content" dangerouslySetInnerHTML={{__html:htmlDom}}/>
     )
   }
 }

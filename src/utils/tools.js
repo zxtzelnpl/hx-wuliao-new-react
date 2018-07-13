@@ -3,6 +3,5 @@ export function trim(str){
 }
 
 export const pdfReg = /.+\.pdf$/;
-export const pptReg = /.+\.(pptx|ppt)/;
-export const docReg = /.+\.(docx|doc)/;
 export const officeReg = /.+\.(pptx|ppt|docx|doc)$/;
+export const imgReg = /.+\.(png|gif|jpg|jpeg|bmp)$/;

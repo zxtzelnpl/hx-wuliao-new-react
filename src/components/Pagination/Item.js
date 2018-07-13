@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
 import PageOfficeContent from 'components/PageOfficeContent/PageOfficeContent';
-import {pdfReg, officeReg} from "src/utils/tools";
+import PageImgContent from 'components/PageImgContent/PageImgContent';
+import {pdfReg, officeReg, imgReg} from "src/utils/tools";
 
 class Item extends Component {
 
@@ -27,6 +28,10 @@ class Item extends Component {
     if (filepath) {
       if(pdfReg.test(filepath)){
         return <PagePDFContent filepath={filepath}/>
+      }
+
+      if(imgReg.test(filepath)){
+        return <PageImgContent filepath={filepath}/>
       }
 
       let match = filepath.match(officeReg);

@@ -3,8 +3,6 @@ import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
 import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
 import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
-import PagePPTXContent from 'components/PagePPTXContent/PagePPTXContent';
-import PageDOCContent from 'components/PageDOCContent/PageDOCContent';
 import LittlePage from 'components/Pagination/LittlePage';
 import {docReg, pdfReg, pptReg} from "src/utils/tools";
 
@@ -77,25 +75,7 @@ class ProductMaterialDetail extends Component {
   renderContent = () => {
     let info = this.getInfoFromStore();
 
-    if (info === null) {
-      info = this.state.info;
-    }
-
-    if (info === null) {
-      return <div>暂时没有数据哦</div>
-    }
-    if (info.content!==''&&info.content!==null) {
-      return <PageHtmlContent htmlDom={info.content}/>
-    }
-    if (info.filepath&&pdfReg.test(info.filepath)) {
-      return <PagePDFContent filepath={info.filepath}/>
-    }
-    if(info.filepath&&pptReg.test(info.filepath)){
-      return <PagePPTXContent title={info.title} filepath={info.filepath}/>
-    }
-    if(info.filepath&&docReg.test(info.filepath)){
-      return <PageDOCContent title={info.title} filepath={info.filepath}/>
-    }
+    // need to rewrite;
   }
 
   renderLittlePage = () => {
