@@ -33,8 +33,6 @@ class Chat extends Component {
 
   refreshMessages = ()=>{
 
-    console.log('refreshMessages')
-
     const {dispatch} = this.props;
     const score = new Date().getTime() * 10;
     dispatch({
