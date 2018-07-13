@@ -13,7 +13,7 @@ class Chat extends Component {
 
   componentDidMount(){
     this.init();
-    setTimeout(this.refreshMessages,3000);
+    this.refreshMessagesController = setInterval(this.refreshMessages,this.timeStop);
   }
 
   componentWillUnmount(){
@@ -32,6 +32,9 @@ class Chat extends Component {
   }
 
   refreshMessages = ()=>{
+
+    console.log('refreshMessages')
+
     const {dispatch} = this.props;
     const score = new Date().getTime() * 10;
     dispatch({
@@ -40,8 +43,6 @@ class Chat extends Component {
         score:score
       }
     })
-
-    this.refreshMessagesController = setTimeout(this.refreshMessages,this.timeStop)
   }
 
   sendMessage = (content) =>{

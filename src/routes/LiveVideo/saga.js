@@ -39,7 +39,7 @@ function* getMessage(action){
   let data;
 
   const messages = yield call(service.getMessages,action.params)
-  if(Array.isArray(messages.list.data_list)){
+  if(messages.list&&Array.isArray(messages.list.data_list)){
     const list =yield select(state=>state.LiveVideo.list);
     data = {
       list:[].concat(list,messages.list.data_list),
