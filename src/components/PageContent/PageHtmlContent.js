@@ -1,4 +1,4 @@
-import './pageHtmlContent.less';
+import './PageHtmlContent.less';
 import React, {PureComponent} from 'react';
 
 class PageHtmlContent extends PureComponent {

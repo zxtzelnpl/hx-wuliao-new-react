@@ -2,10 +2,10 @@ import './Item.less'
 
 import React, {Component} from 'react';
 import classNames from 'classnames';
-import PagePDFContent from 'components/PagePDFContent/PagePDFContent';
-import PageHtmlContent from 'components/PageHtmlContent/PageHtmlContent';
-import PageOfficeContent from 'components/PageOfficeContent/PageOfficeContent';
-import PageImgContent from 'components/PageImgContent/PageImgContent';
+import PagePDFContent from 'components/PageContent/PagePDFContent';
+import PageHtmlContent from 'components/PageContent/PageHtmlContent';
+import PageOfficeContent from 'components/PageContent/PageOfficeContent';
+import PageImgContent from 'components/PageContent/PageImgContent';
 import {pdfReg, officeReg, imgReg} from "src/utils/tools";
 
 class Item extends Component {

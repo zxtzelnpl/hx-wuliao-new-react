@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actionTypes from '../actionTypes';
 import PageTitle from 'components/PageTitle/PageTitle';
 import VideoPage from 'components/Pagination/VideoPage';
 import PageNumbers from 'components/Pagination/PageNumbers';
+
 
 class List extends Component {
 
@@ -25,7 +24,7 @@ class List extends Component {
   }
 
   intList = ()=>{
-    const {match,data,dispatch} = this.props;
+    const {match,data,dispatch,actionTypes} = this.props;
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -42,7 +41,7 @@ class List extends Component {
   }
 
   turnPage = (currentPage)=>{
-    const {match,data,dispatch} = this.props;
+    const {match,data,dispatch,actionTypes} = this.props;
     const {pageSize} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -74,7 +73,6 @@ class List extends Component {
         />
       }
     }
-
     return dom;
   }
 
@@ -92,15 +90,15 @@ class List extends Component {
         />
       }
     }
-
-
     return dom;
   }
 
   render() {
+    const {title} = this.props;
+
     return (
       <div>
-        <PageTitle title={"服务视频"}/>
+        <PageTitle title={title}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -108,9 +106,4 @@ class List extends Component {
   }
 }
 
-
-const mapStateToProps = state =>({
-  data:state.CustomerServiceVideo
-})
-
-export default connect(mapStateToProps)(List)
+export default List

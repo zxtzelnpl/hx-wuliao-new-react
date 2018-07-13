@@ -1,5 +1,4 @@
-import ComprehensiveMaterialList from 'components/ComprehensiveMaterial/ComprehensiveMaterialList';
-import ComprehensiveMaterialDetail from 'components/ComprehensiveMaterial/ComprehensiveMaterialDetail';
+import ComprehensiveMaterialList from 'components/Material/ComprehensiveMaterialList';
 import React from 'react';
 import {connect} from 'react-redux';
 import * as service from './service';
@@ -15,6 +14,5 @@ const mapStateToProps = state =>({
 });
 
 const List = connect(mapStateToProps)(ComprehensiveMaterialList);
-const Detail = connect(mapStateToProps)(ComprehensiveMaterialDetail);
 
-export {List,Detail,reducer,saga}
+export {List,reducer,saga}
