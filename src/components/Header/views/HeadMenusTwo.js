@@ -1,7 +1,6 @@
 import './HeadMenusTwo.less';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { push } from 'connected-react-router';
 import SelectionDropDown from 'components/Selection/SelectionDropDown';
 import SubMenu from 'components/Selection/SubMenu';
 import Item from 'components/Selection/Item';

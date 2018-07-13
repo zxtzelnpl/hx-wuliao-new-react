@@ -87,7 +87,13 @@
     left:@boxWidth;
     background:#f2f2f2;
   }
-
+  &.show>&-title{
+    color:#fff;
+    background:linear-gradient(to right,@primaryColorShallow,@primaryColorDark);
+    &:after{
+      display:none;
+    }
+  }
   &.show>&-box{
     display:block;
   }
