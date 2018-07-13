@@ -1,5 +1,6 @@
 import './pagePDFContent.less';
 import React, {PureComponent} from 'react';
+import refresh from 'assets/images/refresh.png';
 import classNames from 'classnames';
 
 
@@ -30,7 +31,6 @@ class PagePDFContent extends PureComponent {
         this.setState({
           pageNumber:1,
           pdfDocument:pdfDocument,
-          show:true,
           numPages:pdfDocument.numPages
         })
       })
@@ -90,7 +90,7 @@ class PagePDFContent extends PureComponent {
 
   renderContent = ()=>{
     let FILE_URL = this.getFileUrl();
-    let {error} = this.state;
+    let {error, pdfDocument} = this.state;
     let dom =null;
     if(error){
       dom = <div className="pdf-load-error">
@@ -98,8 +98,13 @@ class PagePDFContent extends PureComponent {
         点击<a className="pdf-load-error-link" href={`${location.origin}${FILE_URL}`} target={"_blank"}>资源地址</a>
       </div>
     }
-    else{
+    else if(pdfDocument){
       dom = <canvas className="pagePDFCanvas" ref={this.canvas}/>
+    }
+    else{
+      dom =       <div className="pdf-loading">
+        <img className="loading-img" src={refresh} alt=""/>
+      </div>
     }
 
     return dom;
