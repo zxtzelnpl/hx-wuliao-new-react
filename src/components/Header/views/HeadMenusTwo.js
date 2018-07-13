@@ -62,15 +62,9 @@ class HeadMenus extends Component {
   render() {
     return (
       <div className="header-selections-two">
+        <Item className={"menu-link"} text={totalMenus[1].text} url={totalMenus[1].id}/>
         <SelectionDropDown
-          title={"请选择"}
-          className={'selection-drop-down'}
-          router={totalMenus[0].text}
-        >
-          {this.renderMenus(totalMenus[1].subs, totalMenus[1].id)}
-        </SelectionDropDown>
-        <SelectionDropDown
-          title={totalMenus[1].text}
+          title={totalMenus[0].text}
           className={'selection-drop-down'}
           router={this.props.router}
         >

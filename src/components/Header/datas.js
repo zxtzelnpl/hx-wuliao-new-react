@@ -43,17 +43,17 @@ export default [
     ]
   },
   {
-    id: '/comprehensive',
-    text: '综合素材',
+    id: '/comprehensive/marketing/speechcraft',
+    text: '综合素材'/*,
     subs:[
       {
-        id:'marketing/speechcraft',
+        id:'/marketing/speechcraft',
         text:'营销素材',
       },
       {
-        id:'investment/marketstock',
+        id:'/investment/marketstock',
         text:'投资组合',
       },
-    ]
+    ]*/
   }
 ]
