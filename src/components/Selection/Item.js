@@ -5,7 +5,6 @@ class Item extends Component {
   render() {
 
     let {text,className,url} = this.props;
-    console.log(url)
     return (
       <Link className={className} to={url}>
         {text}

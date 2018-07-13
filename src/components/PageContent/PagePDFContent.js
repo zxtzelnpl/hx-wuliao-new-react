@@ -50,9 +50,8 @@ class PagePDFContent extends PureComponent {
       .getPage(pageNumber)
       .then(function (pdfPage) {
         let viewport = pdfPage.getViewport(DEFAULT_SCALE);
-
-        canvas.width = canvas.clientWidth;
-        canvas.height = viewport.height * (canvas.clientWidth / viewport.width);
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
         let ctx = canvas.getContext('2d');
         let renderTask = pdfPage.render({
           canvasContext: ctx,

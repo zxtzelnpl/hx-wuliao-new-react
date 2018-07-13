@@ -173,7 +173,6 @@ const productMenus = [
   },
 ]
 const Product = ({match}) => {
-  console.log(match)
   return (
     <div className="productMaterialsLayout">
       <SiderMenu match={match} menus={productMenus} title={"产品素材"}/>
