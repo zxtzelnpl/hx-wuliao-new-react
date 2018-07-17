@@ -1,11 +1,17 @@
 import './PageStock.less';
 import React, {Component} from 'react';
+import moment from 'moment';
 import PageTitle from 'components/PageTitle/PageTitle';
-import StockTable from 'components/StockTable/StockTable';
+import StockTable from './StockTable';
 import PageNumbers from 'components/Pagination/PageNumbers';
-
+import Input from './Input';
+import Select from './Select';
+import RangePicker from './RangePicker';
 
 class PageStock extends Component {
+
+  dateFormat = 'YYYY/MM/DD';
+
   componentDidMount(){
     if(!this.props.data.receivedAt){
       this.intList();
@@ -65,6 +71,12 @@ class PageStock extends Component {
     return dom;
   }
 
+  onOk = (a,b,c)=>{
+    console.log(a)
+    console.log(b)
+    console.log(c)
+  }
+
   renderPageNumbers = ()=>{
     let dom = null;
     const {data} = this.props;
@@ -85,11 +97,32 @@ class PageStock extends Component {
   }
 
   render() {
-    const {title} = this.props;
-
+    const {dateFormat,props} = this;
+    const {title} = props;
+    const className = 'stock-list';
     return (
-      <div className="stock-list">
+      <div className={className}>
         <PageTitle title={title}/>
+
+        <div className={`${className}-form`}>
+          <div className={`${className}-form-line`}>
+            <div className={`${className}-form-item`}>
+              <Select />
+            </div>
+            <div className={`${className}-form-item`}>
+              <Input />
+            </div>
+          </div>
+          <div className={`${className}-form-line`}>
+            <div className={`${className}-form-item`}>
+              <RangePicker
+                format={dateFormat}
+                defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
+              />
+            </div>
+          </div>
+        </div>
+
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
