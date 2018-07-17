@@ -1,13 +1,11 @@
-import './Stock.less';
+import './PageStock.less';
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actionTypes from '../actionTypes';
 import PageTitle from 'components/PageTitle/PageTitle';
 import StockTable from 'components/StockTable/StockTable';
 import PageNumbers from 'components/Pagination/PageNumbers';
 
-class ServiceStock extends Component {
 
+class PageStock extends Component {
   componentDidMount(){
     if(!this.props.data.receivedAt){
       this.intList();
@@ -15,7 +13,7 @@ class ServiceStock extends Component {
   }
 
   intList = ()=>{
-    const {data,dispatch} = this.props;
+    const {data,dispatch,actionTypes} = this.props;
     const {pageSize,currentPage} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -26,13 +24,14 @@ class ServiceStock extends Component {
       params:{
         from:from,
         to:to,
-        sort:'DESC'
+        sort:'DESC',
+        condition:'[]'
       }
     })
   }
 
   turnPage = (currentPage)=>{
-    const {data,dispatch} = this.props;
+    const {data,dispatch,actionTypes} = this.props;
     const {pageSize} = data;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -42,7 +41,8 @@ class ServiceStock extends Component {
       params:{
         from:from,
         to:to,
-        sort:'DESC'
+        sort:'DESC',
+        condition:'[]'
       },
       currentPage
     })
@@ -50,7 +50,7 @@ class ServiceStock extends Component {
 
   renderPage = ()=>{
     const {data} = this.props;
-    let dom = <div>暂无数据</div>;
+    let dom = <div className="no-data">暂无数据</div>;
 
     if(typeof data === 'object'){
       const {isFetching,total,list} =data;
@@ -85,9 +85,11 @@ class ServiceStock extends Component {
   }
 
   render() {
+    const {title} = this.props;
+
     return (
       <div className="stock-list">
-        <PageTitle title={"服务票"}/>
+        <PageTitle title={title}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
       </div>
@@ -95,8 +97,4 @@ class ServiceStock extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  data:state.InvestmentMarketingStock
-})
-
-export default connect(mapStateToProps)(ServiceStock)
+export default PageStock
