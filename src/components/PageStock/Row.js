@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class Select extends Component {
+class Row extends Component {
   render() {
     return (
       <div>
-        Select
+        Row
       </div>
     )
   }
 }
 
-export default Select
+export default Row
