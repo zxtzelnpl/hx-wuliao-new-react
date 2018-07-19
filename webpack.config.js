@@ -35,13 +35,13 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        exclude: /node_modules/,
         use: [
           'style-loader',
           {loader: 'css-loader'},
           'postcss-loader',
           {
             loader: 'less-loader', options: {
+              javascriptEnabled: true,
               paths: [
                 path.resolve(__dirname, 'src')
               ]
@@ -51,7 +51,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [
           'style-loader',
           {

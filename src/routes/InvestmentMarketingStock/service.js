@@ -4,10 +4,11 @@ const totalUrl = `/api/comprehensive/investment/marketstock/total`;
 
 const pageUrl = `/api/comprehensive/investment/marketstock/page`;
 
-export async function getTotal() {
+export async function getTotal(params) {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
+    body:params
   });
 }
 

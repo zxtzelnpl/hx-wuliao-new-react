@@ -1,4 +1,28 @@
-.ant-calendar{
+.ant-input {
+  font-family: Monospaced Number, Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  padding: 4px 11px;
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, .65);
+  background: #fff none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all .3s;
+}
+
+.ant-input:focus, .ant-input:hover {
+  border-color: #40a9ff;
+  border-right-width: 1px !important;
+}
+
+.ant-calendar {
   position: relative;
   outline: none;
   width: 280px;
@@ -8,14 +32,20 @@
   text-align: left;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
   background-clip: padding-box;
   line-height: 1.5;
+
+  ::selection {
+    background: #1890ff;
+    color: #fff;
+  }
+
   &-picker {
-    font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Monospaced Number, Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    color: rgba(0,0,0,.65);
+    color: rgba(0, 0, 0, .65);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -23,17 +53,16 @@
     position: relative;
     display: inline-block;
     outline: none;
-    -webkit-transition: opacity .3s;
     transition: opacity .3s;
 
-    &-input{
+    &-input {
       outline: none;
     }
-    &-container{
-      font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+    &-container {
+      font-family: Monospaced Number, Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
       line-height: 1.5;
-      color: rgba(0,0,0,.65);
+      color: rgba(0, 0, 0, .65);
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -41,8 +70,54 @@
       position: absolute;
       z-index: 1050;
     }
+    &-icon, &-clear {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      right: 12px;
+      top: 50%;
+      margin-top: -7px;
+      line-height: 14px;
+      font-size: 12px;
+      transition: all .3s;
+      user-select: none;
+    }
+    &-icon {
+      color: rgba(0, 0, 0, .25);
+      &:after{
+        content: "\f073";
+        font-family:FontAwesome;
+        font-size: 14px;
+        color: rgba(0,0,0,.25);
+        display: inline-block;
+        line-height: 1;
+      }
+    }
+    &-clear{
+      opacity: 0;
+      z-index: 1;
+      color: rgba(0,0,0,.25);
+      background: #fff;
+      pointer-events: none;
+      cursor: pointer;
+      &:hover{
+        color:rgba(0,0,0,.45);
+      }
+      &:after{
+        content: "\f00d";
+        font-family:FontAwesome;
+        font-size: 14px;
+        display: inline-block;
+        line-height: 1;
+      }
+    }
+
+    &:hover &-clear{
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
-  &-range{
+  &-range {
     width: 552px;
     overflow: hidden;
     &-picker-input {
@@ -53,17 +128,24 @@
       width: 44%;
       text-align: center;
     }
-    &-left{
-      float:left;
+    &-picker-separator {
+      color: rgba(0, 0, 0, .45);
+      width: 10px;
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
     }
-    &-right{
-      float:right;
+    &-left {
+      float: left;
     }
-    &-part{
-      width:50%;
-      position:relative;
+    &-right {
+      float: right;
     }
-    &-middle{
+    &-part {
+      width: 50%;
+      position: relative;
+    }
+    &-middle {
       position: absolute;
       left: 50%;
       width: 20px;
@@ -71,37 +153,37 @@
       text-align: center;
       height: 34px;
       line-height: 34px;
-      color: rgba(0,0,0,.45);
+      color: rgba(0, 0, 0, .45);
     }
   }
-  &-date{
-    &-panel{
-      position:relative;
+  &-date {
+    &-panel {
+      position: relative;
     }
-    &-input{
-      &-wrap{
+    &-input {
+      &-wrap {
 
       }
     }
   }
 
-  &-input-wrap{
-    height:34px;
-    padding:6px 10px;
-    border-bottom:1px solid #e8e8e8;
+  &-input-wrap {
+    height: 34px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #e8e8e8;
   }
-  &-range &-input-wrap{
-    position:relative;
-    height:34px;
+  &-range &-input-wrap {
+    position: relative;
+    height: 34px;
   }
-  &-range &-input,&-range &-time-picker-input{
+  &-range &-input, &-range &-time-picker-input {
     position: relative;
     display: inline-block;
     padding: 4px 0;
     width: 100%;
     font-size: 14px;
     line-height: 1.5;
-    color: rgba(0,0,0,.65);
+    color: rgba(0, 0, 0, .65);
     background: #fff none;
     border-radius: 4px;
     -webkit-transition: all .3s;
@@ -111,44 +193,62 @@
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-  &-input{
+  &-input {
     border: 0;
     width: 100%;
     cursor: auto;
     outline: 0;
     height: 22px;
-    color: rgba(0,0,0,.65);
+    color: rgba(0, 0, 0, .65);
     background: #fff;
   }
 
-
-
   &-range &-decade-panel,
   &-range &-month-panel,
-  &-range &-year-panel{
-    top:34px;
+  &-range &-year-panel {
+    top: 34px;
   }
 
   &-range &-header,
   &-range &-month-panel-header,
-  &-range &-year-panel-header
-  {
+  &-range &-year-panel-header {
     border-bottom: 0;
   }
 
   &-range &-body,
   &-range &-month-panel-body,
-  &-range &-year-panel-body{
-    border-top:1px solid #e8e8e8;
+  &-range &-year-panel-body {
+    border-top: 1px solid #e8e8e8;
   }
 
   &-range &-decade-panel-table,
   &-range &-month-panel-table,
-  &-range &-year-panel-table{
-    height:208px;
+  &-range &-year-panel-table {
+    height: 208px;
   }
 
-  &-decade-panel{
+  &-range &-in-range-cell{
+    border-radius: 0;
+    position: relative;
+    &:before{
+      content: "";
+      display: block;
+      background: #e6f7ff;
+      border-radius: 0;
+      border: 0;
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+    }
+    >div{
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &-decade-panel {
     position: absolute;
     top: 1px;
     right: 0;
@@ -158,23 +258,23 @@
     border-radius: 4px;
     background: #fff;
     outline: none;
-    &-header{
+    &-header {
       height: 40px;
       line-height: 40px;
       text-align: center;
       user-select: none;
       border-bottom: 1px solid #e8e8e8;
     }
-    &-body{
-      height:calc(100% - 40px);
+    &-body {
+      height: calc(100% - 40px);
     }
-    &-cell{
+    &-cell {
       text-align: center;
     }
-    &-decade{
+    &-decade {
       display: inline-block;
       margin: 0 auto;
-      color: rgba(0,0,0,.65);
+      color: rgba(0, 0, 0, .65);
       background: transparent;
       text-align: center;
       height: 24px;
@@ -183,16 +283,16 @@
       border-radius: 2px;
       transition: background .3s ease;
     }
-    &-selected-cell &-decade{
+    &-selected-cell &-decade {
       background: #1890ff;
       color: #fff;
-      &：hover{
+      &：hover {
         background: #e6f7ff;
         cursor: pointer;
       }
     }
   }
-  &-month-panel{
+  &-month-panel {
     position: absolute;
     top: 1px;
     right: 0;
@@ -202,26 +302,26 @@
     border-radius: 4px;
     background: #fff;
     outline: none;
-    >div{
-      height:100%;
+    > div {
+      height: 100%;
     }
 
-    &-body{
-      height:calc(100% - 40px);
+    &-body {
+      height: calc(100% - 40px);
     }
-    &-table{
+    &-table {
       table-layout: fixed;
       width: 100%;
       height: 100%;
       border-collapse: separate;
     }
-    &-cell{
+    &-cell {
       text-align: center;
     }
-    &-month{
+    &-month {
       display: inline-block;
       margin: 0 auto;
-      color: rgba(0,0,0,.65);
+      color: rgba(0, 0, 0, .65);
       background: transparent;
       text-align: center;
       height: 24px;
@@ -230,16 +330,16 @@
       border-radius: 2px;
       transition: background .3s ease;
     }
-    &-selected-cell &-month{
+    &-selected-cell &-month {
       background: #1890ff;
       color: #fff;
-      &：hover{
+      &：hover {
         background: #e6f7ff;
         cursor: pointer;
       }
     }
   }
-  &-year-panel{
+  &-year-panel {
     position: absolute;
     top: 1px;
     right: 0;
@@ -249,23 +349,23 @@
     border-radius: 4px;
     background: #fff;
     outline: none;
-    &-header{
+    &-header {
       height: 40px;
       line-height: 40px;
       text-align: center;
       user-select: none;
       border-bottom: 1px solid #e8e8e8;
     }
-    &-body{
-      height:calc(100% - 40px);
+    &-body {
+      height: calc(100% - 40px);
     }
-    &-cell{
+    &-cell {
       text-align: center;
     }
-    &-year{
+    &-year {
       display: inline-block;
       margin: 0 auto;
-      color: rgba(0,0,0,.65);
+      color: rgba(0, 0, 0, .65);
       background: transparent;
       text-align: center;
       height: 24px;
@@ -274,45 +374,76 @@
       border-radius: 2px;
       transition: background .3s ease;
     }
-    &-selected-cell &-year{
+    &-selected-cell &-year {
       background: #1890ff;
       color: #fff;
-      &：hover{
+      &：hover {
         background: #e6f7ff;
         cursor: pointer;
       }
     }
   }
 
-  &-header{
+  &-header {
     height: 40px;
     line-height: 40px;
     text-align: center;
     user-select: none;
     border-bottom: 1px solid #e8e8e8;
-    a:hover{
+    a:hover {
       color: #40a9ff;
     }
   }
 
   &-header &-prev-century-btn,
   &-header &-prev-decade-btn,
-  &-header &-prev-year-btn{
-    left:7px;
+  &-header &-prev-year-btn {
+    left: 7px;
+    &:after{
+      content: "\f100";
+      font-family:FontAwesome;
+      font-size: 14px;
+      color: rgba(0,0,0,.25);
+      display: inline-block;
+      line-height: 1;
+    }
   }
 
-  &-header &-prev-month-btn{
-    left:29px;
+  &-header &-prev-month-btn {
+    left: 29px;
+    &:after{
+      content: "\f104";
+      font-family:FontAwesome;
+      font-size: 14px;
+      color: rgba(0,0,0,.25);
+      display: inline-block;
+      line-height: 1;
+    }
   }
-
-  &-header &-next-month-btn{
-    right:29px;
+  &-header &-next-month-btn {
+    right: 29px;
+    &:after{
+      content: "\f105";
+      font-family:FontAwesome;
+      font-size: 14px;
+      color: rgba(0,0,0,.25);
+      display: inline-block;
+      line-height: 1;
+    }
   }
 
   &-header &-next-century-btn,
   &-header &-next-decade-btn,
-  &-header &-next-year-btn{
-    right:7px;
+  &-header &-next-year-btn {
+    right: 7px;
+    &:after{
+      content: "\f101";
+      font-family:FontAwesome;
+      font-size: 14px;
+      color: rgba(0,0,0,.25);
+      display: inline-block;
+      line-height: 1;
+    }
   }
 
   &-header &-next-century-btn,
@@ -322,11 +453,11 @@
   &-header &-prev-century-btn,
   &-header &-prev-decade-btn,
   &-header &-prev-month-btn,
-  &-header &-prev-year-btn{
+  &-header &-prev-year-btn {
     position: absolute;
     top: 0;
-    color: rgba(0,0,0,.45);
-    font-family: Arial,Hiragino Sans GB,Microsoft Yahei,Microsoft Sans Serif,sans-serif;
+    color: rgba(0, 0, 0, .45);
+    font-family: Arial, Hiragino Sans GB, Microsoft Yahei, Microsoft Sans Serif, sans-serif;
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
@@ -336,56 +467,52 @@
   &-header &-century-select,
   &-header &-decade-select,
   &-header &-month-select,
-  &-header &-year-select
-  {
+  &-header &-year-select {
     padding: 0 2px;
     font-weight: 500;
     display: inline-block;
-    color: rgba(0,0,0,.85);
+    color: rgba(0, 0, 0, .85);
     line-height: 40px;
   }
 
-
-
-  &-body{
-    padding:8px 12px;
+  &-body {
+    padding: 8px 12px;
   }
 
-
-  table,td,th{
+  table, td, th {
     border: 0;
     text-align: center;
   }
-  table{
+  table {
     border-collapse: collapse;
     max-width: 100%;
     background-color: transparent;
     width: 100%;
   }
 
-  &-column{
-    &-header{
+  &-column {
+    &-header {
       line-height: 18px;
       width: 33px;
       padding: 6px 0;
       text-align: center;
-      & &-inner{
+      & &-inner {
         display: block;
         font-weight: 400;
       }
     }
   }
-  &-tbody{
+  &-tbody {
 
   }
-  &-cell{
+  &-cell {
     padding: 3px 0;
     height: 30px;
   }
-  &-date{
+  &-date {
     display: block;
     margin: 0 auto;
-    color: rgba(0,0,0,.65);
+    color: rgba(0, 0, 0, .65);
     border-radius: 2px;
     width: 24px;
     height: 24px;
@@ -395,43 +522,55 @@
     background: transparent;
     text-align: center;
     transition: background .3s ease;
-    &:hover{
+    &:hover {
       background: #e6f7ff;
       cursor: pointer;
     }
   }
 
-  &-selected-date &-date{
+  &-selected-date &-date {
     background: #d1e9ff;
   }
 
-
-  &-selected-date &-data,
-  &-selected-end-date &-data,
-  &-selected-start-date &-data{
+  &-selected-date &-date,
+  &-selected-end-date &-date,
+  &-selected-start-date &-date {
     background: #1890ff;
     color: #fff;
     border: 1px solid transparent;
   }
 
   &-selected-date &-date:hover,
-  &-selected-end-date &-data:hover,
-  &-selected-start-date &-data:hover{
+  &-selected-end-date &-date:hover,
+  &-selected-start-date &-date:hover {
     background: #1890ff;
   }
 
-  &-today &-date{
+  &-today &-date {
     border-color: #1890ff;
     font-weight: 700;
     color: #1890ff;
   }
 
-
-
   &-last-month-cell &-date,
-  &-next-month-btn-day &-date{
-    color: rgba(0,0,0,.25);
+  &-next-month-btn-day &-date {
+    color: rgba(0, 0, 0, .25);
   }
 
+}
 
+.ant-calendar-month-panel-header .ant-calendar-month-panel-century-select-arrow,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-decade-select-arrow,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-month-select-arrow,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-year-select-arrow {
+  display: none;
+}
+
+.ant-calendar-footer {
+  border-top: 1px solid #e8e8e8;
+  line-height: 38px;
+  padding: 0 12px;
+}
+.ant-calendar-footer:empty {
+  border-top: 0;
 }

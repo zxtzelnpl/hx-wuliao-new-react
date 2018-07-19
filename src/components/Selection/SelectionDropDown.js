@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import propTypes from 'prop-types';
 import classNames from 'classnames';
 
 
@@ -49,6 +50,11 @@ class SelectionDropDown extends PureComponent {
       </div>
     )
   }
+}
+
+SelectionDropDown.propTypes={
+  title:propTypes.string.isRequired,
+  className:propTypes.string.isRequired
 }
 
 export default SelectionDropDown

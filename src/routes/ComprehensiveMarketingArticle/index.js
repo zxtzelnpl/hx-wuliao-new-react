@@ -7,7 +7,7 @@ import saga from './saga';
 
 const mapStateToProps = state =>({
   data:state.ComprehensiveMarketingArticle,
-  title:'营销软文',
+  title:'营销方案',
   actionTypes
 });
 

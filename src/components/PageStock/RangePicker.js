@@ -161,10 +161,14 @@ class RangePicker extends Component {
     this.picker.blur();
   }
 
+  renderFooter = ()=>{
+    return null;
+  }
+
   render() {
     const {state, props} = this;
     const {value, showDate, hoverValue, open} = state;
-    const {showTime, ranges,prefixCls} = props;
+    const {showTime, ranges,prefixCls,format} = props;
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
@@ -192,10 +196,12 @@ class RangePicker extends Component {
       <RangeCalendar
         prefixCls={prefixCls}
         value={showDate}
+        format={format}
         onValueChange={this.handleShowDateChange}
         hoverValue={hoverValue}
         onHoverChange={this.handleHoverChange}
         onInputSelect={this.handleCalendarInputSelect}
+        renderFooter={this.renderFooter}
       />
     );
 
@@ -220,14 +226,18 @@ class RangePicker extends Component {
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}
           />
-          {'x'}
-          <span className={`${prefixCls}-picker-icon`}/>
+          {(!props.disabled && props.allowClear && value && (value[0] || value[1]))&&<span className={`${prefixCls}-picker-clear`} onClick={this.clearSelection}/>}
+          <span className={`${prefixCls}-picker-icon`} />
         </span>
       );
     };
 
     return (
-      <div className={"ant-calendar-picker"}>
+      <div
+        ref={this.picker}
+        className={"ant-calendar-picker"}
+        tabIndex={props.disabled ? -1 : 0}
+      >
         <RcDatePicker
           calendar={calendar}
           value={value}

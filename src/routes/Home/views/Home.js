@@ -52,8 +52,6 @@ class Home extends Component {
               <div className="blank-width-130" />
               <LinkIcon img={team_nytz} text={"牛眼投资组"} url={"product/team_nytz/duanxianbao/marketing/product"}/>
               <div className="blank-width-130" />
-              <LinkIcon img={team_qsxg} text={"强势选股组"} url={"product/team_qsxg/duanxianbao/marketing/product"}/>
-              <div className="blank-width-130" />
               <LinkIcon img={team_dllh} text={"独立量化组"} url={"product/team_dllh/duanxianbao/marketing/product"}/>
             </div>
           </div>

@@ -1,17 +1,40 @@
 import * as actionTypes from './actionTypes';
-import { call ,put, takeLatest} from 'redux-saga/effects';
+import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
-function* init(action){
+
+function* init(){
 
   try{
-    const page = yield call(service.getPage,action.params)
-    const total = yield call(service.getTotal,action.params)
+    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
+    const {pageSize,currentPage,condition,sort,order} = InvestmentMarketingStock;
+
+    let from = (currentPage-1)*pageSize;
+    let to = currentPage*pageSize;
+    const params = {
+      from:from,
+      to:to,
+      sort:sort,
+      order:order,
+      condition:condition
+    }
+
+    const total = yield call(service.getTotal,params);
+    const page = yield call(service.getPage,params);
+
+    const rise1 = yield call(service.getPage,{...params,to:1,order:'rise1'})
+    const rise3 = yield call(service.getPage,{...params,to:1,order:'rise3'})
+    const rise5 = yield call(service.getPage,{...params,to:1,order:'rise5'})
+    const over_per = yield call(service.getPage,{...params,to:1,order:'over_per'})
 
     const data = {
       list:page.list,
       total:total.total,
+      rise1:rise1.list,
+      rise3:rise3.list,
+      rise5:rise5.list,
+      over_per:over_per.list,
       receivedAt:moment().unix()
     }
 
@@ -28,17 +51,106 @@ function* init(action){
   }
 }
 
-function* getPage(action){
-
-  const {params,currentPage} = action;
-
+function* conditions(action){
   try{
+    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
+    const {pageSize,sort,order} = InvestmentMarketingStock;
+
+    let from = 0;
+    let to = pageSize;
+    const params = {
+      from:from,
+      to:to,
+      sort:sort,
+      order:order,
+      condition:action.condition
+    }
+
+    const page = yield call(service.getPage,params)
+    const total = yield call(service.getTotal,params)
+
+    const data = {
+      list:page.list,
+      total:total.total,
+      condition:action.condition,
+      currentPage:1,
+      receivedAt:moment().unix()
+    }
+
+    yield put({
+      type:actionTypes.RECEIVED,
+      data
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error
+    });
+  }
+}
+
+function* changePage(action){
+  try{
+    const {currentPage} = action;
+    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
+    const {pageSize,condition,sort,order} = InvestmentMarketingStock;
+    let from = (currentPage-1)*pageSize;
+    let to = currentPage*pageSize;
+    const params = {
+      from:from,
+      to:to,
+      sort:sort,
+      order:order,
+      condition:condition
+    }
+
     const page = yield call(service.getPage,params)
 
     const data = {
       list:page.list,
       currentPage:currentPage,
-      receivedAt:moment().unix()
+      receivedAt:moment().unix(),
+      condition:condition
+    }
+
+    yield put({
+      type:actionTypes.RECEIVED,
+      data
+    })
+  }
+  catch(error){
+    console.log(error.response.text().then(text=>{console.log(text)}))
+    yield put({
+      type:actionTypes.ERROR,
+      error
+    });
+  }
+}
+
+function* order(action){
+  try{
+    const {sort,order} = action;
+    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
+    const {pageSize,currentPage,condition} = InvestmentMarketingStock;
+
+    let from = (currentPage-1)*pageSize;
+    let to = currentPage*pageSize;
+    const params = {
+      from:from,
+      to:to,
+      sort:sort,
+      condition:condition,
+      order:order
+    }
+
+    const page = yield call(service.getPage,params)
+
+    const data = {
+      list:page.list,
+      order:order,
+      sort:sort,
+      receivedAt:moment().unix(),
     }
 
     yield put({
@@ -54,9 +166,9 @@ function* getPage(action){
   }
 }
 
-
-
 export default function* rootFetch() {
   yield takeLatest(actionTypes.INIT,init);
-  yield takeLatest(actionTypes.REQUEST,getPage);
+  yield takeLatest(actionTypes.REQUEST,changePage);
+  yield takeLatest(actionTypes.CONDITION,conditions);
+  yield takeLatest(actionTypes.ORDER,order);
 }

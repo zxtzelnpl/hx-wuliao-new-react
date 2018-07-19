@@ -8,8 +8,7 @@ class PageNumbers extends Component {
 
   constructor(props){
     super(props);
-    const {currentPage,totalPages,numberGroupSize} = this.props;
-    this.totalNumberGroup = Math.ceil(totalPages/numberGroupSize);// from 1
+    const {currentPage,numberGroupSize} = this.props;
     this.state={
       numberGroupIndex:Math.ceil(currentPage/numberGroupSize) // from 1
     }
@@ -48,7 +47,7 @@ class PageNumbers extends Component {
 
   render() {
     const {currentPage,totalPages,numberGroupSize} = this.props;
-    let totalNumberGroup = this.totalNumberGroup; // from 1
+    let totalNumberGroup = Math.ceil(totalPages/numberGroupSize); // from 1
     let numberGroupIndex = this.state.numberGroupIndex;// from 1
     let dom = [];
 

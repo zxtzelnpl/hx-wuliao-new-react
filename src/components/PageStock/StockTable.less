@@ -1,90 +1,126 @@
 @import "../../common/consts.less";
 
-.stockTable{
-  position:relative;
+.stockTable {
+  position: relative;
   text-align: center;
-  .tHead{
-    display:flex;
+  background:#fff;
+  .tHead {
+    display: flex;
     align-items: stretch;
     justify-content: center;
 
-    margin:0 auto;
-    min-height:40px;
-    width:1060px;
-    color:@primaryColor;
-    font-weight:bold;
+    margin: 0 auto;
+    min-height: 40px;
+    width: 1060px;
+    color: @primaryColor;
+    font-weight: bold;
+    &-buttons {
+      >div{
+        width:12px;
+        height:12px;
+      }
+      &-asc {
+        display: block;
+        background:url("../../assets/images/triangle-asc.png") no-repeat center bottom;
+        cursor:url("../../assets/images/up.png"),pointer;
+        &.on{
+          background:url("../../assets/images/triangle-asc-on.png") no-repeat center bottom;
+        }
+      }
+      &-desc {
+        display: block;
+        background:url("../../assets/images/triangle-desc.png") no-repeat center top;
+        cursor:url("../../assets/images/down.png"),pointer;
+        &.on{
+          background:url("../../assets/images/triangle-desc-on.png") no-repeat center top;
+        }
+      }
+    }
   }
-  .tHeadLi{
-    display:flex;
+  .tHeadLi {
+    display: flex;
     align-items: center;
     justify-content: center;
 
     box-sizing: border-box;
-    border-right:1px solid #cccccc;
-    border-top:1px solid #cccccc;
-    border-bottom:1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
   }
 
-  .tBody{
-    display:flex;
+  .tBody {
+    display: flex;
     align-items: stretch;
     justify-content: center;
 
-    margin:0 auto;
-    min-height:40px;
-    width:1060px;
+    margin: 0 auto;
+    min-height: 40px;
+    width: 1060px;
   }
 
-  .tBodyLi{
-    display:flex;
+  .tBodyLi {
+    display: flex;
     align-items: center;
     justify-content: center;
 
     box-sizing: border-box;
-    border-right:1px solid #cccccc;
-    border-bottom:1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
   }
 
-  .tHeadLi,.tBodyLi{
-    &.stock-teacher{
-      border-left:1px solid #cccccc;
-      width:80px;
+  .tHeadLi, .tBodyLi {
+    &.stock-teacher {
+      border-left: 1px solid #cccccc;
+      width: 120px;
     }
-    &.stock-from{
-      width:80px;
+    &.stock-from {
+      width: 80px;
     }
-    &.stock-name{
-      width:80px;
+    &.stock-name {
+      width: 80px;
     }
-    &.stock-buy-price{
-      width:80px;
+    &.stock-buy-price {
+      width: 80px;
     }
-    &.stock-buy-timestamp{
-      width:90px;
+    &.stock-buy-timestamp {
+      width: 150px;
     }
-    &.stock-sale-price{
-      width:80px;
+    &.stock-sale-price {
+      width: 80px;
     }
-    &.stock-sale-timestamp{
-      width:90px;
+    &.stock-sale-timestamp {
+      width: 150px;
     }
-    &.stock-stop-win{
-      width:50px;
+    &.stock-stop-win {
+      width: 50px;
     }
-    &.stock-stop-loss{
-      width:50px;
+    &.stock-stop-loss {
+      width: 50px;
     }
-    &.stock-success-percent{
-      width:60px;
+    &.stock-rise1 {
+      width: 90px;
     }
-    &.stock-record-reason{
-      width:300px;
+    &.stock-rise3 {
+      width: 90px;
     }
-    &.stock-status{
-      width:90px;
+    &.stock-rise5 {
+      width: 90px;
     }
-    &.stock-action{
-      width:90px;
+    &.stock-success-percent {
+      width: 60px;
+    }
+    &.stock-record-reason {
+      width: 100px;
+      cursor:pointer;
+      &:hover{
+        color:@primaryColor;
+      }
+    }
+    &.stock-status {
+      width: 90px;
+    }
+    &.stock-action {
+      width: 90px;
     }
   }
 }

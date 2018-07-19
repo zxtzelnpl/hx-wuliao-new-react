@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    margin:0;
     width:@boxWidth;
     padding:@headerTextPaddingUD @headerTextPaddingRight @headerTextPaddingUD @headerTextPaddingLeft;
     color:#fff;
@@ -71,6 +72,9 @@
   padding:@headerTextPaddingUD @headerTextPaddingRight @headerTextPaddingUD @headerTextPaddingLeft;
   color:#fff;
   background:linear-gradient(to right,@primaryColorShallow,@primaryColorDark);
+  &:hover{
+    color:#fff;
+  }
 }
 
 .sub-menu{
@@ -80,8 +84,9 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    width:@boxWidth;
+    margin:0;
     padding:@headerTextPaddingUD @headerTextPaddingRight @headerTextPaddingUD @headerTextPaddingLeft;
+    width:@boxWidth;
     &:hover{
       color:#fff;
       background:linear-gradient(to right,@primaryColorShallow,@primaryColorDark);
@@ -116,6 +121,8 @@
   box-sizing: border-box;
   width:@boxWidth;
   padding:@headerTextPaddingUD @headerTextPaddingRight @headerTextPaddingUD @headerTextPaddingLeft;
+
+  color:#000;
   &:hover{
     color:#fff;
     background:linear-gradient(to right,@primaryColorShallow,@primaryColorDark);

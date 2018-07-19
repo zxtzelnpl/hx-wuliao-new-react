@@ -1,3 +1,30 @@
+@import "common/consts.less";
 .reason-box{
+  position:absolute;
+  left:50%;
+  top:50%;
 
+  box-sizing: border-box;
+  padding:10px;
+  min-width:600px;
+  border:1px solid #9f9f9f;
+  box-shadow: 1px 1px 1px gray;
+
+  transform: translate(-50%,-50%);
+  background:#fff;
+
+  &-text{
+    text-align: left;
+    text-indent: 2em;
+  }
+
+  &-button{
+    float:right;
+    width:60px;
+    height:25px;
+    line-height: 25px;
+    color:#fff;
+    background:@primaryColor;
+    cursor:pointer;
+  }
 }

@@ -4,13 +4,17 @@ import moment from 'moment';
 import PageTitle from 'components/PageTitle/PageTitle';
 import StockTable from './StockTable';
 import PageNumbers from 'components/Pagination/PageNumbers';
-import Input from './Input';
-import Select from './Select';
-import RangePicker from './RangePicker';
+import RangePicker from 'components/Form/RangePicker';
+import {trim} from 'utils/tools';
+import TopBox from './TopBox';
 
 class PageStock extends Component {
 
-  dateFormat = 'YYYY/MM/DD';
+  state = {
+    name:'',
+    from:'',
+    to:'',
+  }
 
   componentDidMount(){
     if(!this.props.data.receivedAt){
@@ -19,38 +23,9 @@ class PageStock extends Component {
   }
 
   intList = ()=>{
-    const {data,dispatch,actionTypes} = this.props;
-    const {pageSize,currentPage} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
-    console.log(data);
-
+    const {dispatch,actionTypes} = this.props;
     dispatch({
-      type:actionTypes.INIT,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC',
-        condition:'[]'
-      }
-    })
-  }
-
-  turnPage = (currentPage)=>{
-    const {data,dispatch,actionTypes} = this.props;
-    const {pageSize} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
-
-    dispatch({
-      type:actionTypes.REQUEST,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC',
-        condition:'[]'
-      },
-      currentPage
+      type:actionTypes.INIT
     })
   }
 
@@ -59,22 +34,19 @@ class PageStock extends Component {
     let dom = <div className="no-data">暂无数据</div>;
 
     if(typeof data === 'object'){
-      const {isFetching,total,list} =data;
+      const {isFetching,total,list,order,sort} =data;
       if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
         dom = <StockTable
           list={list}
           isFetching={isFetching}
+          orderChange={this.orderChange}
+          order={order}
+          sort={sort}
         />
       }
     }
 
     return dom;
-  }
-
-  onOk = (a,b,c)=>{
-    console.log(a)
-    console.log(b)
-    console.log(c)
   }
 
   renderPageNumbers = ()=>{
@@ -96,30 +68,140 @@ class PageStock extends Component {
     return dom;
   }
 
+  renderTopBox(data,title,key){
+    if(Array.isArray(data)&&data.length===1&&data[0][key]){
+      return <TopBox data={data[0]} title={title} titleValue={data[0][key]}/>
+    }
+    else{
+      return null;
+    }
+  }
+
+  onChange = e=>{
+    this.setState({
+      [e.target.name]:trim(e.target.value)
+    })
+    console.log(this.state)
+  }
+
+  getConditions = ()=>{
+    const {name,from,to} = this.state;
+    let condition=[];
+    if(name!==''){
+      condition.push({
+        field:'name',
+        value:`'${name}'`
+      })
+    }
+    if(from!==''||to!==''){
+      let obj = {
+        field:'buy_timestamp'
+      }
+      if(from!==''){
+        obj.from=moment(from).unix();
+      }
+      if(to!==''){
+        obj.to=moment(to).unix();
+      }
+      condition.push(obj)
+    }
+
+    return JSON.stringify(condition);
+  }
+
+  onSubmit = ()=>{
+    const {data,dispatch,actionTypes} = this.props;
+    let condition = this.getConditions();
+    if(condition!==data.condition){
+      dispatch({
+        type:actionTypes.CONDITION,
+        condition:this.getConditions()
+      })
+    }
+  }
+
+  turnPage = (currentPage)=>{
+    const {dispatch,actionTypes} = this.props;
+
+    dispatch({
+      type:actionTypes.REQUEST,
+      currentPage
+    })
+  }
+
+  orderChange = e=>{
+    const order = e.target.getAttribute("data-order");
+    const sort = e.target.getAttribute("data-sort");
+
+    const {data,dispatch,actionTypes} = this.props;
+    if(data.order!==order||data.sort!==sort){
+      dispatch({
+        type:actionTypes.ORDER,
+        order,
+        sort
+      })
+    }
+  }
+
   render() {
-    const {dateFormat,props} = this;
-    const {title} = props;
+    const {props,state} = this;
+    const {title,data} = props;
+    const {name}=state;
+    const {condition,rise1,rise3,rise5,over_per} = data;
+    let subTitle='';
+    JSON.parse(condition).map(item=>{
+      if(item.field==='name'){
+        subTitle+=`——股票名称：${item.value}`;
+      }
+      if(item.field==='buy_timestamp'){
+        if(item.from){
+          subTitle+='——开始时间：'+moment.unix(item.from).format('YYYY年MM月DD日');
+        }
+        if(item.to){
+          subTitle+='——截止时间：'+moment.unix(item.to).format('YYYY年MM月DD日');
+        }
+      }
+    });
     const className = 'stock-list';
     return (
       <div className={className}>
-        <PageTitle title={title}/>
+
+        <div className={`${className}-top-boxes`}>
+          {this.renderTopBox(rise1,'1日涨幅','rise1')}
+          {this.renderTopBox(rise3,'3日涨幅','rise3')}
+          {this.renderTopBox(rise5,'5日涨幅','rise5')}
+          {this.renderTopBox(over_per,'总结','over_per')}
+        </div>
+
+        <PageTitle title={`${title}${subTitle}`}/>
 
         <div className={`${className}-form`}>
-          <div className={`${className}-form-line`}>
-            <div className={`${className}-form-item`}>
-              <Select />
-            </div>
-            <div className={`${className}-form-item`}>
-              <Input />
-            </div>
+
+          <div className={`${className}-form-item`}>
+            <span className={`${className}-form-item-span`}>股票：</span>
+            <input
+              className={`${className}-form-item-input`}
+              type="text"
+              name={"name"}
+              onChange={this.onChange}
+              value={name}
+            />
           </div>
-          <div className={`${className}-form-line`}>
-            <div className={`${className}-form-item`}>
-              <RangePicker
-                format={dateFormat}
-                defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-              />
-            </div>
+          <div className="blank-width-40" />
+          <div className={`${className}-form-item`}>
+            <RangePicker
+              className={`${className}-form-item-range`}
+              onChange={this.onChange}
+            />
+          </div>
+          <div className="blank-width-30" />
+          <div
+            className={`${className}-btn`}
+            onClick={this.onSubmit}
+          >确认</div>
+          <div className="blank-width-30" />
+          <div className={`${className}-btn`} onClick={this.downloadData} style={{visibility:'hidden'}}>
+            导出查询数据
           </div>
         </div>
 

@@ -224,7 +224,7 @@ const comprehensiveMenus = [
         path:'marketing/speechcraft'
       },
       {
-        name:'营销软文',
+        name:'营销方案',
         path:'marketing/article'
       },
       {
