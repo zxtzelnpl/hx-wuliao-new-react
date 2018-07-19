@@ -23,7 +23,7 @@ class Item extends Component {
     }
 
     if (content!==''&&content!==null) {
-      return <PageHtmlContent htmlDom={content}/>
+      return <PageHtmlContent htmlDom={content} filepath={filepath}/>
     }
     if (filepath) {
       if(pdfReg.test(filepath)){

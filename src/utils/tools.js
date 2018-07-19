@@ -3,7 +3,7 @@ export function trim(str){
 }
 
 export const pdfReg = /.+\.pdf$/;
-export const officeReg = /.+\.(pptx|ppt|docx|doc)$/;
+export const officeReg = /.+\.(pptx|ppt|docx|doc|xlsx|xls)$/;
 export const imgReg = /.+\.(png|gif|jpg|jpeg|bmp)$/;
 
 export const makePercent = str => {
