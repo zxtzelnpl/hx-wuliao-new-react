@@ -12,6 +12,8 @@ class Row extends Component {
   }
 
   componentDidMount(){
+    console.log(this.row.current.offsetTop)
+
     this.reasonBoxStyle = {
       top:this.row.current.offsetTop
     }

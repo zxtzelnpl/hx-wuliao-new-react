@@ -25,8 +25,6 @@ class ReasonBox extends Component {
     else{
       return null;
     }
-
-
   }
 }
 

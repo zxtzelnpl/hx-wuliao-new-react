@@ -3,12 +3,13 @@ import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
+const getState = state => state.InvestmentMarketingStock;
 
 function* init(){
 
   try{
-    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
-    const {pageSize,currentPage,condition,sort,order} = InvestmentMarketingStock;
+    const STATE = yield select(getState);
+    const {pageSize,currentPage,condition,sort,order} = STATE;
 
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -53,8 +54,8 @@ function* init(){
 
 function* conditions(action){
   try{
-    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
-    const {pageSize,sort,order} = InvestmentMarketingStock;
+    const STATE = yield select(getState);
+    const {pageSize,sort,order} = STATE;
 
     let from = 0;
     let to = pageSize;
@@ -93,8 +94,8 @@ function* conditions(action){
 function* changePage(action){
   try{
     const {currentPage} = action;
-    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
-    const {pageSize,condition,sort,order} = InvestmentMarketingStock;
+    const STATE = yield select(getState);
+    const {pageSize,condition,sort,order} = STATE;
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
     const params = {
@@ -131,8 +132,8 @@ function* changePage(action){
 function* order(action){
   try{
     const {sort,order} = action;
-    const InvestmentMarketingStock = yield select(state=>state.InvestmentMarketingStock);
-    const {pageSize,currentPage,condition} = InvestmentMarketingStock;
+    const STATE = yield select(getState);
+    const {pageSize,currentPage,condition} = STATE;
 
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;

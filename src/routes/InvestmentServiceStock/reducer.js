@@ -1,7 +1,10 @@
 import * as actionTypes from './actionTypes'
 const initialState = {
   currentPage:1,
-  pageSize:20
+  pageSize:20,
+  condition:'[]',
+  order:'id',
+  sort:'DESC'
 }
 
 const reducer = (state=initialState,action) =>{
@@ -12,6 +15,18 @@ const reducer = (state=initialState,action) =>{
         isFetching:true,
         error:null,
         ...action.urlParams
+      }
+    case actionTypes.CONDITION:
+      return {
+        ...state,
+        isFetching:true,
+        error:null
+      }
+    case actionTypes.ORDER:
+      return {
+        ...state,
+        isFetching:true,
+        error:null
       }
     case actionTypes.REQUEST:
       return {
