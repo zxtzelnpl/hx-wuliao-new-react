@@ -58,29 +58,34 @@ class ResearchMaterial extends Component {
     const {match,data} = this.props;
     const {url} = match;
 
-    return (
-      <div className="researchMaterial">
-        <StockPool
-          title={"初选股票池"}
-          url={`${url}/primary`}
-          selectId={data.primaryPhaseId}
-          list={data.primaryPhaseList}
-          info={data.primaryPhaseCurrent}
-          onSelect={this.onPrimarySelect}
-        />
+    if(data.error){
+      return <div className="no-data">暂无数据</div>
+    }
+    else{
+      return (
+        <div className="researchMaterial">
+          <StockPool
+            title={"初选股票池"}
+            url={`${url}/primary`}
+            selectId={data.primaryPhaseId}
+            list={data.primaryPhaseList}
+            info={data.primaryPhaseCurrent}
+            onSelect={this.onPrimarySelect}
+          />
 
-        <div className="blank-height-10" />
+          <div className="blank-height-10" />
 
-        <StockPool
-          title={"精选股票池"}
-          url={`${url}/concentrate`}
-          selectId={data.concentratePhaseId}
-          list={data.concentratePhaseList}
-          info={data.concentratePhaseCurrent}
-          onSelect={this.onConcentrateSelect}
-        />
-      </div>
-    )
+          <StockPool
+            title={"精选股票池"}
+            url={`${url}/concentrate`}
+            selectId={data.concentratePhaseId}
+            list={data.concentratePhaseList}
+            info={data.concentratePhaseCurrent}
+            onSelect={this.onConcentrateSelect}
+          />
+        </div>
+      )
+    }
   }
 }
 
