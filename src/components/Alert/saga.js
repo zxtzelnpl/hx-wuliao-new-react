@@ -15,9 +15,10 @@ const checkError = action => {
 export default function* rootFetch() {
   while(true){
     const action = yield take(checkError);
-    yield put({
-      type:actionTypes.ERROR,
-      message:action.error.message
-    })
+    console.log(action.error);
+    // yield put({
+    //   type:actionTypes.ERROR,
+    //   message:action.error.message
+    // })
   }
 }

@@ -34,7 +34,7 @@ class Home extends Component {
               <div className="blank-width-360" />
               <LinkIcon
                 img={img_investment}
-                text={"投资组合"}
+                text={"研究统计"}
                 white={true}
                 url={"/comprehensive/investment/marketstock"}
               />
