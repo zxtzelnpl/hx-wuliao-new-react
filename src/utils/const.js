@@ -1,2 +1,2 @@
-export const caitiao = 'http://public.jyzqsh.com/caitiao/';
-export const emoji = 'http://public.jyzqsh.com/emoji/tieba/';
+export const caitiao = 'http://pxzbs.jyzqsz.com/assets/home/caitiao/';
+export const emoji = 'http://pxzbs.jyzqsz.com/assets/home/emoji/tieba/';
