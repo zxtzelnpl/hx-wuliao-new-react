@@ -7,7 +7,7 @@ import reducer from './reducer';
 import saga from './saga';
 
 const mapStateToProps = state =>({
-  data:state.SpeechCraft,
+  data:state.ComprehensiveMarketingSpeechCraft,
   title:'营销话术',
   actionTypes,
   service

@@ -4,12 +4,14 @@ import saga from './saga';
 import reducer from './reducer';
 import {connect} from "react-redux";
 
+const title = '营销票';
+
 const mapStateToProps = state => ({
-  title:'营销票',
   data:state.InvestmentMarketingStock,
+  title,
   actionTypes
 })
 
 const Stock = connect(mapStateToProps)(ServiceStock)
 
-export {Stock,saga,reducer}
+export {Stock,saga,reducer,title}

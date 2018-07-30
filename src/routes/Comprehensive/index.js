@@ -5,16 +5,16 @@ import {SiderChatBox} from 'components/SiderChatBox';
 
 /*营销素材-营销话术*/
 import {
-  List as SpeechCraft
-} from './ComprehensiveSpeechCraft';
+  List as ComprehensiveMarketingSpeechCraft
+} from './MarketingSpeechCraft';
 /*营销素材-营销软文*/
 import {
   List as ComprehensiveMarketingArticle
-} from './ComprehensiveMarketingArticle';
+} from './MarketingArticle';
 /*营销素材-营销图片*/
 import {
   List as ComprehensiveMarketingImage
-} from './ComprehensiveMarketingImage';
+} from './MarketingImage';
 
 
 /*研究统计-营销票*/
@@ -98,11 +98,13 @@ const comprehensiveMenus = [
     ]
   }
 ];
+
+
 const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
     <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
-    <Route exact path={`${match.url}/marketing/speechcraft`} component={SpeechCraft}/>
+    <Route exact path={`${match.url}/marketing/speechcraft`} component={ComprehensiveMarketingSpeechCraft}/>
     <Route exact path={`${match.url}/marketing/article`} component={ComprehensiveMarketingArticle}/>
     <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
 

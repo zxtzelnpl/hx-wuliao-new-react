@@ -62,3 +62,4 @@ typings/
 build/
 src/config/weixin.js
 package-lock.json
+*.php

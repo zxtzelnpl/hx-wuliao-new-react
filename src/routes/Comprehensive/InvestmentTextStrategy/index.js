@@ -5,13 +5,15 @@ import saga from './saga';
 import * as service from "./service";
 import * as actionTypes from "./actionTypes";
 
+const title = '文字策略';
+
 const mapStateToProps = state =>({
-  data:state.SpeechCraft,
-  title:'文字策略',
+  data:state.InvestmentTextStrategy,
+  title,
   actionTypes,
   service
 });
 
 const List = connect(mapStateToProps)(ComprehensiveMaterialList);
 
-export {List,reducer,saga}
+export {List,reducer,saga,title}
