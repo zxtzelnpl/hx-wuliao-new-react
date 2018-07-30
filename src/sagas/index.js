@@ -15,13 +15,15 @@ import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
 import {saga as LiveVideo} from '../routes/LiveVideo';
-import {saga as SpeechCraft} from '../routes/ComprehensiveSpeechCraft';
-import {saga as ComprehensiveMarketingArticle} from '../routes/ComprehensiveMarketingArticle';
-import {saga as ComprehensiveMarketingImage} from '../routes/ComprehensiveMarketingImage';
-import {saga as InvestmentTextStrategy} from '../routes/InvestmentTextStrategy';
-import {saga as InvestmentServiceStock} from '../routes/InvestmentServiceStock';
-import {saga as InvestmentMarketingStock} from '../routes/InvestmentMarketingStock';
-// import {saga as home} from '../routes/Test/index';
+import {saga as SpeechCraft} from '../routes/Comprehensive/ComprehensiveSpeechCraft';
+import {saga as ComprehensiveMarketingArticle} from '../routes/Comprehensive/ComprehensiveMarketingArticle';
+import {saga as ComprehensiveMarketingImage} from '../routes/Comprehensive/ComprehensiveMarketingImage';
+import {saga as InvestmentTextStrategy} from '../routes/Comprehensive/InvestmentTextStrategy';
+import {saga as InvestmentServiceStock} from '../routes/Comprehensive/InvestmentServiceStock';
+import {saga as InvestmentMarketingStock} from '../routes/Comprehensive/InvestmentMarketingStock';
+import {saga as ComprehensiveStrengthCompany} from 'routes/Comprehensive/StrengthCompany';
+import {saga as ComprehensiveStrengthTeacher} from 'routes/Comprehensive/StrengthTeacher';
+import {saga as ComprehensiveStrengthLicence} from 'routes/Comprehensive/StrengthLicence';
 
 export default function* root() {
   yield all([
@@ -47,5 +49,8 @@ export default function* root() {
     fork(InvestmentServiceStock),
     fork(InvestmentMarketingStock),
     fork(CRMVideo),
+    fork(ComprehensiveStrengthCompany),
+    fork(ComprehensiveStrengthTeacher),
+    fork(ComprehensiveStrengthLicence),
   ])
 };

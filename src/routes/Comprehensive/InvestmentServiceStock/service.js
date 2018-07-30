@@ -1,4 +1,4 @@
-import request from '../../utils/request';
+import request from '../../../utils/request';
 
 const totalUrl = `/api/comprehensive/investment/servicestock/total`;
 

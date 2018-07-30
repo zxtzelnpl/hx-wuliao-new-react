@@ -2,8 +2,8 @@ import ComprehensiveMaterialList from 'components/Material/ComprehensiveMaterial
 import {connect} from 'react-redux';
 import reducer from './reducer';
 import saga from './saga';
-import * as service from "src/routes/ComprehensiveSpeechCraft/service";
-import * as actionTypes from "src/routes/ComprehensiveSpeechCraft/actionTypes";
+import * as service from "./service";
+import * as actionTypes from "./actionTypes";
 
 const mapStateToProps = state =>({
   data:state.SpeechCraft,

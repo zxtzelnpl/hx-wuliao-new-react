@@ -4,7 +4,7 @@ import {Route, HashRouter as Router, Switch} from 'react-router-dom';
 import {Alert} from 'components/Alert';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
-import {SiderChatBox} from 'components/SiderChatBox'
+import {SiderChatBox} from 'components/SiderChatBox';
 
 /*首页*/
 import {Home} from './routes/Home';
@@ -72,39 +72,12 @@ import {
   List as VideoReplayList,
 } from './routes/VideoReplay';
 
-/*营销素材-营销话术*/
-import {
-  List as SpeechCraft
-} from './routes/ComprehensiveSpeechCraft';
 
-/*营销素材-营销软文*/
-import {
-  List as ComprehensiveMarketingArticle
-} from './routes/ComprehensiveMarketingArticle';
-
-/*营销素材-营销图片*/
-import {
-  List as ComprehensiveMarketingImage
-} from './routes/ComprehensiveMarketingImage';
-
-
-/*研究同济-营销票*/
-import {
-  Stock as InvestmentMarketingStock
-} from './routes/InvestmentMarketingStock';
-
-/*投资组合-服务票*/
-import {
-  Stock as InvestmentServiceStock
-} from './routes/InvestmentServiceStock';
-
-/*投资组合-文字策略*/
-import {
-  List as InvestmentTextStrategy
-} from './routes/InvestmentTextStrategy';
 
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
+import Comprehensive from 'routes/Comprehensive';
+
 
 const productMenus = [
   {
@@ -215,63 +188,6 @@ const Product = ({match}) => {
   )
 }
 
-const comprehensiveMenus = [
-  {
-    title:'营销素材',
-    lis:[
-      {
-        name:'营销话术',
-        path:'marketing/speechcraft'
-      },
-      {
-        name:'营销方案',
-        path:'marketing/article'
-      },
-      {
-        name:'营销图片',
-        path:'marketing/image'
-      }
-    ]
-  },
-  {
-    title:'研究统计',
-    lis:[
-      {
-        name:'营销票',
-        path:'investment/marketstock'
-      },
-      {
-        name:'服务票',
-        path:'investment/servicestock'
-      },
-      {
-        name:'文字策略',
-        path:'investment/texttrategy'
-      }
-    ]
-  }
-];
-const Comprehensive = ({match}) => (
-  <div className="comprehensiveMaterialsLayout">
-    <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
-
-    <Route exact path={`${match.url}/marketing/speechcraft`} component={SpeechCraft}/>
-
-    <Route exact path={`${match.url}/marketing/article`} component={ComprehensiveMarketingArticle}/>
-
-    <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
-
-    <Route path={`${match.url}/investment/marketstock`} component={InvestmentMarketingStock}/>
-
-    <Route path={`${match.url}/investment/servicestock`} component={InvestmentServiceStock}/>
-
-    <Route exact path={`${match.url}/investment/texttrategy`} component={InvestmentTextStrategy}/>
-
-    {/*侧边聊天*/}
-    <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
-    <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
-  </div>
-)
 
 
 class App extends React.Component {
