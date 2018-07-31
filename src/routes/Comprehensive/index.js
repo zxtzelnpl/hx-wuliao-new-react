@@ -3,25 +3,13 @@ import SiderMenu from 'components/SiderMenu/SiderMenu';
 import {Route} from 'react-router-dom';
 import {SiderChatBox} from 'components/SiderChatBox';
 
-/*营销素材-营销话术*/
-import {
-  List as ComprehensiveMarketingSpeechCraft
-} from './MarketingSpeechCraft';
-/*营销素材-营销软文*/
-import {
-  List as ComprehensiveMarketingArticle
-} from './MarketingArticle';
-/*营销素材-营销图片*/
-import {
-  List as ComprehensiveMarketingImage
-} from './MarketingImage';
-
+import * as MarketingArticle from './MarketingArticle'; // 营销素材-营销软文
+import * as MarketingImage from './MarketingImage'; // 营销素材-营销图片
+import * as MarketingSpeechCraft from './MarketingSpeechCraft'; // 营销素材-营销话术
 
 import * as InvestmentMarketingStock from './InvestmentMarketingStock'; // 研究统计-营销票
 import * as InvestmentServiceStock from './InvestmentServiceStock'; // 研究统计-服务票
 import * as InvestmentTextStrategy from './InvestmentTextStrategy'; // 研究统计-文字策略
-
-
 
 import * as StrengthCompany from './StrengthCompany'; // 实力展示-公司介绍
 import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展示
@@ -31,53 +19,53 @@ console.log(InvestmentMarketingStock);
 
 const comprehensiveMenus = [
   {
-    title:'营销素材',
-    lis:[
+    title: '营销素材',
+    lis: [
       {
-        name:'营销话术',
-        path:'marketing/speechcraft'
+        name: MarketingArticle.title,
+        path: MarketingArticle.path
       },
       {
-        name:'营销方案',
-        path:'marketing/article'
+        name: MarketingImage.title,
+        path: MarketingImage.path
       },
       {
-        name:'营销图片',
-        path:'marketing/image'
+        name: MarketingSpeechCraft.title,
+        path: MarketingSpeechCraft.path
       }
     ]
   },
   {
-    title:'研究统计',
-    lis:[
+    title: '研究统计',
+    lis: [
       {
-        name:InvestmentMarketingStock.title,
-        path:InvestmentMarketingStock.path
+        name: InvestmentMarketingStock.title,
+        path: InvestmentMarketingStock.path
       },
       {
-        name:InvestmentServiceStock.title,
-        path:InvestmentServiceStock.path
+        name: InvestmentServiceStock.title,
+        path: InvestmentServiceStock.path
       },
       {
-        name:InvestmentTextStrategy.title,
-        path:InvestmentTextStrategy.path
+        name: InvestmentTextStrategy.title,
+        path: InvestmentTextStrategy.path
       }
     ]
   },
   {
-    title:'实力展示',
-    lis:[
+    title: '实力展示',
+    lis: [
       {
-        name:StrengthCompany.title,
-        path:StrengthCompany.path
+        name: StrengthCompany.title,
+        path: StrengthCompany.path
       },
       {
-        name:StrengthLicence.title,
-        path:StrengthLicence.path
+        name: StrengthLicence.title,
+        path: StrengthLicence.path
       },
       {
-        name:StrengthTeacher.title,
-        path:StrengthTeacher.path
+        name: StrengthTeacher.title,
+        path: StrengthTeacher.path
       }
     ]
   }
@@ -88,9 +76,9 @@ const Comprehensive = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
     <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
-    <Route exact path={`${match.url}/marketing/speechcraft`} component={ComprehensiveMarketingSpeechCraft}/>
-    <Route exact path={`${match.url}/marketing/article`} component={ComprehensiveMarketingArticle}/>
-    <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
+    <Route exact path={`${match.url}/${MarketingArticle.path}`} component={MarketingArticle.List}/>
+    <Route exact path={`${match.url}/${MarketingImage.path}`} component={MarketingImage.List}/>
+    <Route exact path={`${match.url}/${MarketingSpeechCraft.path}`} component={MarketingSpeechCraft.List}/>
 
     <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.Stock}/>
     <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.Stock}/>
