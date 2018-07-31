@@ -5,8 +5,6 @@ import moment from 'moment';
 
 function* init(action){
 
-  console.log(action)
-
   try{
     const page = yield call(service.getPage,action.urlParams,action.params)
     const total = yield call(service.getTotal,action.urlParams,action.params)
