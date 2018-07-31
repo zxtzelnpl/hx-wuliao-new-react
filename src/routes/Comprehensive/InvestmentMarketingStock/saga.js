@@ -57,11 +57,9 @@ function* conditions(action){
     const STATE = yield select(getState);
     const {pageSize,sort,order} = STATE;
 
-    let from = 0;
-    let to = pageSize;
     const params = {
-      from:from,
-      to:to,
+      from:0,
+      to: pageSize,
       sort:sort,
       order:order,
       condition:action.condition
