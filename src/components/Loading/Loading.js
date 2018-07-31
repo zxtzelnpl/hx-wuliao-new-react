@@ -1,9 +1,9 @@
 import './Loading.less';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import refresh from 'assets/images/refresh.png';
 
-class Loading extends Component {
+class Loading extends PureComponent {
   render() {
     return (
       <div className="loading">

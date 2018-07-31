@@ -1,5 +1,6 @@
 import './PageStock.less';
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import moment from 'moment';
 import PageTitle from 'components/PageTitle/PageTitle';
 import StockTable from './StockTable';
@@ -7,6 +8,7 @@ import PageNumbers from 'components/Pagination/PageNumbers';
 import RangePicker from 'components/Form/RangePicker';
 import {trim} from 'utils/tools';
 import TopBox from './TopBox';
+import Loading from 'components/Loading/Loading'
 
 class PageStock extends Component {
 
@@ -27,54 +29,6 @@ class PageStock extends Component {
     dispatch({
       type:actionTypes.INIT
     })
-  }
-
-  renderPage = ()=>{
-    const {data} = this.props;
-    let dom = <div className="no-data">暂无数据</div>;
-
-    if(typeof data === 'object'){
-      const {isFetching,total,list,order,sort} =data;
-      if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        dom = <StockTable
-          list={list}
-          isFetching={isFetching}
-          orderChange={this.orderChange}
-          order={order}
-          sort={sort}
-        />
-      }
-    }
-
-    return dom;
-  }
-
-  renderPageNumbers = ()=>{
-    let dom = null;
-    const {data} = this.props;
-    if(typeof data === 'object'){
-      const {total,currentPage,pageSize} = data;
-      if(typeof total === 'number'&&total!==0){
-        let totalPages = Math.ceil(total/pageSize);
-        dom = <PageNumbers
-          currentPage={currentPage}
-          totalPages={totalPages}
-          turnPage={this.turnPage}
-        />
-      }
-    }
-
-
-    return dom;
-  }
-
-  renderTopBox(data,title,key){
-    if(Array.isArray(data)&&data.length===1&&data[0][key]){
-      return <TopBox data={data[0]} title={title} titleValue={data[0][key]}/>
-    }
-    else{
-      return null;
-    }
   }
 
   onChange = e=>{
@@ -109,17 +63,6 @@ class PageStock extends Component {
     return JSON.stringify(condition);
   }
 
-  onSubmit = ()=>{
-    const {data,dispatch,actionTypes} = this.props;
-    let condition = this.getConditions();
-    if(condition!==data.condition){
-      dispatch({
-        type:actionTypes.CONDITION,
-        condition:this.getConditions()
-      })
-    }
-  }
-
   turnPage = (currentPage)=>{
     const {dispatch,actionTypes} = this.props;
 
@@ -141,6 +84,55 @@ class PageStock extends Component {
         sort
       })
     }
+  }
+
+  onSubmit = ()=>{
+    const {data,dispatch,actionTypes} = this.props;
+    let condition = this.getConditions();
+    if(condition!==data.condition){
+      dispatch({
+        type:actionTypes.CONDITION,
+        condition:this.getConditions()
+      })
+    }
+  }
+
+  renderPage = ()=>{
+    const {data} = this.props;
+    let dom = null;
+
+    const {isFetching,receivedAt,total,list,order,sort} =data;
+    if(typeof total === 'number'&&typeof list === 'object'&&total!==0) {
+      dom = <StockTable
+        list={list}
+        orderChange={this.orderChange}
+        order={order}
+        sort={sort}
+      />
+    }
+    if(!isFetching&&receivedAt&&total===0){
+      dom=<div className={"no-data"}>暂时没有数据</div>
+    }
+    return dom;
+  }
+
+  renderPageNumbers = ()=>{
+    let dom = null;
+    const {data} = this.props;
+    if(typeof data === 'object'){
+      const {total,currentPage,pageSize} = data;
+      if(typeof total === 'number'&&total!==0){
+        let totalPages = Math.ceil(total/pageSize);
+        dom = <PageNumbers
+          currentPage={currentPage}
+          totalPages={totalPages}
+          turnPage={this.turnPage}
+        />
+      }
+    }
+
+
+    return dom;
   }
 
   render() {
@@ -167,10 +159,10 @@ class PageStock extends Component {
       <div className={className}>
 
         <div className={`${className}-top-boxes`}>
-          {this.renderTopBox(rise1,'1日涨幅','rise1')}
-          {this.renderTopBox(rise3,'3日涨幅','rise3')}
-          {this.renderTopBox(rise5,'5日涨幅','rise5')}
-          {this.renderTopBox(over_per,'总结','over_per')}
+          <TopBox dataList={rise1} title={'1日涨幅'} vKey={'rise1'} />
+          <TopBox dataList={rise3} title={'3日涨幅'} vKey={'rise3'} />
+          <TopBox dataList={rise5} title={'5日涨幅'} vKey={'rise5'} />
+          <TopBox dataList={over_per} title={'总结'} vKey={'over_per'} />
         </div>
 
         <PageTitle title={`${title}${subTitle}`}/>
@@ -207,9 +199,17 @@ class PageStock extends Component {
 
         {this.renderPage()}
         {this.renderPageNumbers()}
+
+        {data.isFetching&&<Loading />}
       </div>
     )
   }
+}
+
+PageStock.propTypes={
+  data:propTypes.object,
+  title:propTypes.string,
+  actionTypes:propTypes.object
 }
 
 export default PageStock

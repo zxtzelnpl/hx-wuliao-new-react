@@ -7,7 +7,6 @@ import moment from 'moment';
 const getState = state => state[nameSpace];
 
 function* init(){
-
   try{
     const STATE = yield select(getState);
     const {pageSize,currentPage,condition,sort,order} = STATE;

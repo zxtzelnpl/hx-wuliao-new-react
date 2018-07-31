@@ -3,7 +3,6 @@ import './StockTable.less';
 import React, {Component} from 'react';
 import Row from './Row';
 import classNames from 'classnames';
-import Loading from 'components/Loading/Loading';
 
 
 class StockTable extends Component {
@@ -60,13 +59,10 @@ class StockTable extends Component {
   }
 
   render() {
-    const {isFetching} = this.props;
-
     return (
       <div className="stockTable">
         {this.renderTH()}
         {this.renderDatas()}
-        {isFetching && <Loading/>}
       </div>
     )
   }
