@@ -5,12 +5,16 @@ import * as actionTypes from './actionTypes';
 import reducer from './reducer';
 import saga from './saga';
 
+const title = '老师介绍';
+
+const path = 'strength/teacher';
+
 const mapStateToProps = state =>({
   data:state.ComprehensiveStrengthTeacher,
-  title:'老师介绍',
+  title:title,
   actionTypes
 });
 
 const List = connect(mapStateToProps)(ComprehensiveMaterialList);
 
-export {List,reducer,saga}
+export {List,reducer,saga,title,path}

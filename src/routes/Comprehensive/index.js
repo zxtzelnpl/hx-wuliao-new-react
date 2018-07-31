@@ -23,18 +23,9 @@ import * as InvestmentTextStrategy from './InvestmentTextStrategy'; // 研究统
 
 
 
-/*实力展示-公司介绍*/
-import {
-  List as ComprehensiveStrengthCompany
-} from './StrengthCompany';
-/*实力展示-公司介绍*/
-import {
-  List as ComprehensiveStrengthLicence
-} from './StrengthLicence';
-/*实力展示-公司介绍*/
-import {
-  List as ComprehensiveStrengthTeacher
-} from './StrengthTeacher';
+import * as StrengthCompany from './StrengthCompany'; // 实力展示-公司介绍
+import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展示
+import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介绍
 
 console.log(InvestmentMarketingStock);
 
@@ -77,16 +68,16 @@ const comprehensiveMenus = [
     title:'实力展示',
     lis:[
       {
-        name:'公司介绍',
-        path:'strength/company'
+        name:StrengthCompany.title,
+        path:StrengthCompany.path
       },
       {
-        name:'老师介绍',
-        path:'strength/teacher'
+        name:StrengthLicence.title,
+        path:StrengthLicence.path
       },
       {
-        name:'证照展示',
-        path:'strength/licence'
+        name:StrengthTeacher.title,
+        path:StrengthTeacher.path
       }
     ]
   }
@@ -105,11 +96,11 @@ const Comprehensive = ({match}) => (
     <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.Stock}/>
     <Route exact path={`${match.url}/${InvestmentTextStrategy.path}`} component={InvestmentTextStrategy.List}/>
 
-    <Route exact path={`${match.url}/strength/company`} component={ComprehensiveStrengthCompany}/>
-    <Route exact path={`${match.url}/strength/teacher`} component={ComprehensiveStrengthTeacher}/>
-    <Route exact path={`${match.url}/strength/licence`} component={ComprehensiveStrengthLicence}/>
+    <Route exact path={`${match.url}/${StrengthCompany.path}`} component={StrengthCompany.List}/>
+    <Route exact path={`${match.url}/${StrengthLicence.path}`} component={StrengthLicence.List}/>
+    <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
 
-    {/*侧边聊天*/}
+    {/*侧边聊天-股票是没有的*/}
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
     <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
     <Route path={`${match.url}/strength`} component={SiderChatBox}/>
