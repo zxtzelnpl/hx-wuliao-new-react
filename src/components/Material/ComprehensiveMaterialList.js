@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Page from 'components/Pagination/Page';
 import PageNumbers from 'components/Pagination/PageNumbers';
+import Loading from 'components/Loading/Loading';
 
 class ComprehensiveMaterialList extends Component {
 
@@ -49,16 +50,18 @@ class ComprehensiveMaterialList extends Component {
 
   renderPage = ()=>{
     const {data} = this.props;
-    let dom = <div>暂无数据</div>;
+    let dom = null;
 
-    if(typeof data === 'object'){
-      const {isFetching,total,list} =data;
-      if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        dom = <Page
-            list={list}
-            isFetching={isFetching}
-        />
-      }
+    const {total,list,receivedAt,isFetching} =data;
+
+    if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
+      dom = <Page
+        list={list}
+      />
+    }
+
+    if(!isFetching&&receivedAt&&total===0){
+      dom = <div className={'no-data'}>暂无数据</div>;
     }
 
     return dom;
@@ -82,13 +85,15 @@ class ComprehensiveMaterialList extends Component {
   }
 
   render() {
-    const {title} = this.props;
+    const {title,data} = this.props;
+    const {isFetching} = data;
 
     return (
         <div style={{width:720,marginTop:15}}>
           <PageTitle title={title}/>
           {this.renderPage()}
           {this.renderPageNumbers()}
+          {isFetching&&<Loading />}
         </div>
     )
   }

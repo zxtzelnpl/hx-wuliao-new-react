@@ -3,7 +3,7 @@ import './Page.less';
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import Item from './Item';
-import Loading from 'components/Loading/Loading';
+
 
 class Page extends Component {
 
@@ -13,14 +13,11 @@ class Page extends Component {
   }
 
   render() {
-    const {isFetching} = this.props;
-
     return (
       <div className="page">
         <ul className="onePage">
           {this.renderList()}
         </ul>
-        {isFetching&&<Loading />}
       </div>
     )
   }
