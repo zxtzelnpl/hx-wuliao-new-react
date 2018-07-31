@@ -96,15 +96,15 @@ export const MyRoute = ({match}) => (
 )
 
 export const reducer = {
-  ComprehensiveMarketingArticle:MarketingArticle.reducer,
-  ComprehensiveMarketingImage:MarketingImage.reducer,
-  ComprehensiveMarketingSpeechCraft:MarketingSpeechCraft.reducer,
-  InvestmentMarketingStock:InvestmentMarketingStock.reducer,
-  InvestmentServiceStock:InvestmentServiceStock.reducer,
-  InvestmentTextStrategy:InvestmentTextStrategy.reducer,
-  ComprehensiveStrengthCompany:StrengthCompany.reducer,
-  ComprehensiveStrengthLicence:StrengthLicence.reducer,
-  ComprehensiveStrengthTeacher:StrengthTeacher.reducer,
+  [MarketingArticle.nameSpace]:MarketingArticle.reducer,
+  [MarketingImage.nameSpace]:MarketingImage.reducer,
+  [MarketingSpeechCraft.nameSpace]:MarketingSpeechCraft.reducer,
+  [InvestmentMarketingStock.nameSpace]:InvestmentMarketingStock.reducer,
+  [InvestmentServiceStock.nameSpace]:InvestmentServiceStock.reducer,
+  [InvestmentTextStrategy.nameSpace]:InvestmentTextStrategy.reducer,
+  [StrengthCompany.nameSpace]:StrengthCompany.reducer,
+  [StrengthLicence.nameSpace]:StrengthLicence.reducer,
+  [StrengthTeacher.nameSpace]:StrengthTeacher.reducer,
 }
 
 export const sagas = [

@@ -1,9 +1,10 @@
 import * as actionTypes from './actionTypes';
 import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
+import nameSpace from './nameSpace';
 import moment from 'moment';
 
-const getState = state => state.InvestmentMarketingStock;
+const getState = state => state[nameSpace];
 
 function* init(){
 
