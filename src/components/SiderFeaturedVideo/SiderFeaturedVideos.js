@@ -2,7 +2,7 @@ import './SiderFeaturedVideos.less';
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionTypes} from 'routes/VideoReplay'
+import {actionTypes} from 'routes/Product/VideoReplay'
 import FeaturedVideo from './FeaturedVideo';
 
 
