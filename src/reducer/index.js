@@ -16,15 +16,8 @@ import {reducer as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {reducer as ResearchMaterial} from '../routes/ResearchMaterial';
 import {reducer as VideoReplay} from '../routes/VideoReplay';
 import {reducer as LiveVideo} from '../routes/LiveVideo';
-import {reducer as ComprehensiveMarketingSpeechCraft} from '../routes/Comprehensive/MarketingSpeechCraft';
-import {reducer as ComprehensiveMarketingArticle} from '../routes/Comprehensive/MarketingArticle';
-import {reducer as ComprehensiveMarketingImage} from '../routes/Comprehensive/MarketingImage';
-import {reducer as InvestmentTextStrategy} from '../routes/Comprehensive/InvestmentTextStrategy';
-import {reducer as InvestmentServiceStock} from '../routes/Comprehensive/InvestmentServiceStock';
-import {reducer as InvestmentMarketingStock} from '../routes/Comprehensive/InvestmentMarketingStock';
-import {reducer as ComprehensiveStrengthCompany} from '../routes/Comprehensive/StrengthCompany';
-import {reducer as ComprehensiveStrengthTeacher} from '../routes/Comprehensive/StrengthTeacher';
-import {reducer as ComprehensiveStrengthLicence} from '../routes/Comprehensive/StrengthLicence';
+
+import {reducer as Comprehensive} from 'routes/Comprehensive'; //综合素材
 
 const rootReducer = combineReducers({
   myAlert,
@@ -43,16 +36,8 @@ const rootReducer = combineReducers({
   ResearchMaterial,
   VideoReplay,
   LiveVideo,
-  ComprehensiveMarketingSpeechCraft,
-  ComprehensiveMarketingArticle,
-  ComprehensiveMarketingImage,
-  InvestmentTextStrategy,
-  InvestmentServiceStock,
-  InvestmentMarketingStock,
   CRMVideo,
-  ComprehensiveStrengthCompany,
-  ComprehensiveStrengthTeacher,
-  ComprehensiveStrengthLicence,
+  ...Comprehensive
 });
 
 export default rootReducer;

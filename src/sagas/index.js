@@ -15,15 +15,8 @@ import {saga as CustomerServiceVideo} from '../routes/CustomerServiceVideo';
 import {saga as ResearchMaterial} from '../routes/ResearchMaterial';
 import {saga as VideoReplay} from '../routes/VideoReplay';
 import {saga as LiveVideo} from '../routes/LiveVideo';
-import {saga as SpeechCraft} from '../routes/Comprehensive/MarketingSpeechCraft';
-import {saga as ComprehensiveMarketingArticle} from '../routes/Comprehensive/MarketingArticle';
-import {saga as ComprehensiveMarketingImage} from '../routes/Comprehensive/MarketingImage';
-import {saga as InvestmentTextStrategy} from '../routes/Comprehensive/InvestmentTextStrategy';
-import {saga as InvestmentServiceStock} from '../routes/Comprehensive/InvestmentServiceStock';
-import {saga as InvestmentMarketingStock} from '../routes/Comprehensive/InvestmentMarketingStock';
-import {saga as ComprehensiveStrengthCompany} from 'routes/Comprehensive/StrengthCompany';
-import {saga as ComprehensiveStrengthTeacher} from 'routes/Comprehensive/StrengthTeacher';
-import {saga as ComprehensiveStrengthLicence} from 'routes/Comprehensive/StrengthLicence';
+
+import {sagas as Comprehensive} from 'routes/Comprehensive';
 
 export default function* root() {
   yield all([
@@ -42,15 +35,7 @@ export default function* root() {
     fork(ResearchMaterial),
     fork(VideoReplay),
     fork(LiveVideo),
-    fork(SpeechCraft),
-    fork(ComprehensiveMarketingArticle),
-    fork(ComprehensiveMarketingImage),
-    fork(InvestmentTextStrategy),
-    fork(InvestmentServiceStock),
-    fork(InvestmentMarketingStock),
     fork(CRMVideo),
-    fork(ComprehensiveStrengthCompany),
-    fork(ComprehensiveStrengthTeacher),
-    fork(ComprehensiveStrengthLicence),
+    ...Comprehensive
   ])
 };

@@ -4,7 +4,6 @@ import {Route, HashRouter as Router, Switch} from 'react-router-dom';
 import {Alert} from 'components/Alert';
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
-import {SiderChatBox} from 'components/SiderChatBox';
 
 /*首页*/
 import {Home} from './routes/Home';
@@ -76,7 +75,7 @@ import {
 
 import {Header} from './components/Header'
 import Banner from './components/Banner/Banner'
-import Comprehensive from 'routes/Comprehensive';
+
 
 
 const productMenus = [
@@ -187,7 +186,7 @@ const Product = ({match}) => {
     </div>
   )
 }
-
+import {MyRoute as Comprehensive} from 'routes/Comprehensive'; // 综合素材
 
 
 class App extends React.Component {

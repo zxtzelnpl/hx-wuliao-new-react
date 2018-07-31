@@ -1,4 +1,5 @@
 import React from 'react';
+import {fork} from 'redux-saga/effects'
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import {Route} from 'react-router-dom';
 import {SiderChatBox} from 'components/SiderChatBox';
@@ -15,7 +16,6 @@ import * as StrengthCompany from './StrengthCompany'; // 实力展示-公司介�
 import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展示
 import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介绍
 
-console.log(InvestmentMarketingStock);
 
 const comprehensiveMenus = [
   {
@@ -72,7 +72,7 @@ const comprehensiveMenus = [
 ];
 
 
-const Comprehensive = ({match}) => (
+export const MyRoute = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
     <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
@@ -95,5 +95,26 @@ const Comprehensive = ({match}) => (
   </div>
 )
 
+export const reducer = {
+  ComprehensiveMarketingArticle:MarketingArticle.reducer,
+  ComprehensiveMarketingImage:MarketingImage.reducer,
+  ComprehensiveMarketingSpeechCraft:MarketingSpeechCraft.reducer,
+  InvestmentMarketingStock:InvestmentMarketingStock.reducer,
+  InvestmentServiceStock:InvestmentServiceStock.reducer,
+  InvestmentTextStrategy:InvestmentTextStrategy.reducer,
+  ComprehensiveStrengthCompany:StrengthCompany.reducer,
+  ComprehensiveStrengthLicence:StrengthLicence.reducer,
+  ComprehensiveStrengthTeacher:StrengthTeacher.reducer,
+}
 
-export default Comprehensive
+export const sagas = [
+  fork(MarketingArticle.saga),
+  fork(MarketingImage.saga),
+  fork(MarketingSpeechCraft.saga),
+  fork(InvestmentMarketingStock.saga),
+  fork(InvestmentServiceStock.saga),
+  fork(InvestmentTextStrategy.saga),
+  fork(StrengthCompany.saga),
+  fork(StrengthLicence.saga),
+  fork(StrengthTeacher.saga),
+]
