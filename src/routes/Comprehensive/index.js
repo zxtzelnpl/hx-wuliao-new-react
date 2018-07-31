@@ -16,6 +16,7 @@ import * as StrengthCompany from './StrengthCompany'; // 实力展示-公司介�
 import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展示
 import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介绍
 
+import * as CustomSpeechCraft from './CustomSpeechCraft'; // 客服素材-客服话术
 
 const comprehensiveMenus = [
   {
@@ -68,6 +69,15 @@ const comprehensiveMenus = [
         path: StrengthTeacher.path
       }
     ]
+  },
+  {
+    title:'客服素材',
+    lis:[
+      {
+        name:CustomSpeechCraft.title,
+        path:CustomSpeechCraft.path
+      }
+    ]
   }
 ];
 
@@ -88,10 +98,13 @@ export const MyRoute = ({match}) => (
     <Route exact path={`${match.url}/${StrengthLicence.path}`} component={StrengthLicence.List}/>
     <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
 
+    <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
+
     {/*侧边聊天-股票是没有的*/}
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
     <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
     <Route path={`${match.url}/strength`} component={SiderChatBox}/>
+    <Route path={`${match.url}/customer`} component={SiderChatBox}/>
   </div>
 )
 
@@ -105,6 +118,7 @@ export const reducer = {
   [StrengthCompany.nameSpace]:StrengthCompany.reducer,
   [StrengthLicence.nameSpace]:StrengthLicence.reducer,
   [StrengthTeacher.nameSpace]:StrengthTeacher.reducer,
+  [CustomSpeechCraft.nameSpace]:CustomSpeechCraft.reducer,
 }
 
 export const sagas = [
@@ -117,4 +131,5 @@ export const sagas = [
   fork(StrengthCompany.saga),
   fork(StrengthLicence.saga),
   fork(StrengthTeacher.saga),
+  fork(CustomSpeechCraft.saga),
 ]
