@@ -6,6 +6,8 @@ import {connect} from "react-redux";
 
 const title = '服务票';
 
+const path = 'investment/servicestock';
+
 const mapStateToProps = state => ({
   data:state.InvestmentServiceStock,
   title,
@@ -14,4 +16,4 @@ const mapStateToProps = state => ({
 
 const Stock = connect(mapStateToProps)(ServiceStock)
 
-export {Stock,saga,reducer,title}
+export {Stock,saga,reducer,title,path}

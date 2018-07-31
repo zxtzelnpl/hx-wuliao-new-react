@@ -17,18 +17,10 @@ import {
 } from './MarketingImage';
 
 
-/*研究统计-营销票*/
-import {
-  Stock as InvestmentMarketingStock
-} from './InvestmentMarketingStock';
-/*研究统计-服务票*/
-import {
-  Stock as InvestmentServiceStock
-} from './InvestmentServiceStock';
-/*研究统计-文字策略*/
-import {
-  List as InvestmentTextStrategy
-} from './InvestmentTextStrategy';
+import * as InvestmentMarketingStock from './InvestmentMarketingStock'; // 研究统计-营销票
+import * as InvestmentServiceStock from './InvestmentServiceStock'; // 研究统计-服务票
+import * as InvestmentTextStrategy from './InvestmentTextStrategy'; // 研究统计-文字策略
+
 
 
 /*实力展示-公司介绍*/
@@ -44,6 +36,7 @@ import {
   List as ComprehensiveStrengthTeacher
 } from './StrengthTeacher';
 
+console.log(InvestmentMarketingStock);
 
 const comprehensiveMenus = [
   {
@@ -67,16 +60,16 @@ const comprehensiveMenus = [
     title:'研究统计',
     lis:[
       {
-        name:'营销票',
-        path:'investment/marketstock'
+        name:InvestmentMarketingStock.title,
+        path:InvestmentMarketingStock.path
       },
       {
-        name:'服务票',
-        path:'investment/servicestock'
+        name:InvestmentServiceStock.title,
+        path:InvestmentServiceStock.path
       },
       {
-        name:'文字策略',
-        path:'investment/texttrategy'
+        name:InvestmentTextStrategy.title,
+        path:InvestmentTextStrategy.path
       }
     ]
   },
@@ -108,9 +101,9 @@ const Comprehensive = ({match}) => (
     <Route exact path={`${match.url}/marketing/article`} component={ComprehensiveMarketingArticle}/>
     <Route exact path={`${match.url}/marketing/image`} component={ComprehensiveMarketingImage}/>
 
-    <Route path={`${match.url}/investment/marketstock`} component={InvestmentMarketingStock}/>
-    <Route path={`${match.url}/investment/servicestock`} component={InvestmentServiceStock}/>
-    <Route exact path={`${match.url}/investment/texttrategy`} component={InvestmentTextStrategy}/>
+    <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.Stock}/>
+    <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.Stock}/>
+    <Route exact path={`${match.url}/${InvestmentTextStrategy.path}`} component={InvestmentTextStrategy.List}/>
 
     <Route exact path={`${match.url}/strength/company`} component={ComprehensiveStrengthCompany}/>
     <Route exact path={`${match.url}/strength/teacher`} component={ComprehensiveStrengthTeacher}/>
