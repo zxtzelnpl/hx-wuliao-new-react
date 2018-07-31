@@ -1,8 +1,11 @@
+import './ProductMaterialList.less';
+
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
 import Page from 'components/Pagination/Page';
 import PageNumbers from 'components/Pagination/PageNumbers';
+import Loading from 'components/Loading/Loading';
 
 class ProductMaterialList extends Component {
   componentDidMount(){
@@ -59,16 +62,18 @@ class ProductMaterialList extends Component {
 
   renderPage = ()=>{
     const {data} = this.props;
-    let dom = <div>暂无数据</div>;
+    let dom = null;
 
-    if(typeof data === 'object'){
-      const {isFetching,total,list} =data;
-      if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        dom = <Page
-          list={list}
-          isFetching={isFetching}
-        />
-      }
+    const {isFetching,total,list,receivedAt} =data;
+    if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
+      dom = <Page
+        list={list}
+        isFetching={isFetching}
+      />
+    }
+
+    if(!isFetching&&receivedAt&&total===0){
+      dom = <div className={'no-data'}>暂无数据</div>;
     }
 
     return dom;
@@ -89,18 +94,19 @@ class ProductMaterialList extends Component {
       }
     }
 
-
     return dom;
   }
 
   render() {
-    const {title} = this.props;
+    const {title,data} = this.props;
+    const {isFetching} = data;
 
     return (
       <div className="materialMarketingListPage">
         <PageTitle title={title}/>
         {this.renderPage()}
         {this.renderPageNumbers()}
+        {isFetching&&<Loading />}
       </div>
     )
   }

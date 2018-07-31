@@ -18,6 +18,12 @@ import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介�
 
 import * as CustomSpeechCraft from './CustomSpeechCraft'; // 客服素材-客服话术
 
+import * as StrategyQSYXD from './StrategyQSYXD'; // 策略素材-强势优选队
+import * as StrategyLHDLD from './StrategyLHDLD'; // 策略素材-量化独立队
+
+import * as ExperienceQSYXD from './ExperienceQSYXD'; // 体验素材-强势优选队
+import * as ExperienceLHDLD from './ExperienceLHDLD'; // 体验素材-量化独立队
+
 const comprehensiveMenus = [
   {
     title: '营销素材',
@@ -78,6 +84,32 @@ const comprehensiveMenus = [
         path:CustomSpeechCraft.path
       }
     ]
+  },
+  {
+    title:'策略素材',
+    lis:[
+      {
+        name:StrategyQSYXD.title,
+        path:StrategyQSYXD.path
+      },
+      {
+        name:StrategyLHDLD.title,
+        path:StrategyLHDLD.path
+      }
+    ]
+  },
+  {
+    title:'体验素材',
+    lis:[
+      {
+        name:ExperienceQSYXD.title,
+        path:ExperienceQSYXD.path
+      },
+      {
+        name:ExperienceLHDLD.title,
+        path:ExperienceLHDLD.path
+      }
+    ]
   }
 ];
 
@@ -100,11 +132,19 @@ export const MyRoute = ({match}) => (
 
     <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
 
+    <Route exact path={`${match.url}/${StrategyQSYXD.path}`} component={StrategyQSYXD.List}/>
+    <Route exact path={`${match.url}/${StrategyLHDLD.path}`} component={StrategyLHDLD.List}/>
+
+    <Route exact path={`${match.url}/${ExperienceQSYXD.path}`} component={ExperienceQSYXD.List}/>
+    <Route exact path={`${match.url}/${ExperienceLHDLD.path}`} component={ExperienceLHDLD.List}/>
+
     {/*侧边聊天-股票是没有的*/}
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
     <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
     <Route path={`${match.url}/strength`} component={SiderChatBox}/>
     <Route path={`${match.url}/customer`} component={SiderChatBox}/>
+    <Route path={`${match.url}/strategy`} component={SiderChatBox}/>
+    <Route path={`${match.url}/experience`} component={SiderChatBox}/>
   </div>
 )
 
@@ -119,6 +159,10 @@ export const reducer = {
   [StrengthLicence.nameSpace]:StrengthLicence.reducer,
   [StrengthTeacher.nameSpace]:StrengthTeacher.reducer,
   [CustomSpeechCraft.nameSpace]:CustomSpeechCraft.reducer,
+  [StrategyQSYXD.nameSpace]:StrategyQSYXD.reducer,
+  [StrategyLHDLD.nameSpace]:StrategyLHDLD.reducer,
+  [ExperienceQSYXD.nameSpace]:ExperienceQSYXD.reducer,
+  [ExperienceLHDLD.nameSpace]:ExperienceLHDLD.reducer,
 }
 
 export const sagas = [
@@ -132,4 +176,8 @@ export const sagas = [
   fork(StrengthLicence.saga),
   fork(StrengthTeacher.saga),
   fork(CustomSpeechCraft.saga),
+  fork(StrategyQSYXD.saga),
+  fork(StrategyLHDLD.saga),
+  fork(ExperienceQSYXD.saga),
+  fork(ExperienceLHDLD.saga),
 ]
