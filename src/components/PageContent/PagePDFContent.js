@@ -113,7 +113,7 @@ class PagePDFContent extends PureComponent {
   getUploadTime = ()=>{
     const timestamp = this.props.timestamp;
     if(timestamp){
-      return <p className="datetime">上传日期 {moment.unix(timestamp).format('YYYY.MM.DD mm:hh')}</p>
+      return <p className="datetime">上传日期 {moment.unix(timestamp).format('YYYY.MM.DD hh:mm')}</p>
     }
     else{
       return null;
