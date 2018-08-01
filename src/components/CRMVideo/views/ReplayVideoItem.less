@@ -1,8 +1,12 @@
 @import "common/consts";
 
-.replayVideoItem{
-  margin-right: 40px;
-  >a{
+.replay-video-item{
+  margin-right: 35px;
+  width:235px;
+  color:#fff;
+  &-a{
+    display:block;
+
     color:#fff;
     &:hover{
       color:#fff;
@@ -11,22 +15,36 @@
   &:last-child{
     margin-right: 0;
   }
-  width:100%;
-  color:#fff;
+
   .img{
     margin-bottom: 10px;
     display:block;
     width:235px;
     height:140px;
   }
-  .subTitle{
+  .sub-title{
+    position:relative;
+
     display:flex;
     justify-content: space-between;
 
     margin:0 0 5px;
-    padding-left:8px;
-    border-left:4px solid #e91c23;
+    padding-left:12px;
     font-weight:bold;
+    line-height: 20px;
+
+    &:after{
+      position:absolute;
+      left:0;
+      top:0;
+
+      display:block;
+      content:"";
+
+      height:20px;
+      width:4px;
+      background:red;
+    }
   }
   .text{
     color:#a3a3a3;
