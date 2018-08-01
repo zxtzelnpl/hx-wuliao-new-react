@@ -1,6 +1,6 @@
 @import "common/consts.less";
 
-.pageItem{
+.page-item{
   border-bottom:2px solid #d9d9d9;
   cursor:pointer;
   &:last-child{
@@ -8,7 +8,7 @@
   }
 }
 
-.pageItemHeader {
+.page-item-header {
   display:flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +37,14 @@
     font-weight: bold;
     &:after{
       transform:rotate(90deg);
+    }
+  }
+
+
+  &-title{
+    &-sub{
+      font-style:italic;
+      color:gray;
     }
   }
 }

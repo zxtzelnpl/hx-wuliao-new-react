@@ -13,7 +13,7 @@ class Header extends Component {
       <div className="header">
         <div className="header-wrap">
           <Link to={'/'}>
-            <img className="logo" src={"http://pxzbs.jyzqsz.com/assets/react/icon_noli_logo_r.png"} />
+            <img className="logo" src={"/assets/react/icon_noli_logo_r.png"} />
           </Link>
 
           <div className="header-right">

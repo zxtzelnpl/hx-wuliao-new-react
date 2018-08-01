@@ -47,15 +47,19 @@ class Item extends Component {
   }
 
   render() {
-    const {title} = this.props;
-    const header = classNames({
-      pageItemHeader:true,
+    const {title,author} = this.props;
+    const header = classNames('page-item-header',{
       show:this.state.show
     })
     return (
-      <li className="pageItem">
+      <li className="page-item">
         <div className={header} onClick={this.handleClick}>
-          {title}
+          <div className="page-item-header-title">
+            {title}
+            <span className="page-item-header-title-sub">
+              {author&&`------${author}`}
+            </span>
+          </div>
         </div>
         {this.renderContent()}
       </li>
