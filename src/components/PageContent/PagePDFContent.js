@@ -1,5 +1,6 @@
 import './pagePDFContent.less';
 import React, {PureComponent} from 'react';
+import moment from 'moment';
 import refresh from 'assets/images/refresh.png';
 import classNames from 'classnames';
 
@@ -109,8 +110,19 @@ class PagePDFContent extends PureComponent {
     return dom;
   }
 
+  getUploadTime = ()=>{
+    const timestamp = this.props.timestamp;
+    if(timestamp){
+      return <p className="datetime">上传日期 {moment.unix(timestamp).format('YYYY.MM.DD mm:hh')}</p>
+    }
+    else{
+      return null;
+    }
+  }
+
   render() {
     const FILE_URL = this.getFileUrl();
+
     const {pageNumber, numPages} = this.state;
 
     const btnPrevClassName = classNames({
@@ -137,7 +149,7 @@ class PagePDFContent extends PureComponent {
               <p className="showIndex">Page {pageNumber} of {numPages}</p>
               <p className={btnNextClassName} onClick={this.next}>下一页</p>
             </div>
-            <p className="datetime">上传日期 2018.06.21 11：13</p>
+            {this.getUploadTime()}
           </div>
         }
       </div>
