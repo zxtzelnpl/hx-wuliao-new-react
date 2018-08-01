@@ -6,7 +6,7 @@ import PagePDFContent from 'components/PageContent/PagePDFContent';
 import PageHtmlContent from 'components/PageContent/PageHtmlContent';
 import PageOfficeContent from 'components/PageContent/PageOfficeContent';
 import PageImgContent from 'components/PageContent/PageImgContent';
-import {pdfReg, officeReg, imgReg} from "src/utils/tools";
+import {pdfReg, officeReg, imgReg} from "utils/tools";
 
 class Item extends Component {
 
@@ -15,7 +15,7 @@ class Item extends Component {
   }
 
   renderContent = () => {
-    let {content,filepath} = this.props
+    let {content,filepath,timestamp} = this.props
     let {show} = this.state;
 
     if(!show){
@@ -27,7 +27,7 @@ class Item extends Component {
     }
     if (filepath) {
       if(pdfReg.test(filepath)){
-        return <PagePDFContent filepath={filepath}/>
+        return <PagePDFContent filepath={filepath} timestamp={timestamp}/>
       }
 
       if(imgReg.test(filepath)){
