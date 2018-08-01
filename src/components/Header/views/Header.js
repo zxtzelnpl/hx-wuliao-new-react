@@ -1,7 +1,5 @@
 import './Header.less';
 
-import logo from 'src/assets/images/icon_noli_logo_r.png';
-
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import HeadMenusTwo from './HeadMenusTwo';
@@ -15,7 +13,7 @@ class Header extends Component {
       <div className="header">
         <div className="header-wrap">
           <Link to={'/'}>
-            <img className="logo" src={logo} />
+            <img className="logo" src={"http://pxzbs.jyzqsz.com/assets/react/icon_noli_logo_r.png"} />
           </Link>
 
           <div className="header-right">

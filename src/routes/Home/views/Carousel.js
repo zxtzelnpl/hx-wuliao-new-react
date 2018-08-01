@@ -3,8 +3,6 @@ import './Carousel.less'
 import React, {Component} from 'react'
 import ReactSwipe from 'react-swipe';
 
-import swipeImg1 from 'assets/images/swipeImg1.jpg';
-import swipeImg2 from 'assets/images/swipeImg2.jpg';
 import classNames from "classnames";
 
 class Carousel extends Component {
@@ -60,10 +58,10 @@ class Carousel extends Component {
                     ref={this.swipe}
         >
           <div>
-            <img className={"carousel-img"} src={swipeImg1} />
+            <img className={"carousel-img"} src="http://pxzbs.jyzqsz.com/assets/react/swipeImg1.jpg" />
           </div>
           <div>
-            <img className={"carousel-img"} src={swipeImg2} />
+            <img className={"carousel-img"} src="http://pxzbs.jyzqsz.com/assets/react/swipeImg2.jpg" />
           </div>
         </ReactSwipe>
 
