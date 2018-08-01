@@ -11,9 +11,20 @@ class StockPool extends Component {
   }
 
   renderList(){
-    const {info} = this.props;
+    const {info,receivedAt} = this.props;
 
-    return info.map((item,index)=>(<StockPoolItem {...item} key={item.id} index={index}/>))
+    console.log(info,receivedAt)
+
+    let dom = null;
+    if(info.length>0){
+      dom = info.map((item,index)=>(<StockPoolItem {...item} key={item.id} index={index}/>))
+    }
+
+    if(receivedAt&&info.length===0){
+      dom = <div className="no-data">暂无数据</div>;
+    }
+
+    return dom;
   }
 
   handleSelect=(id)=>{

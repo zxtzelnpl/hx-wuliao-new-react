@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionTypes} from 'routes/Product/VideoReplay'
 import FeaturedVideo from './FeaturedVideo';
+import Loading from 'components/Loading/Loading'
 
 
 class SiderFeaturedVideo extends Component {
@@ -43,26 +44,31 @@ class SiderFeaturedVideo extends Component {
 
   renderPage = ()=>{
     const {data} = this.props;
-    let dom = <div>暂无数据</div>;
+    let dom = null;
 
-    if(typeof data === 'object'){
-      const {isFetching,total,list} =data;
-      if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
-        dom = list.slice(0,3).map(item=>{
-          return <FeaturedVideo key={item.id} {...item}/>
-        })
-      }
+    const {isFetching,total,list,receivedAt} =data;
+    if(typeof total === 'number'&&typeof list === 'object'&&total!==0){
+      dom = list.slice(0,3).map(item=>{
+        return <FeaturedVideo key={item.id} {...item}/>
+      })
+    }
+
+    if(receivedAt&&!isFetching&&total === 0){
+      dom = <div className="no-data">暂无数据</div>
     }
 
     return dom;
   }
 
   render() {
+    const {isFetching} = this.props.data;
+
     return (
-      <div className="siderFeaturedVideoBox">
-        <p className="siderFeaturedVideoTitle">视频</p>
-        <ul>
+      <div className="sider-featured-video-box">
+        <p className="sider-featured-video-title">视频</p>
+        <ul className="sider-featured-video-ul">
           {this.renderPage()}
+          {isFetching&&<Loading />}
         </ul>
       </div>
     )

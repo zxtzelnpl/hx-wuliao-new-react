@@ -14,7 +14,6 @@ class FeaturedVideo extends Component {
           <img className="img" src={img} />
           <div className="subTitle">
             <span className="name">{title}</span>
-            {/*<span className="datetime">12-30 13:12</span>*/}
           </div>
         </a>
       </li>

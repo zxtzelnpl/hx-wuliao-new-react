@@ -1,3 +1,4 @@
+import './ComprehensiveMaterialList.less';
 import React,{Component} from "react";
 import propTypes from 'prop-types';
 import PageTitle from 'components/PageTitle/PageTitle';
@@ -89,7 +90,7 @@ class ComprehensiveMaterialList extends Component {
     const {isFetching} = data;
 
     return (
-        <div style={{width:720,marginTop:15}}>
+        <div className={'comprehensive-material-list'}>
           <PageTitle title={title}/>
           {this.renderPage()}
           {this.renderPageNumbers()}

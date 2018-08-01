@@ -58,6 +58,8 @@ class ResearchMaterial extends Component {
     const {match,data} = this.props;
     const {url} = match;
 
+    console.log(data)
+
     if(data.error){
       return <div className="no-data">暂无数据</div>
     }
@@ -70,6 +72,7 @@ class ResearchMaterial extends Component {
             selectId={data.primaryPhaseId}
             list={data.primaryPhaseList}
             info={data.primaryPhaseCurrent}
+            receivedAt={data.receivedAt}
             onSelect={this.onPrimarySelect}
           />
 
@@ -81,6 +84,7 @@ class ResearchMaterial extends Component {
             selectId={data.concentratePhaseId}
             list={data.concentratePhaseList}
             info={data.concentratePhaseCurrent}
+            receivedAt={data.receivedAt}
             onSelect={this.onConcentrateSelect}
           />
         </div>

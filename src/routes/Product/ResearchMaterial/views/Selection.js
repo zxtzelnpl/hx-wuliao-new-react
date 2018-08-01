@@ -8,17 +8,16 @@ class Selection extends Component {
     this.props.onSelect(e.target.value);
   }
 
-  renderOptions(){
-    const {list} = this.props;
-    return list.map(id=>(<option key={id} value={id} >{`第${id}期`}</option>))
-  }
-
   render() {
-    return (
-      <select className="stockSelection" onChange={this.onChange} value={this.props.selectId}>
-        {this.renderOptions()}
+
+    const {list} = this.props;
+    let dom = null;
+    if(list.length>0){
+      dom = <select className="stockSelection" onChange={this.onChange} value={this.props.selectId}>
+        {list.map(id=>(<option key={id} value={id} >{`第${id}期`}</option>))}
       </select>
-    )
+    }
+    return dom;
   }
 }
 

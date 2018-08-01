@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import {call, put, takeLatest, select} from 'redux-saga/effects';
+import {call, put, takeLatest} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
@@ -12,22 +12,24 @@ function getLast(arr) {
 
 function* init(action) {
   try {
-    const primary = yield call(service.getPrimaryTotal, action.urlParams)
+    const primary = yield call(service.getPrimaryTotal, action.urlParams);
 
-    const concentrate = yield call(service.getConcentrateTotal, action.urlParams)
-
-    const ResearchMaterial = yield select(state => state.ResearchMaterial);
-
-    console.warn(ResearchMaterial);
-
-    let {primaryPhaseId, primaryPhaseCurrent, concentratePhaseId, concentratePhaseCurrent} = ResearchMaterial;
+    const concentrate = yield call(service.getConcentrateTotal, action.urlParams);
 
     const yieldArray = [];
+    const data = {
+      primaryPhaseList:[],
+      concentratePhaseList:[],
+      primaryPhaseCurrent:[],
+      concentratePhaseCurrent:[],
+      receivedAt: moment().unix()
+    };
 
-    if (primaryPhaseCurrent.length === 0) {
-      if (primaryPhaseId === '') {
-        primaryPhaseId = getLast(primary.phase_list);
-      }
+    if(Array.isArray(primary.phase_list) && primary.phase_list.length!==0){
+      const primaryPhaseId = getLast(primary.phase_list);
+
+      data.primaryPhaseList = primary.phase_list.reverse();
+
       yieldArray.push(put({
         type: actionTypes.REQUEST_PRIMARY,
         urlParams: action.urlParams,
@@ -37,10 +39,11 @@ function* init(action) {
       }))
     }
 
-    if (concentratePhaseCurrent.length === 0) {
-      if (concentratePhaseId === '') {
-        concentratePhaseId = getLast(concentrate.phase_list);
-      }
+    if(Array.isArray(primary.phase_list) && primary.phase_list.length!==0){
+      const concentratePhaseId = getLast(concentrate.phase_list);
+
+      data.concentratePhaseList = concentrate.phase_list.reverse();
+
       yieldArray.push(put({
         type: actionTypes.REQUEST_CONCENTRATE,
         urlParams: action.urlParams,
@@ -55,10 +58,7 @@ function* init(action) {
       put({
         type: actionTypes.GET_TOTAL,
         urlParams: action.urlParams,
-        data: {
-          primaryPhaseList: primary.phase_list.reverse(),
-          concentratePhaseList: concentrate.phase_list.reverse()
-        }
+        data: data
       }),
       ...yieldArray
     ]
@@ -93,7 +93,6 @@ function* getPrimaryPhase(action) {
     });
   }
 }
-
 function* getConcentratePhase(action) {
   try {
     const response = yield call(service.getConcentratePhase, action.urlParams, action.params)
