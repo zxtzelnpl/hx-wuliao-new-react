@@ -22,11 +22,15 @@ class Chat extends Component {
 
   init = ()=>{
     const {dispatch} = this.props;
-    const score = new Date(2018,1,1).getTime() * 10;
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const date = now.getDate();
+    const score = new Date(year,month-1,date).getTime() * 10;
     dispatch({
       type:actionTypes.INIT,
       params:{
-        score:score
+        score,
       }
     })
   }
@@ -34,12 +38,8 @@ class Chat extends Component {
   refreshMessages = ()=>{
 
     const {dispatch} = this.props;
-    const score = new Date().getTime() * 10;
     dispatch({
-      type:actionTypes.REQUEST,
-      params:{
-        score:score
-      }
+      type:actionTypes.REQUEST
     })
   }
 

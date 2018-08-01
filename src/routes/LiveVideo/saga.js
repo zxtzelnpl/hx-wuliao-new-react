@@ -3,21 +3,24 @@ import { call ,put, takeEvery, select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
 
+const getState = state => state.LiveVideo;
+
 function* intMessage(action){
   try{
     let data;
 
-    const messages = yield call(service.getMessages,action.params)
+    const response = yield call(service.getMessages,action.params)
 
-    if(Array.isArray(messages.list.data_list)){
+    if(Array.isArray(response.list.data_list)){
       data = {
-        list:messages.list.data_list,
-        score:messages.list.score,
+        list:response.list.data_list,
+        score:response.list.score,
         receivedAt:moment().unix()
       }
     }
     else{
       data = {
+        score:action.params.score,
         receivedAt:moment().unix()
       }
     }
@@ -35,15 +38,19 @@ function* intMessage(action){
   }
 }
 
-function* getMessage(action){
+function* getMessage(){
   let data;
+  const STATE = yield select(getState);
+  const params = {
+    score:STATE.score
+  };
 
-  const messages = yield call(service.getMessages,action.params)
-  if(messages.list&&Array.isArray(messages.list.data_list)){
+  const response = yield call(service.getMessages,params)
+  if(response.list&&Array.isArray(response.list.data_list)){
     const list =yield select(state=>state.LiveVideo.list);
     data = {
-      list:[].concat(list,messages.list.data_list),
-      score:messages.list.score,
+      list:[].concat(list,response.list.data_list),
+      score:response.list.score,
       receivedAt:moment().unix()
     }
   }

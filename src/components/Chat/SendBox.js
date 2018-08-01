@@ -1,8 +1,6 @@
 import './SendBox.less';
 import React, {Component} from 'react';
 import EmojiPicker from './EmojiPicker';
-import moment from 'moment';
-import {trim} from 'src/utils/tools';
 
 class SendBox extends Component {
   constructor(props){
@@ -15,13 +13,14 @@ class SendBox extends Component {
 
   keyUp (e) {
     if (e.keyCode === 13) {
-      this.sendMessage()
+      this.sendMessage();
     }
   }
 
   sendMessage = () => {
     let content = this.input.innerHTML
     this.props.sendMessage(content);
+    this.chatBoxClear();
   }
 
   /**彩条面板和emoji面板交换显示**/
@@ -50,13 +49,13 @@ class SendBox extends Component {
   /**聊天框点中清除**/
   chatBoxFoucs () {
     if (this.input.innerHTML === '请输入你想说的话。。。') {
-      this.chatBoxClear()
+      this.chatBoxClear();
     }
   }
 
   /**聊天框点中清除**/
   chatBoxClear () {
-    this.input.innerHTML = ''
+    this.input.innerHTML = '';
   }
 
   render() {

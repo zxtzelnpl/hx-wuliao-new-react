@@ -6,6 +6,16 @@ import MessageItem from './MessageItem';
 
 class MessageBoxWithoutLoadMore extends Component {
 
+  messageBox = React.createRef()
+
+  componentDidUpdate(preProps){
+
+    if(this.props.list.length!==preProps.list.length){
+      this.messageBox.current.scrollTop = this.messageBox.current.scrollHeight
+    }
+
+  }
+
   renderItems = ()=>{
     const {list} = this.props;
 
@@ -30,7 +40,7 @@ class MessageBoxWithoutLoadMore extends Component {
 
   render() {
     return (
-      <div className="messageBox">
+      <div className="messageBox" ref={this.messageBox}>
         <div className="messageBoxWrap" >
           {this.renderItems()}
         </div>

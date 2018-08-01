@@ -1,6 +1,6 @@
 
-function getCookie(key){
-  let cookieArr=document.cookie.split(";");
+export const getCookie = (key) => {
+  let cookieArr=document.cookie.split(/;\s*/);
   for(let i=0,len=cookieArr.length;i<len;i++)
   {
     if(cookieArr[i]) {
@@ -11,8 +11,4 @@ function getCookie(key){
       }
     }
   }
-}
-
-export default {
-  getCookie:getCookie
 }

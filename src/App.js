@@ -22,6 +22,8 @@ class App extends React.Component {
             <Header/>
             <Banner/>
             <Switch>
+
+
               <Route path="/" exact component={Home}/>
               <Route path="/product/:team/:child" component={Product}/>
               <Route path="/comprehensive" component={Comprehensive}/>
