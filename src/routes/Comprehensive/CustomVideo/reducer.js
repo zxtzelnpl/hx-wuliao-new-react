@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes'
 const initialState = {
   currentPage:1,
-  pageSize:20,
+  pageSize:9,
   sort:'DESC'
 }
 

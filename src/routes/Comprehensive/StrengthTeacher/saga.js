@@ -1,20 +1,29 @@
 import * as actionTypes from './actionTypes';
-import { call ,put, takeLatest} from 'redux-saga/effects';
+import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
+import nameSpace from './nameSpace';
 
-function* init(action){
+const getState = state => state[nameSpace];
+
+function* init(){
 
   try{
-    const page = yield call(service.getPage,action.params)
-    const total = yield call(service.getTotal)
-
-    const data = {
-      list:page.list,
-      total:total.total,
-      receivedAt:moment().unix()
+    const data = {};
+    const {total} = yield call(service.getTotal);
+    data.total = total;
+    if(total !== 0){
+      const {pageSize,sort} = yield select(getState);
+      const params = {
+        from:0,
+        to:pageSize,
+        sort:sort
+      }
+      const page = yield call(service.getPage,params);
+      data.list = page.list;
     }
 
+    data.receivedAt = moment().unix();
     yield put({
       type:actionTypes.RECEIVED,
       data
@@ -29,12 +38,15 @@ function* init(action){
 }
 
 function* getPage(action){
-
-  const {params,currentPage} = action;
-
   try{
-    const page = yield call(service.getPage,params)
-
+    const {currentPage} = action;
+    const {pageSize,sort} = yield select(getState);
+    const params = {
+      from:pageSize*(currentPage-1),
+      to:pageSize*(currentPage),
+      sort:sort
+    }
+    const page = yield call(service.getPage,params);
     const data = {
       list:page.list,
       currentPage:currentPage,

@@ -15,37 +15,19 @@ class ComprehensiveMaterialList extends Component {
   }
 
   intList = ()=>{
-    const {data,dispatch,actionTypes} = this.props;
-    console.log(this.props.match)
-    const {pageSize,currentPage} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
+    const {dispatch,actionTypes} = this.props;
 
     dispatch({
       type:actionTypes.INIT,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC'
-      }
     })
   }
 
   turnPage = (currentPage)=>{
-    const {match,data,dispatch,actionTypes} = this.props;
-    const {pageSize} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
+    const {dispatch,actionTypes} = this.props;
 
     dispatch({
       type:actionTypes.REQUEST,
-      urlParams:match.params,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC'
-      },
-      currentPage
+      currentPage,
     })
   }
 
