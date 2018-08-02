@@ -17,6 +17,7 @@ import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展�
 import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介绍
 
 import * as CustomSpeechCraft from './CustomSpeechCraft'; // 客服素材-客服话术
+import * as CustomVideo from './CustomVideo'; // 客服素材-客服视频
 
 import * as StrategyQSYXD from './StrategyQSYXD'; // 策略素材-强势优选队
 import * as StrategyLHDLD from './StrategyLHDLD'; // 策略素材-量化独立队
@@ -82,6 +83,10 @@ const comprehensiveMenus = [
       {
         name:CustomSpeechCraft.title,
         path:CustomSpeechCraft.path
+      },
+      {
+        name:CustomVideo.title,
+        path:CustomVideo.path
       }
     ]
   },
@@ -131,6 +136,7 @@ export const MyRoute = ({match}) => (
     <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
 
     <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
+    <Route exact path={`${match.url}/${CustomVideo.path}`} component={CustomVideo.List}/>
 
     <Route exact path={`${match.url}/${StrategyQSYXD.path}`} component={StrategyQSYXD.List}/>
     <Route exact path={`${match.url}/${StrategyLHDLD.path}`} component={StrategyLHDLD.List}/>
@@ -159,6 +165,7 @@ export const reducer = {
   [StrengthLicence.nameSpace]:StrengthLicence.reducer,
   [StrengthTeacher.nameSpace]:StrengthTeacher.reducer,
   [CustomSpeechCraft.nameSpace]:CustomSpeechCraft.reducer,
+  [CustomVideo.nameSpace]:CustomVideo.reducer,
   [StrategyQSYXD.nameSpace]:StrategyQSYXD.reducer,
   [StrategyLHDLD.nameSpace]:StrategyLHDLD.reducer,
   [ExperienceQSYXD.nameSpace]:ExperienceQSYXD.reducer,
@@ -176,6 +183,7 @@ export const sagas = [
   fork(StrengthLicence.saga),
   fork(StrengthTeacher.saga),
   fork(CustomSpeechCraft.saga),
+  fork(CustomVideo.saga),
   fork(StrategyQSYXD.saga),
   fork(StrategyLHDLD.saga),
   fork(ExperienceQSYXD.saga),

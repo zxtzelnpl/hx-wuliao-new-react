@@ -1,0 +1,48 @@
+@import "common/consts";
+
+.videoPage{
+  position:relative;
+  margin-top:20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  background:#fff;
+
+  &:after{
+    content:'';
+    display:block;
+    clear:both;
+  }
+  .primaryBtn{
+    margin-right:30px;
+
+    float:right;
+  }
+}
+
+.videoPageTitle{
+  position:absolute;
+  top:-20px;
+  left:0;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-weight:bold;
+  width:100px;
+  height:40px;
+  font-size:20px;
+  color:#fff;
+
+  background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
+}
+
+.oneVideoPage{
+  padding:20px 0;
+
+  display:flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
