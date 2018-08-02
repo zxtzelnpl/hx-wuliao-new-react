@@ -15,6 +15,7 @@ import * as InvestmentTextStrategy from './InvestmentTextStrategy'; // 研究统
 import * as StrengthCompany from './StrengthCompany'; // 实力展示-公司介绍
 import * as StrengthLicence from './StrengthLicence'; // 实力展示-证照展示
 import * as StrengthTeacher from './StrengthTeacher'; // 实力展示-老师介绍
+import * as StrengthProduct from './StrengthProduct'; // 实力展示-产品展示
 
 import * as CustomSpeechCraft from './CustomSpeechCraft'; // 客服素材-客服话术
 import * as CustomVideo from './CustomVideo'; // 客服素材-客服视频
@@ -40,7 +41,7 @@ const comprehensiveMenus = [
       {
         name: MarketingSpeechCraft.title,
         path: MarketingSpeechCraft.path
-      }
+      },
     ]
   },
   {
@@ -57,7 +58,7 @@ const comprehensiveMenus = [
       {
         name: InvestmentTextStrategy.title,
         path: InvestmentTextStrategy.path
-      }
+      },
     ]
   },
   {
@@ -74,7 +75,11 @@ const comprehensiveMenus = [
       {
         name: StrengthTeacher.title,
         path: StrengthTeacher.path
-      }
+      },
+      {
+        name: StrengthProduct.title,
+        path: StrengthProduct.path
+      },
     ]
   },
   {
@@ -87,7 +92,7 @@ const comprehensiveMenus = [
       {
         name:CustomVideo.title,
         path:CustomVideo.path
-      }
+      },
     ]
   },
   {
@@ -100,7 +105,7 @@ const comprehensiveMenus = [
       {
         name:StrategyLHDLD.title,
         path:StrategyLHDLD.path
-      }
+      },
     ]
   },
   {
@@ -113,9 +118,9 @@ const comprehensiveMenus = [
       {
         name:ExperienceLHDLD.title,
         path:ExperienceLHDLD.path
-      }
+      },
     ]
-  }
+  },
 ];
 
 
@@ -134,6 +139,7 @@ export const MyRoute = ({match}) => (
     <Route exact path={`${match.url}/${StrengthCompany.path}`} component={StrengthCompany.List}/>
     <Route exact path={`${match.url}/${StrengthLicence.path}`} component={StrengthLicence.List}/>
     <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
+    <Route exact path={`${match.url}/${StrengthProduct.path}`} component={StrengthProduct.List}/>
 
     <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
     <Route exact path={`${match.url}/${CustomVideo.path}`} component={CustomVideo.List}/>
@@ -164,6 +170,7 @@ export const reducer = {
   [StrengthCompany.nameSpace]:StrengthCompany.reducer,
   [StrengthLicence.nameSpace]:StrengthLicence.reducer,
   [StrengthTeacher.nameSpace]:StrengthTeacher.reducer,
+  [StrengthProduct.nameSpace]:StrengthProduct.reducer,
   [CustomSpeechCraft.nameSpace]:CustomSpeechCraft.reducer,
   [CustomVideo.nameSpace]:CustomVideo.reducer,
   [StrategyQSYXD.nameSpace]:StrategyQSYXD.reducer,
@@ -182,6 +189,7 @@ export const sagas = [
   fork(StrengthCompany.saga),
   fork(StrengthLicence.saga),
   fork(StrengthTeacher.saga),
+  fork(StrengthProduct.saga),
   fork(CustomSpeechCraft.saga),
   fork(CustomVideo.saga),
   fork(StrategyQSYXD.saga),
