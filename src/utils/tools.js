@@ -35,7 +35,7 @@ export const makePercent = str => {
   }
 }
 
-const getRangeSort = makeGetRangeSort(1,20);
+const getRangeSort = makeGetRangeSort(1,70);
 export const getPoster = () => {
   const index = getRangeSort();
   return `${videoPosterUrl}/${index}.jpg`
