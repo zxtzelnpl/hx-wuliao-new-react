@@ -1,8 +1,21 @@
 import {videoPosterUrl} from './const';
 
-function getRange(x,y){
+function getRangeRandom(x,y){
   return Math.floor(Math.random()*(y-x+1))+ x
 }
+
+function makeGetRangeSort(x,y){
+  let number = x;
+  return function (){
+    number++;
+    if(number>y){
+      number = x;
+    }
+    return number;
+  }
+}
+
+
 
 export function trim(str){
   return str.replace(/(^\s*)|(\s*$)/g, "");
@@ -22,7 +35,8 @@ export const makePercent = str => {
   }
 }
 
+const getRangeSort = makeGetRangeSort(1,20);
 export const getPoster = () => {
-  const index = getRange(1,20);
+  const index = getRangeSort();
   return `${videoPosterUrl}/${index}.jpg`
 }
