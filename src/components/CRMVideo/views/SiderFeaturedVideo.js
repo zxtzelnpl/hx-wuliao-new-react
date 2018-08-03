@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {getPoster} from 'utils/tools';
 
-class SiderFeaturedVideo extends Component {
+class SiderFeaturedVideo extends PureComponent {
   render() {
     const {title,url} = this.props;
 

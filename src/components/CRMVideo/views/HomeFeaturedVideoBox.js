@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {getPoster} from 'utils/tools';
 
-class HomeFeaturedVideoBox extends Component {
+class HomeFeaturedVideoBox extends PureComponent {
 
   render() {
     const {title,url,className} = this.props;

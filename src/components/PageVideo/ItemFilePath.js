@@ -1,8 +1,8 @@
 import './Item.less';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {getPoster} from 'utils/tools';
 
-class VideoItem extends Component {
+class VideoItem extends PureComponent {
 
 
   render() {
