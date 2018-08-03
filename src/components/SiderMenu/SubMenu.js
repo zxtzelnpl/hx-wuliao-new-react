@@ -32,9 +32,6 @@ class subMenu extends Component {
   handleUlShow(){
 
     this.setState(({height})=>{
-
-      console.log(height)
-
       let newState = {
         height:0,
         show:false

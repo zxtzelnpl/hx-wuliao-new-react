@@ -8,7 +8,6 @@ import SubLink from './SubLink';
 
 class SiderMenu extends Component {
   renderSubs = ()=>{
-
     const {match,menus,router} = this.props;
 
     return menus.map((data,index)=>{
