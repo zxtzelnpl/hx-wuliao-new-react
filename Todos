@@ -3,11 +3,11 @@
 1. LoginBox 背景
 1. LoginBox CodeImg图片
 1. LoginBox 的close需要换掉
-
-
 2. 直播室上面滚动条
-
-
-
 3. 直播
 4. 减少压缩体积
+
+5. 视频图片换掉
+6. 做更新提示
+7. src/routes/Product/VideoReplay/views/List_bak.js ready to delete
+8. src/components/SiderFeaturedVideo ready to delete

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PageTitle from 'components/PageTitle/PageTitle';
-import VideoPage from 'components/Pagination/VideoPage';
+import VideoPage from 'components/PageVideo/VideoPageUrl';
 import PageNumbers from 'components/Pagination/PageNumbers';
 
 

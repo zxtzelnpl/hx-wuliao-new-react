@@ -2,7 +2,7 @@ import React from 'react';
 import {fork} from 'redux-saga/effects'
 import SiderMenu from 'components/SiderMenu/SiderMenu';
 import {Route} from 'react-router-dom';
-import SiderFeaturedVideos from 'components/SiderFeaturedVideo/SiderFeaturedVideos';
+import {SiderFeaturedVideos} from 'components/CRMVideo';
 
 import * as MarketingMaterialProduct from './MarketingMaterialProduct'; // 营销素材-产品案例
 import * as MarketingMaterialRecord from './MarketingMaterialRecord'; // 营销素材-战绩展示

@@ -1,0 +1,61 @@
+@import "common/consts.less";
+
+.sider-featured-videos{
+  width:320px;
+  &-title{
+    box-sizing: border-box;
+
+    margin-bottom: 5px;
+
+    padding-left:10px;
+
+    height:45px;
+
+    font-weight:bold;
+    line-height:45px;
+    color:#fff;
+
+    background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
+  }
+  &-ul{
+    position:relative;
+    min-height:600px;
+  }
+  &-box{
+    padding-bottom: 10px;
+    width:100%;
+    color:#000;
+    &:hover{
+      color:#000;
+    }
+    .img{
+      margin-bottom: 5px;
+      display:block;
+      width:320px;
+      height:180px;
+    }
+    .subTitle{
+      display:flex;
+      justify-content: space-between;
+
+      margin-bottom: 15px;
+      padding-left:8px;
+      font-weight:bold;
+      &:before{
+        position:absolute;
+        margin-left:-8px;
+        display:block;
+        content:"";
+        width:4px;
+        height:19px;
+        background:#e91c23;
+      }
+      .datetime{
+        color:#e91c23;
+      }
+    }
+    .text{
+      color:#a3a3a3;
+    }
+  }
+}

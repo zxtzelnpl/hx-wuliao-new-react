@@ -65,8 +65,8 @@ class Carousel extends Component {
           </div>
         </ReactSwipe>
 
-        <div className={prevClass} onClick={this.handlePrev}> &gt; </div>
-        <div className={nextClass} onClick={this.handleNext}> &lt; </div>
+        <div className={prevClass} onClick={this.handlePrev}> &lt; </div>
+        <div className={nextClass} onClick={this.handleNext}> &gt; </div>
 
       </div>
     )

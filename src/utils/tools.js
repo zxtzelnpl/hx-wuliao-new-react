@@ -1,3 +1,9 @@
+import {videoPosterUrl} from './const';
+
+function getRange(x,y){
+  return Math.floor(Math.random()*(y-x+1))+ x
+}
+
 export function trim(str){
   return str.replace(/(^\s*)|(\s*$)/g, "");
 }
@@ -14,4 +20,9 @@ export const makePercent = str => {
   else {
     return number + '%';
   }
+}
+
+export const getPoster = () => {
+  const index = getRange(1,20);
+  return `${videoPosterUrl}/${index}.jpg`
 }

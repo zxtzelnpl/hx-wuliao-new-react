@@ -2,6 +2,16 @@
 
 .home{
   min-width: @maxWidth;
+
+  &-fifth{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin:0 auto;
+    width:100%;
+    max-width: 1000px;
+  }
 }
 .homeMaterialsShot{
   background:#fff;
@@ -32,17 +42,7 @@
 }
 
 
-.videosAndMessages{
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin:0 auto;
-  width:100%;
-  max-width: 990px;
-}
-
-.featuredVideos,.leavingMessage{
+.home-videos,.home-messages{
   box-sizing: border-box;
   padding:10px;
   height:750px;
@@ -54,13 +54,51 @@
     font-size:18px;
   }
 }
-
-.featuredVideos{
+/*精选视频*/
+.home-videos{
   width:620px;
 }
+.home-featured-videos{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 
+  padding-top: 20px;
+  &-box{
+    margin-right:11px;
+    padding-bottom: 30px;
+    width:192px;
+    &:nth-child(3n){
+      margin-right:0;
+    }
+    .img{
+      margin-bottom: 10px;
+      display:block;
+      width:192px;
+      height:108px;
+    }
+    .subTitle{
+      margin-bottom: 5px;
+      padding-left:8px;
+      color:#000;
+      &:before{
+        position:absolute;
+        margin-left:-8px;
+        display:block;
+        content:"";
+        width:4px;
+        height:19px;
+        background:#e91c23;
+      }
+    }
+    .text{
+      color:#a3a3a3;
+    }
+  }
+}
 
-.leavingMessage{
+/*留言*/
+.home-messages{
   width:360px;
   .chatBox{
     padding-top: 20px;

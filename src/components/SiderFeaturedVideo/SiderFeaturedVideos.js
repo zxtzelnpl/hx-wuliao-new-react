@@ -7,7 +7,7 @@ import FeaturedVideo from './FeaturedVideo';
 import Loading from 'components/Loading/Loading'
 
 
-class SiderFeaturedVideo extends Component {
+class SiderFeaturedVideos extends Component {
   componentDidMount(){
     if(!this.props.data.receivedAt||
         this.props.data.team!==this.props.match.params.team||
@@ -79,4 +79,4 @@ const mapStateToProps = state => ({
   data:state.VideoReplay
 })
 
-export default connect(mapStateToProps)(SiderFeaturedVideo);
+export default connect(mapStateToProps)(SiderFeaturedVideos);

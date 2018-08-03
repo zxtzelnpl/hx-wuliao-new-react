@@ -1,9 +1,7 @@
-import './FeaturedVideos.less';
-
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
-import FeaturedVideo from './FeaturedVideo';
+import HomeFeaturedVideoBox from './HomeFeaturedVideoBox';
 
 class FeaturedVideos extends Component{
   componentDidMount(){
@@ -16,10 +14,11 @@ class FeaturedVideos extends Component{
 
   renderVideos = ()=>{
     let dom = <div className="no-data">暂无数据</div>
+    const {className,data} = this.props;
 
-    if(this.props.data.list instanceof Array){
-      dom =  this.props.data.list.map(item=>{
-        return <FeaturedVideo key={item.id} {...item}/>
+    if(data.list instanceof Array){
+      dom =  data.list.map(item=>{
+        return <HomeFeaturedVideoBox className={`${className}-box`} key={item.id} {...item}/>
       })
     }
 
@@ -27,8 +26,10 @@ class FeaturedVideos extends Component{
   }
 
   render(){
+    const {className} = this.props;
+
     return (
-        <div className="featuredVideoBox">
+        <div className={className}>
           {this.renderVideos()}
         </div>
     )

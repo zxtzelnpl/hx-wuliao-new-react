@@ -4,13 +4,12 @@ import React, {Component} from 'react';
 import LinkIcon from './LinkIcon';
 import Carousel from './Carousel';
 import {ChatBox} from 'components/SiderChatBox';
-import {FeaturedVideos} from 'components/CRMVideo';
+import {HomeFeaturedVideos} from 'components/CRMVideo';
 import Footer from './Footer';
 import img_investment from 'assets/images/investment.png';
 import img_productMarket from 'assets/images/productMarket.png';
 import team_dllh from 'assets/images/team_dllh.png';
 import team_nytz from 'assets/images/team_nytz.png';
-import team_qsxg from 'assets/images/team_qsxg.png';
 import team_qsyx from 'assets/images/team_qsyx.png';
 
 class Home extends Component {
@@ -59,16 +58,15 @@ class Home extends Component {
 
         <div className="blank-height-30" />
 
-        <div className="videosAndMessages">
-          <div className="featuredVideos">
+        <div className="home-fifth">
+          <div className="home-videos">
             <h4 className="title">
               精选视频
             </h4>
-
-            <FeaturedVideos />
+            <HomeFeaturedVideos className={'home-featured-videos'}/>
           </div>
 
-          <div className="leavingMessage">
+          <div className="home-messages">
             <h4 className="title">
               留言
             </h4>

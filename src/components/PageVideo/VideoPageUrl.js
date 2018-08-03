@@ -1,8 +1,8 @@
-import './VideoPage.less';
+import './PageVideo.less';
 import React, {Component} from 'react';
-import VideoItem from './VideoItem';
+import VideoItem from './ItemUrl';
 
-class VideoPage extends Component {
+class VideoPageUrl extends Component {
 
   renderList(){
 
@@ -20,4 +20,4 @@ class VideoPage extends Component {
   }
 }
 
-export default VideoPage
+export default VideoPageUrl
