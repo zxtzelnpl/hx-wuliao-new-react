@@ -10,26 +10,15 @@ import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
 import rootSaga from './sagas';
 import configureStore from './store/configureStore';
-import myStorage from './utils/myStorage';
-import {getCookie} from 'utils/myCookie';
 
 if (process.env.NODE_ENV === 'development') {
-  console.log(`%c${process.env.NODE_ENV}`, 'background:#00CC66;font-size:2em;color:yellow;font-weight:bold;');
+  console.log(`%cIndex-Page-${process.env.NODE_ENV}`, 'background:#00CC66;font-size:2em;color:yellow;font-weight:bold;');
   // console.log(`%c${process.env.NODE_ENV}`, 'background:yellow;font-size:2em;color:#00CC66;font-weight:bold;');
   // console.log(`%c$Mark`, 'background:yellow;font-size:2em;color:#00CC66;font-weight:bold;');
 }
 
 
-let user = {}
-const TICKET = getCookie('ticket');
-console.log(TICKET);
-if(TICKET&&myStorage.getItem('user')){
-  user=JSON.parse(myStorage.getItem('user'));
-}
-const initalState = {
-  user:user
-}
-const store = configureStore(initalState);
+const store = configureStore();
 store.runSaga(rootSaga);
 const root = document.getElementById('root');
 

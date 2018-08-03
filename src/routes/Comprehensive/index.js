@@ -32,15 +32,18 @@ const comprehensiveMenus = [
     lis: [
       {
         name: MarketingArticle.title,
-        path: MarketingArticle.path
+        path: MarketingArticle.path,
+        nameSpace: MarketingArticle.nameSpace,
       },
       {
         name: MarketingImage.title,
-        path: MarketingImage.path
+        path: MarketingImage.path,
+        nameSpace: MarketingImage.nameSpace,
       },
       {
         name: MarketingSpeechCraft.title,
-        path: MarketingSpeechCraft.path
+        path: MarketingSpeechCraft.path,
+        nameSpace: MarketingSpeechCraft.nameSpace,
       },
     ]
   },
@@ -49,15 +52,18 @@ const comprehensiveMenus = [
     lis: [
       {
         name: InvestmentMarketingStock.title,
-        path: InvestmentMarketingStock.path
+        path: InvestmentMarketingStock.path,
+        nameSpace: InvestmentMarketingStock.nameSpace,
       },
       {
         name: InvestmentServiceStock.title,
-        path: InvestmentServiceStock.path
+        path: InvestmentServiceStock.path,
+        nameSpace: InvestmentServiceStock.nameSpace,
       },
       {
         name: InvestmentTextStrategy.title,
-        path: InvestmentTextStrategy.path
+        path: InvestmentTextStrategy.path,
+        nameSpace: InvestmentTextStrategy.nameSpace,
       },
     ]
   },
@@ -66,19 +72,23 @@ const comprehensiveMenus = [
     lis: [
       {
         name: StrengthCompany.title,
-        path: StrengthCompany.path
+        path: StrengthCompany.path,
+        nameSpace: StrengthCompany.nameSpace,
       },
       {
         name: StrengthLicence.title,
-        path: StrengthLicence.path
+        path: StrengthLicence.path,
+        nameSpace: StrengthLicence.nameSpace,
       },
       {
         name: StrengthTeacher.title,
-        path: StrengthTeacher.path
+        path: StrengthTeacher.path,
+        nameSpace: StrengthTeacher.nameSpace,
       },
       {
         name: StrengthProduct.title,
-        path: StrengthProduct.path
+        path: StrengthProduct.path,
+        nameSpace: StrengthProduct.nameSpace,
       },
     ]
   },
@@ -87,11 +97,13 @@ const comprehensiveMenus = [
     lis:[
       {
         name:CustomSpeechCraft.title,
-        path:CustomSpeechCraft.path
+        path:CustomSpeechCraft.path,
+        nameSpace:CustomSpeechCraft.nameSpace,
       },
       {
         name:CustomVideo.title,
-        path:CustomVideo.path
+        path:CustomVideo.path,
+        nameSpace:CustomVideo.nameSpace,
       },
     ]
   },
@@ -100,11 +112,13 @@ const comprehensiveMenus = [
     lis:[
       {
         name:StrategyQSYXD.title,
-        path:StrategyQSYXD.path
+        path:StrategyQSYXD.path,
+        nameSpace:StrategyQSYXD.nameSpace,
       },
       {
         name:StrategyLHDLD.title,
-        path:StrategyLHDLD.path
+        path:StrategyLHDLD.path,
+        nameSpace:StrategyLHDLD.nameSpace,
       },
     ]
   },
@@ -113,11 +127,13 @@ const comprehensiveMenus = [
     lis:[
       {
         name:ExperienceQSYXD.title,
-        path:ExperienceQSYXD.path
+        path:ExperienceQSYXD.path,
+        nameSpace:ExperienceQSYXD.nameSpace,
       },
       {
         name:ExperienceLHDLD.title,
-        path:ExperienceLHDLD.path
+        path:ExperienceLHDLD.path,
+        nameSpace:ExperienceLHDLD.nameSpace,
       },
     ]
   },

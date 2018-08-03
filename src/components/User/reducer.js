@@ -1,9 +1,18 @@
-import * as actionTypes from './actionTypes'
-const initialState = {
+import * as actionTypes from './actionTypes';
+import {getCookie} from "src/utils/myCookie";
+import myStorage from "src/utils/myStorage";
 
+
+let initialState = {}
+const TICKET = getCookie('ticket');
+if(TICKET&&myStorage.getItem('user')){
+  initialState=JSON.parse(myStorage.getItem('user'));
 }
 
 const reducer = (state=initialState,action) =>{
+
+  console.log('%csrc/components/User/reducer.js','background:yellow;color:red;')
+
   switch (action.type){
     case actionTypes.REQUEST_CODE:
       return {

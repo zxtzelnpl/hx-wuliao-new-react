@@ -11,11 +11,11 @@ class SubLink extends Component {
     let dom;
 
     if(pathname === to){
-      dom = (<span className="siderSubLinkTitle">{title}</span>)
+      dom = (<li><span className="siderSubLinkTitle">{title}</span></li>)
     }
     else
     {
-      dom = (<Link className="siderSubLinkTitle" to={`${url}/${path}`}>{title}</Link>)
+      dom = (<li><Link className="siderSubLinkTitle" to={`${url}/${path}`}>{title}</Link></li>)
     }
     return dom;
   }
