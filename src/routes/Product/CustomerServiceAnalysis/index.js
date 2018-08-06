@@ -1,19 +1,29 @@
-import React from 'react';
+import ProductMaterialList from 'components/Material/ProductMaterialList';
 import {connect} from 'react-redux';
 import * as actionTypes from './actionTypes';
-import ProductMaterialList from 'components/Material/ProductMaterialList';
+import nameSpace from './nameSpace';
 import reducer from './reducer';
 import saga from './saga';
-import nameSpace from './nameSpace';
+import * as service from './service';
 
 const title = '持仓分析';
+
 const path = 'customer/analysis';
-const mapStateToProps = state =>({
-  data:state[nameSpace],
+
+const mapStateToProps = state => ({
+  data: state[nameSpace],
   actionTypes,
   title
 });
 
 const List = connect(mapStateToProps)(ProductMaterialList);
 
-export {List,reducer,saga,title,path,nameSpace}
+export {
+  nameSpace,
+  reducer,
+  saga,
+  service,
+  title,
+  path,
+  List,
+}

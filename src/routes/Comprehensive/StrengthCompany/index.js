@@ -1,10 +1,10 @@
 import ComprehensiveMaterialList from 'components/Material/ComprehensiveMaterialList';
-import React from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from './actionTypes';
+import nameSpace from './nameSpace';
 import reducer from './reducer';
 import saga from './saga';
-import nameSpace from './nameSpace';
+import * as service from './service';
 
 const title = '公司介绍';
 
@@ -18,4 +18,12 @@ const mapStateToProps = state =>({
 
 const List = connect(mapStateToProps)(ComprehensiveMaterialList);
 
-export {List,reducer,saga,title,path,nameSpace}
+export {
+  nameSpace,
+  reducer,
+  saga,
+  service,
+  title,
+  path,
+  List,
+}

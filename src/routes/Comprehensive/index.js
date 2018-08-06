@@ -1,8 +1,9 @@
 import React from 'react';
 import {fork} from 'redux-saga/effects'
-import SiderMenu from 'components/SiderMenu/SiderMenu';
+import {Menu as SiderMenu} from 'components/SiderMenu';
 import {Route} from 'react-router-dom';
 import {SiderChatBox} from 'components/SiderChatBox';
+
 
 import * as MarketingArticle from './MarketingArticle'; // 营销素材-营销软文
 import * as MarketingImage from './MarketingImage'; // 营销素材-营销图片
@@ -34,16 +35,19 @@ const comprehensiveMenus = [
         name: MarketingArticle.title,
         path: MarketingArticle.path,
         nameSpace: MarketingArticle.nameSpace,
+        service: MarketingArticle.service,
       },
       {
         name: MarketingImage.title,
         path: MarketingImage.path,
         nameSpace: MarketingImage.nameSpace,
+        service: MarketingImage.service,
       },
       {
         name: MarketingSpeechCraft.title,
         path: MarketingSpeechCraft.path,
         nameSpace: MarketingSpeechCraft.nameSpace,
+        service: MarketingSpeechCraft.service,
       },
     ]
   },
@@ -54,16 +58,19 @@ const comprehensiveMenus = [
         name: InvestmentMarketingStock.title,
         path: InvestmentMarketingStock.path,
         nameSpace: InvestmentMarketingStock.nameSpace,
+        service: InvestmentMarketingStock.service,
       },
       {
         name: InvestmentServiceStock.title,
         path: InvestmentServiceStock.path,
         nameSpace: InvestmentServiceStock.nameSpace,
+        service: InvestmentServiceStock.service,
       },
       {
         name: InvestmentTextStrategy.title,
         path: InvestmentTextStrategy.path,
         nameSpace: InvestmentTextStrategy.nameSpace,
+        service: InvestmentTextStrategy.service,
       },
     ]
   },
@@ -74,21 +81,25 @@ const comprehensiveMenus = [
         name: StrengthCompany.title,
         path: StrengthCompany.path,
         nameSpace: StrengthCompany.nameSpace,
+        service: StrengthCompany.service,
       },
       {
         name: StrengthLicence.title,
         path: StrengthLicence.path,
         nameSpace: StrengthLicence.nameSpace,
+        service: StrengthLicence.service,
       },
       {
         name: StrengthTeacher.title,
         path: StrengthTeacher.path,
         nameSpace: StrengthTeacher.nameSpace,
+        service: StrengthTeacher.service,
       },
       {
         name: StrengthProduct.title,
         path: StrengthProduct.path,
         nameSpace: StrengthProduct.nameSpace,
+        service: StrengthProduct.service,
       },
     ]
   },
@@ -99,11 +110,13 @@ const comprehensiveMenus = [
         name:CustomSpeechCraft.title,
         path:CustomSpeechCraft.path,
         nameSpace:CustomSpeechCraft.nameSpace,
+        service:CustomSpeechCraft.service,
       },
       {
         name:CustomVideo.title,
         path:CustomVideo.path,
         nameSpace:CustomVideo.nameSpace,
+        service:CustomVideo.service,
       },
     ]
   },
@@ -114,11 +127,13 @@ const comprehensiveMenus = [
         name:StrategyQSYXD.title,
         path:StrategyQSYXD.path,
         nameSpace:StrategyQSYXD.nameSpace,
+        service:StrategyQSYXD.service,
       },
       {
         name:StrategyLHDLD.title,
         path:StrategyLHDLD.path,
         nameSpace:StrategyLHDLD.nameSpace,
+        service:StrategyLHDLD.service,
       },
     ]
   },
@@ -129,11 +144,13 @@ const comprehensiveMenus = [
         name:ExperienceQSYXD.title,
         path:ExperienceQSYXD.path,
         nameSpace:ExperienceQSYXD.nameSpace,
+        service:ExperienceQSYXD.service,
       },
       {
         name:ExperienceLHDLD.title,
         path:ExperienceLHDLD.path,
         nameSpace:ExperienceLHDLD.nameSpace,
+        service:ExperienceLHDLD.service,
       },
     ]
   },

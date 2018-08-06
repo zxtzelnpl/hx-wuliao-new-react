@@ -1,6 +1,5 @@
-import './SubMenu.less'
-
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 import classNames from 'classnames';
 
 class subMenu extends Component {
@@ -16,6 +15,10 @@ class subMenu extends Component {
   }
 
   componentDidMount() {
+    this.UlInit();
+  }
+
+  UlInit(){
     const ul = this.ul.current;
     const li = ul.children  //TODO
     const num = li.length;
@@ -44,16 +47,17 @@ class subMenu extends Component {
   }
 
   render() {
-
-    let className = classNames('siderSubMenuTitle', {
-      show: this.state.show
+    const {hasNew} = this.props;
+    let className = classNames('sider-menu-sub-title', {
+      show: this.state.show,
+      hasNew
     });
 
     const {title} = this.props;
 
     return (
       <li>
-        <div className="siderSubMenu">
+        <div className="sider-menu-sub">
           <p className={className} onClick={this.handleUlShow}>{title}</p>
           <ul style={this.state} ref={this.ul}>
             {this.props.children}
@@ -62,6 +66,11 @@ class subMenu extends Component {
       </li>
     );
   }
+}
+
+subMenu.propTypes={
+  url:propTypes.string,
+  pathname:propTypes.string,
 }
 
 export default subMenu

@@ -1,5 +1,3 @@
-import './SubLink.less';
-
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
@@ -11,11 +9,11 @@ class SubLink extends Component {
     let dom;
 
     if(pathname === to){
-      dom = (<li><span className="siderSubLinkTitle">{title}</span></li>)
+      dom = (<li><span className="sider-sub-link-title hint">{title}</span></li>)
     }
     else
     {
-      dom = (<li><Link className="siderSubLinkTitle" to={`${url}/${path}`}>{title}</Link></li>)
+      dom = (<li><Link className="sider-sub-link-title" to={`${url}/${path}`}>{title}</Link></li>)
     }
     return dom;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {fork} from 'redux-saga/effects'
-import SiderMenu from 'components/SiderMenu/SiderMenu';
+import {Menu as SiderMenu} from 'components/SiderMenuForProduct';
 import {Route} from 'react-router-dom';
 import {SiderFeaturedVideos} from 'components/CRMVideo';
 
@@ -27,11 +27,15 @@ const productMenus = [
     lis: [
       {
         name: MarketingMaterialProduct.title,
-        path: MarketingMaterialProduct.path
+        path: MarketingMaterialProduct.path,
+        nameSpace: MarketingMaterialProduct.nameSpace,
+        service: MarketingMaterialProduct.service,
       },
       {
         name: MarketingMaterialRecord.title,
-        path: MarketingMaterialRecord.path
+        path: MarketingMaterialRecord.path,
+        nameSpace: MarketingMaterialRecord.nameSpace,
+        service: MarketingMaterialRecord.service,
       },
     ]
   },
@@ -40,15 +44,21 @@ const productMenus = [
     lis: [
       {
         name: StrategyMaterialPrediction.title,
-        path: StrategyMaterialPrediction.path
+        path: StrategyMaterialPrediction.path,
+        nameSpace: StrategyMaterialPrediction.nameSpace,
+        service: StrategyMaterialPrediction.service,
       },
       {
         name: StrategyMaterialReview.title,
-        path: StrategyMaterialReview.path
+        path: StrategyMaterialReview.path,
+        nameSpace: StrategyMaterialReview.nameSpace,
+        service: StrategyMaterialReview.service,
       },
       {
         name: StrategyMaterialAnalysis.title,
-        path: StrategyMaterialAnalysis.path
+        path: StrategyMaterialAnalysis.path,
+        nameSpace: StrategyMaterialAnalysis.nameSpace,
+        service: StrategyMaterialAnalysis.service,
       },
     ]
   },
@@ -57,11 +67,15 @@ const productMenus = [
     lis: [
       {
         name: ExperienceMaterialWeek.title,
-        path: ExperienceMaterialWeek.path
+        path: ExperienceMaterialWeek.path,
+        nameSpace: ExperienceMaterialWeek.nameSpace,
+        service: ExperienceMaterialWeek.service,
       },
       {
         name: ExperienceMaterialYear.title,
-        path: ExperienceMaterialYear.path
+        path: ExperienceMaterialYear.path,
+        nameSpace: ExperienceMaterialYear.nameSpace,
+        service: ExperienceMaterialYear.service,
       },
     ]
   },
@@ -70,21 +84,38 @@ const productMenus = [
     lis: [
       {
         name: CustomerServiceAnalysis.title,
-        path: CustomerServiceAnalysis.path
+        path: CustomerServiceAnalysis.path,
+        nameSpace: CustomerServiceAnalysis.nameSpace,
+        service: CustomerServiceAnalysis.service,
       },
       {
         name: CustomerServiceVideo.title,
-        path: CustomerServiceVideo.path
+        path: CustomerServiceVideo.path,
+        nameSpace: CustomerServiceVideo.nameSpace,
+        service: CustomerServiceVideo.service,
       },
     ]
   },
+  // {
+  //   title: '研究素材',
+  //   lis:[
+  //     {
+  //       name: ResearchMaterial.title,
+  //       path: ResearchMaterial.path,
+  //       service: ResearchMaterial.service,
+  //     }
+  //   ],
+  // },
   {
-    title: ResearchMaterial.title,
-    path: ResearchMaterial.path
-  },
-  {
-    title: VideoReplay.title,
-    path: VideoReplay.path
+    title: '视频回播',
+    lis:[
+      {
+        name: VideoReplay.title,
+        path: VideoReplay.path,
+        nameSpace: VideoReplay.nameSpace,
+        service: VideoReplay.service,
+      }
+    ],
   },
 ]
 
@@ -129,7 +160,7 @@ export const reducer = {
   [ExperienceMaterialWeek.nameSpace]:ExperienceMaterialWeek.reducer,
   [ExperienceMaterialYear.nameSpace]:ExperienceMaterialYear.reducer,
   [CustomerServiceAnalysis.nameSpace]:CustomerServiceAnalysis.reducer,
-  ResearchMaterial:ResearchMaterial.reducer,
+  [ResearchMaterial.nameSpace]:ResearchMaterial.reducer,
   [CustomerServiceVideo.nameSpace]:CustomerServiceVideo.reducer,
   [VideoReplay.nameSpace]:VideoReplay.reducer,
 }

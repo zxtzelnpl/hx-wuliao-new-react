@@ -1,9 +1,10 @@
+import VideoMaterialList from 'components/Material/VideoMaterialList';
+import {connect} from 'react-redux';
+import * as actionTypes from './actionTypes';
+import nameSpace from './nameSpace';
 import reducer from './reducer';
 import saga from './saga';
-import * as actionTypes from './actionTypes';
-import {connect} from "react-redux";
-import VideoMaterialList from "components/Material/VideoMaterialList";
-import nameSpace from './nameSpace';
+import * as service from './service';
 
 const title = '视频回播';
 
@@ -17,4 +18,12 @@ const mapStateToProps = state =>({
 
 const List = connect(mapStateToProps)(VideoMaterialList)
 
-export {List,reducer,saga,actionTypes,title,path,nameSpace}
+export {
+  nameSpace,
+  reducer,
+  saga,
+  service,
+  title,
+  path,
+  List,
+}

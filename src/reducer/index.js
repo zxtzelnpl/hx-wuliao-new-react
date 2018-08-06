@@ -2,6 +2,8 @@ import {combineReducers} from 'redux';
 import {reducer as myAlert} from '../components/Alert';
 import {reducer as header} from '../components/Header';
 import {reducer as user} from '../components/User';
+import * as SiderMenu from '../components/SiderMenu';
+import * as SiderMenuForProduct from '../components/SiderMenuForProduct';
 import {reducer as SiderChatBox} from '../components/SiderChatBox';
 import {reducer as CRMVideo} from '../components/CRMVideo';
 
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
   myAlert,
   header,
   user,
+  [SiderMenu.nameSpace]:SiderMenu.reducer,
+  [SiderMenuForProduct.nameSpace]:SiderMenuForProduct.reducer,
   SiderChatBox,
   LiveVideo,
   CRMVideo,

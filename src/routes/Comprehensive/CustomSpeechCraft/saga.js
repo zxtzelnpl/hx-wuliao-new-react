@@ -90,8 +90,6 @@ function* getPage(action){
   }
 }
 
-
-
 export default function* rootFetch() {
   yield takeLatest(actionTypes.INIT,init);
   yield takeLatest(actionTypes.REQUEST,getPage);

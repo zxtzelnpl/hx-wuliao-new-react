@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
-import {getCookie} from "src/utils/myCookie";
-import myStorage from "src/utils/myStorage";
+import {getCookie} from "utils/myCookie";
+import myStorage from "utils/myStorage";
 
 
 let initialState = {}
