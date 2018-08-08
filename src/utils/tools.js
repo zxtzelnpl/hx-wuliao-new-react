@@ -50,10 +50,14 @@ export const capitalize = (str) => {
 /*取到之前的总数*/
 export const getBeforeTotal = (key) => {
   let total = myStorage.getItem(key);
-  if (total) {
-    return total;
-  }
-  else {
+  console.log(`%c${total}`,'background:yellow;color:red;')
+  if(total===null){
     return 0;
+  }
+  else if(total === undefined){
+    return 0;
+  }
+  else{
+    return total
   }
 };

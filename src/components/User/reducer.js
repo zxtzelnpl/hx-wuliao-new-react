@@ -10,9 +10,6 @@ if(TICKET&&myStorage.getItem('user')){
 }
 
 const reducer = (state=initialState,action) =>{
-
-  console.log('%csrc/components/User/reducer.js','background:yellow;color:red;')
-
   switch (action.type){
     case actionTypes.REQUEST_CODE:
       return {

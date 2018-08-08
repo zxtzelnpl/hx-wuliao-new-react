@@ -12,6 +12,7 @@ function* init(){
   try{
     const STATE = yield select(getState);
     const {pageSize,currentPage,condition,sort,order} = STATE;
+    let {total} = STATE;
 
     let from = (currentPage-1)*pageSize;
     let to = currentPage*pageSize;
@@ -23,7 +24,11 @@ function* init(){
       condition:condition
     }
 
-    const total = yield call(service.getTotal,params);
+    if(!total){
+      let response = yield call(service.getTotal,params);
+      total = response.total;
+    }
+
     const page = yield call(service.getPage,params);
 
     const rise1 = yield call(service.getPage,{...params,to:1,order:'rise1'})
@@ -33,7 +38,7 @@ function* init(){
 
     const data = {
       list:page.list,
-      total:total.total,
+      total:total,
       rise1:rise1.list,
       rise3:rise3.list,
       rise5:rise5.list,
@@ -42,7 +47,8 @@ function* init(){
     }
 
     /*将浏览记录改变*/
-    myStorage.setItem(nameSpace,total.total);
+    myStorage.setItem(nameSpace,total);
+    data.beforeTotal = total;
 
     yield put({
       type:actionTypes.RECEIVED,

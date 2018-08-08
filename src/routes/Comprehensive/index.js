@@ -187,7 +187,7 @@ export const MyRoute = ({match}) => (
     <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
     <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
     <Route path={`${match.url}/strength`} component={SiderChatBox}/>
-    <Route path={`${match.url}/customer`} component={SiderChatBox}/>
+    <Route path={`${match.url}/custom`} component={SiderChatBox}/>
     <Route path={`${match.url}/strategy`} component={SiderChatBox}/>
     <Route path={`${match.url}/experience`} component={SiderChatBox}/>
   </div>

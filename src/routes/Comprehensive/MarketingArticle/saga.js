@@ -8,39 +8,41 @@ import nameSpace from './nameSpace';
 
 const getState = state => state[nameSpace];
 
-function* init(){
-  try{
+function* init() {
+  try {
     const data = {};
-    const {total,pageSize,sort} = yield select(getState);
+    let {total, pageSize, sort} = yield select(getState);
 
-    if(!total){
+    if (!total) {
       const response = yield call(service.getTotal);
-      data.total = response.total;
+      total = response.total;
     }
 
-    if(data.total !== 0){
+    if (total !== 0) {
       const params = {
-        from:0,
-        to:pageSize,
-        sort:sort
+        from: 0,
+        to: pageSize,
+        sort: sort
       }
-      const page = yield call(service.getPage,params);
+      const page = yield call(service.getPage, params);
       data.list = page.list;
     }
 
     data.receivedAt = moment().unix();
 
     /*将浏览记录改变*/
-    myStorage.setItem(nameSpace,total);
+    myStorage.setItem(nameSpace, total);
+    data.total = total;
+    data.beforeTotal = total;
 
     yield put({
-      type:actionTypes.RECEIVED,
+      type: actionTypes.RECEIVED,
       data
     })
   }
-  catch(error){
+  catch (error) {
     yield put({
-      type:actionTypes.ERROR,
+      type: actionTypes.ERROR,
       error
     });
   }
@@ -50,6 +52,7 @@ function* getTotal(){
   try{
     const {total} = yield call(service.getTotal);
     const beforeTotal = getBeforeTotal(nameSpace);
+
     yield put({
       type:actionTypes.RECEIVED,
       data:{
