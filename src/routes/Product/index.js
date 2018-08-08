@@ -103,19 +103,32 @@ const productMenus = [
   //       name: ResearchMaterial.title,
   //       path: ResearchMaterial.path,
   //       service: ResearchMaterial.service,
+  //       ComprehensiveLink: ResearchMaterial.ComprehensiveLink,
+  //     }
+  //   ],
+  // },
+  {
+    title: '研究素材',
+    name: ResearchMaterial.title,
+    path: ResearchMaterial.path,
+    ComprehensiveLink: ResearchMaterial.ComprehensiveLink,
+  },
+  // {
+  //   title: '视频回播',
+  //   lis:[
+  //     {
+  //       name: VideoReplay.title,
+  //       path: VideoReplay.path,
+  //       nameSpace: VideoReplay.nameSpace,
+  //       ComprehensiveLink: VideoReplay.ComprehensiveLink,
   //     }
   //   ],
   // },
   {
     title: '视频回播',
-    lis:[
-      {
-        name: VideoReplay.title,
-        path: VideoReplay.path,
-        nameSpace: VideoReplay.nameSpace,
-        ComprehensiveLink: VideoReplay.ComprehensiveLink,
-      }
-    ],
+    name: VideoReplay.title,
+    path: VideoReplay.path,
+    ComprehensiveLink: VideoReplay.ComprehensiveLink,
   },
 ]
 

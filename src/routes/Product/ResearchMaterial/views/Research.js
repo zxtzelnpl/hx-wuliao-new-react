@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../actionTypes';
 import StockPool from './StockPool';
+import nameSpace from '../nameSpace';
 
 class ResearchMaterial extends Component {
 
@@ -94,7 +95,7 @@ class ResearchMaterial extends Component {
 }
 
 const mapStateToProps =state=>({
-  data:state.ResearchMaterial
+  data:state[nameSpace]
 });
 
 export default connect(mapStateToProps)(ResearchMaterial);

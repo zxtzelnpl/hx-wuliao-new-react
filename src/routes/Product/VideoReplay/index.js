@@ -1,5 +1,5 @@
 import VideoMaterialList from 'components/Material/VideoMaterialList';
-import SubMenuLinkForProduct from 'components/SiderMenu/SubMenuLinkForProduct';
+import SubLinkForProduct from 'components/SiderMenu/SubLinkForProduct';
 import {connect} from 'react-redux';
 import {title,path} from './constant';
 import * as actionTypes from './actionTypes';
@@ -27,7 +27,7 @@ const mapStateToProps = {
 }
 
 const List = connect(mapStateToProps.List)(VideoMaterialList);
-const ComprehensiveLink = connect(mapStateToProps.ComprehensiveLink)(SubMenuLinkForProduct);
+const ComprehensiveLink = connect(mapStateToProps.ComprehensiveLink)(SubLinkForProduct);
 
 export {
   nameSpace,

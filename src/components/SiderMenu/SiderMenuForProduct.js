@@ -3,6 +3,7 @@ import './SiderMenu.less';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import SubMenuForProduct from './SubMenuForProduct';
+import SubLinkForProduct from './SubLinkForProduct';
 
 
 class SiderMenu extends Component {
@@ -71,7 +72,12 @@ class SiderMenu extends Component {
     const {menus,match} = this.props;
 
     return menus.map((data,index) => {
-      return <SubMenuForProduct {...data} key={index} match={match}/>
+      if(data.lis){
+        return <SubMenuForProduct {...data} key={index} match={match}/>
+      }
+      else {
+        return <data.ComprehensiveLink {...data} key={index} match={match}/>
+      }
     })
   }
 

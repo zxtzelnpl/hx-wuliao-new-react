@@ -79,8 +79,7 @@ class SubMenuForProduct extends Component {
 }
 
 SubMenuForProduct.propTypes={
-  url:propTypes.string,
-  pathname:propTypes.string,
+
 }
 
 export default SubMenuForProduct
