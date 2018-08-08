@@ -1,4 +1,9 @@
-export const INIT = 'MARKETING_MATERIAL_RECORD_INIT';
-export const REQUEST = 'MARKETING_MATERIAL_RECORD_REQUEST';
-export const RECEIVED = 'MARKETING_MATERIAL_RECORD_RECEIVED';
-export const ERROR = 'MARKETING_MATERIAL_RECORD_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;
