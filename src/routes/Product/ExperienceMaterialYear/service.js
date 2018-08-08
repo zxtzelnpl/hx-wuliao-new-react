@@ -1,12 +1,5 @@
 import request from 'utils/request';
-
-const totalUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/experience/year/total`
-}
-
-const pageUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/experience/year/page`
-}
+import {totalUrl,pageUrl} from './constant';
 
 
 export async function getTotal(urlParams) {
