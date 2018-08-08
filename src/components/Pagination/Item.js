@@ -1,12 +1,23 @@
 import './Item.less'
 
 import React, {Component} from 'react';
+import moment from 'moment';
 import classNames from 'classnames';
 import PagePDFContent from 'components/PageContent/PagePDFContent';
 import PageHtmlContent from 'components/PageContent/PageHtmlContent';
 import PageOfficeContent from 'components/PageContent/PageOfficeContent';
 import PageImgContent from 'components/PageContent/PageImgContent';
 import {pdfReg, officeReg, imgReg} from "utils/tools";
+
+const FORMAT = 'YYYY-MM-DD hh:mm';
+function getTime(a,b){
+  if(a!==undefined){
+    return moment.unix(a).format(FORMAT);
+  }
+  else if(b!==undefined){
+    return moment.unix(b).format(FORMAT);
+  }
+}
 
 class Item extends Component {
 
@@ -47,10 +58,11 @@ class Item extends Component {
   }
 
   render() {
-    const {title,author} = this.props;
+    const {title,author,timestamp,new_timestamp} = this.props;
     const header = classNames('page-item-header',{
       show:this.state.show
     })
+    const time = getTime(timestamp,new_timestamp);
     return (
       <li className="page-item">
         <div className={header} onClick={this.handleClick}>
@@ -58,6 +70,9 @@ class Item extends Component {
             {title}
             <span className="page-item-header-title-sub">
               {author&&`------${author}`}
+            </span>
+            <span className="page-item-header-title-sub">
+              {time&&`------${time}`}
             </span>
           </div>
         </div>

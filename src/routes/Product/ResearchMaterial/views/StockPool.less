@@ -3,11 +3,11 @@
 .stockPool{
 
 }
-.stockPoolTitle{
+.stock-pool-title{
 
   display:flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   box-sizing: border-box;
 
@@ -21,6 +21,16 @@
   color:#fff;
 
   background:linear-gradient(to left,@primaryColorDark,@primaryColorShallow);
+
+  .left{
+    display:flex;
+    align-items: center;
+  }
+
+  &-date{
+    padding-right: 20px;
+    font-size:12px;
+  }
 }
 .stockPoolContent{
   padding:10px 20px;
