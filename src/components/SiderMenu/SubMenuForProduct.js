@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 
-class subMenuForComprehensive extends Component {
+class SubMenuForProduct extends Component {
   constructor(props) {
     super(props);
     this.handleUlShow = this.handleUlShow.bind(this);
@@ -78,9 +78,9 @@ class subMenuForComprehensive extends Component {
   }
 }
 
-subMenuForComprehensive.propTypes={
+SubMenuForProduct.propTypes={
   url:propTypes.string,
   pathname:propTypes.string,
 }
 
-export default subMenuForComprehensive
+export default SubMenuForProduct

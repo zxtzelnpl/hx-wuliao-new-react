@@ -61,3 +61,9 @@ export const getBeforeTotal = (key) => {
     return total
   }
 };
+
+/*更具组名和产品和NameSpace生产新的key*/
+export const getNewKeyForProduct = (urlParams,nameSpace)=>{
+  const {team,child} = urlParams;
+  return team.toUpperCase() + '_' + child.toUpperCase() + '_' +nameSpace
+}

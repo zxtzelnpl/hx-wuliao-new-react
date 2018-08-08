@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import propTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-class SubMenuLinkForComprehensive extends PureComponent{
+class SubMenuLinkForProduct extends PureComponent{
 
   getDelta(){
     const {total,beforeTotal} = this.props;
@@ -57,8 +57,8 @@ class SubMenuLinkForComprehensive extends PureComponent{
   }
 }
 
-SubMenuLinkForComprehensive.propTypes={
+SubMenuLinkForProduct.propTypes={
 
 }
 
-export default SubMenuLinkForComprehensive;
+export default SubMenuLinkForProduct;

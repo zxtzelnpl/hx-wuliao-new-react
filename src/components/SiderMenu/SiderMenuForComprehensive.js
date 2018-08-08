@@ -1,4 +1,4 @@
-import './SiderMenuForComprehensive.less';
+import './SiderMenu.less';
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';

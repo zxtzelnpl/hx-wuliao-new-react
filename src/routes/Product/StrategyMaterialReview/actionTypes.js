@@ -1,4 +1,9 @@
-export const INIT = 'STRATEGY_MATERIAL_REVIEW_INIT';
-export const REQUEST = 'STRATEGY_MATERIAL_REVIEW_REQUEST';
-export const RECEIVED = 'STRATEGY_MATERIAL_REVIEW_RECEIVED';
-export const ERROR = 'STRATEGY_MATERIAL_REVIEW_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;
