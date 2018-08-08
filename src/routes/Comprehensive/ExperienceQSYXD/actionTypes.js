@@ -1,4 +1,9 @@
-export const INIT = 'COMPREHENSIVE_EXPERIENCE_QSYXD_INIT';
-export const REQUEST = 'COMPREHENSIVE_EXPERIENCE_QSYXD_REQUEST';
-export const RECEIVED = 'COMPREHENSIVE_EXPERIENCE_QSYXD_RECEIVED';
-export const ERROR = 'COMPREHENSIVE_EXPERIENCE_QSYXD_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;

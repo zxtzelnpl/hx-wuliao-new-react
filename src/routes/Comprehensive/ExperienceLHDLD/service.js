@@ -1,16 +1,10 @@
-import request from '../../../utils/request';
-
-const totalUrl = `/api/comprehensive/experience/lhdld/total`;
-
-const pageUrl = `/api/comprehensive/experience/lhdld/page`;
-
-const detailUrl = `/api/comprehensive/experience/lhdld/detail`;
-
+import request from 'utils/request';
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
   });
 }
 

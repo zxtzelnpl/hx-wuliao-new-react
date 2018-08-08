@@ -1,22 +1,31 @@
 import ComprehensiveMaterialList from 'components/Material/ComprehensiveMaterialList';
+import subMenuLinkForComprehensive from 'components/SiderMenu/subMenuLinkForComprehensive';
 import {connect} from 'react-redux';
+import {title,path} from './constant';
 import * as actionTypes from './actionTypes';
 import nameSpace from './nameSpace';
 import reducer from './reducer';
 import saga from './saga';
 import * as service from './service';
 
-const title = '量化独立队';
+const mapStateToProps = {
+  List: state => ({
+    data: state[nameSpace],
+    title,
+    actionTypes
+  }),
+  ComprehensiveLink: state => ({
+    total: state[nameSpace].total,
+    beforeTotal: state[nameSpace].beforeTotal,
+    router:state.router,
+    title,
+    path,
+    actionTypes
+  }),
+}
 
-const path = 'experience/lhdld';
-
-const mapStateToProps = state =>({
-  data:state[nameSpace],
-  title,
-  actionTypes
-});
-
-const List = connect(mapStateToProps)(ComprehensiveMaterialList);
+const List = connect(mapStateToProps.List)(ComprehensiveMaterialList);
+const ComprehensiveLink = connect(mapStateToProps.ComprehensiveLink)(subMenuLinkForComprehensive);
 
 export {
   nameSpace,
@@ -26,4 +35,5 @@ export {
   title,
   path,
   List,
+  ComprehensiveLink,
 }
