@@ -1,4 +1,4 @@
-export const mark = ['product','marketing','record'];
+export const mark = ['product','research'];
 
 export const title = '研究素材';
 

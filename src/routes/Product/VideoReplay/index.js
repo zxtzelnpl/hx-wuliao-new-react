@@ -24,7 +24,7 @@ const mapStateToProps = {
   }),
 }
 
-const List = connect(mapStateToProps)(VideoMaterialList);
+const List = connect(mapStateToProps.List)(VideoMaterialList);
 const ComprehensiveLink = connect(mapStateToProps.ComprehensiveLink)(SubMenuLinkForProduct);
 
 export {

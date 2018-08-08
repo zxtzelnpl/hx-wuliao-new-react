@@ -1,6 +1,6 @@
 import React from 'react';
 import {fork} from 'redux-saga/effects'
-import {Menu as SiderMenu} from 'components/SiderMenuForProduct';
+import SiderMenuForProduct from 'components/SiderMenu/SiderMenuForProduct';
 import {Route} from 'react-router-dom';
 import {SiderFeaturedVideos} from 'components/CRMVideo';
 
@@ -29,13 +29,13 @@ const productMenus = [
         name: MarketingMaterialProduct.title,
         path: MarketingMaterialProduct.path,
         nameSpace: MarketingMaterialProduct.nameSpace,
-        service: MarketingMaterialProduct.service,
+        ComprehensiveLink: MarketingMaterialProduct.ComprehensiveLink,
       },
       {
         name: MarketingMaterialRecord.title,
         path: MarketingMaterialRecord.path,
         nameSpace: MarketingMaterialRecord.nameSpace,
-        service: MarketingMaterialRecord.service,
+        ComprehensiveLink: MarketingMaterialRecord.ComprehensiveLink,
       },
     ]
   },
@@ -46,19 +46,19 @@ const productMenus = [
         name: StrategyMaterialPrediction.title,
         path: StrategyMaterialPrediction.path,
         nameSpace: StrategyMaterialPrediction.nameSpace,
-        service: StrategyMaterialPrediction.service,
+        ComprehensiveLink: StrategyMaterialPrediction.ComprehensiveLink,
       },
       {
         name: StrategyMaterialReview.title,
         path: StrategyMaterialReview.path,
         nameSpace: StrategyMaterialReview.nameSpace,
-        service: StrategyMaterialReview.service,
+        ComprehensiveLink: StrategyMaterialReview.ComprehensiveLink,
       },
       {
         name: StrategyMaterialAnalysis.title,
         path: StrategyMaterialAnalysis.path,
         nameSpace: StrategyMaterialAnalysis.nameSpace,
-        service: StrategyMaterialAnalysis.service,
+        ComprehensiveLink: StrategyMaterialAnalysis.ComprehensiveLink,
       },
     ]
   },
@@ -69,13 +69,13 @@ const productMenus = [
         name: ExperienceMaterialWeek.title,
         path: ExperienceMaterialWeek.path,
         nameSpace: ExperienceMaterialWeek.nameSpace,
-        service: ExperienceMaterialWeek.service,
+        ComprehensiveLink: ExperienceMaterialWeek.ComprehensiveLink,
       },
       {
         name: ExperienceMaterialYear.title,
         path: ExperienceMaterialYear.path,
         nameSpace: ExperienceMaterialYear.nameSpace,
-        service: ExperienceMaterialYear.service,
+        ComprehensiveLink: ExperienceMaterialYear.ComprehensiveLink,
       },
     ]
   },
@@ -86,13 +86,13 @@ const productMenus = [
         name: CustomerServiceAnalysis.title,
         path: CustomerServiceAnalysis.path,
         nameSpace: CustomerServiceAnalysis.nameSpace,
-        service: CustomerServiceAnalysis.service,
+        ComprehensiveLink: CustomerServiceAnalysis.ComprehensiveLink,
       },
       {
         name: CustomerServiceVideo.title,
         path: CustomerServiceVideo.path,
         nameSpace: CustomerServiceVideo.nameSpace,
-        service: CustomerServiceVideo.service,
+        ComprehensiveLink: CustomerServiceVideo.ComprehensiveLink,
       },
     ]
   },
@@ -113,7 +113,7 @@ const productMenus = [
         name: VideoReplay.title,
         path: VideoReplay.path,
         nameSpace: VideoReplay.nameSpace,
-        service: VideoReplay.service,
+        ComprehensiveLink: VideoReplay.ComprehensiveLink,
       }
     ],
   },
@@ -122,7 +122,7 @@ const productMenus = [
 export const MyRoute = ({match}) => {
   return (
     <div className="productMaterialsLayout">
-      <SiderMenu match={match} menus={productMenus} title={"产品素材"}/>
+      <SiderMenuForProduct match={match} menus={productMenus} title={"产品素材"}/>
 
       <div className="productMaterialsContent">
         <Route exact path={`${match.path}/${MarketingMaterialProduct.path}`} component={MarketingMaterialProduct.List}/>

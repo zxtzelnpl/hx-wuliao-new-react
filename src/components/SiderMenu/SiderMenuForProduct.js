@@ -2,7 +2,7 @@ import './SiderMenu.less';
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import SubMenuForComprehensive from './SubMenuForComprehensive';
+import SubMenuForProduct from './SubMenuForProduct';
 
 
 class SiderMenu extends Component {
@@ -71,7 +71,7 @@ class SiderMenu extends Component {
     const {menus,match} = this.props;
 
     return menus.map((data,index) => {
-      return <SubMenuForComprehensive {...data} key={index} url={match.url}/>
+      return <SubMenuForProduct {...data} key={index} url={match.url}/>
     })
   }
 

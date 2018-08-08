@@ -24,7 +24,7 @@ const mapStateToProps = {
   }),
 }
 
-const List = connect(mapStateToProps)(ProductMaterialList);
+const List = connect(mapStateToProps.List)(ProductMaterialList);
 const ComprehensiveLink = connect(mapStateToProps.ComprehensiveLink)(SubMenuLinkForProduct);
 
 export {
