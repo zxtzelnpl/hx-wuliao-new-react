@@ -1,7 +1,6 @@
 import request from '../../../utils/request';
 
-const totalUrl = `/api/comprehensive/investment/marketstock/total`;
-const pageUrl = `/api/comprehensive/investment/marketstock/page`;
+import {totalUrl,pageUrl} from './constant'
 
 export async function getTotal(params) {
 

@@ -13,8 +13,13 @@ const reducer = (state=initialState,action) =>{
       return {
         ...state,
         isFetching:true,
-        error:null,
-        ...action.urlParams
+        error:null
+      }
+    case actionTypes.TOTAL:
+      return {
+        ...state,
+        isFetching:true,
+        error:null
       }
     case actionTypes.CONDITION:
       return {

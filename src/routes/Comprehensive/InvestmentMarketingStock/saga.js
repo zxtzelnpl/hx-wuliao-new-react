@@ -1,8 +1,10 @@
 import * as actionTypes from './actionTypes';
 import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
-import nameSpace from './nameSpace';
 import moment from 'moment';
+import myStorage from 'utils/myStorage';
+import {getBeforeTotal} from 'utils/tools';
+import nameSpace from './nameSpace';
 
 const getState = state => state[nameSpace];
 
@@ -39,6 +41,9 @@ function* init(){
       receivedAt:moment().unix()
     }
 
+    /*将浏览记录改变*/
+    myStorage.setItem(nameSpace,total.total);
+
     yield put({
       type:actionTypes.RECEIVED,
       data
@@ -48,6 +53,26 @@ function* init(){
     yield put({
       type:actionTypes.ERROR,
       error
+    });
+  }
+}
+
+function* getTotal(){
+  try{
+    const {total} = yield call(service.getTotal);
+    const beforeTotal = getBeforeTotal(nameSpace);
+    yield put({
+      type:actionTypes.RECEIVED,
+      data:{
+        total,
+        beforeTotal,
+      }
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error,
     });
   }
 }
@@ -167,6 +192,7 @@ function* order(action){
 
 export default function* rootFetch() {
   yield takeLatest(actionTypes.INIT,init);
+  yield takeLatest(actionTypes.TOTAL,getTotal);
   yield takeLatest(actionTypes.REQUEST,changePage);
   yield takeLatest(actionTypes.CONDITION,conditions);
   yield takeLatest(actionTypes.ORDER,order);

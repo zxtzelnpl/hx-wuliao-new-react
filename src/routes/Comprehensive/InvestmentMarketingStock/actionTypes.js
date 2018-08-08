@@ -1,6 +1,12 @@
-export const INIT = 'INVESTMENT_MARKETING_STOCK_INIT';
-export const REQUEST = 'INVESTMENT_MARKETING_STOCK_REQUEST';
-export const RECEIVED = 'INVESTMENT_MARKETING_STOCK_RECEIVED';
-export const CONDITION = 'INVESTMENT_MARKETING_STOCK_CONDITION';
-export const ORDER = 'INVESTMENT_MARKETING_STOCK_ORDER';
-export const ERROR = 'INVESTMENT_MARKETING_STOCK_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;
+
+export const CONDITION = `${PREFIX}_CONDITION`;
+export const ORDER = `${PREFIX}_ORDER`;
