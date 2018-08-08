@@ -1,1 +1,1 @@
-export default 'SiderMenu';
+export default 'SiderMenuForComprehensive';

@@ -14,10 +14,10 @@ class subMenuLi extends PureComponent{
     return dom;
   }
 
-  changeBefore = ()=>{
-    const {changeBefore,nameSpace} = this.props;
-    changeBefore(nameSpace);
-  }
+  // changeBefore = ()=>{
+  //   const {changeBefore,nameSpace} = this.props;
+  //   changeBefore(nameSpace);
+  // }
 
   render(){
     const {url,path,name,pathname,delta} = this.props

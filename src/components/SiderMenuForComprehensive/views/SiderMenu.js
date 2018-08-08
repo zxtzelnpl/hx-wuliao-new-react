@@ -13,32 +13,32 @@ class SiderMenu extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    const {menus,dispatch,match, router,} = this.props;
-    const url = match.url;
-    const pathname = router.location.pathname;
-    let nameSpaceArray = [];
-    let serviceArray = [];
-    let initPageNameSpace = '';
-    menus.forEach(menu => {
-      menu.lis.forEach(li => {
-        let to = `${url}/${li.path}`;
-        if(to===pathname){
-          initPageNameSpace = li.nameSpace;
-        }
-
-        nameSpaceArray.push(li.nameSpace);
-        serviceArray.push(li.service);
-      })
-    })
-
-    dispatch({
-      type: actionTypes.REQUEST,
-      nameSpaceArray,
-      serviceArray,
-      initPageNameSpace
-    })
-  }
+  // componentDidMount() {
+  //   const {menus,dispatch,match, router,} = this.props;
+  //   const url = match.url;
+  //   const pathname = router.location.pathname;
+  //   let nameSpaceArray = [];
+  //   let serviceArray = [];
+  //   let initPageNameSpace = '';
+  //   menus.forEach(menu => {
+  //     menu.lis.forEach(li => {
+  //       let to = `${url}/${li.path}`;
+  //       if(to===pathname){
+  //         initPageNameSpace = li.nameSpace;
+  //       }
+  //
+  //       nameSpaceArray.push(li.nameSpace);
+  //       serviceArray.push(li.service);
+  //     })
+  //   })
+  //
+  //   dispatch({
+  //     type: actionTypes.REQUEST,
+  //     nameSpaceArray,
+  //     serviceArray,
+  //     initPageNameSpace
+  //   })
+  // }
 
   changeBefore = (nameSpace)=>{
     this.props.dispatch({

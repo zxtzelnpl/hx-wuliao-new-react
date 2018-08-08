@@ -2,10 +2,14 @@ import React, {PureComponent} from 'react';
 import propTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-class subMenuLink extends PureComponent{
+class subMenuLinkForComprehensive extends PureComponent{
 
-  renderDelta(delta){
+  renderDelta(total,beforeTotal){
+
     let dom = null;
+    let numberTotal = total||0;
+    let numberBeforeTotal = beforeTotal||0;
+    let delta = numberTotal - numberBeforeTotal;
     if(delta>0){
       if(delta>9){
         delta = '*'
@@ -15,25 +19,34 @@ class subMenuLink extends PureComponent{
     return dom;
   }
 
-  // changeBefore = ()=>{
-  //   const {changeBefore,nameSpace} = this.props;
-  //   changeBefore(nameSpace);
-  // }
+  changeBefore = ()=>{
+    // const {changeBefore,nameSpace} = this.props;
+    // changeBefore(nameSpace);
+  }
+
+  componentDidUpdate(){
+
+  }
+
+  componentDidMount(){
+    console.log(this.props);
+  }
 
   render(){
-    const {url,path,name,pathname,delta} = this.props
+    const {url,path,title,router,total,beforeTotal} = this.props
+    const pathname = router.location.pathname;
 
     let to = `${url}/${path}`;
     let dom;
     if(to===pathname){
       dom = <li className="sider-menu-sub-li">
-        <span className={"sider-menu-sub-li-content hint"}>{name}</span>
-        {this.renderDelta(delta)}
+        <span className={"sider-menu-sub-li-content hint"}>{title}</span>
+        {this.renderDelta(total,beforeTotal)}
       </li>
     }else{
       dom = <li className="sider-menu-sub-li" onClick={this.changeBefore}>
-        <Link className={"sider-menu-sub-li-content"} to={to}>{name}</Link>
-        {this.renderDelta(delta)}
+        <Link className={"sider-menu-sub-li-content"} to={to}>{title}</Link>
+        {this.renderDelta(total,beforeTotal)}
       </li>
     }
 
@@ -41,8 +54,8 @@ class subMenuLink extends PureComponent{
   }
 }
 
-subMenuLink.propTypes={
-  
+subMenuLinkForComprehensive.propTypes={
+
 }
 
-export default subMenuLink;
+export default subMenuLinkForComprehensive;

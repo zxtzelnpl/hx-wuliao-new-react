@@ -2,7 +2,7 @@ import './SiderMenuForComprehensive.less';
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import SubMenuForC from './SubMenuForC';
+import SubMenuForComprehensive from './SubMenuForComprehensive';
 
 
 class SiderMenu extends Component {
@@ -58,13 +58,13 @@ class SiderMenu extends Component {
       return <li.ComprehensiveLink key={li.nameSpace} url={match.url}/>
     });
 
-    return <SubMenuForC
+    return <SubMenuForComprehensive
       hasNew={hasNew}
       key={index}
       {...rest}
     >
       {dom}
-    </SubMenuForC>
+    </SubMenuForComprehensive>
   }
 
   render() {

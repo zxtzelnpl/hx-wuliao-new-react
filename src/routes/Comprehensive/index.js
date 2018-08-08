@@ -1,6 +1,6 @@
 import React from 'react';
 import {fork} from 'redux-saga/effects'
-import {Menu as SiderMenu} from 'components/SiderMenu';
+import SiderMenuForComprehensive from 'components/SiderMenu/SiderMenuForComprehensive';
 import {Route} from 'react-router-dom';
 import {SiderChatBox} from 'components/SiderChatBox';
 
@@ -35,19 +35,19 @@ const comprehensiveMenus = [
         name: MarketingArticle.title,
         path: MarketingArticle.path,
         nameSpace: MarketingArticle.nameSpace,
-        service: MarketingArticle.service,
+        ComprehensiveLink: MarketingArticle.ComprehensiveLink,
       },
       {
         name: MarketingImage.title,
         path: MarketingImage.path,
         nameSpace: MarketingImage.nameSpace,
-        service: MarketingImage.service,
+        ComprehensiveLink: MarketingImage.ComprehensiveLink,
       },
       {
         name: MarketingSpeechCraft.title,
         path: MarketingSpeechCraft.path,
         nameSpace: MarketingSpeechCraft.nameSpace,
-        service: MarketingSpeechCraft.service,
+        ComprehensiveLink: MarketingSpeechCraft.ComprehensiveLink,
       },
     ]
   },
@@ -58,19 +58,19 @@ const comprehensiveMenus = [
         name: InvestmentMarketingStock.title,
         path: InvestmentMarketingStock.path,
         nameSpace: InvestmentMarketingStock.nameSpace,
-        service: InvestmentMarketingStock.service,
+        ComprehensiveLink: InvestmentMarketingStock.ComprehensiveLink,
       },
       {
         name: InvestmentServiceStock.title,
         path: InvestmentServiceStock.path,
         nameSpace: InvestmentServiceStock.nameSpace,
-        service: InvestmentServiceStock.service,
+        ComprehensiveLink: InvestmentServiceStock.ComprehensiveLink,
       },
       {
         name: InvestmentTextStrategy.title,
         path: InvestmentTextStrategy.path,
         nameSpace: InvestmentTextStrategy.nameSpace,
-        service: InvestmentTextStrategy.service,
+        ComprehensiveLink: InvestmentTextStrategy.ComprehensiveLink,
       },
     ]
   },
@@ -81,25 +81,25 @@ const comprehensiveMenus = [
         name: StrengthCompany.title,
         path: StrengthCompany.path,
         nameSpace: StrengthCompany.nameSpace,
-        service: StrengthCompany.service,
+        ComprehensiveLink: StrengthCompany.ComprehensiveLink,
       },
       {
         name: StrengthLicence.title,
         path: StrengthLicence.path,
         nameSpace: StrengthLicence.nameSpace,
-        service: StrengthLicence.service,
+        ComprehensiveLink: StrengthLicence.ComprehensiveLink,
       },
       {
         name: StrengthTeacher.title,
         path: StrengthTeacher.path,
         nameSpace: StrengthTeacher.nameSpace,
-        service: StrengthTeacher.service,
+        ComprehensiveLink: StrengthTeacher.ComprehensiveLink,
       },
       {
         name: StrengthProduct.title,
         path: StrengthProduct.path,
         nameSpace: StrengthProduct.nameSpace,
-        service: StrengthProduct.service,
+        ComprehensiveLink: StrengthProduct.ComprehensiveLink,
       },
     ]
   },
@@ -110,13 +110,13 @@ const comprehensiveMenus = [
         name:CustomSpeechCraft.title,
         path:CustomSpeechCraft.path,
         nameSpace:CustomSpeechCraft.nameSpace,
-        service:CustomSpeechCraft.service,
+        ComprehensiveLink:CustomSpeechCraft.ComprehensiveLink,
       },
       {
         name:CustomVideo.title,
         path:CustomVideo.path,
         nameSpace:CustomVideo.nameSpace,
-        service:CustomVideo.service,
+        ComprehensiveLink:CustomVideo.ComprehensiveLink,
       },
     ]
   },
@@ -127,13 +127,13 @@ const comprehensiveMenus = [
         name:StrategyQSYXD.title,
         path:StrategyQSYXD.path,
         nameSpace:StrategyQSYXD.nameSpace,
-        service:StrategyQSYXD.service,
+        ComprehensiveLink:StrategyQSYXD.ComprehensiveLink,
       },
       {
         name:StrategyLHDLD.title,
         path:StrategyLHDLD.path,
         nameSpace:StrategyLHDLD.nameSpace,
-        service:StrategyLHDLD.service,
+        ComprehensiveLink:StrategyLHDLD.ComprehensiveLink,
       },
     ]
   },
@@ -144,13 +144,13 @@ const comprehensiveMenus = [
         name:ExperienceQSYXD.title,
         path:ExperienceQSYXD.path,
         nameSpace:ExperienceQSYXD.nameSpace,
-        service:ExperienceQSYXD.service,
+        ComprehensiveLink:ExperienceQSYXD.ComprehensiveLink,
       },
       {
         name:ExperienceLHDLD.title,
         path:ExperienceLHDLD.path,
         nameSpace:ExperienceLHDLD.nameSpace,
-        service:ExperienceLHDLD.service,
+        ComprehensiveLink:ExperienceLHDLD.ComprehensiveLink,
       },
     ]
   },
@@ -159,14 +159,14 @@ const comprehensiveMenus = [
 
 export const MyRoute = ({match}) => (
   <div className="comprehensiveMaterialsLayout">
-    <SiderMenu match={match} menus={comprehensiveMenus} title={"综合素材"}/>
+    <SiderMenuForComprehensive match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
     <Route exact path={`${match.url}/${MarketingArticle.path}`} component={MarketingArticle.List}/>
     <Route exact path={`${match.url}/${MarketingImage.path}`} component={MarketingImage.List}/>
     <Route exact path={`${match.url}/${MarketingSpeechCraft.path}`} component={MarketingSpeechCraft.List}/>
 
-    <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.Stock}/>
-    <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.Stock}/>
+    <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.List}/>
+    <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.List}/>
     <Route exact path={`${match.url}/${InvestmentTextStrategy.path}`} component={InvestmentTextStrategy.List}/>
 
     <Route exact path={`${match.url}/${StrengthCompany.path}`} component={StrengthCompany.List}/>

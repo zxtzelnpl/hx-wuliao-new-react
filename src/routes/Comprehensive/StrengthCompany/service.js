@@ -1,15 +1,10 @@
 import request from 'utils/request';
-
-const totalUrl = `/api/comprehensive/strength/company/total`;
-
-const pageUrl = `/api/comprehensive/strength/company/page`;
-
-const detailUrl = `/api/comprehensive/strength/company/detail`;
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
   });
 }
 
