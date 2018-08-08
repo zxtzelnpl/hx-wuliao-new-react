@@ -1,4 +1,9 @@
-export const INIT = 'COMPREHENSIVE_MARKETING_IMAGE_INIT';
-export const REQUEST = 'COMPREHENSIVE_MARKETING_IMAGE_REQUEST';
-export const RECEIVED = 'COMPREHENSIVE_MARKETING_IMAGE_RECEIVED';
-export const ERROR = 'COMPREHENSIVE_MARKETING_IMAGE_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;

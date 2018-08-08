@@ -1,15 +1,10 @@
-import request from '../../../utils/request';
-
-const totalUrl = `/api/comprehensive/marketing/article/total`;
-
-const pageUrl = `/api/comprehensive/marketing/article/page`;
-
-const detailUrl = `/api/comprehensive/marketing/article/detail`;
+import request from 'utils/request';
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
   });
 }
 

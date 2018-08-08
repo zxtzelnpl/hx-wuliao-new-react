@@ -1,16 +1,10 @@
-import request from '../../../utils/request';
-
-const totalUrl = `/api/comprehensive/marketing/speechcraft/total`;
-
-const pageUrl = `/api/comprehensive/marketing/speechcraft/page`;
-
-const detailUrl = `/api/comprehensive/marketing/speechcraft/detail`;
-
+import request from 'utils/request';
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
   });
 }
 
