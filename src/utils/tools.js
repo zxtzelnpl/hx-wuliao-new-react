@@ -1,14 +1,15 @@
 import {videoPosterUrl} from './const';
+import myStorage from "./myStorage";
 
-function getRangeRandom(x,y){
-  return Math.floor(Math.random()*(y-x+1))+ x
+function getRangeRandom(x, y) {
+  return Math.floor(Math.random() * (y - x + 1)) + x
 }
 
-function makeGetRangeSort(x,y){
+function makeGetRangeSort(x, y) {
   let number = x;
-  return function (){
+  return function () {
     number++;
-    if(number>y){
+    if (number > y) {
       number = x;
     }
     return number;
@@ -16,8 +17,7 @@ function makeGetRangeSort(x,y){
 }
 
 
-
-export function trim(str){
+export function trim(str) {
   return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
@@ -35,8 +35,25 @@ export const makePercent = str => {
   }
 }
 
-const getRangeSort = makeGetRangeSort(1,70);
+/*取到视频海报*/
+const getRangeSort = makeGetRangeSort(1, 70);
 export const getPoster = () => {
   const index = getRangeSort();
-  return `${videoPosterUrl}/${index}.jpg`
-}
+  return `${videoPosterUrl}/${index}.jpg`;
+};
+
+/*首字母大写*/
+export const capitalize = (str) => {
+  return str.substring(0, 1).toUpperCase() + str.substring(1);
+};
+
+/*取到之前的总数*/
+export const getBeforeTotal = (key) => {
+  let total = myStorage.getItem(key);
+  if (total) {
+    return total;
+  }
+  else {
+    return 0;
+  }
+};

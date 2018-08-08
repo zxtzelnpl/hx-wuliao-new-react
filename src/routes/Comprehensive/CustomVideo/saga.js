@@ -2,18 +2,23 @@ import * as actionTypes from './actionTypes';
 import { call ,put, takeLatest,select} from 'redux-saga/effects';
 import * as service from './service';
 import moment from 'moment';
-import nameSpace from "./nameSpace";
+import myStorage from 'utils/myStorage';
+import {getBeforeTotal} from 'utils/tools';
+import nameSpace from './nameSpace';
 
 const getState = state => state[nameSpace];
 
 function* init(){
-
   try{
     const data = {};
-    const {total} = yield call(service.getTotal);
-    data.total = total;
-    if(total !== 0){
-      const {pageSize,sort} = yield select(getState);
+    const {total,pageSize,sort} = yield select(getState);
+
+    if(!total){
+      const response = yield call(service.getTotal);
+      data.total = response.total;
+    }
+
+    if(data.total !== 0){
       const params = {
         from:0,
         to:pageSize,
@@ -24,6 +29,10 @@ function* init(){
     }
 
     data.receivedAt = moment().unix();
+
+    /*将浏览记录改变*/
+    myStorage.setItem(nameSpace,total);
+
     yield put({
       type:actionTypes.RECEIVED,
       data
@@ -33,6 +42,26 @@ function* init(){
     yield put({
       type:actionTypes.ERROR,
       error
+    });
+  }
+}
+
+function* getTotal(){
+  try{
+    const {total} = yield call(service.getTotal);
+    const beforeTotal = getBeforeTotal(nameSpace);
+    yield put({
+      type:actionTypes.RECEIVED,
+      data:{
+        total,
+        beforeTotal,
+      }
+    })
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error,
     });
   }
 }
@@ -66,9 +95,8 @@ function* getPage(action){
   }
 }
 
-
-
 export default function* rootFetch() {
   yield takeLatest(actionTypes.INIT,init);
+  yield takeLatest(actionTypes.TOTAL,getTotal);
   yield takeLatest(actionTypes.REQUEST,getPage);
 }

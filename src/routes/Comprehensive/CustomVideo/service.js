@@ -1,11 +1,6 @@
 import request from 'utils/request';
 
-const totalUrl = `/api/comprehensive/customer/video/total`;
-
-const pageUrl = `/api/comprehensive/customer/video/page`;
-
-const detailUrl = `/api/comprehensive/customer/video/detail`;
-
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
