@@ -44,27 +44,35 @@ class SiderMenu extends Component {
   //   })
   // }
 
+  // renderSubs = () => {
+  //   return this.props.menus.map((data, index) => {
+  //     const {lis, ...rest} = data;
+  //     return this.renderSubMenu(lis, index, rest);
+  //   })
+  // }
+  //
+  // renderSubMenu = (lis, index, rest) => {
+  //   const {match} = this.props;
+  //   let hasNew = false;
+  //   const dom = lis.map(li => {
+  //     return <li.ComprehensiveLink key={li.nameSpace} url={match.url}/>
+  //   });
+  //
+  //   return <SubMenuForComprehensive
+  //     hasNew={hasNew}
+  //     key={index}
+  //     {...rest}
+  //   >
+  //     {dom}
+  //   </SubMenuForComprehensive>
+  // }
+
   renderSubs = () => {
-    return this.props.menus.map((data, index) => {
-      const {lis, ...rest} = data;
-      return this.renderSubMenu(lis, index, rest);
+    const {menus,match} = this.props;
+
+    return menus.map((data,index) => {
+      return <SubMenuForComprehensive {...data} key={index} url={match.url}/>
     })
-  }
-
-  renderSubMenu = (lis, index, rest) => {
-    const {match} = this.props;
-    let hasNew = false;
-    const dom = lis.map(li => {
-      return <li.ComprehensiveLink key={li.nameSpace} url={match.url}/>
-    });
-
-    return <SubMenuForComprehensive
-      hasNew={hasNew}
-      key={index}
-      {...rest}
-    >
-      {dom}
-    </SubMenuForComprehensive>
   }
 
   render() {

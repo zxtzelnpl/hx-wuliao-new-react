@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 
-class subMenuForC extends Component {
+class subMenuForComprehensive extends Component {
   constructor(props) {
     super(props);
     this.handleUlShow = this.handleUlShow.bind(this);
@@ -46,11 +46,21 @@ class subMenuForC extends Component {
     })
   }
 
+  onChange(){
+    console.log('this.onChange');
+  }
+
+  renderLis = () => {
+    const {url,lis} = this.props;
+    return lis.map(li=>{
+      const ComprehensiveLink = li.ComprehensiveLink;
+      return <ComprehensiveLink key={li.nameSpace} url={url} onChange={this.onChange}/>
+    })
+  }
+
   render() {
-    const {hasNew} = this.props;
     let className = classNames('sider-menu-sub-title', {
       show: this.state.show,
-      hasNew
     });
 
     const {title} = this.props;
@@ -60,7 +70,7 @@ class subMenuForC extends Component {
         <div className="sider-menu-sub">
           <p className={className} onClick={this.handleUlShow}>{title}</p>
           <ul style={this.state} ref={this.ul}>
-            {this.props.children}
+            {this.renderLis()}
           </ul>
         </div>
       </li>
@@ -68,9 +78,9 @@ class subMenuForC extends Component {
   }
 }
 
-subMenuForC.propTypes={
+subMenuForComprehensive.propTypes={
   url:propTypes.string,
   pathname:propTypes.string,
 }
 
-export default subMenuForC
+export default subMenuForComprehensive
