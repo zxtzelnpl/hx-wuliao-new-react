@@ -16,6 +16,8 @@ const mapStateToProps = {
     actionTypes
   }),
   ComprehensiveLink: state => ({
+    team: state[nameSpace].team,
+    child: state[nameSpace].child,
     total: state[nameSpace].total,
     beforeTotal: state[nameSpace].beforeTotal,
     router:state.router,

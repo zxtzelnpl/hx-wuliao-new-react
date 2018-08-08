@@ -51,10 +51,10 @@ class SubMenuForProduct extends Component {
   }
 
   renderLis = () => {
-    const {url,lis} = this.props;
+    const {match,lis} = this.props;
     return lis.map(li=>{
       const ComprehensiveLink = li.ComprehensiveLink;
-      return <ComprehensiveLink key={li.nameSpace} url={url} onChange={this.onChange}/>
+      return <ComprehensiveLink key={li.nameSpace} onChange={this.onChange} match={match}/>
     })
   }
 

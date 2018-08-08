@@ -71,7 +71,7 @@ class SiderMenu extends Component {
     const {menus,match} = this.props;
 
     return menus.map((data,index) => {
-      return <SubMenuForProduct {...data} key={index} url={match.url}/>
+      return <SubMenuForProduct {...data} key={index} match={match}/>
     })
   }
 

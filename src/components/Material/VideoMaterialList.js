@@ -24,19 +24,11 @@ class List extends Component {
   }
 
   intList = ()=>{
-    const {match,data,dispatch,actionTypes} = this.props;
-    const {pageSize,currentPage} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
+    const {match,dispatch,actionTypes} = this.props;
 
     dispatch({
       type:actionTypes.INIT,
-      urlParams:match.params,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC'
-      }
+      urlParams:match.params
     })
   }
 
@@ -60,7 +52,7 @@ class List extends Component {
 
   renderPage = ()=>{
     const {match,data} = this.props;
-    let dom = <div>暂无数据</div>;
+    let dom = <div className="no-data">暂无数据</div>;
 
     if(typeof data === 'object'){
       const {isFetching,total,list} =data;

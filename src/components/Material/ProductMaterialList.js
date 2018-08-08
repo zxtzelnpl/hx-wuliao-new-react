@@ -26,19 +26,11 @@ class ProductMaterialList extends Component {
   }
 
   intList = ()=>{
-    const {match,data,dispatch,actionTypes} = this.props;
-    const {pageSize,currentPage} = data;
-    let from = (currentPage-1)*pageSize;
-    let to = currentPage*pageSize;
+    const {match,dispatch,actionTypes} = this.props;
 
     dispatch({
       type:actionTypes.INIT,
-      urlParams:match.params,
-      params:{
-        from:from,
-        to:to,
-        sort:'DESC'
-      }
+      urlParams:match.params
     })
   }
 

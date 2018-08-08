@@ -25,9 +25,11 @@ class SubMenuLinkForProduct extends PureComponent{
   }
 
   initTotal(){
-    const {dispatch,actionTypes} = this.props;
+    const {dispatch,actionTypes,match} = this.props;
+    console.log(match)
     dispatch({
-      type:actionTypes.TOTAL
+      type:actionTypes.TOTAL,
+      urlParams:match.params,
     })
   }
 
@@ -35,10 +37,19 @@ class SubMenuLinkForProduct extends PureComponent{
     this.initTotal();
   }
 
+  componentDidUpdate(){
+    if(this.props.team!==this.props.match.params.team||
+      this.props.child!==this.props.match.params.child
+    ){
+      this.initTotal();
+    }
+  }
+
   render(){
-    const {url,path,title,router} = this.props
+    const {match,path,title,router} = this.props
     const pathname = router.location.pathname;
 
+    let url = match.url;
     let to = `${url}/${path}`;
     let dom;
     if(to===pathname){

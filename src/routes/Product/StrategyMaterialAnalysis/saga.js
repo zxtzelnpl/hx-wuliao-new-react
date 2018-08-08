@@ -13,12 +13,12 @@ function* init(action){
     const data = {};
     let {total, pageSize, sort} = yield select(getState);
 
-    if(total == undefined){
+    if(true){
       const response = yield call(service.getTotal,action.urlParams);
       total = response.total;
     }
 
-    if(total!==0){
+    if(true){
       const params = {
         from: 0,
         to: pageSize,
