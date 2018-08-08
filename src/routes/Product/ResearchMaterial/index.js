@@ -1,12 +1,9 @@
 import Research from './views/Research';
+import {title,path} from './constant';
 import nameSpace from './nameSpace';
 import reducer from './reducer';
 import saga from './saga';
 import * as service from './service';
-
-const title='研究素材'
-
-const path = 'research'
 
 export {
   nameSpace,

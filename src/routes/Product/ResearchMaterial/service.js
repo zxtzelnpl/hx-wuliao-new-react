@@ -1,20 +1,6 @@
 import request from 'utils/request';
 
-const primaryPhaseUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/research/primary/phase`;
-}
-
-const primaryTotal = ({team,child})=>{
-  return `/api/product/${team}/${child}/research/primary/allphase`;
-}
-
-const concentratePhaseUrl = ({team,child})=>{
-  return `/api/product/${team}/${child}/research/concentrate/phase`;
-}
-
-const concentrateTotal = ({team,child})=>{
-  return `/api/product/${team}/${child}/research/concentrate/allphase`;
-}
+import {primaryTotal,primaryPhaseUrl,concentrateTotal,concentratePhaseUrl} from './constant'
 
 
 export async function getPrimaryTotal(urlParams){
