@@ -1,4 +1,9 @@
-export const INIT = 'INVESTMENT_TEXT_STRATEGY_INIT';
-export const REQUEST = 'INVESTMENT_TEXT_STRATEGY_REQUEST';
-export const RECEIVED = 'INVESTMENT_TEXT_STRATEGY_RECEIVED';
-export const ERROR = 'INVESTMENT_TEXT_STRATEGY_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;
