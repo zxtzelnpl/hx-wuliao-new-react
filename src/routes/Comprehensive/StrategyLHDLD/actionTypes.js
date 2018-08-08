@@ -1,4 +1,9 @@
-export const INIT = 'COMPREHENSIVE_STRATEGY_LHDLD_INIT';
-export const REQUEST = 'COMPREHENSIVE_STRATEGY_LHDLD_REQUEST';
-export const RECEIVED = 'COMPREHENSIVE_STRATEGY_LHDLD_RECEIVED';
-export const ERROR = 'COMPREHENSIVE_STRATEGY_LHDLD_ERROR';
+import {mark} from './constant'
+
+const PREFIX = mark.map(item=>item.toUpperCase()).join('_');
+
+export const INIT = `${PREFIX}_INIT`;
+export const TOTAL = `${PREFIX}_TOTAL`;
+export const REQUEST = `${PREFIX}_REQUEST`;
+export const RECEIVED = `${PREFIX}_RECEIVED`;
+export const ERROR = `${PREFIX}_ERROR`;

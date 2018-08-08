@@ -1,16 +1,10 @@
-import request from '../../../utils/request';
-
-const totalUrl = `/api/comprehensive/strategy/qsyxd/total`;
-
-const pageUrl = `/api/comprehensive/strategy/qsyxd/page`;
-
-const detailUrl = `/api/comprehensive/strategy/qsyxd/detail`;
-
+import request from 'utils/request';
+import {totalUrl,pageUrl,detailUrl} from './constant';
 
 export async function getTotal() {
 
   return request(totalUrl,{
-    method:'POST'
+    method:'POST',
   });
 }
 
