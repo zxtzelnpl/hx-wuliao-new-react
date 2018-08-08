@@ -24,7 +24,7 @@ function* init(){
       condition:condition
     }
 
-    if(!total){
+    if(total == undefined){
       let response = yield call(service.getTotal,params);
       total = response.total;
     }

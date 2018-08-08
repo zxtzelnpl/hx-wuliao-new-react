@@ -13,7 +13,7 @@ function* init() {
     const data = {};
     let {total, pageSize, sort} = yield select(getState);
 
-    if (!total) {
+    if (total == undefined) {
       const response = yield call(service.getTotal);
       total = response.total;
     }
