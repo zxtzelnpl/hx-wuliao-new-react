@@ -10,10 +10,10 @@ const FORMAT = 'YYYY-MM-DD hh:mm';
 function getTime(info) {
   if (Array.isArray(info) && info.length > 0) {
     let {timestamp, new_timestamp} = info[0];
-    if (timestamp !== undefined) {
+    if (timestamp !== undefined&&timestamp!=0) {
       return moment.unix(timestamp).format(FORMAT);
     }
-    else if (new_timestamp !== undefined) {
+    else if (new_timestamp !== undefined&&new_timestamp!=0) {
       return moment.unix(new_timestamp).format(FORMAT);
     }
   }

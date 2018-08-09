@@ -12,10 +12,10 @@ import {pdfReg, officeReg, imgReg} from "utils/tools";
 const FORMAT = 'YYYY-MM-DD hh:mm';
 
 function getTime(a, b) {
-  if (a !== undefined) {
+  if (a !== undefined && a != 0) {
     return moment.unix(a).format(FORMAT);
   }
-  else if (b !== undefined) {
+  else if (b !== undefined && b != 0) {
     return moment.unix(b).format(FORMAT);
   }
 }
@@ -24,6 +24,10 @@ class Item extends Component {
 
   state = {
     show: false
+  }
+
+  handleClick = () => {
+    this.setState(({show}) => ({show: !show}))
   }
 
   renderContent = () => {
@@ -54,26 +58,36 @@ class Item extends Component {
     }
   }
 
-  handleClick = () => {
-    this.setState(({show}) => ({show: !show}))
+  renderSub = () => {
+    const {author, timestamp, new_timestamp} = this.props;
+    let dom = null;
+    let domArray = [];
+    if(author){
+      domArray.push(<span key="author" className="page-item-header-sub-author">上传用户：{author}</span>)
+    }
+    const time = getTime(timestamp, new_timestamp);
+    if(time){
+      domArray.push(<span key="time" className="page-item-header-sub-time">上传时间：{time}</span>);
+    }
+
+    if(domArray.length>0){
+      dom = <div className="page-item-header-sub">{domArray}</div>
+    }
+
+    return dom;
   }
 
   render() {
-    const {title, author, timestamp, new_timestamp} = this.props;
     const header = classNames('page-item-header', {
       show: this.state.show
     })
-    const time = getTime(timestamp, new_timestamp);
     return (
       <li className="page-item">
         <div className={header} onClick={this.handleClick}>
           <div className="page-item-header-title">
-            {title}
+            {this.props.title}
           </div>
-          <div className="page-item-header-sub">
-            {author && <span className="page-item-header-sub-author">上传用户：{author}</span>}
-            {time && <span className="page-item-header-sub-time">上传时间：{time}</span>}
-          </div>
+          {this.renderSub()}
         </div>
         {this.renderContent()}
       </li>
