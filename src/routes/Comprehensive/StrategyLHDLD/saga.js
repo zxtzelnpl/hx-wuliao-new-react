@@ -7,18 +7,44 @@ import {getBeforeTotal} from 'utils/tools';
 import nameSpace from './nameSpace';
 
 const getState = state => state[nameSpace];
+let NEED_TO_INIT = false;
+
+function* getTotal(){
+  try{
+    const {total} = yield call(service.getTotal);
+    const beforeTotal = getBeforeTotal(nameSpace);
+    yield put({
+      type:actionTypes.TOTAL_RECEIVED,
+      data:{
+        total,
+        beforeTotal,
+      }
+    })
+
+    if(NEED_TO_INIT){
+      yield put({
+        type:actionTypes.INIT,
+      })
+      NEED_TO_INIT = false;
+    }
+  }
+  catch(error){
+    yield put({
+      type:actionTypes.ERROR,
+      error,
+    });
+  }
+}
 
 function* init() {
   try {
     const data = {};
-    let {total, pageSize, sort} = yield select(getState);
+    let {total, isFetchingTotal,pageSize, sort} = yield select(getState);
 
-    if (total == undefined) {
-      const response = yield call(service.getTotal);
-      total = response.total;
+    if(isFetchingTotal){
+      return NEED_TO_INIT = true;
     }
-
-    if (total !== 0) {
+    else if(total !== 0){
       const params = {
         from: 0,
         to: pageSize,
@@ -44,26 +70,6 @@ function* init() {
     yield put({
       type: actionTypes.ERROR,
       error
-    });
-  }
-}
-
-function* getTotal(){
-  try{
-    const {total} = yield call(service.getTotal);
-    const beforeTotal = getBeforeTotal(nameSpace);
-    yield put({
-      type:actionTypes.RECEIVED,
-      data:{
-        total,
-        beforeTotal,
-      }
-    })
-  }
-  catch(error){
-    yield put({
-      type:actionTypes.ERROR,
-      error,
     });
   }
 }
@@ -98,7 +104,7 @@ function* getPage(action){
 }
 
 export default function* rootFetch() {
-  yield takeLatest(actionTypes.INIT,init);
   yield takeLatest(actionTypes.TOTAL,getTotal);
+  yield takeLatest(actionTypes.INIT,init);
   yield takeLatest(actionTypes.REQUEST,getPage);
 }

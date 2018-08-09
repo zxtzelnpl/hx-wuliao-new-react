@@ -2,23 +2,31 @@ import * as actionTypes from './actionTypes'
 const initialState = {
   currentPage:1,
   pageSize:9,
-  sort:'DESC'
+  sort:'DESC',
 }
 
 const reducer = (state=initialState,action) =>{
   switch (action.type){
+    case actionTypes.TOTAL:
+      return {
+        ...state,
+        isFetchingTotal:true,
+        error:null,
+      }
+    case actionTypes.TOTAL_RECEIVED:
+      return {
+        ...state,
+        ...action.data,
+        isFetchingTotal:false,
+        error:null,
+      }
     case actionTypes.INIT:
       return {
         ...state,
         isFetching:true,
         error:null,
       }
-    case actionTypes.TOTAL:
-      return {
-        ...state,
-        isFetching:true,
-        error:null,
-      }
+
     case actionTypes.REQUEST:
       return {
         ...state,
