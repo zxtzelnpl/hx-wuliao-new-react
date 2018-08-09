@@ -1,5 +1,5 @@
 import VideoMaterialList from 'components/Material/VideoMaterialList';
-import SubLinkForProduct from 'components/SiderMenu/SubLinkForProduct';
+import SubLinkForProduct from './views/SubLinkForProduct';
 import {connect} from 'react-redux';
 import {title,path} from './constant';
 import * as actionTypes from './actionTypes';
