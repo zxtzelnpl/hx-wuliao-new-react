@@ -1,51 +1,57 @@
 @import "common/consts.less";
 
-.page-item{
-  border-bottom:2px solid #d9d9d9;
-  cursor:pointer;
-  &:last-child{
+.page-item {
+  border-bottom: 2px solid #d9d9d9;
+  cursor: pointer;
+  &:last-child {
     border-bottom: none;
   }
 }
 
 .page-item-header {
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 
-  padding-left:10px;
-  height: 36px;
-  line-height: 36px;
+  padding-left: 10px;
+  min-height: 36px;
 
-  &:after{
-    display:block;
+  &-title {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height:36px;
+    line-height: 36px;
+    &:after {
+      display: block;
 
-    width:0;
-    height:0;
+      width: 0;
+      height: 0;
 
-    border-top:8px solid transparent;
-    border-bottom:8px solid transparent;
-    border-left:15px solid #e64c1a;
-    border-right:15px solid transparent;
-    content:'';
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 15px solid #e64c1a;
+      border-right: 15px solid transparent;
+      content: '';
 
-    transform-origin: 8px 8px;
-    transition:transform .2s;
+      transform-origin: 8px 8px;
+      transition: transform .2s;
+    }
   }
-
-  &.show{
-    color:@primaryColor;
-    font-weight: bold;
-    &:after{
-      transform:rotate(90deg);
+  &-sub{
+    padding-bottom: 4px;
+    font-size:12px;
+    font-style:italic;
+    color:gray;
+    &-author{
+      margin-right:20px;
     }
   }
 
-
-  &-title{
-    &-sub{
-      font-style:italic;
-      color:gray;
+  &.show &-title {
+    color: @primaryColor;
+    font-weight: bold;
+    &:after {
+      transform: rotate(90deg);
     }
   }
 }
