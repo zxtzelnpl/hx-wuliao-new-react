@@ -9,13 +9,20 @@ const initialState = {
 
 const reducer = (state=initialState,action) =>{
   switch (action.type){
-    case actionTypes.INIT:
+    case actionTypes.TOTAL:
       return {
         ...state,
-        isFetching:true,
+        isFetchingTotal:true,
         error:null
       }
-    case actionTypes.TOTAL:
+    case actionTypes.TOTAL_RECEIVED:
+      return {
+        ...state,
+        ...action.data,
+        isFetchingTotal:false,
+        error:null,
+      }
+    case actionTypes.INIT:
       return {
         ...state,
         isFetching:true,
