@@ -43,7 +43,7 @@ class Item extends Component {
     }
     if (filepath) {
       if (pdfReg.test(filepath)) {
-        return <PagePDFContent filepath={filepath} timestamp={timestamp}/>
+        return <PagePDFContent filepath={filepath} />
       }
 
       if (imgReg.test(filepath)) {
