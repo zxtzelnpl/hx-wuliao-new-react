@@ -80,7 +80,7 @@ class LoginBox extends Component{
     const {code,isFetching} = this.props;
 
     if(isFetching==='code'){
-      dom = <img onClick={this.getCode} className="noCodeImg fetching disable" src={refresh}/>
+      dom = <img className="noCodeImg fetching disable" src={refresh}/>
     }
     else if(code){
       dom = <img onClick={this.getCode} className="codeImg btn" src={code}/>

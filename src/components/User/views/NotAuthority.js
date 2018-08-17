@@ -71,7 +71,7 @@ class NotAuthority extends Component {
     const {code,isFetching} = this.props;
 
     if(isFetching==='code'){
-      dom = <img onClick={this.getCode} className="code-img fetching disable" src={refresh}/>
+      dom = <img className="code-img fetching disable" src={refresh}/>
     }
     else if(code){
       dom = <img onClick={this.getCode} className="code-img btn" src={code}/>
