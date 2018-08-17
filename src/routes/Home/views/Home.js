@@ -2,6 +2,7 @@ import './Home.less';
 
 import React, {Component} from 'react';
 import LinkIcon from './LinkIcon';
+import Banner from 'components/Banner/Banner';
 import Carousel from './Carousel';
 import {ChatBox} from 'components/SiderChatBox';
 import {HomeFeaturedVideos} from 'components/CRMVideo';
@@ -18,6 +19,7 @@ class Home extends Component {
 
     return (
       <div className="home">
+        <Banner/>
         <div className="homeMaterialsShot">
           <div className="comprehensiveMaterial homeMaterials">
             <h4 className="title">

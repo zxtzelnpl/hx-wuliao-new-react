@@ -1,5 +1,6 @@
 import React from 'react';
-import {fork} from 'redux-saga/effects'
+import {fork} from 'redux-saga/effects';
+import Banner from 'components/Banner/Banner';
 import SiderMenuForProduct from 'components/SiderMenu/SiderMenuForProduct';
 import {Route} from 'react-router-dom';
 import {SiderFeaturedVideos} from 'components/CRMVideo';
@@ -96,34 +97,12 @@ const productMenus = [
       },
     ]
   },
-  // {
-  //   title: '研究素材',
-  //   lis:[
-  //     {
-  //       name: ResearchMaterial.title,
-  //       path: ResearchMaterial.path,
-  //       service: ResearchMaterial.service,
-  //       ComprehensiveLink: ResearchMaterial.ComprehensiveLink,
-  //     }
-  //   ],
-  // },
   {
     title: '研究素材',
     name: ResearchMaterial.title,
     path: ResearchMaterial.path,
     ComprehensiveLink: ResearchMaterial.ComprehensiveLink,
   },
-  // {
-  //   title: '视频回播',
-  //   lis:[
-  //     {
-  //       name: VideoReplay.title,
-  //       path: VideoReplay.path,
-  //       nameSpace: VideoReplay.nameSpace,
-  //       ComprehensiveLink: VideoReplay.ComprehensiveLink,
-  //     }
-  //   ],
-  // },
   {
     title: '视频回播',
     name: VideoReplay.title,
@@ -134,31 +113,34 @@ const productMenus = [
 
 export const MyRoute = ({match}) => {
   return (
-    <div className="productMaterialsLayout">
-      <SiderMenuForProduct match={match} menus={productMenus} title={"产品素材"}/>
+    <div>
+      <Banner />
+      <div className="productMaterialsLayout">
+        <SiderMenuForProduct match={match} menus={productMenus} title={"产品素材"}/>
 
-      <div className="productMaterialsContent">
-        <Route exact path={`${match.path}/${MarketingMaterialProduct.path}`} component={MarketingMaterialProduct.List}/>
-        <Route exact path={`${match.path}/${MarketingMaterialRecord.path}`} component={MarketingMaterialRecord.List}/>
+        <div className="productMaterialsContent">
+          <Route exact path={`${match.path}/${MarketingMaterialProduct.path}`} component={MarketingMaterialProduct.List}/>
+          <Route exact path={`${match.path}/${MarketingMaterialRecord.path}`} component={MarketingMaterialRecord.List}/>
 
-        <Route exact path={`${match.path}/${StrategyMaterialPrediction.path}`} component={StrategyMaterialPrediction.List}/>
-        <Route exact path={`${match.path}/${StrategyMaterialReview.path}`} component={StrategyMaterialReview.List}/>
-        <Route exact path={`${match.path}/${StrategyMaterialAnalysis.path}`} component={StrategyMaterialAnalysis.List}/>
+          <Route exact path={`${match.path}/${StrategyMaterialPrediction.path}`} component={StrategyMaterialPrediction.List}/>
+          <Route exact path={`${match.path}/${StrategyMaterialReview.path}`} component={StrategyMaterialReview.List}/>
+          <Route exact path={`${match.path}/${StrategyMaterialAnalysis.path}`} component={StrategyMaterialAnalysis.List}/>
 
-        <Route exact path={`${match.path}/${ExperienceMaterialWeek.path}`} component={ExperienceMaterialWeek.List}/>
-        <Route exact path={`${match.path}/${ExperienceMaterialYear.path}`} component={ExperienceMaterialYear.List}/>
+          <Route exact path={`${match.path}/${ExperienceMaterialWeek.path}`} component={ExperienceMaterialWeek.List}/>
+          <Route exact path={`${match.path}/${ExperienceMaterialYear.path}`} component={ExperienceMaterialYear.List}/>
 
-        <Route exact path={`${match.path}/${CustomerServiceAnalysis.path}`} component={CustomerServiceAnalysis.List}/>
-        <Route exact path={`${match.path}/${CustomerServiceVideo.path}`} component={CustomerServiceVideo.List}/>
+          <Route exact path={`${match.path}/${CustomerServiceAnalysis.path}`} component={CustomerServiceAnalysis.List}/>
+          <Route exact path={`${match.path}/${CustomerServiceVideo.path}`} component={CustomerServiceVideo.List}/>
 
 
-        <Route exact path={`${match.path}/${ResearchMaterial.path}`} component={ResearchMaterial.Research}/>
+          <Route exact path={`${match.path}/${ResearchMaterial.path}`} component={ResearchMaterial.Research}/>
 
-        <Route path={`${match.path}/${VideoReplay.path}`} component={VideoReplay.List}/>
-      </div>
+          <Route path={`${match.path}/${VideoReplay.path}`} component={VideoReplay.List}/>
+        </div>
 
-      <div className="siderRecommend">
-        <SiderFeaturedVideos match={match}/>
+        <div className="siderRecommend">
+          <SiderFeaturedVideos match={match}/>
+        </div>
       </div>
     </div>
   )

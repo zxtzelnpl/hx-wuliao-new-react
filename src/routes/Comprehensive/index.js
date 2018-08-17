@@ -1,5 +1,6 @@
 import React from 'react';
-import {fork} from 'redux-saga/effects'
+import {fork} from 'redux-saga/effects';
+import Banner from 'components/Banner/Banner';
 import SiderMenuForComprehensive from 'components/SiderMenu/SiderMenuForComprehensive';
 import {Route} from 'react-router-dom';
 import {SiderChatBox} from 'components/SiderChatBox';
@@ -158,38 +159,41 @@ const comprehensiveMenus = [
 
 
 export const MyRoute = ({match}) => (
-  <div className="comprehensiveMaterialsLayout">
-    <SiderMenuForComprehensive match={match} menus={comprehensiveMenus} title={"综合素材"}/>
+  <div>
+    <Banner />
+    <div className="comprehensiveMaterialsLayout">
+      <SiderMenuForComprehensive match={match} menus={comprehensiveMenus} title={"综合素材"}/>
 
-    <Route exact path={`${match.url}/${MarketingArticle.path}`} component={MarketingArticle.List}/>
-    <Route exact path={`${match.url}/${MarketingImage.path}`} component={MarketingImage.List}/>
-    <Route exact path={`${match.url}/${MarketingSpeechCraft.path}`} component={MarketingSpeechCraft.List}/>
+      <Route exact path={`${match.url}/${MarketingArticle.path}`} component={MarketingArticle.List}/>
+      <Route exact path={`${match.url}/${MarketingImage.path}`} component={MarketingImage.List}/>
+      <Route exact path={`${match.url}/${MarketingSpeechCraft.path}`} component={MarketingSpeechCraft.List}/>
 
-    <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.List}/>
-    <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.List}/>
-    <Route exact path={`${match.url}/${InvestmentTextStrategy.path}`} component={InvestmentTextStrategy.List}/>
+      <Route exact path={`${match.url}/${InvestmentMarketingStock.path}`} component={InvestmentMarketingStock.List}/>
+      <Route exact path={`${match.url}/${InvestmentServiceStock.path}`} component={InvestmentServiceStock.List}/>
+      <Route exact path={`${match.url}/${InvestmentTextStrategy.path}`} component={InvestmentTextStrategy.List}/>
 
-    <Route exact path={`${match.url}/${StrengthCompany.path}`} component={StrengthCompany.List}/>
-    <Route exact path={`${match.url}/${StrengthLicence.path}`} component={StrengthLicence.List}/>
-    <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
-    <Route exact path={`${match.url}/${StrengthProduct.path}`} component={StrengthProduct.List}/>
+      <Route exact path={`${match.url}/${StrengthCompany.path}`} component={StrengthCompany.List}/>
+      <Route exact path={`${match.url}/${StrengthLicence.path}`} component={StrengthLicence.List}/>
+      <Route exact path={`${match.url}/${StrengthTeacher.path}`} component={StrengthTeacher.List}/>
+      <Route exact path={`${match.url}/${StrengthProduct.path}`} component={StrengthProduct.List}/>
 
-    <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
-    <Route exact path={`${match.url}/${CustomVideo.path}`} component={CustomVideo.List}/>
+      <Route exact path={`${match.url}/${CustomSpeechCraft.path}`} component={CustomSpeechCraft.List}/>
+      <Route exact path={`${match.url}/${CustomVideo.path}`} component={CustomVideo.List}/>
 
-    <Route exact path={`${match.url}/${StrategyQSYXD.path}`} component={StrategyQSYXD.List}/>
-    <Route exact path={`${match.url}/${StrategyLHDLD.path}`} component={StrategyLHDLD.List}/>
+      <Route exact path={`${match.url}/${StrategyQSYXD.path}`} component={StrategyQSYXD.List}/>
+      <Route exact path={`${match.url}/${StrategyLHDLD.path}`} component={StrategyLHDLD.List}/>
 
-    <Route exact path={`${match.url}/${ExperienceQSYXD.path}`} component={ExperienceQSYXD.List}/>
-    <Route exact path={`${match.url}/${ExperienceLHDLD.path}`} component={ExperienceLHDLD.List}/>
+      <Route exact path={`${match.url}/${ExperienceQSYXD.path}`} component={ExperienceQSYXD.List}/>
+      <Route exact path={`${match.url}/${ExperienceLHDLD.path}`} component={ExperienceLHDLD.List}/>
 
-    {/*侧边聊天-股票是没有的*/}
-    <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
-    <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
-    <Route path={`${match.url}/strength`} component={SiderChatBox}/>
-    <Route path={`${match.url}/custom`} component={SiderChatBox}/>
-    <Route path={`${match.url}/strategy`} component={SiderChatBox}/>
-    <Route path={`${match.url}/experience`} component={SiderChatBox}/>
+      {/*侧边聊天-股票是没有的*/}
+      <Route path={`${match.url}/marketing`} component={SiderChatBox}/>
+      <Route path={`${match.url}/investment/texttrategy`} component={SiderChatBox}/>
+      <Route path={`${match.url}/strength`} component={SiderChatBox}/>
+      <Route path={`${match.url}/custom`} component={SiderChatBox}/>
+      <Route path={`${match.url}/strategy`} component={SiderChatBox}/>
+      <Route path={`${match.url}/experience`} component={SiderChatBox}/>
+    </div>
   </div>
 )
 

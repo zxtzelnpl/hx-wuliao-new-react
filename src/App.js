@@ -5,9 +5,7 @@ import {Alert} from 'components/Alert';
 
 /*首页*/
 import {Home} from './routes/Home';
-
 import {Header} from './components/Header';
-import Banner from './components/Banner/Banner';
 import NotFound from 'components/NotFound';
 import NotAuthority from 'components/NotAuthority/NotAuthority';
 
@@ -21,14 +19,10 @@ class App extends React.Component {
           <div>
             <Alert />
             <Header/>
-            <Banner/>
             <Switch>
-
-
               <Route path="/" exact component={Home}/>
               <Authority path="/product/:team/:child" component={Product} notMatch={NotAuthority}/>
               <Authority path="/comprehensive" component={Comprehensive} notMatch={NotAuthority}/>
-
               <Route component={NotFound}/>
             </Switch>
           </div>
