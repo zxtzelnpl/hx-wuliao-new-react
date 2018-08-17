@@ -29,7 +29,6 @@ class LoginBox extends Component{
     if(!code){
       this.getCode()
     }
-
   }
 
   getCode = ()=>{
