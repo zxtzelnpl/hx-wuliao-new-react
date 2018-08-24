@@ -23,17 +23,20 @@ export default [
       {
         id: '/team_qsyx',
         text: '强势优选组',
-        ...childProducts
+        subs: childProducts.subs
       },
       {
         id: '/team_nytz',
         text: '牛眼投资组',
-        ...childProducts
+        subs: childProducts.subs
       },
       {
         id: '/team_dllh',
         text: '独立量化组',
-        ...childProducts
+        subs: [...childProducts.subs,{
+          id: '/sirendingzhi/marketing/product',
+          text: '私人订制'
+        }]
       }
     ]
   },
