@@ -29,6 +29,9 @@ class TopBox extends PureComponent {
     if(Array.isArray(dataList)&&dataList.length!==0){
       let data = dataList[0];
       let titleValue = data[vKey];
+      if(titleValue === null||titleValue === '0.000'){
+        return null;
+      }
       return (
         <div className={className}>
           <div className={`${className}-head`}>
