@@ -29,6 +29,9 @@ class TopBox extends PureComponent {
     if(Array.isArray(dataList)&&dataList.length!==0){
       let data = dataList[0];
       let titleValue = data[vKey];
+      if(titleValue === null||titleValue === '0.000'){
+        return null;
+      }
       return (
         <div className={className}>
           <div className={`${className}-head`}>
@@ -50,6 +53,10 @@ class TopBox extends PureComponent {
             <div className={`${className}-middle-left`}>
               {this.renderName('5日涨幅')}
               {this.renderValue(data.rise5)}
+            </div>
+            <div className={`${className}-middle-right`}>
+              {this.renderName('中长线收益')}
+              {this.renderValue(data.over_per)}
             </div>
           </div>
 

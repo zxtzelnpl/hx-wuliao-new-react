@@ -8,6 +8,7 @@ import PageNumbers from 'components/Pagination/PageNumbers';
 import RangePicker from 'components/Form/RangePicker';
 import {trim} from 'utils/tools';
 import TopBox from './TopBox';
+import TopBoxForLong from './TopBoxForLong';
 import Loading from 'components/Loading/Loading'
 
 class PageStock extends Component {
@@ -102,6 +103,7 @@ class PageStock extends Component {
     let dom = null;
 
     const {isFetching,receivedAt,total,list,order,sort} =data;
+
     if(typeof total === 'number'&&typeof list === 'object'&&total!==0) {
       dom = <StockTable
         list={list}
@@ -162,7 +164,7 @@ class PageStock extends Component {
           <TopBox dataList={rise1} title={'1日涨幅'} vKey={'rise1'} />
           <TopBox dataList={rise3} title={'3日涨幅'} vKey={'rise3'} />
           <TopBox dataList={rise5} title={'5日涨幅'} vKey={'rise5'} />
-          <TopBox dataList={over_per} title={'总结'} vKey={'over_per'} />
+          <TopBoxForLong dataList={over_per} title={'中长线收益'} vKey={'over_per'} />
         </div>
 
         <PageTitle title={`${title}${subTitle}`}/>
