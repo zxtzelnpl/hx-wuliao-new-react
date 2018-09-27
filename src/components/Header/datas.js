@@ -2,15 +2,15 @@ const childProducts = {
   subs: [
     {
       id: '/duanxianbao/marketing/product',
-      text: '短线宝'
+      text: '短线锦囊'
     },
     {
       id: '/junyincaopan/marketing/product',
-      text: '君银操盘'
+      text: '操盘先锋'
     },
     {
       id: '/junyinyanjiu/marketing/product',
-      text: '君银研究'
+      text: '策略调研'
     }
   ]
 };
