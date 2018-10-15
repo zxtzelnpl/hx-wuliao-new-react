@@ -15,11 +15,11 @@ import React, {Component} from 'react';
 class NotAuthority extends Component {
 
   componentDidMount(){
-    const {code} = this.props;
-
-    if(!code){
-      this.getCode()
-    }
+    // const {code} = this.props;
+    //
+    // if(!code){
+    //   this.getCode()
+    // }
   }
 
   getCode = ()=>{
@@ -39,12 +39,12 @@ class NotAuthority extends Component {
     const dispatch = this.props.dispatch;
     const {userName,passWord,code} = this.state;
 
-    if(!code||code.length!==4){
-      return dispatch({
-        type:alertActionTypes.WARNING,
-        message:'验证码是4位'
-      })
-    }
+    // if(!code||code.length!==4){
+    //   return dispatch({
+    //     type:alertActionTypes.WARNING,
+    //     message:'验证码是4位'
+    //   })
+    // }
 
     if(!userName){
       return dispatch({

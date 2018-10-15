@@ -24,11 +24,11 @@ class LoginBox extends Component{
   }
 
   componentDidMount(){
-    const {code} = this.props;
-
-    if(!code){
-      this.getCode()
-    }
+    // const {code} = this.props;
+    //
+    // if(!code){
+    //   this.getCode()
+    // }
   }
 
   getCode = ()=>{
@@ -46,14 +46,14 @@ class LoginBox extends Component{
 
   handleSubmit = () =>{
     const dispatch = this.props.dispatch;
-    const {userName,passWord,code} = this.state;
+    const {userName,passWord} = this.state;
 
-    if(!code||code.length!==4){
-      return dispatch({
-        type:alertActionTypes.WARNING,
-        message:'验证码是4位'
-      })
-    }
+    // if(!code||code.length!==4){
+    //   return dispatch({
+    //     type:alertActionTypes.WARNING,
+    //     message:'验证码是4位'
+    //   })
+    // }
 
     if(!userName){
       return dispatch({
