@@ -19,6 +19,7 @@ function* getTotal(action) {
       data: {
         total,
         beforeTotal,
+        list:undefined,
       }
     })
 

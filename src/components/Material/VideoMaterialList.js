@@ -7,7 +7,7 @@ import PageNumbers from 'components/Pagination/PageNumbers';
 class List extends Component {
 
   componentDidMount(){
-    if(!this.props.data.receivedAt||
+    if(!this.props.data.list||
       this.props.data.team!==this.props.match.params.team||
       this.props.data.child!==this.props.match.params.child
     ){
