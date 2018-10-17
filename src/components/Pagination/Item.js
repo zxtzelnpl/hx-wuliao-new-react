@@ -10,6 +10,7 @@ import PageImgContent from 'components/PageContent/PageImgContent';
 import {pdfReg, officeReg, imgReg} from "utils/tools";
 
 const FORMAT = 'YYYY-MM-DD hh:mm';
+const REG = /(duanxianbao|junyincaopan|junyinyanjiu|sirendingzhi)\/strategy\/(prediction|review|analysis)$/;
 
 function getTime(a, b) {
   if (a !== undefined && a != 0) {
@@ -37,6 +38,9 @@ class Item extends Component {
     if (!show) {
       return null;
     }
+    else{
+      this.addView();
+    }
 
     if (content !== '' && content !== null) {
       return <PageHtmlContent htmlDom={content} filepath={filepath}/>
@@ -55,6 +59,30 @@ class Item extends Component {
       if (match) {
         return <PageOfficeContent filepath={filepath} type={match[1]}/>
       }
+    }
+  }
+
+  /**
+   * 增加阅读记录
+   * 产品素材下面的策略素材的阅读记录
+   */
+  addView = () => {
+    // #/product/team_qsyx/duanxianbao/strategy/review
+
+    let hash = window.location.hash;
+
+    if(REG.test(hash)){
+      let id = this.props.id;
+      fetch('/api/add_view_count',{
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: 'POST',
+        body:  JSON.stringify({id:id}),
+      })
+        .then(res=>res.json())
+        .then(json=>{console.log(json)})
+
     }
   }
 
