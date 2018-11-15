@@ -1,6 +1,6 @@
 export const mark = ['comprehensive','investment','servicestock'];
 
-export const title = '服务票';
+export const title = '增值服务内容';
 
 export const path = `${mark[1]}/${mark[2]}`;
 

@@ -1,10 +1,17 @@
 import {videoPosterUrl} from './const';
 import myStorage from "./myStorage";
 
+/*获得随机数*/
 function getRangeRandom(x, y) {
   return Math.floor(Math.random() * (y - x + 1)) + x
 }
 
+/**
+ * 返回一个函数使其在x和y范围内取数
+ * @param x
+ * @param y
+ * @returns {Function}
+ */
 function makeGetRangeSort(x, y) {
   let number = x;
   return function () {
@@ -16,7 +23,10 @@ function makeGetRangeSort(x, y) {
   }
 }
 
-
+/**
+ * 去字符串空格
+ * @param str
+ */
 export function trim(str) {
   return str.replace(/(^\s*)|(\s*$)/g, "");
 }
@@ -25,6 +35,11 @@ export const pdfReg = /.+\.pdf$/;
 export const officeReg = /.+\.(pptx|ppt|docx|doc|xlsx|xls)$/;
 export const imgReg = /.+\.(png|gif|jpg|jpeg|bmp)$/;
 
+/**
+ * 计算百分比
+ * @param str
+ * @returns {string}
+ */
 export const makePercent = str => {
   let number = Number(str) * 1000 / 10;
   if (isNaN(number)) {
